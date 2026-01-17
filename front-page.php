@@ -10,24 +10,28 @@ get_header();
 <!-- Hero Section -->
 <section class="hero-video-section">
     <div class="hero-video-container">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/6269675_Surgery_Team_1920x1080.mp4" type="video/mp4">
+        </video>
         <div class="hero-video-overlay"></div>
     </div>
     <div class="hero-video-content">
-        <h1 class="hero-video-title">BENEDICT CLINIC</h1>
-        <p class="hero-video-subtitle">Урологічна клініка нового рівня</p>
+        <h1 class="hero-video-title">DR. BENEDICT</h1>
+        <p class="hero-video-subtitle">лікар уролог, засновник benedict clinic</p>
     </div>
 </section>
 
 <!-- About Section -->
 <section id="about" class="about-section section-padding">
     <div class="about-image-left">
-        <img decoding="async" width="540" height="640" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/dr-rosenberg-portrait.jpg" alt="Dr. Benedict" loading="lazy">
+        <img decoding="async" width="540" height="640" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/IMG@2x_result.webp" alt="Dr. Benedict" loading="lazy">
     </div>
     <div class="container">
         <div class="about-content">
-            <p class="about-label">ПРО КЛІНІКУ</p>
-            <h2 class="about-name">BENEDICT CLINIC</h2>
-            <p class="about-description">Benedict Clinic — це урологічна клініка, яка забезпечує комплексний підхід до чоловічого здоров'я. Наша команда надає високопрофесійну медичну допомогу, використовуючи сучасні методи діагностики та лікування урологічних захворювань.</p>
+            <p class="about-label">ПРО ЛІКАРЯ</p>
+            <h2 class="about-name">ГАВРИЛИШИН БЕНЕДИКТ</h2>
+            <p class="about-description">Я лікар-уролог із досвідом у хірургічній та малоінвазивній урології. Пройшов клінічну ординатуру у ДУ «Інститут урології НАМН України» після інтернатури за спеціальністю «урологія» у Львівському національному медичному університеті. Медичну освіту отримав в Івано-Франківському національному медичному університеті.</p>
+            <p class="about-description">Мій професійний шлях охоплює роботу в урологічних та хірургічних відділеннях України, Польщі та проходження хірургічної практики у США, де я удосконалював підхід до роботи з пацієнтами та сучасні техніки оперативних втручань.</p>
             <a href="/dr-benedict" class="about-cta">ПРО ЛІКАРЯ <span>|→</span></a>
         </div>
     </div>
@@ -40,44 +44,29 @@ get_header();
 <!-- Benefits Section (using Surgery Center structure) -->
 <section class="surgery-center-section section-padding">
     <div class="surgery-center-image">
-        <span class="surgery-decorative-text surgery-text-1">ПЕРЕВАГИ</span>
-        <img decoding="async" width="800" height="1000" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/luxury-clinic-interior.jpg" alt="Clinic Interior" loading="lazy">
-        <span class="surgery-decorative-text surgery-text-2">КЛІНІКИ</span>
+        <span class="surgery-decorative-text surgery-text-1">ОПЕРАТИВНІ</span>
+        <img decoding="async" width="800" height="1000" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/photo-90-копія-1_result.webp" alt="Operative Surgery" loading="lazy">
+        <span class="surgery-decorative-text surgery-text-2">ВТРУЧАННЯ</span>
     </div>
     <div class="surgery-center-content">
-        <p class="surgery-center-label">НАШІ ПЕРЕВАГИ</p>
-        <h2 class="surgery-center-title">ЧОМУ ОБИРАЮТЬ<br>BENEDICT CLINIC</h2>
+        <p class="surgery-center-label">ХІРУРГІЧНЕ ЛІКУВАННЯ</p>
+        <h2 class="surgery-center-title">ОПЕРАТИВНІ ВТРУЧАННЯ ТА<br>ПЛАСТИЧНА РЕКОНСТРУКТИВНА ХІРУРГІЯ</h2>
         <div class="surgery-center-text">
-            <p><strong>Досвідчений лікар</strong> — лікар-уролог із досвідом у хірургічній та малоінвазивній урології.</p>
-            <p><strong>Сучасне обладнання</strong> — використання передових технологій діагностики та лікування.</p>
-            <p><strong>Індивідуальний підхід</strong> — персональний план лікування для кожного пацієнта.</p>
-            <p><strong>Доказова медицина</strong> — мінімум непотрібних втручань, максимум ефективності.</p>
-            <p><strong>Комфортна атмосфера</strong> — турбота про ваш психологічний комфорт.</p>
+            <p>Допомагаю відновити функції та зовнішній вигляд органів після травм, хвороб чи хірургічних втручань, а також враховую естетичні побажання пацієнта для досягнення гармонійного результату.</p>
+            <p>Використовую сучасні хірургічні методи для лікування захворювань на різних стадіях, забезпечуючи високу точність, ефективність та мінімальні ризики для пацієнта.</p>
         </div>
         <a href="/gallery" class="surgery-center-cta">ГАЛЕРЕЯ <span>|→</span></a>
     </div>
 </section>
 
-<!-- Gallery Section (using Meet The Surgeons structure) -->
-<section id="gallery" class="meet-surgeons-section">
+<!-- Diagnostics Section -->
+<section class="meet-surgeons-section section-padding">
     <div class="meet-surgeons-content">
-        <h2 class="meet-surgeons-title">НАПРЯМКИ<br>ЛІКУВАННЯ</h2>
-        <div class="surgeons-grid">
-            <div class="surgeon-item">
-                <h3 class="surgeon-name">ОБСТЕЖЕННЯ ТА ДІАГНОСТИКА</h3>
-                <p class="surgeon-specialty">Комплексне обстеження для виявлення причин захворювань</p>
-            </div>
-            <div class="surgeon-item">
-                <h3 class="surgeon-name">ОПЕРАТИВНІ ВТРУЧАННЯ</h3>
-                <p class="surgeon-specialty">Хірургічне лікування з використанням малоінвазивних технологій</p>
-            </div>
-            <div class="surgeon-item">
-                <h3 class="surgeon-name">ПЛАСТИЧНА РЕКОНСТРУКТИВНА ХІРУРГІЯ</h3>
-                <p class="surgeon-specialty">Відновлення функцій та естетичного вигляду органів</p>
-            </div>
-            <div class="surgeon-item">
-                <h3 class="surgeon-name">КОНСЕРВАТИВНЕ ЛІКУВАННЯ</h3>
-                <p class="surgeon-specialty">Терапевтичні методи без хірургічних втручань</p>
+        <h2 class="meet-surgeons-title">ОБСТЕЖЕННЯ<br>ТА ЛІКУВАННЯ</h2>
+        <div class="surgeons-grid" style="max-width: 1200px; margin: 0 auto;">
+            <div class="surgeon-item" style="text-align: left;">
+                <p style="font-size: 1.8rem; line-height: 1.6; color: #111; margin-top: 2rem;">Чоловіче здоров'я починається з правильного способу життя та регулярних чекапів. На консультації я не призначаю лікування "про всяк випадок". Спочатку — діагностика, аналіз способу життя, пошук причини і вже потім діалог та прийняття рішень.</p>
+                <p style="font-size: 1.8rem; line-height: 1.6; color: #111; margin-top: 2rem;">Мій підхід простий: мінімум непотрібних втручань — максимум доказової медицини та турботи про якість життя. Якщо проблему можна вирішити корекцією звичок, консервативним лікуванням чи зміною поведінкових факторів — ми починаємо саме з цього. Моє завдання — повернути здоров'я і впевненість без зайвого стресу і без зайвих процедур.</p>
             </div>
         </div>
     </div>
