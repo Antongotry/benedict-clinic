@@ -524,7 +524,7 @@ body.overlay-open .header.container--full-width-padding {
 
 .overlay-address {
     font-size: 14px;
-    line-height: 1.8;
+    line-height: 1.4;
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -1250,7 +1250,7 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .concierge-item-content {
-    padding: 50px 40px;
+    padding: 30px 20px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1263,7 +1263,7 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .concierge-item-content-hover {
-    padding: 50px 40px;
+    padding: 30px 20px;
     position: absolute;
     top: 0;
     left: 0;
@@ -1294,7 +1294,7 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .concierge-item-title {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1304,7 +1304,7 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .concierge-item-description {
-    font-size: 14px;
+    font-size: 11px;
     line-height: 1.8;
     color: var(--color-dark);
     font-family: var(--font-sans);

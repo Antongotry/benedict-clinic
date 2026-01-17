@@ -83,60 +83,60 @@ get_header();
             <div class="concierge-item-wrapper">
                 <div class="concierge-item concierge-item-default">
                     <div class="concierge-item-bg">
-                        <img decoding="async" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop" alt="Реконструктивна хірургія - До" loading="lazy">
+                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/art-gallery-room.jpg" alt="Реконструктивна хірургія - До" loading="lazy">
                     </div>
                     <div class="concierge-item-content">
-                        <h3 class="concierge-item-title">РЕКОНСТРУКТИВНА ХІРУРГІЯ</h3>
-                        <p class="concierge-item-description">Відновлення функцій</p>
+                        <h3 class="concierge-item-title">РЕКОНСТРУКТИВНА<br>ХІРУРГІЯ</h3>
+                        <p class="concierge-item-description">Відновлення</p>
                     </div>
                 </div>
                 <div class="concierge-item concierge-item-hover">
                     <div class="concierge-item-content-hover">
                         <h3 class="concierge-item-title">РЕЗУЛЬТАТ</h3>
-                        <p class="concierge-item-description">Успішне відновлення</p>
+                        <p class="concierge-item-description">Успіх</p>
                     </div>
                     <div class="concierge-item-bg-hover">
-                        <img decoding="async" src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=800&h=600&fit=crop" alt="Реконструктивна хірургія - Після" loading="lazy">
+                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/surgery-room.jpg" alt="Реконструктивна хірургія - Після" loading="lazy">
                     </div>
                 </div>
             </div>
             <div class="concierge-item-wrapper">
                 <div class="concierge-item concierge-item-default">
                     <div class="concierge-item-bg">
-                        <img decoding="async" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop" alt="Малоінвазивні технології - До" loading="lazy">
+                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/surgery-center.jpg" alt="Малоінвазивні технології - До" loading="lazy">
                     </div>
                     <div class="concierge-item-content">
-                        <h3 class="concierge-item-title">МАЛОІНВАЗИВНІ ТЕХНОЛОГІЇ</h3>
-                        <p class="concierge-item-description">Мінімальне втручання</p>
+                        <h3 class="concierge-item-title">МАЛОІНВАЗИВНІ<br>ТЕХНОЛОГІЇ</h3>
+                        <p class="concierge-item-description">Мінімум</p>
                     </div>
                 </div>
                 <div class="concierge-item concierge-item-hover">
                     <div class="concierge-item-content-hover">
                         <h3 class="concierge-item-title">РЕЗУЛЬТАТ</h3>
-                        <p class="concierge-item-description">Відмінний результат</p>
+                        <p class="concierge-item-description">Відмінно</p>
                     </div>
                     <div class="concierge-item-bg-hover">
-                        <img decoding="async" src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=800&h=600&fit=crop" alt="Малоінвазивні технології - Після" loading="lazy">
+                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/luxury-clinic-interior.jpg" alt="Малоінвазивні технології - Після" loading="lazy">
                     </div>
                 </div>
             </div>
             <div class="concierge-item-wrapper">
                 <div class="concierge-item concierge-item-default">
                     <div class="concierge-item-bg">
-                        <img decoding="async" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop" alt="Комплексне лікування - До" loading="lazy">
+                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/gallery-interior.jpg" alt="Комплексне лікування - До" loading="lazy">
                     </div>
                     <div class="concierge-item-content">
-                        <h3 class="concierge-item-title">КОМПЛЕКСНЕ ЛІКУВАННЯ</h3>
-                        <p class="concierge-item-description">Індивідуальний підхід</p>
+                        <h3 class="concierge-item-title">КОМПЛЕКСНЕ<br>ЛІКУВАННЯ</h3>
+                        <p class="concierge-item-description">Підхід</p>
                     </div>
                 </div>
                 <div class="concierge-item concierge-item-hover">
                     <div class="concierge-item-content-hover">
                         <h3 class="concierge-item-title">РЕЗУЛЬТАТ</h3>
-                        <p class="concierge-item-description">Повне відновлення</p>
+                        <p class="concierge-item-description">Здоров'я</p>
                     </div>
                     <div class="concierge-item-bg-hover">
-                        <img decoding="async" src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&h=600&fit=crop" alt="Комплексне лікування - Після" loading="lazy">
+                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/building-facade.jpg" alt="Комплексне лікування - Після" loading="lazy">
                     </div>
                 </div>
             </div>
