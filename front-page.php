@@ -36,7 +36,7 @@ get_header();
         </div>
     </div>
     <div class="about-image-right">
-        <img decoding="async" width="540" height="640" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/surgery-center.jpg" alt="Surgery Center" loading="lazy">
+        <img decoding="async" width="540" height="640" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/4515_result.webp" alt="Dr. Benedict" loading="lazy">
     </div>
     <div class="about-watermark">UROLOGY</div>
 </section>
@@ -60,13 +60,13 @@ get_header();
 </section>
 
 <!-- Diagnostics Section -->
-<section class="meet-surgeons-section section-padding">
+<section class="meet-surgeons-section section-padding diagnostics-section">
     <div class="meet-surgeons-content">
         <h2 class="meet-surgeons-title">ОБСТЕЖЕННЯ<br>ТА ЛІКУВАННЯ</h2>
-        <div class="surgeons-grid" style="max-width: 1200px; margin: 0 auto;">
-            <div class="surgeon-item" style="text-align: left;">
-                <p style="font-size: 1.8rem; line-height: 1.6; color: #111; margin-top: 2rem;">Чоловіче здоров'я починається з правильного способу життя та регулярних чекапів. На консультації я не призначаю лікування "про всяк випадок". Спочатку — діагностика, аналіз способу життя, пошук причини і вже потім діалог та прийняття рішень.</p>
-                <p style="font-size: 1.8rem; line-height: 1.6; color: #111; margin-top: 2rem;">Мій підхід простий: мінімум непотрібних втручань — максимум доказової медицини та турботи про якість життя. Якщо проблему можна вирішити корекцією звичок, консервативним лікуванням чи зміною поведінкових факторів — ми починаємо саме з цього. Моє завдання — повернути здоров'я і впевненість без зайвого стресу і без зайвих процедур.</p>
+        <div class="diagnostics-content">
+            <div class="diagnostics-text">
+                <p>Чоловіче здоров'я починається з правильного способу життя та регулярних чекапів. На консультації я не призначаю лікування "про всяк випадок". Спочатку — діагностика, аналіз способу життя, пошук причини і вже потім діалог та прийняття рішень.</p>
+                <p>Мій підхід простий: мінімум непотрібних втручань — максимум доказової медицини та турботи про якість життя. Якщо проблему можна вирішити корекцією звичок, консервативним лікуванням чи зміною поведінкових факторів — ми починаємо саме з цього. Моє завдання — повернути здоров'я і впевненість без зайвого стресу і без зайвих процедур.</p>
             </div>
         </div>
     </div>
