@@ -1,11 +1,17 @@
 <?php
+/**
+ * Dr. Rosenberg Clinic Theme Functions
+ */
 
 // Prevent direct access
 if (!defined('ABSPATH')) {
     exit;
 }
 
-function benedict_theme_setup() {
+/**
+ * Theme Setup
+ */
+function rosenberg_theme_setup() {
     // Add default posts and comments RSS feed links to head
     add_theme_support('automatic-feed-links');
     
@@ -23,10 +29,10 @@ function benedict_theme_setup() {
     
     // Register navigation menus
     register_nav_menus(array(
-        'primary' => __('Primary Menu', 'benedict-clinic'),
-        'footer-procedures' => __('Footer Procedures Menu', 'benedict-clinic'),
-        'footer-practice' => __('Footer Practice Menu', 'benedict-clinic'),
-        'footer-hair' => __('Footer Hair Restoration Menu', 'benedict-clinic'),
+        'primary' => __('Primary Menu', 'rosenberg-clinic'),
+        'footer-procedures' => __('Footer Procedures Menu', 'rosenberg-clinic'),
+        'footer-practice' => __('Footer Practice Menu', 'rosenberg-clinic'),
+        'footer-hair' => __('Footer Hair Restoration Menu', 'rosenberg-clinic'),
     ));
     
     // Add support for HTML5 markup
@@ -46,52 +52,60 @@ function benedict_theme_setup() {
         'flex-width'  => true,
     ));
 }
-add_action('after_setup_theme', 'benedict_theme_setup');
+add_action('after_setup_theme', 'rosenberg_theme_setup');
 
-function benedict_enqueue_scripts() {
+/**
+ * Enqueue scripts and styles
+ */
+function rosenberg_enqueue_scripts() {
     // Google Fonts
-    wp_enqueue_style('benedict-fonts', 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&family=Inter:wght@300;400;700&family=Rubik:wght@300;400;700&display=swap', array(), null);
+    wp_enqueue_style('rosenberg-fonts', 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&family=Inter:wght@300;400;700&family=Rubik:wght@300;400;700&display=swap', array(), null);
     
     // Main theme stylesheet
-    wp_enqueue_style('benedict-theme-style', get_template_directory_uri() . '/assets/css/theme.css', array(), time());
+    wp_enqueue_style('rosenberg-theme-style', get_template_directory_uri() . '/assets/css/theme.css', array(), time());
     
     // Overlay menu JavaScript
-    wp_enqueue_script('benedict-overlay-menu', get_template_directory_uri() . '/assets/js/overlay-menu.js', array(), time(), true);
+    wp_enqueue_script('rosenberg-overlay-menu', get_template_directory_uri() . '/assets/js/overlay-menu.js', array(), time(), true);
     
     // Main JavaScript
-    wp_enqueue_script('benedict-main-script', get_template_directory_uri() . '/assets/js/main.js', array(), time(), true);
+    wp_enqueue_script('rosenberg-main-script', get_template_directory_uri() . '/assets/js/main.js', array(), time(), true);
     
     // Header scroll behavior (transparent -> solid)
-    wp_enqueue_script('benedict-header-scroll', get_template_directory_uri() . '/assets/js/header-scroll.js', array(), time(), true);
-    
+    wp_enqueue_script('rosenberg-header-scroll', get_template_directory_uri() . '/assets/js/header-scroll.js', array(), time(), true);
     
     // Localize script for AJAX
-    wp_localize_script('benedict-main-script', 'benedictAjax', array(
+    wp_localize_script('rosenberg-main-script', 'rosenbergAjax', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
-        'nonce' => wp_create_nonce('benedict-nonce')
+        'nonce' => wp_create_nonce('rosenberg-nonce')
     ));
 }
-add_action('wp_enqueue_scripts', 'benedict_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'rosenberg_enqueue_scripts');
 
-function benedict_widgets_init() {
+/**
+ * Register widget areas
+ */
+function rosenberg_widgets_init() {
     register_sidebar(array(
-        'name'          => __('Footer Widget Area 1', 'benedict-clinic'),
+        'name'          => __('Footer Widget Area 1', 'rosenberg-clinic'),
         'id'            => 'footer-1',
-        'description'   => __('Add widgets here to appear in footer.', 'benedict-clinic'),
+        'description'   => __('Add widgets here to appear in footer.', 'rosenberg-clinic'),
         'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3 class="footer-widget-title">',
         'after_title'   => '</h3>',
     ));
 }
-add_action('widgets_init', 'benedict_widgets_init');
+add_action('widgets_init', 'rosenberg_widgets_init');
 
-function benedict_register_post_types() {
+/**
+ * Register Custom Post Types
+ */
+function rosenberg_register_post_types() {
     // Procedures Post Type
     register_post_type('procedure', array(
         'labels' => array(
-            'name' => __('Procedures', 'benedict-clinic'),
-            'singular_name' => __('Procedure', 'benedict-clinic'),
+            'name' => __('Procedures', 'rosenberg-clinic'),
+            'singular_name' => __('Procedure', 'rosenberg-clinic'),
         ),
         'public' => true,
         'has_archive' => true,
@@ -103,8 +117,8 @@ function benedict_register_post_types() {
     // Gallery Post Type
     register_post_type('gallery', array(
         'labels' => array(
-            'name' => __('Gallery', 'benedict-clinic'),
-            'singular_name' => __('Gallery Item', 'benedict-clinic'),
+            'name' => __('Gallery', 'rosenberg-clinic'),
+            'singular_name' => __('Gallery Item', 'rosenberg-clinic'),
         ),
         'public' => true,
         'has_archive' => true,
@@ -116,8 +130,8 @@ function benedict_register_post_types() {
     // Team Members Post Type
     register_post_type('team', array(
         'labels' => array(
-            'name' => __('Team Members', 'benedict-clinic'),
-            'singular_name' => __('Team Member', 'benedict-clinic'),
+            'name' => __('Team Members', 'rosenberg-clinic'),
+            'singular_name' => __('Team Member', 'rosenberg-clinic'),
         ),
         'public' => true,
         'menu_icon' => 'dashicons-groups',
@@ -125,14 +139,17 @@ function benedict_register_post_types() {
         'rewrite' => array('slug' => 'team'),
     ));
 }
-add_action('init', 'benedict_register_post_types');
+add_action('init', 'rosenberg_register_post_types');
 
-function benedict_add_meta_boxes() {
+/**
+ * Add custom meta boxes
+ */
+function rosenberg_add_meta_boxes() {
     // Gallery Before/After Images
     add_meta_box(
         'gallery_images',
-        __('Before & After Images', 'benedict-clinic'),
-        'benedict_gallery_meta_box',
+        __('Before & After Images', 'rosenberg-clinic'),
+        'rosenberg_gallery_meta_box',
         'gallery',
         'normal',
         'high'
@@ -141,45 +158,48 @@ function benedict_add_meta_boxes() {
     // Team Member Info
     add_meta_box(
         'team_info',
-        __('Team Member Information', 'benedict-clinic'),
-        'benedict_team_meta_box',
+        __('Team Member Information', 'rosenberg-clinic'),
+        'rosenberg_team_meta_box',
         'team',
         'normal',
         'high'
     );
 }
-add_action('add_meta_boxes', 'benedict_add_meta_boxes');
+add_action('add_meta_boxes', 'rosenberg_add_meta_boxes');
 
-function benedict_gallery_meta_box($post) {
-    wp_nonce_field('benedict_gallery_meta', 'benedict_gallery_nonce');
+function rosenberg_gallery_meta_box($post) {
+    wp_nonce_field('rosenberg_gallery_meta', 'rosenberg_gallery_nonce');
     $before_image = get_post_meta($post->ID, '_before_image', true);
     $after_image = get_post_meta($post->ID, '_after_image', true);
     ?>
     <p>
-        <label><?php _e('Before Image URL:', 'benedict-clinic'); ?></label><br>
+        <label><?php _e('Before Image URL:', 'rosenberg-clinic'); ?></label><br>
         <input type="text" name="before_image" value="<?php echo esc_attr($before_image); ?>" style="width: 100%;">
     </p>
     <p>
-        <label><?php _e('After Image URL:', 'benedict-clinic'); ?></label><br>
+        <label><?php _e('After Image URL:', 'rosenberg-clinic'); ?></label><br>
         <input type="text" name="after_image" value="<?php echo esc_attr($after_image); ?>" style="width: 100%;">
     </p>
     <?php
 }
 
-function benedict_team_meta_box($post) {
-    wp_nonce_field('benedict_team_meta', 'benedict_team_nonce');
+function rosenberg_team_meta_box($post) {
+    wp_nonce_field('rosenberg_team_meta', 'rosenberg_team_nonce');
     $specialty = get_post_meta($post->ID, '_specialty', true);
     ?>
     <p>
-        <label><?php _e('Specialty/Title:', 'benedict-clinic'); ?></label><br>
+        <label><?php _e('Specialty/Title:', 'rosenberg-clinic'); ?></label><br>
         <input type="text" name="specialty" value="<?php echo esc_attr($specialty); ?>" style="width: 100%;">
     </p>
     <?php
 }
 
-function benedict_save_meta_boxes($post_id) {
+/**
+ * Save meta box data
+ */
+function rosenberg_save_meta_boxes($post_id) {
     // Gallery meta
-    if (isset($_POST['benedict_gallery_nonce']) && wp_verify_nonce($_POST['benedict_gallery_nonce'], 'benedict_gallery_meta')) {
+    if (isset($_POST['rosenberg_gallery_nonce']) && wp_verify_nonce($_POST['rosenberg_gallery_nonce'], 'rosenberg_gallery_meta')) {
         if (isset($_POST['before_image'])) {
             update_post_meta($post_id, '_before_image', sanitize_text_field($_POST['before_image']));
         }
@@ -189,22 +209,28 @@ function benedict_save_meta_boxes($post_id) {
     }
     
     // Team meta
-    if (isset($_POST['benedict_team_nonce']) && wp_verify_nonce($_POST['benedict_team_nonce'], 'benedict_team_meta')) {
+    if (isset($_POST['rosenberg_team_nonce']) && wp_verify_nonce($_POST['rosenberg_team_nonce'], 'rosenberg_team_meta')) {
         if (isset($_POST['specialty'])) {
             update_post_meta($post_id, '_specialty', sanitize_text_field($_POST['specialty']));
         }
     }
 }
-add_action('save_post', 'benedict_save_meta_boxes');
+add_action('save_post', 'rosenberg_save_meta_boxes');
 
-function benedict_cf7_support() {
+/**
+ * Contact Form 7 Support
+ */
+function rosenberg_cf7_support() {
     if (function_exists('wpcf7_enqueue_scripts')) {
         return true;
     }
     return false;
 }
 
-function benedict_fallback_menu() {
+/**
+ * Fallback menu for primary navigation
+ */
+function rosenberg_fallback_menu() {
     echo '<ul class="primary-menu">';
     echo '<li><a href="' . home_url('/') . '">Home</a></li>';
     echo '<li><a href="' . home_url('/dr-benedict') . '">Dr. Benedict</a></li>';
@@ -214,8 +240,41 @@ function benedict_fallback_menu() {
     echo '</ul>';
 }
 
+/**
+ * Disable all caching for development
+ */
+function benedict_disable_all_cache() {
+    // Disable WordPress object cache
+    wp_cache_flush();
+    
+    // Disable browser cache headers
+    if (!headers_sent()) {
+        header('Cache-Control: no-cache, no-store, must-revalidate, max-age=0');
+        header('Pragma: no-cache');
+        header('Expires: 0');
+        header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+    }
+    
+    // Disable WP Super Cache if active
+    if (function_exists('wp_cache_clear_cache')) {
+        wp_cache_clear_cache();
+    }
+    
+    // Disable W3 Total Cache if active
+    if (function_exists('w3tc_flush_all')) {
+        w3tc_flush_all();
+    }
+    
+    // Disable WP Rocket if active
+    if (function_exists('rocket_clean_domain')) {
+        rocket_clean_domain();
+    }
+}
+add_action('init', 'benedict_disable_all_cache', 1);
 
-
+/**
+ * Add version timestamp to CSS/JS files to prevent caching
+ */
 function benedict_asset_version($src) {
     if (strpos($src, 'ver=') === false) {
         $src = add_query_arg('ver', time(), $src);
@@ -226,3 +285,22 @@ function benedict_asset_version($src) {
 }
 add_filter('style_loader_src', 'benedict_asset_version', 10, 1);
 add_filter('script_loader_src', 'benedict_asset_version', 10, 1);
+
+/**
+ * Disable WordPress cache
+ */
+define('WP_CACHE', false);
+
+/**
+ * Force refresh CSS/JS on every load
+ */
+function benedict_nocache_meta() {
+    echo '<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">' . "
+";
+    echo '<meta http-equiv="Pragma" content="no-cache">' . "
+";
+    echo '<meta http-equiv="Expires" content="0">' . "
+";
+}
+add_action('wp_head', 'benedict_nocache_meta', 1);
+
