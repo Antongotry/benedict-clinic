@@ -29,10 +29,10 @@ function rosenberg_theme_setup() {
     
     // Register navigation menus
     register_nav_menus(array(
-        'primary' => __('Primary Menu', 'rosenberg-clinic'),
-        'footer-procedures' => __('Footer Procedures Menu', 'rosenberg-clinic'),
-        'footer-practice' => __('Footer Practice Menu', 'rosenberg-clinic'),
-        'footer-hair' => __('Footer Hair Restoration Menu', 'rosenberg-clinic'),
+        'primary' => __('Primary Menu', 'light-panels'),
+        'footer-procedures' => __('Footer Procedures Menu', 'light-panels'),
+        'footer-practice' => __('Footer Practice Menu', 'light-panels'),
+        'footer-hair' => __('Footer Hair Restoration Menu', 'light-panels'),
     ));
     
     // Add support for HTML5 markup
@@ -91,9 +91,9 @@ add_action('wp_enqueue_scripts', 'rosenberg_enqueue_scripts');
  */
 function rosenberg_widgets_init() {
     register_sidebar(array(
-        'name'          => __('Footer Widget Area 1', 'rosenberg-clinic'),
+        'name'          => __('Footer Widget Area 1', 'light-panels'),
         'id'            => 'footer-1',
-        'description'   => __('Add widgets here to appear in footer.', 'rosenberg-clinic'),
+        'description'   => __('Add widgets here to appear in footer.', 'light-panels'),
         'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3 class="footer-widget-title">',
@@ -109,8 +109,8 @@ function rosenberg_register_post_types() {
     // Procedures Post Type
     register_post_type('procedure', array(
         'labels' => array(
-            'name' => __('Procedures', 'rosenberg-clinic'),
-            'singular_name' => __('Procedure', 'rosenberg-clinic'),
+            'name' => __('Procedures', 'light-panels'),
+            'singular_name' => __('Procedure', 'light-panels'),
         ),
         'public' => true,
         'has_archive' => true,
@@ -122,8 +122,8 @@ function rosenberg_register_post_types() {
     // Gallery Post Type
     register_post_type('gallery', array(
         'labels' => array(
-            'name' => __('Gallery', 'rosenberg-clinic'),
-            'singular_name' => __('Gallery Item', 'rosenberg-clinic'),
+            'name' => __('Gallery', 'light-panels'),
+            'singular_name' => __('Gallery Item', 'light-panels'),
         ),
         'public' => true,
         'has_archive' => true,
@@ -135,8 +135,8 @@ function rosenberg_register_post_types() {
     // Team Members Post Type
     register_post_type('team', array(
         'labels' => array(
-            'name' => __('Team Members', 'rosenberg-clinic'),
-            'singular_name' => __('Team Member', 'rosenberg-clinic'),
+            'name' => __('Team Members', 'light-panels'),
+            'singular_name' => __('Team Member', 'light-panels'),
         ),
         'public' => true,
         'menu_icon' => 'dashicons-groups',
@@ -153,7 +153,7 @@ function rosenberg_add_meta_boxes() {
     // Gallery Before/After Images
     add_meta_box(
         'gallery_images',
-        __('Before & After Images', 'rosenberg-clinic'),
+        __('Before & After Images', 'light-panels'),
         'rosenberg_gallery_meta_box',
         'gallery',
         'normal',
@@ -163,7 +163,7 @@ function rosenberg_add_meta_boxes() {
     // Team Member Info
     add_meta_box(
         'team_info',
-        __('Team Member Information', 'rosenberg-clinic'),
+        __('Team Member Information', 'light-panels'),
         'rosenberg_team_meta_box',
         'team',
         'normal',
@@ -178,11 +178,11 @@ function rosenberg_gallery_meta_box($post) {
     $after_image = get_post_meta($post->ID, '_after_image', true);
     ?>
     <p>
-        <label><?php _e('Before Image URL:', 'rosenberg-clinic'); ?></label><br>
+        <label><?php _e('Before Image URL:', 'light-panels'); ?></label><br>
         <input type="text" name="before_image" value="<?php echo esc_attr($before_image); ?>" style="width: 100%;">
     </p>
     <p>
-        <label><?php _e('After Image URL:', 'rosenberg-clinic'); ?></label><br>
+        <label><?php _e('After Image URL:', 'light-panels'); ?></label><br>
         <input type="text" name="after_image" value="<?php echo esc_attr($after_image); ?>" style="width: 100%;">
     </p>
     <?php
@@ -193,7 +193,7 @@ function rosenberg_team_meta_box($post) {
     $specialty = get_post_meta($post->ID, '_specialty', true);
     ?>
     <p>
-        <label><?php _e('Specialty/Title:', 'rosenberg-clinic'); ?></label><br>
+        <label><?php _e('Specialty/Title:', 'light-panels'); ?></label><br>
         <input type="text" name="specialty" value="<?php echo esc_attr($specialty); ?>" style="width: 100%;">
     </p>
     <?php

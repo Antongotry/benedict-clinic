@@ -26,7 +26,7 @@ get_header();
             endwhile;
         else :
             ?>
-            <p><?php _e('No content found', 'rosenberg-clinic'); ?></p>
+            <p><?php _e('No content found', 'light-panels'); ?></p>
             <?php
         endif;
         ?>
