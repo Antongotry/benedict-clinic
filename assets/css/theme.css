@@ -710,7 +710,7 @@ body.overlay-open .header.container--full-width-padding {
 .about-image-right {
     position: absolute;
     right: 0;
-    top: 160px;
+    bottom: 0;
     width: 28.125vw;
     height: 33.333vw;
     z-index: 2;
@@ -1109,6 +1109,41 @@ body.overlay-open .header.container--full-width-padding {
     margin-bottom: 0;
     margin-top: 0;
 }
+
+/* Diagnostics Section Styles */
+.diagnostics-section {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+}
+
+.diagnostics-section::before {
+    display: none;
+}
+
+.diagnostics-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.diagnostics-text {
+    text-align: left;
+    max-width: 100%;
+}
+
+.diagnostics-text p {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: #111;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    font-family: var(--font-sans);
+}
+
+.diagnostics-text p:first-child {
+    margin-top: 0;
+}
+
 
 .concierge-header {
     text-align: center;
