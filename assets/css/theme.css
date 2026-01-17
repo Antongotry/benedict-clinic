@@ -1250,7 +1250,7 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .concierge-item-content {
-    padding: 30px 20px;
+    padding: 20px 15px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1263,7 +1263,7 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .concierge-item-content-hover {
-    padding: 30px 20px;
+    padding: 20px 15px;
     position: absolute;
     top: 0;
     left: 0;
@@ -1294,7 +1294,7 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .concierge-item-title {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1304,7 +1304,7 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .concierge-item-description {
-    font-size: 11px;
+    font-size: 10px;
     line-height: 1.8;
     color: var(--color-dark);
     font-family: var(--font-sans);
