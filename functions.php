@@ -1,16 +1,10 @@
 <?php
-/**
- * Benedict Clinic Theme Functions
- */
 
 // Prevent direct access
 if (!defined('ABSPATH')) {
     exit;
 }
 
-/**
- * Theme Setup
- */
 function benedict_theme_setup() {
     // Add default posts and comments RSS feed links to head
     add_theme_support('automatic-feed-links');
@@ -54,9 +48,6 @@ function benedict_theme_setup() {
 }
 add_action('after_setup_theme', 'benedict_theme_setup');
 
-/**
- * Enqueue scripts and styles
- */
 function benedict_enqueue_scripts() {
     // Google Fonts
     wp_enqueue_style('benedict-fonts', 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&family=Inter:wght@300;400;700&family=Rubik:wght@300;400;700&display=swap', array(), null);
@@ -82,9 +73,6 @@ function benedict_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'benedict_enqueue_scripts');
 
-/**
- * Register widget areas
- */
 function benedict_widgets_init() {
     register_sidebar(array(
         'name'          => __('Footer Widget Area 1', 'benedict-clinic'),
@@ -98,9 +86,6 @@ function benedict_widgets_init() {
 }
 add_action('widgets_init', 'benedict_widgets_init');
 
-/**
- * Register Custom Post Types
- */
 function benedict_register_post_types() {
     // Procedures Post Type
     register_post_type('procedure', array(
@@ -142,9 +127,6 @@ function benedict_register_post_types() {
 }
 add_action('init', 'benedict_register_post_types');
 
-/**
- * Add custom meta boxes
- */
 function benedict_add_meta_boxes() {
     // Gallery Before/After Images
     add_meta_box(
@@ -195,9 +177,6 @@ function benedict_team_meta_box($post) {
     <?php
 }
 
-/**
- * Save meta box data
- */
 function benedict_save_meta_boxes($post_id) {
     // Gallery meta
     if (isset($_POST['benedict_gallery_nonce']) && wp_verify_nonce($_POST['benedict_gallery_nonce'], 'benedict_gallery_meta')) {
@@ -218,9 +197,6 @@ function benedict_save_meta_boxes($post_id) {
 }
 add_action('save_post', 'benedict_save_meta_boxes');
 
-/**
- * Contact Form 7 Support
- */
 function benedict_cf7_support() {
     if (function_exists('wpcf7_enqueue_scripts')) {
         return true;
@@ -228,9 +204,6 @@ function benedict_cf7_support() {
     return false;
 }
 
-/**
- * Fallback menu for primary navigation
- */
 function benedict_fallback_menu() {
     echo '<ul class="primary-menu">';
     echo '<li><a href="' . home_url('/') . '">Home</a></li>';
@@ -241,21 +214,8 @@ function benedict_fallback_menu() {
     echo '</ul>';
 }
 
-/**
- * Disable caching headers
- */
-function benedict_disable_cache() {
-    // Отключаем кеширование для всех страниц
-    header('Cache-Control: no-cache, no-store, must-revalidate, max-age=0');
-    header('Pragma: no-cache');
-    header('Expires: 0');
-}
-add_action('init', 'benedict_disable_cache');
 
 
-/**
- * Add version to CSS/JS files to prevent caching
- */
 function benedict_asset_version($src) {
     if (strpos($src, 'ver=') === false) {
         $src = add_query_arg('ver', time(), $src);
