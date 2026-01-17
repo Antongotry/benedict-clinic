@@ -37,7 +37,7 @@ get_header();
                 <!-- Default Content if no post content -->
                 <div class="procedure-overview">
                     <h2>Overview</h2>
-                    <p>This procedure is designed to enhance your natural beauty and restore a youthful appearance. Dr. Rosenberg uses advanced techniques to ensure natural-looking results with minimal downtime.</p>
+                    <p>This procedure is designed to enhance your natural beauty and restore a youthful appearance. Dr. Benedict uses advanced techniques to ensure natural-looking results with minimal downtime.</p>
                 </div>
                 
                 <div class="procedure-benefits">
@@ -57,7 +57,7 @@ get_header();
                         <div class="process-step">
                             <div class="step-number">1</div>
                             <h3>Consultation</h3>
-                            <p>Meet with Dr. Rosenberg to discuss your goals and expectations</p>
+                            <p>Meet with Dr. Benedict to discuss your goals and expectations</p>
                         </div>
                         <div class="process-step">
                             <div class="step-number">2</div>

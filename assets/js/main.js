@@ -1,5 +1,5 @@
 /**
- * Light Panels Theme - Main JavaScript
+ * Benedict Clinic Theme - Main JavaScript
  */
 
 (function() {

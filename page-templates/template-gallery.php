@@ -80,7 +80,7 @@ get_header();
 <section class="cta-section section-padding bg-dark">
     <div class="container text-center">
         <h2 class="section-title">Ready to Begin Your Journey?</h2>
-        <p>Schedule a consultation with Dr. Rosenberg today</p>
+        <p>Schedule a consultation with Dr. Benedict today</p>
         <a href="/contact" class="btn-primary">Schedule Consultation</a>
     </div>
 </section>

@@ -8,7 +8,7 @@ get_header();
 
 <section class="page-header section-padding bg-light">
     <div class="container">
-        <h1 class="page-title">About Dr. David Rosenberg</h1>
+        <h1 class="page-title">About Dr. David Benedict</h1>
         <p class="page-subtitle">Internationally Recognized Facial Plastic Surgeon</p>
     </div>
 </section>
@@ -17,17 +17,17 @@ get_header();
     <div class="container">
         <div class="bio-grid">
             <div class="bio-image">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dr-rosenberg-full.jpg" alt="Dr. David Rosenberg">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dr-benedict-full.jpg" alt="Dr. David Benedict">
             </div>
             <div class="bio-content">
-                <h2>David Rosenberg, MD</h2>
+                <h2>David Benedict, MD</h2>
                 <h3 class="subtitle">Double Board Certified Facial Plastic Surgeon</h3>
                 
-                <p>Dr. David Rosenberg is a highly regarded facial plastic and reconstructive surgeon known for his understated and elegant outcomes. With an international reputation, his practice, located on the Upper East Side of Manhattan, draws patients from around the world who are seeking his natural appearing and long-lasting Deep Plane Facelift, Endoscopic Brow lift, Blepharoplasty, and Rhinoplasty results.</p>
+                <p>Dr. David Benedict is a highly regarded facial plastic and reconstructive surgeon known for his understated and elegant outcomes. With an international reputation, his practice, located on the Upper East Side of Manhattan, draws patients from around the world who are seeking his natural appearing and long-lasting Deep Plane Facelift, Endoscopic Brow lift, Blepharoplasty, and Rhinoplasty results.</p>
                 
-                <p>Dr. Rosenberg's approach to facial plastic surgery emphasizes natural-looking results that enhance rather than alter a patient's appearance. His deep understanding of facial anatomy and artistic eye allow him to create subtle, elegant changes that restore youthfulness while maintaining individual character.</p>
+                <p>Dr. Benedict's approach to facial plastic surgery emphasizes natural-looking results that enhance rather than alter a patient's appearance. His deep understanding of facial anatomy and artistic eye allow him to create subtle, elegant changes that restore youthfulness while maintaining individual character.</p>
                 
-                <p>With years of experience and thousands of successful procedures, Dr. Rosenberg has established himself as a leader in the field of facial plastic surgery. His commitment to excellence and patient care has earned him recognition among his peers and the trust of patients from around the world.</p>
+                <p>With years of experience and thousands of successful procedures, Dr. Benedict has established himself as a leader in the field of facial plastic surgery. His commitment to excellence and patient care has earned him recognition among his peers and the trust of patients from around the world.</p>
             </div>
         </div>
     </div>
@@ -80,7 +80,7 @@ get_header();
         <div class="philosophy-content">
             <h2 class="section-title text-center">Our Philosophy</h2>
             <div class="philosophy-text">
-                <p>At the heart of Dr. Rosenberg's practice is a commitment to creating natural, elegant results that enhance each patient's unique beauty. His philosophy is built on three core principles:</p>
+                <p>At the heart of Dr. Benedict's practice is a commitment to creating natural, elegant results that enhance each patient's unique beauty. His philosophy is built on three core principles:</p>
                 
                 <div class="philosophy-principles">
                     <div class="principle">
@@ -109,19 +109,19 @@ get_header();
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="testimonial-stars">★★★★★</div>
-                <p>"Dr. Rosenberg is truly an artist. The results of my facelift are exactly what I hoped for - natural and elegant. I feel like myself, just refreshed!"</p>
+                <p>"Dr. Benedict is truly an artist. The results of my facelift are exactly what I hoped for - natural and elegant. I feel like myself, just refreshed!"</p>
                 <div class="testimonial-author">- Patient</div>
             </div>
             
             <div class="testimonial-card">
                 <div class="testimonial-stars">★★★★★</div>
-                <p>"From the initial consultation to the final follow-up, Dr. Rosenberg and his team provided exceptional care. I'm thrilled with my rhinoplasty results."</p>
+                <p>"From the initial consultation to the final follow-up, Dr. Benedict and his team provided exceptional care. I'm thrilled with my rhinoplasty results."</p>
                 <div class="testimonial-author">- Patient</div>
             </div>
             
             <div class="testimonial-card">
                 <div class="testimonial-stars">★★★★★</div>
-                <p>"I traveled from another country to see Dr. Rosenberg, and it was absolutely worth it. His expertise and attention to detail are unmatched."</p>
+                <p>"I traveled from another country to see Dr. Benedict, and it was absolutely worth it. His expertise and attention to detail are unmatched."</p>
                 <div class="testimonial-author">- Patient</div>
             </div>
         </div>
