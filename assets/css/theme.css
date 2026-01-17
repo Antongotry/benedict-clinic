@@ -1,0 +1,2524 @@
+/* ===================================
+   Dr. Benedict Clinic - Main Theme Styles
+   =================================== */
+
+/* CSS Variables */
+:root {
+    --color-dark: #1a1a1a;
+    --color-accent: #ffffff;
+    --color-white: #ffffff;
+    --color-grey: #666666;
+    --color-light-grey: #f5f5f5;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-dark);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* New Header */
+.site-header-new {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-white);
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 20px 0;
+}
+
+/* Simple sample-conformant Header */
+.header.container--full-width-padding {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    padding: 30px 0;
+    background: transparent; /* изначально прозрачный */
+    box-shadow: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    transition: background-color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.header-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+/* Header Layout Sections */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    justify-content: flex-start;
+}
+
+.header-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    justify-content: flex-end;
+}
+
+.header .header-item {
+    font-size: 13px;
+    font-weight: 400; /* тоньше */
+    letter-spacing: 0.5px;
+    color: var(--color-white); /* изначально белые элементы */
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.25s ease;
+}
+
+.header .header-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-brand-name {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: #ffffff;
+    margin-bottom: 2px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.header-brand-subtitle {
+    display: block;
+    font-size: 12px;
+    font-weight: 200;
+    letter-spacing: 3px;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+.header .header-menu-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500; /* чуть тоньше */
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 10001;
+}
+
+/* MENU текст должен наследовать текущий цвет (белый изначально, тёмный при скролле) */
+.header .menu-text {
+    color: inherit;
+    font-weight: 400;
+}
+
+.header .header-item:hover {
+    color: rgba(255,255,255,0.75);
+}
+
+.header .icon-instagram {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Гамбургер-иконка рядом с MENU */
+.header .hamburger {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 18px;
+    position: relative;
+    height: 14px;
+}
+
+.header .hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: currentColor; /* наследует цвет текста */
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 0;
+}
+
+.header .hamburger-line:nth-child(1) {
+    top: 0;
+}
+
+.header .hamburger-line:nth-child(2) {
+    top: 6px;
+}
+
+.header .hamburger-line:nth-child(3) {
+    top: 12px;
+}
+
+/* Трансформация в крестик при активном меню */
+body.overlay-open .header .hamburger-line:nth-child(1) {
+    top: 6px;
+    transform: rotate(45deg);
+}
+
+body.overlay-open .header .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+body.overlay-open .header .hamburger-line:nth-child(3) {
+    top: 6px;
+    transform: rotate(-45deg);
+}
+
+/* Когда меню открыто, все элементы хедера белые */
+body.overlay-open .header .header-item {
+    color: var(--color-white) !important;
+}
+
+body.overlay-open .header .menu-text {
+    color: var(--color-white) !important;
+}
+
+body.overlay-open .header .hamburger-line {
+    background-color: var(--color-white) !important;
+}
+
+/* Хедер остается поверх overlay меню */
+body.overlay-open .header.container--full-width-padding {
+    background: transparent;
+    box-shadow: none;
+    border-bottom: none;
+}
+
+/* Состояние при скролле: белый фон, тень, тёмные элементы */
+.header.container--full-width-padding.is-solid {
+    background-color: var(--color-white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header.container--full-width-padding.is-solid .header-item {
+    color: var(--color-dark);
+}
+
+.header.container--full-width-padding.is-solid .header-item:hover {
+    color: var(--color-grey);
+}
+
+.header.container--full-width-padding.is-solid .header-brand-name {
+    color: var(--color-dark) !important;
+    text-shadow: none;
+}
+
+.header.container--full-width-padding.is-solid .header-brand-subtitle {
+    color: var(--color-dark) !important;
+}
+
+/* Хедер перекрывает первый блок (без отступа сверху у контента) */
+.site-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#content {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#content > *:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left,
+.header-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.header-right {
+    justify-content: flex-end;
+}
+
+.header-center {
+    flex: 1;
+    text-align: center;
+}
+
+.header-phone,
+.header-social,
+.header-link {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: var(--color-dark);
+    transition: var(--transition);
+}
+
+.header-phone:hover,
+.header-social:hover,
+.header-link:hover {
+    color: var(--color-grey);
+}
+
+.header-logo {
+    text-decoration: none;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-name {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--color-dark);
+    font-family: var(--font-sans);
+}
+
+.logo-subtitle {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--color-grey);
+    margin-top: 2px;
+}
+
+.menu-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+}
+
+.menu-text {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--color-dark);
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 24px;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-dark);
+    transition: var(--transition);
+}
+
+/* Overlay Menu */
+.overlay-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.overlay-menu.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.overlay-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/building-facade.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px) grayscale(100%) brightness(0.3);
+}
+
+.overlay-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.overlay-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+.overlay-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.overlay-right {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.overlay-nav-primary ul,
+.overlay-nav-secondary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.overlay-nav-primary li {
+    margin-bottom: 25px;
+}
+
+.overlay-nav-secondary li {
+    margin-bottom: 18px;
+}
+
+.overlay-nav-primary a {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--color-white);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.overlay-nav-secondary a {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+}
+
+.overlay-nav-primary a:hover,
+.overlay-nav-secondary a:hover {
+    color: var(--color-white);
+    padding-left: 10px;
+    opacity: 0.7;
+}
+
+/* Overlay close button removed - hamburger transforms into X */
+
+.overlay-brand {
+    margin-bottom: 60px;
+    text-align: right;
+}
+
+.overlay-logo-name {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--color-white);
+    margin-bottom: 8px;
+}
+
+.overlay-logo-subtitle {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.overlay-contact {
+    margin-bottom: 60px;
+    text-align: right;
+}
+
+.overlay-phone {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 20px;
+}
+
+.overlay-address {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.overlay-social {
+    display: flex;
+    gap: 20px;
+}
+
+.overlay-social a {
+    color: var(--color-white);
+    transition: var(--transition);
+}
+
+.overlay-social a:hover {
+    color: rgba(255, 255, 255, 0.7);
+    transform: scale(1.1);
+}
+
+/* Hero Section - Video Background */
+.hero-video-section {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+}
+
+.hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-video,
+.hero-vimeo-iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-vimeo-iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    border: none;
+    pointer-events: none;
+}
+
+/* Растягиваем видео на весь экран без серых краев */
+@supports (aspect-ratio: 16 / 9) {
+    .hero-vimeo-iframe {
+        aspect-ratio: 16 / 9;
+        width: 100vw;
+        height: 56.25vw; /* 16:9 aspect ratio */
+        min-height: 100vh;
+        min-width: 177.77vh; /* 16:9 aspect ratio */
+        object-fit: cover;
+    }
+}
+
+.hero-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+    z-index: 2;
+}
+
+.hero-video-content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    color: var(--color-white);
+    text-align: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.hero-video-title {
+    font-family: var(--font-serif);
+    font-size: 72px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.hero-video-subtitle {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    opacity: 0.95;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+
+/* Content Sections */
+.content-section {
+    padding: 120px 0;
+    width: 96.875vw;
+    max-width: 96.875vw;
+    margin: 0 auto;
+}
+
+.section-title-elegant {
+    font-family: var(--font-serif);
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    color: var(--color-dark);
+}
+
+.section-text-elegant {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--color-grey);
+    max-width: 800px;
+}
+
+/* Container */
+.container {
+    width: 96.875vw;
+    max-width: 96.875vw;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+/* Section Padding */
+.section-padding {
+    padding: 80px 0;
+}
+
+/* About Section */
+.about-section {
+    background-color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+    margin-top: 60px;
+    padding: 80px 0;
+    min-height: calc(33.333vw + 160px);
+}
+
+.about-image-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 28.125vw;
+    height: 33.333vw;
+    z-index: 2;
+}
+
+.about-image-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-image-right {
+    position: absolute;
+    right: 0;
+    top: 160px;
+    width: 28.125vw;
+    height: 33.333vw;
+    z-index: 2;
+}
+
+.about-image-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-section .container {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 33.333vw;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    max-width: 600px;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: calc(28.125vw + 20px);
+    margin-right: calc(28.125vw + 20px);
+}
+
+.about-label {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    margin-bottom: 25px;
+    line-height: 1.6;
+    font-family: var(--font-sans);
+}
+
+.about-name {
+    font-family: var(--font-serif);
+    font-size: 56px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: var(--color-dark);
+    margin-bottom: 35px;
+    line-height: 1.1;
+}
+
+.about-description {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+    font-family: var(--font-sans);
+}
+
+.about-cta {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+    font-family: var(--font-sans);
+    margin: 0 auto;
+}
+
+.about-cta:hover {
+    color: var(--color-grey);
+}
+
+.about-cta span {
+    font-size: 14px;
+    margin-left: 4px;
+}
+
+.about-watermark {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    font-size: 180px;
+    font-weight: 700;
+    letter-spacing: 20px;
+    color: rgba(0, 0, 0, 0.025);
+    text-transform: uppercase;
+    font-family: var(--font-sans);
+    pointer-events: none;
+    z-index: 1;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Surgery Center Section */
+.surgery-center-section {
+    background-color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    min-height: 100vh;
+    padding: 0;
+    margin-top: 120px;
+}
+
+.surgery-center-image {
+    width: 50%;
+    position: relative;
+    overflow: visible;
+}
+
+.surgery-decorative-text {
+    position: absolute;
+    font-size: 150px;
+    font-weight: 300;
+    letter-spacing: 20px;
+    text-transform: uppercase;
+    font-family: var(--font-serif);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    pointer-events: none;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.surgery-text-1 {
+    right: 40px;
+    left: auto;
+    z-index: 3;
+    width: auto;
+    justify-content: flex-end;
+    padding-right: 40px;
+    color: #ffffff;
+    font-weight: 300;
+}
+
+.surgery-center-image img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    margin-top: 10%;
+}
+
+.surgery-text-2 {
+    position: absolute;
+    left: 82%;
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    z-index: 1;
+    color: rgba(0, 0, 0, 0.15);
+    font-weight: 300;
+    font-size: 150px;
+    letter-spacing: 20px;
+    text-transform: uppercase;
+    font-family: var(--font-serif);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    pointer-events: none;
+    white-space: nowrap;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-bottom: 0;
+}
+
+.surgery-center-title {
+    font-family: var(--font-serif);
+    font-size: 72px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, 0.15);
+    line-height: 1.1;
+    margin: 0 0 40px 0;
+    position: relative;
+    z-index: 1;
+    margin-left: -15%;
+}
+
+.surgery-center-content {
+    width: 50%;
+    background-color: var(--color-white);
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.surgery-center-label {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    margin-bottom: 30px;
+    font-family: var(--font-sans);
+}
+
+.surgery-center-title {
+    font-family: var(--font-serif);
+    font-size: 72px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--color-dark);
+    line-height: 1.1;
+    margin: 0 0 40px 0;
+}
+
+.surgery-center-text {
+    margin-bottom: 50px;
+}
+
+.surgery-center-text p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-dark);
+    font-family: var(--font-sans);
+    margin: 0;
+}
+
+.surgery-center-cta {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+    font-family: var(--font-sans);
+    align-self: flex-start;
+}
+
+.surgery-center-cta:hover {
+    color: var(--color-grey);
+}
+
+.surgery-center-cta span {
+    font-size: 14px;
+    margin-left: 4px;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary,
+.btn-hero,
+.btn-text {
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--color-grey);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+}
+
+.btn-text {
+    background: transparent;
+    color: var(--color-grey);
+    padding: 10px 0;
+    border-bottom: 2px solid var(--color-grey);
+    text-transform: none;
+}
+
+.btn-text:hover {
+    color: #555;
+    border-color: #555;
+}
+
+/* Meet The Surgeons Section */
+.meet-surgeons-section {
+    position: relative;
+    min-height: 600px;
+    background-image: url('https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=1920&h=1080&fit=crop');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 40px;
+    color: var(--color-white);
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.meet-surgeons-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.meet-surgeons-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 1400px;
+    width: 100%;
+}
+
+.meet-surgeons-title {
+    font-family: var(--font-serif);
+    font-size: 64px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--color-white);
+    margin-bottom: 80px;
+    line-height: 1.2;
+}
+
+.surgeons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.surgeon-item {
+    text-align: center;
+}
+
+.surgeon-name {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--color-white);
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.surgeon-specialty {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: var(--font-sans);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Concierge Services Section */
+.concierge-services-section {
+    background-color: var(--color-light-grey);
+    padding: 120px 0;
+    position: relative;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.concierge-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.concierge-label {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+    font-family: var(--font-sans);
+}
+
+.concierge-title {
+    font-family: var(--font-serif);
+    font-size: 72px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--color-dark);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.concierge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.concierge-item-wrapper {
+    position: relative;
+    min-height: 600px;
+}
+
+.concierge-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: opacity 0.5s ease;
+}
+
+.concierge-item-default {
+    opacity: 1;
+    z-index: 1;
+}
+
+.concierge-item-hover {
+    opacity: 0;
+    z-index: 2;
+}
+
+.concierge-item-wrapper:hover .concierge-item-default {
+    opacity: 0;
+}
+
+.concierge-item-wrapper:hover .concierge-item-hover {
+    opacity: 1;
+}
+
+.concierge-item-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    filter: grayscale(100%);
+}
+
+.concierge-item-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.concierge-item-content {
+    padding: 50px 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background-color: var(--color-white);
+    border-radius: 4px;
+    width: calc(100% - 80px);
+    max-width: 500px;
+}
+
+.concierge-item-content-hover {
+    padding: 50px 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    z-index: 3;
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.concierge-item-bg-hover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    z-index: 2;
+    filter: grayscale(0%);
+}
+
+.concierge-item-bg-hover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.concierge-item-title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+    font-family: var(--font-sans);
+}
+
+.concierge-item-description {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-dark);
+    font-family: var(--font-sans);
+    margin: 0;
+}
+
+/* Schedule Consultation Section */
+.schedule-consultation-section {
+    position: relative;
+    height: 65svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    color: var(--color-white);
+    overflow: hidden;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.schedule-consultation-bg {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background-image: url('https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=1920&h=1080&fit=crop');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 0;
+    will-change: transform;
+}
+
+.schedule-consultation-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.schedule-consultation-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+}
+
+.schedule-consultation-title {
+    font-family: var(--font-serif);
+    font-size: 64px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--color-white);
+    margin-bottom: 40px;
+    line-height: 1.2;
+    margin-top: 0;
+}
+
+.schedule-consultation-cta {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-family: var(--font-sans);
+}
+
+.schedule-consultation-cta:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Instagram Feed Section */
+.instagram-feed-section {
+    position: relative;
+    min-height: 600px;
+    background: linear-gradient(180deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    color: var(--color-white);
+    overflow: hidden;
+    margin: 0;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.instagram-feed-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 1000px;
+}
+
+.instagram-feed-title {
+    font-family: var(--font-serif);
+    font-size: 64px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 50px;
+    line-height: 1.2;
+    mix-blend-mode: screen;
+    margin-top: 0;
+}
+
+.instagram-feed-cta {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 15px 40px;
+    border: 1px solid var(--color-white);
+    transition: all 0.3s ease;
+    font-family: var(--font-sans);
+    background-color: transparent;
+}
+
+.instagram-feed-cta:hover {
+    background-color: var(--color-white);
+    color: #000000;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .header-container {
+        padding: 0 20px;
+    }
+    
+    .header-wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 95vw;
+        max-width: 95vw;
+    }
+    
+    .header-left,
+    .header-center,
+    .header-right {
+        gap: 16px;
+    }
+    
+    .overlay-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 40px 20px;
+        flex-direction: column;
+    }
+    
+    .overlay-right {
+        width: 100%;
+        align-items: flex-start;
+        margin-top: 40px;
+    }
+    
+    .overlay-brand,
+    .overlay-contact {
+        text-align: left;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header.container--full-width-padding {
+        padding: 20px 0;
+    }
+    
+    .header-wrapper {
+        grid-template-columns: auto 1fr auto;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    
+    .header .header-link { 
+        display: none; 
+    }
+    
+    .header-left {
+        gap: 12px;
+    }
+    
+    .header-left .header-phone,
+    .header-left .header-instagram span {
+        display: none;
+    }
+    
+    .header-brand-name {
+        font-size: 18px;
+        font-weight: 400;
+        letter-spacing: 1.5px;
+    }
+    
+    .header-brand-subtitle {
+        font-size: 10px;
+        font-weight: 200;
+        letter-spacing: 2px;
+    }
+    
+    .header-right {
+        gap: 12px;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    .about-section {
+        flex-direction: column;
+        min-height: auto;
+        padding: 0;
+    }
+    
+    .about-image-left,
+    .about-image-right {
+        position: relative !important;
+        width: 100% !important;
+        height: 50vh;
+        min-height: 400px;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+    }
+    
+    .about-image-left {
+        order: 1;
+        margin-bottom: 60px;
+    }
+    
+    .about-section .container {
+        order: 2;
+        min-height: auto;
+        padding: 60px 0;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .about-image-right {
+        order: 3;
+        margin-top: 60px;
+    }
+    
+    .about-image-right img,
+    .about-image-left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    
+    .about-content {
+        max-width: 100%;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    
+    .about-label,
+    .about-name,
+    .about-description,
+    .about-cta {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    
+    .about-name {
+        font-size: 32px;
+    }
+    
+    .about-label {
+        font-size: 9px;
+    }
+    
+    .about-description {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+    
+    
+    .about-watermark {
+        font-size: 100px;
+        letter-spacing: 10px;
+        bottom: 20px;
+        position: relative;
+    }
+    
+    .surgery-center-section {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .surgery-center-image,
+    .surgery-center-content {
+        width: 100%;
+    }
+    
+    .surgery-center-image {
+        height: 50vh;
+        min-height: 400px;
+    }
+    
+    .surgery-center-content {
+        padding: 60px 40px;
+    }
+    
+    .surgery-center-title {
+        font-size: 36px;
+    }
+    
+    .surgery-center-text p {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+    
+    .surgery-center-label {
+        font-size: 9px;
+    }
+    
+    .decorative-text {
+        font-size: 120px;
+    }
+    
+    .decorative-text.text-1 {
+        left: -40px;
+    }
+    
+    .decorative-text.text-2 {
+        right: -40px;
+    }
+    
+    .concierge-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .concierge-title {
+        font-size: 36px;
+    }
+    
+    .concierge-label {
+        font-size: 9px;
+    }
+    
+    .concierge-item-title {
+        font-size: 14px;
+    }
+    
+    .concierge-item-description {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+    
+    .overlay-content {
+        width: 100vw;
+        max-width: 100vw;
+        padding: 40px 20px;
+    }
+    
+    .logo-name {
+        font-size: 14px;
+    }
+    
+    .logo-subtitle {
+        font-size: 9px;
+    }
+    
+    .overlay-nav-primary a {
+        font-size: 24px;
+    }
+    
+    .overlay-nav-secondary a {
+        font-size: 16px;
+    }
+    
+    .hero-video-title {
+        font-size: 42px;
+    }
+    
+    .hero-video-subtitle {
+        font-size: 14px;
+    }
+    
+    .hero-video-section {
+        width: 100vw;
+    }
+    
+    .hero-video-content {
+        padding: 40px 20px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .content-section {
+        padding: 60px 0;
+        width: 100vw;
+    }
+}
+
+/* Smooth Animations */
+.overlay-menu.active .overlay-nav-primary li,
+.overlay-menu.active .overlay-nav-secondary li {
+    animation: slideInLeft 0.6s ease forwards;
+}
+
+.overlay-menu.active .overlay-nav-primary li:nth-child(1) { animation-delay: 0.1s; }
+.overlay-menu.active .overlay-nav-primary li:nth-child(2) { animation-delay: 0.15s; }
+.overlay-menu.active .overlay-nav-primary li:nth-child(3) { animation-delay: 0.2s; }
+.overlay-menu.active .overlay-nav-primary li:nth-child(4) { animation-delay: 0.25s; }
+.overlay-menu.active .overlay-nav-primary li:nth-child(5) { animation-delay: 0.3s; }
+.overlay-menu.active .overlay-nav-primary li:nth-child(6) { animation-delay: 0.35s; }
+.overlay-menu.active .overlay-nav-primary li:nth-child(7) { animation-delay: 0.4s; }
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Prevent scroll when menu is open */
+body.overlay-open {
+    overflow: hidden;
+}
+
+/* Hide header elements when menu is open, except menu button */
+body.overlay-open .header-left,
+body.overlay-open .header-center,
+body.overlay-open .header-link {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Keep menu button visible and ensure it's on top */
+body.overlay-open .header-menu-btn {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    z-index: 10001;
+}
+
+/* WordPress Admin Bar - visible for logged in users */
+
+/* Container Variants */
+.container--md {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #000000;
+    color: var(--color-white);
+}
+
+/* Secondary Footer */
+.secondary-footer {
+    width: 100%;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    padding: 30px 0;
+}
+
+.secondary-footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-sizing: border-box;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.secondary-footer-top {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-copyright {
+    margin: 0 0 8px 0;
+    font-size: 10px;
+}
+
+.footer-links {
+    margin: 0;
+    font-size: 10px;
+}
+
+.footer-links a {
+    color: var(--color-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-grey);
+}
+
+.secondary-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.footer-accessibility {
+    margin: 0;
+    flex: 1;
+    font-size: 10px;
+    text-align: left;
+}
+
+.footer-credit {
+    margin: 0;
+    font-size: 10px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.secondary-footer a {
+    color: var(--color-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.secondary-footer a:hover {
+    color: var(--color-grey);
+}
+
+.secondary-footer strong {
+    color: var(--color-dark);
+    font-weight: 600;
+}
+
+/* Primary Footer */
+.primary-footer {
+    padding: 60px 0;
+    background-color: #000000;
+}
+
+.primary-footer .footer-content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.footer-menu-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+}
+
+.footer-menu-column h4 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-white);
+    margin-bottom: 25px;
+    font-family: var(--font-sans);
+}
+
+.footer-menu-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu-column li {
+    margin-bottom: 15px;
+}
+
+.footer-menu-column a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-menu-column a:hover {
+    color: var(--color-white);
+}
+
+.footer-contact-section {
+    text-align: right;
+}
+
+.footer-phone {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.footer-phone a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.footer-address {
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-hours {
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Footer Responsive */
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .footer-contact-section {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-menu-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .primary-footer .footer-content {
+        padding: 0 20px;
+        gap: 40px;
+    }
+    
+    .secondary-footer {
+        padding: 30px 20px;
+    }
+    
+    .primary-footer {
+        padding: 40px 0;
+    }
+    
+    .container--md {
+        padding: 0 20px;
+    }
+    
+    .concierge-services-section {
+        padding: 80px 0;
+    }
+    
+    .concierge-header {
+        margin-bottom: 60px;
+    }
+    
+    .concierge-title {
+        font-size: 42px;
+    }
+    
+    .meet-surgeons-title {
+        font-size: 36px;
+        margin-bottom: 60px;
+    }
+    
+    .surgeons-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .surgeon-name {
+        font-size: 22px;
+    }
+    
+    .surgeon-specialty {
+        font-size: 9px;
+    }
+    
+    .concierge-item-content {
+        padding: 40px 30px;
+    }
+    
+    .concierge-item-image {
+        height: 300px;
+    }
+    
+    .schedule-consultation-section {
+        min-height: 400px;
+        padding: 80px 20px;
+    }
+    
+    .schedule-consultation-title {
+        font-size: 36px;
+    }
+    
+    .schedule-consultation-section {
+        height: 50svh;
+    }
+    
+    .instagram-feed-section {
+        min-height: 400px;
+        padding: 60px 20px;
+    }
+    
+    .instagram-feed-title {
+        font-size: 36px;
+        letter-spacing: 1.5px;
+        margin-bottom: 30px;
+    }
+    
+    .meet-surgeons-section {
+        min-height: 500px;
+        padding: 60px 20px;
+    }
+    
+    .meet-surgeons-title {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+    
+    .surgeons-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .surgeon-name {
+        font-size: 20px;
+    }
+    
+    .surgeon-specialty {
+        font-size: 9px;
+    }
+}
+
+/* ===================================
+   About Doctor Page Styles
+   =================================== */
+
+/* Font Definitions */
+@font-face {
+    font-family: 'Helma';
+    src: local('Helma'), local('Helma-Regular');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Fallback if Helma is not available */
+.about-doctor-hero {
+    font-family: 'Helma', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* About Doctor Hero Section */
+.about-doctor-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    height: 100svh;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.about-doctor-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.about-doctor-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.about-doctor-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 14.583vw;
+    padding-left: 6.771vw;
+    padding-right: 2vw;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr; /* шире левый контейнер под заголовок */
+    grid-template-rows: auto 1fr;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.about-doctor-main {
+    grid-column: 1 / 2;
+    align-self: flex-start;
+}
+
+.about-doctor-name {
+    font-family: 'Helma', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 6.667vw;  /* 128px / 1920px */
+    line-height: 3.438vw; /* 66px / 1920px */
+    letter-spacing: 0;   /* 0% по макету */
+    text-align: left;
+    text-transform: uppercase;
+    color: #000000;
+    margin: 0;
+    margin-bottom: 2vw;
+}
+
+.about-doctor-subtitle {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.667vw; /* 32px / 1920px */
+    line-height: 1.333vw; /* 25.6px / 1920px */
+    letter-spacing: 0.083vw; /* 1.6px / 1920px */
+    text-align: left;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #000000;
+    margin: 0;
+    margin-bottom: 4vw;
+}
+
+.about-doctor-bottom {
+    grid-column: 1 / 2;
+    align-self: flex-end;
+    justify-self: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1vw;
+    margin-top: auto;
+    padding-bottom: 7.292vw;
+}
+
+.about-doctor-badge {
+    width: 4.271vw;
+    height: auto;
+    margin-right: 1vw;
+    flex-shrink: 0;
+}
+
+.about-doctor-bottom-text {
+    font-family: 'Helma', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.302vw; /* 25px / 1920px */
+    line-height: 3.438vw; /* 66px / 1920px */
+    letter-spacing: 0%;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .about-doctor-hero-content {
+        padding-top: 18vw;
+        grid-template-columns: 1.4fr 1fr;
+    }
+    
+    .about-doctor-name {
+        font-size: 8vw;
+    }
+    
+    .about-doctor-subtitle {
+        font-size: 2vw;
+    }
+    
+    .about-doctor-path-inner,
+    .about-doctor-surgery-inner,
+    .about-doctor-diagnostics-inner {
+        column-gap: 4vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-doctor-hero {
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .about-doctor-hero-content {
+        padding-top: 28vw;
+        padding-left: 6vw;
+        padding-right: 6vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    
+    .about-doctor-name {
+        font-size: 11vw;
+        line-height: 1.05;
+        margin-bottom: 4vw;
+    }
+    
+    .about-doctor-subtitle {
+        font-size: 3.8vw;
+        line-height: 1.3;
+        letter-spacing: 0.2vw;
+        margin-bottom: 8vw;
+    }
+    
+    .about-doctor-bottom {
+        flex-direction: row;
+        align-items: center;
+        gap: 2.5vw;
+        padding-bottom: 10vw;
+    }
+    
+    .about-doctor-badge {
+        width: 10vw;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+    
+    .about-doctor-bottom-text {
+        font-size: 3vw;
+        line-height: 1.4;
+    }
+    
+    .about-doctor-path,
+    .about-doctor-surgery,
+    .about-doctor-diagnostics,
+    .about-doctor-divider {
+        padding-left: 4vw;
+        padding-right: 4vw;
+    }
+    
+    .about-doctor-path-inner,
+    .about-doctor-surgery-inner,
+    .about-doctor-diagnostics-inner {
+        grid-template-columns: 1fr;
+        row-gap: 6vw;
+    }
+    
+    .about-doctor-path-image img,
+    .about-doctor-surgery-image img,
+    .about-doctor-diagnostics-image img {
+        width: 100%;
+    }
+    
+    .about-doctor-path-name,
+    .about-doctor-surgery-title,
+    .about-doctor-diagnostics-title {
+        font-size: 5vw;
+        line-height: 1.2;
+    }
+    
+    .about-doctor-path-text p {
+        font-size: 3.2vw;
+        line-height: 1.6;
+    }
+    
+    .about-doctor-surgery-text p {
+        font-size: 3.4vw;
+        line-height: 1.6;
+    }
+    
+    .about-doctor-diagnostics-text p {
+        font-size: 3.4vw;
+        line-height: 1.6;
+    }
+    
+    .about-doctor-diagnostics-title {
+        white-space: normal; /* позволяем перенос на маленьких экранах */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-doctor-hero-content {
+        padding-top: 32vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+    
+    .about-doctor-name {
+        font-size: 10vw;
+        margin-bottom: 3vw;
+    }
+    
+    .about-doctor-subtitle {
+        font-size: 3.6vw;
+        margin-bottom: 7vw;
+    }
+    
+    .about-doctor-bottom {
+        padding-bottom: 9vw;
+        gap: 3vw;
+    }
+    
+    .about-doctor-badge {
+        width: 12vw;
+    }
+    
+    .about-doctor-bottom-text {
+        font-size: 3.4vw;
+    }
+    
+    .about-doctor-path,
+    .about-doctor-surgery,
+    .about-doctor-diagnostics,
+    .about-doctor-divider {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+    
+    .about-doctor-path-name,
+    .about-doctor-surgery-title,
+    .about-doctor-diagnostics-title {
+        font-size: 5.5vw;
+    }
+    
+    .about-doctor-path-text p,
+    .about-doctor-surgery-text p,
+    .about-doctor-diagnostics-text p {
+        font-size: 3.8vw;
+        line-height: 1.7;
+    }
+}
+
+/* ===================================
+   About Doctor - Professional Path
+   =================================== */
+
+.about-doctor-path {
+    margin-top: 5.208vw;
+    padding-left: 6.771vw;
+    padding-right: 6.771vw;
+}
+
+.about-doctor-path-inner {
+    display: grid;
+    grid-template-columns: 40vw 1fr;
+    column-gap: 5.729vw;
+    align-items: flex-start;
+}
+
+.about-doctor-path-image img {
+    width: 40vw;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.about-doctor-path-content {
+    color: #111111;
+}
+
+.about-doctor-path-label {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.25vw;       /* 24px / 1920 */
+    line-height: 1.333vw;    /* 25.6px / 1920 */
+    letter-spacing: 0.083vw; /* 1.6px / 1920 */
+    text-transform: uppercase;
+    color: #111111;
+    margin: 0;
+}
+
+.about-doctor-path-name {
+    font-family: 'Helma', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.5vw;        /* 48px / 1920 */
+    line-height: 4.01vw;     /* 77px / 1920 */
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #111111;
+    margin: 1.563vw 0 0;
+}
+
+.about-doctor-path-text {
+    margin-top: 2.604vw;
+}
+
+.about-doctor-path-text p {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.406vw;      /* 27px / 1920 */
+    line-height: 1.875vw;    /* 36px / 1920 */
+    letter-spacing: 0;
+    color: #111111;
+    margin: 0 0 1.5vw;
+}
+
+.about-doctor-path-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Divider under Professional Path */
+.about-doctor-divider {
+    margin-top: 8.333vw;
+    padding-left: 6.771vw;
+    padding-right: 6.771vw;
+}
+
+.about-doctor-divider-inner {
+    border-top: 1px solid #707070;
+    width: 105%;
+    margin-left: -2.5%; /* чутка выйти за рамки контейнера с обеих сторон */
+}
+
+/* ===================================
+   About Doctor - Surgery & Reconstruction
+   =================================== */
+
+.about-doctor-surgery {
+    margin-top: 8.333vw;
+    padding-left: 6.771vw;
+    padding-right: 6.771vw;
+}
+
+.about-doctor-surgery-inner {
+    display: grid;
+    grid-template-columns: 1fr 40vw;
+    column-gap: 5.729vw;
+    align-items: flex-start;
+}
+
+.about-doctor-surgery-image img {
+    width: 40vw;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.about-doctor-surgery-title {
+    font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 2.917vw;      /* 56px / 1920 */
+    line-height: 4.01vw;     /* 77px / 1920 */
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #111111;
+    margin: 0;
+}
+
+.about-doctor-surgery-text {
+    margin-top: 3.646vw;
+}
+
+.about-doctor-surgery-text p {
+    font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.771vw;      /* 34px / 1920 */
+    line-height: 2.135vw;    /* 41px / 1920 */
+    letter-spacing: 0;
+    color: #111111;
+    margin: 0 0 1.5vw;
+}
+
+.about-doctor-surgery-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===================================
+   About Doctor - Diagnostics & Treatment
+   =================================== */
+
+.about-doctor-diagnostics {
+    margin-top: 8.333vw;
+    padding-left: 6.771vw;
+    padding-right: 6.771vw;
+}
+
+.about-doctor-diagnostics-inner {
+    display: grid;
+    grid-template-columns: 40vw 1fr; /* слева фото, справа текст */
+    column-gap: 5.729vw;
+    align-items: flex-start;
+}
+
+.about-doctor-diagnostics-image img {
+    width: 40vw;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.about-doctor-diagnostics-title {
+    font-family: 'Helma', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.917vw;      /* 56px / 1920 */
+    line-height: 4.010vw;    /* 77px / 1920 */
+    letter-spacing: 0;
+    text-transform: uppercase;
+    white-space: nowrap;     /* чтобы помещалось в одну строку */
+    color: #111111;
+    margin: 0;
+}
+
+.about-doctor-diagnostics-text {
+    margin-top: 3.646vw;
+}
+
+.about-doctor-diagnostics-text p {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.667vw;      /* 32px / 1920 */
+    line-height: 2.292vw;    /* 44px / 1920 */
+    letter-spacing: 0;
+    color: #111111;
+    margin: 0 0 1.5vw;
+}
+
+.about-doctor-diagnostics-text p:last-child {
+    margin-bottom: 0;
+}
+    position: relative;
