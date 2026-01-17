@@ -7,80 +7,77 @@
 get_header();
 ?>
 
-<!-- Hero Section - Video Background -->
+<!-- Hero Section -->
 <section class="hero-video-section">
     <div class="hero-video-container">
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="<?php echo get_template_directory_uri(); ?>/assets/videos/light-panels-hero.mp4" type="video/mp4">
-        </video>
         <div class="hero-video-overlay"></div>
     </div>
     <div class="hero-video-content">
-        <h1 class="hero-video-title">СВІТЛОВІ ПАНЕЛІ З ПІДСВІТКОЮ</h1>
-        <p class="hero-video-subtitle">Стиль, який змінює атмосферу простору</p>
+        <h1 class="hero-video-title">BENEDICT CLINIC</h1>
+        <p class="hero-video-subtitle">Урологічна клініка нового рівня</p>
     </div>
 </section>
 
 <!-- About Section -->
 <section id="about" class="about-section section-padding">
     <div class="about-image-left">
-        <img decoding="async" width="540" height="640" src="<?php echo get_template_directory_uri(); ?>/assets/images/light-panels/kitchen.jpg" alt="Світлові панелі в кухні" loading="lazy">
+        <img decoding="async" width="540" height="640" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/dr-rosenberg-portrait.jpg" alt="Dr. Benedict" loading="lazy">
     </div>
     <div class="container">
         <div class="about-content">
-            <p class="about-label">СУЧАСНЕ РІШЕННЯ ДЛЯ ВАШОГО ІНТЕР'ЄРУ</p>
-            <h2 class="about-name">СВІТЛОВІ ПАНЕЛІ</h2>
-            <p class="about-description">Світлові панелі з підсвіткою — це унікальне дизайнерське та функціональне рішення для дому, офісу, салонів та комерційних просторів. Завдяки вбудованій LED-підсвітці панелі створюють м'яке, рівномірне освітлення, яке підкреслює фактуру матеріалу та створює затишну атмосферу.</p>
-            <a href="#contact" class="about-cta">ОТРИМАТИ КОНСУЛЬТАЦІЮ <span>|→</span></a>
+            <p class="about-label">ПРО КЛІНІКУ</p>
+            <h2 class="about-name">BENEDICT CLINIC</h2>
+            <p class="about-description">Benedict Clinic — це урологічна клініка, яка забезпечує комплексний підхід до чоловічого здоров'я. Наша команда надає високопрофесійну медичну допомогу, використовуючи сучасні методи діагностики та лікування урологічних захворювань.</p>
+            <a href="/dr-benedict" class="about-cta">ПРО ЛІКАРЯ <span>|→</span></a>
         </div>
     </div>
     <div class="about-image-right">
-        <img decoding="async" width="540" height="640" src="<?php echo get_template_directory_uri(); ?>/assets/images/light-panels/living.jpg" alt="Світлові панелі у вітальні" loading="lazy">
+        <img decoding="async" width="540" height="640" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/surgery-center.jpg" alt="Surgery Center" loading="lazy">
     </div>
-    <div class="about-watermark">LIGHT PANELS</div>
+    <div class="about-watermark">UROLOGY</div>
 </section>
 
 <!-- Benefits Section (using Surgery Center structure) -->
 <section class="surgery-center-section section-padding">
     <div class="surgery-center-image">
         <span class="surgery-decorative-text surgery-text-1">ПЕРЕВАГИ</span>
-        <img decoding="async" width="800" height="1000" src="<?php echo get_template_directory_uri(); ?>/assets/images/light-panels/benefits.jpg" alt="Переваги світлових панелей" loading="lazy">
-        <span class="surgery-decorative-text surgery-text-2">ПРОДУКТУ</span>
+        <img decoding="async" width="800" height="1000" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/luxury-clinic-interior.jpg" alt="Clinic Interior" loading="lazy">
+        <span class="surgery-decorative-text surgery-text-2">КЛІНІКИ</span>
     </div>
     <div class="surgery-center-content">
-        <p class="surgery-center-label">ЯК ЦЕ ПРАЦЮЄ</p>
-        <h2 class="surgery-center-title">ПЕРЕВАГИ<br>СВІТЛОВИХ ПАНЕЛЕЙ</h2>
+        <p class="surgery-center-label">НАШІ ПЕРЕВАГИ</p>
+        <h2 class="surgery-center-title">ЧОМУ ОБИРАЮТЬ<br>BENEDICT CLINIC</h2>
         <div class="surgery-center-text">
-            <p><strong>Власне виробництво</strong> — повний цикл від розробки до монтажу в Україні.</p>
-            <p><strong>Шоурум</strong> — можливість побачити продукт перед покупкою.</p>
-            <p><strong>Монтаж за 1 день</strong> — швидке впровадження без зайвих клопотів.</p>
-            <p><strong>Гарантія 2 роки</strong> — надійність та довговічність продукту.</p>
-            <p><strong>Стійкість до ударів</strong> — міцні матеріали та надійна конструкція.</p>
+            <p><strong>Досвідчений лікар</strong> — лікар-уролог із досвідом у хірургічній та малоінвазивній урології.</p>
+            <p><strong>Сучасне обладнання</strong> — використання передових технологій діагностики та лікування.</p>
+            <p><strong>Індивідуальний підхід</strong> — персональний план лікування для кожного пацієнта.</p>
+            <p><strong>Доказова медицина</strong> — мінімум непотрібних втручань, максимум ефективності.</p>
+            <p><strong>Комфортна атмосфера</strong> — турбота про ваш психологічний комфорт.</p>
         </div>
-        <a href="#gallery" class="surgery-center-cta">ГАЛЕРЕЯ ЗАСТОСУВАННЯ <span>|→</span></a>
+        <a href="/gallery" class="surgery-center-cta">ГАЛЕРЕЯ <span>|→</span></a>
     </div>
 </section>
 
 <!-- Gallery Section (using Meet The Surgeons structure) -->
 <section id="gallery" class="meet-surgeons-section">
     <div class="meet-surgeons-content">
-        <h2 class="meet-surgeons-title">ГАЛЕРЕЯ<br>ЗАСТОСУВАННЯ</h2>
+        <h2 class="meet-surgeons-title">НАПРЯМКИ<br>ЛІКУВАННЯ</h2>
         <div class="surgeons-grid">
             <div class="surgeon-item">
-                <h3 class="surgeon-name">ПАНЕЛІ ДЛЯ КУХНІ</h3>
-                <p class="surgeon-specialty">Створення затишної атмосфери та функціонального освітлення робочої зони</p>
+                <h3 class="surgeon-name">ОБСТЕЖЕННЯ ТА ДІАГНОСТИКА</h3>
+                <p class="surgeon-specialty">Комплексне обстеження для виявлення причин захворювань</p>
             </div>
             <div class="surgeon-item">
-                <h3 class="surgeon-name">ПАНЕЛІ ДЛЯ ВАННОЇ</h3>
-                <p class="surgeon-specialty">Елегантність та релаксуюча атмосфера для вашого відпочинку</p>
+                <h3 class="surgeon-name">ОПЕРАТИВНІ ВТРУЧАННЯ</h3>
+                <p class="surgeon-specialty">Хірургічне лікування з використанням малоінвазивних технологій</p>
             </div>
             <div class="surgeon-item">
-                <h3 class="surgeon-name">ПАНЕЛІ ДЛЯ ВІТАЛЬНІ</h3>
-                <p class="surgeon-specialty">Сучасний дизайн та затишок для вашої родини</p>
+                <h3 class="surgeon-name">ПЛАСТИЧНА РЕКОНСТРУКТИВНА ХІРУРГІЯ</h3>
+                <p class="surgeon-specialty">Відновлення функцій та естетичного вигляду органів</p>
             </div>
             <div class="surgeon-item">
-                <h3 class="surgeon-name">ПАНЕЛІ ДЛЯ ОФІСУ</h3>
-                <p class="surgeon-specialty">Сучасний корпоративний інтер'єр з динамічним освітленням</p>
+                <h3 class="surgeon-name">КОНСЕРВАТИВНЕ ЛІКУВАННЯ</h3>
+                <p class="surgeon-specialty">Терапевтичні методи без хірургічних втручань</p>
             </div>
         </div>
     </div>
@@ -90,67 +87,67 @@ get_header();
 <section class="concierge-services-section section-padding">
     <div class="container">
         <div class="concierge-header">
-            <p class="concierge-label">РЕАЛІЗОВАНІ ПРОЕКТИ</p>
-            <h2 class="concierge-title">НАШІ<br>КЕЙСИ</h2>
+            <p class="concierge-label">РЕАЛІЗОВАНІ КЕЙСИ</p>
+            <h2 class="concierge-title">НАШІ<br>РЕЗУЛЬТАТИ</h2>
         </div>
         <div class="concierge-grid">
             <div class="concierge-item-wrapper">
                 <div class="concierge-item concierge-item-default">
                     <div class="concierge-item-bg">
-                        <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/images/light-panels/case1-before.jpg" alt="Кейс 1 - До" loading="lazy">
+                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/gallery/facelift-1-before.jpg" alt="Кейс 1 - До" loading="lazy">
                     </div>
                     <div class="concierge-item-content">
-                        <h3 class="concierge-item-title">КУХНЯ, КИЇВ</h3>
-                        <p class="concierge-item-description">Створення сучасного освітлення з акцентом на зону робочого столу</p>
+                        <h3 class="concierge-item-title">РЕКОНСТРУКТИВНА ХІРУРГІЯ</h3>
+                        <p class="concierge-item-description">Повне відновлення функцій та зовнішнього вигляду</p>
                     </div>
                 </div>
                 <div class="concierge-item concierge-item-hover">
                     <div class="concierge-item-content-hover">
-                        <h3 class="concierge-item-title">КУХНЯ, КИЇВ</h3>
-                        <p class="concierge-item-description">Затишна атмосфера та функціональне освітлення робочої зони</p>
+                        <h3 class="concierge-item-title">РЕЗУЛЬТАТ</h3>
+                        <p class="concierge-item-description">Успішне відновлення з повним поверненням функціональності</p>
                     </div>
                     <div class="concierge-item-bg-hover">
-                        <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/images/light-panels/case1-after.jpg" alt="Кейс 1 - Після" loading="lazy">
+                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/gallery/facelift-1-after.jpg" alt="Кейс 1 - Після" loading="lazy">
                     </div>
                 </div>
             </div>
             <div class="concierge-item-wrapper">
                 <div class="concierge-item concierge-item-default">
                     <div class="concierge-item-bg">
-                        <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/images/light-panels/case2-before.jpg" alt="Кейс 2 - До" loading="lazy">
+                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/gallery/rhinoplasty-1-before.jpg" alt="Кейс 2 - До" loading="lazy">
                     </div>
                     <div class="concierge-item-content">
-                        <h3 class="concierge-item-title">ВАННА, ЛЬВІВ</h3>
-                        <p class="concierge-item-description">Додавання елегантності та створення релаксуючої атмосфери</p>
+                        <h3 class="concierge-item-title">МАЛОІНВАЗИВНІ ТЕХНОЛОГІЇ</h3>
+                        <p class="concierge-item-description">Мінімальне втручання при максимальній ефективності</p>
                     </div>
                 </div>
                 <div class="concierge-item concierge-item-hover">
                     <div class="concierge-item-content-hover">
-                        <h3 class="concierge-item-title">ВАННА, ЛЬВІВ</h3>
-                        <p class="concierge-item-description">Престижний вигляд та комфортне освітлення</p>
+                        <h3 class="concierge-item-title">РЕЗУЛЬТАТ</h3>
+                        <p class="concierge-item-description">Відмінний результат з мінімальним періодом відновлення</p>
                     </div>
                     <div class="concierge-item-bg-hover">
-                        <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/images/light-panels/case2-after.jpg" alt="Кейс 2 - Після" loading="lazy">
+                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/gallery/rhinoplasty-1-after.jpg" alt="Кейс 2 - Після" loading="lazy">
                     </div>
                 </div>
             </div>
             <div class="concierge-item-wrapper">
                 <div class="concierge-item concierge-item-default">
                     <div class="concierge-item-bg">
-                        <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/images/light-panels/case3-before.jpg" alt="Кейс 3 - До" loading="lazy">
+                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/gallery/browlift-1-before.jpg" alt="Кейс 3 - До" loading="lazy">
                     </div>
                     <div class="concierge-item-content">
-                        <h3 class="concierge-item-title">ОФІС, ОДЕСА</h3>
-                        <p class="concierge-item-description">Створення сучасного корпоративного інтер'єру</p>
+                        <h3 class="concierge-item-title">КОМПЛЕКСНЕ ЛІКУВАННЯ</h3>
+                        <p class="concierge-item-description">Індивідуальний підхід до кожного пацієнта</p>
                     </div>
                 </div>
                 <div class="concierge-item concierge-item-hover">
                     <div class="concierge-item-content-hover">
-                        <h3 class="concierge-item-title">ОФІС, ОДЕСА</h3>
-                        <p class="concierge-item-description">Сучасний офіс з динамічним освітленням</p>
+                        <h3 class="concierge-item-title">РЕЗУЛЬТАТ</h3>
+                        <p class="concierge-item-description">Повне відновлення здоров'я та якості життя</p>
                     </div>
                     <div class="concierge-item-bg-hover">
-                        <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/images/light-panels/case3-after.jpg" alt="Кейс 3 - Після" loading="lazy">
+                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/gallery/browlift-1-after.jpg" alt="Кейс 3 - Після" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -162,18 +159,8 @@ get_header();
 <section id="contact" class="schedule-consultation-section">
     <div class="schedule-consultation-bg"></div>
     <div class="schedule-consultation-content">
-        <h2 class="schedule-consultation-title">ОТРИМАТИ КОНСУЛЬТАЦІЮ</h2>
-        <a href="#contact-form" class="schedule-consultation-cta">ЗВ'ЯЗАТИСЯ З НАМИ</a>
-    </div>
-</section>
-
-<!-- Contact Form Section (using Instagram Feed structure) -->
-<section id="contact-form" class="instagram-feed-section">
-    <div class="instagram-feed-content">
-        <h2 class="instagram-feed-title">ЗАЛИШТЕ<br>ЗАЯВКУ</h2>
-        <div style="max-width: 600px; margin: 0 auto; padding: 40px;">
-            <?php echo do_shortcode('[contact-form-7 id="1" title="Contact Form"]'); ?>
-        </div>
+        <h2 class="schedule-consultation-title">ЗАПИСАТИСЬ НА КОНСУЛЬТАЦІЮ</h2>
+        <a href="/contact" class="schedule-consultation-cta">ЗВ'ЯЗАТИСЯ З НАМИ</a>
     </div>
 </section>
 
