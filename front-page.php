@@ -65,8 +65,8 @@ get_header();
         <h2 class="meet-surgeons-title">ОБСТЕЖЕННЯ<br>ТА ЛІКУВАННЯ</h2>
         <div class="diagnostics-content">
             <div class="diagnostics-text">
-                <p>Чоловіче здоров'я починається з правильного способу життя та регулярних чекапів. На консультації я не призначаю лікування "про всяк випадок". Спочатку — діагностика, аналіз способу життя, пошук причини і вже потім діалог та прийняття рішень.</p>
-                <p>Мій підхід простий: мінімум непотрібних втручань — максимум доказової медицини та турботи про якість життя. Якщо проблему можна вирішити корекцією звичок, консервативним лікуванням чи зміною поведінкових факторів — ми починаємо саме з цього. Моє завдання — повернути здоров'я і впевненість без зайвого стресу і без зайвих процедур.</p>
+                <p>Чоловіче здоров'я починається з правильного способу життя та регулярних чекапів. Спочатку — діагностика, потім — діалог та прийняття рішень.</p>
+                <p>Мінімум непотрібних втручань — максимум доказової медицини. Якщо проблему можна вирішити корекцією звичок — ми починаємо з цього.</p>
             </div>
         </div>
     </div>
@@ -87,13 +87,13 @@ get_header();
                     </div>
                     <div class="concierge-item-content">
                         <h3 class="concierge-item-title">РЕКОНСТРУКТИВНА ХІРУРГІЯ</h3>
-                        <p class="concierge-item-description">Повне відновлення функцій та зовнішнього вигляду</p>
+                        <p class="concierge-item-description">Відновлення функцій</p>
                     </div>
                 </div>
                 <div class="concierge-item concierge-item-hover">
                     <div class="concierge-item-content-hover">
                         <h3 class="concierge-item-title">РЕЗУЛЬТАТ</h3>
-                        <p class="concierge-item-description">Успішне відновлення з повним поверненням функціональності</p>
+                        <p class="concierge-item-description">Успішне відновлення</p>
                     </div>
                     <div class="concierge-item-bg-hover">
                         <img decoding="async" src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=800&h=600&fit=crop" alt="Реконструктивна хірургія - Після" loading="lazy">
@@ -107,13 +107,13 @@ get_header();
                     </div>
                     <div class="concierge-item-content">
                         <h3 class="concierge-item-title">МАЛОІНВАЗИВНІ ТЕХНОЛОГІЇ</h3>
-                        <p class="concierge-item-description">Мінімальне втручання при максимальній ефективності</p>
+                        <p class="concierge-item-description">Мінімальне втручання</p>
                     </div>
                 </div>
                 <div class="concierge-item concierge-item-hover">
                     <div class="concierge-item-content-hover">
                         <h3 class="concierge-item-title">РЕЗУЛЬТАТ</h3>
-                        <p class="concierge-item-description">Відмінний результат з мінімальним періодом відновлення</p>
+                        <p class="concierge-item-description">Відмінний результат</p>
                     </div>
                     <div class="concierge-item-bg-hover">
                         <img decoding="async" src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=800&h=600&fit=crop" alt="Малоінвазивні технології - Після" loading="lazy">
@@ -127,13 +127,13 @@ get_header();
                     </div>
                     <div class="concierge-item-content">
                         <h3 class="concierge-item-title">КОМПЛЕКСНЕ ЛІКУВАННЯ</h3>
-                        <p class="concierge-item-description">Індивідуальний підхід до кожного пацієнта</p>
+                        <p class="concierge-item-description">Індивідуальний підхід</p>
                     </div>
                 </div>
                 <div class="concierge-item concierge-item-hover">
                     <div class="concierge-item-content-hover">
                         <h3 class="concierge-item-title">РЕЗУЛЬТАТ</h3>
-                        <p class="concierge-item-description">Повне відновлення здоров'я та якості життя</p>
+                        <p class="concierge-item-description">Повне відновлення</p>
                     </div>
                     <div class="concierge-item-bg-hover">
                         <img decoding="async" src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&h=600&fit=crop" alt="Комплексне лікування - Після" loading="lazy">
