@@ -1,5 +1,5 @@
 /**
- * Dr. Rosenberg Clinic - Main JavaScript
+ * Light Panels Theme - Main JavaScript
  */
 
 (function() {
