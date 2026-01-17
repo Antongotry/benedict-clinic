@@ -1,6 +1,6 @@
 <?php
 /**
- * Dr. Rosenberg Clinic Theme Functions
+ * Light Panels Theme Functions
  */
 
 // Prevent direct access
