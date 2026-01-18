@@ -288,6 +288,37 @@ body.overlay-open .header.container--full-width-padding {
     color: var(--color-dark) !important;
 }
 
+/* Хедер на странице "Про лікаря" - черные элементы по умолчанию */
+.page-template-template-about-doctor .header.container--full-width-padding:not(.is-solid) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.page-template-template-about-doctor .header.container--full-width-padding:not(.is-solid) .header-item {
+    color: var(--color-dark);
+}
+
+.page-template-template-about-doctor .header.container--full-width-padding:not(.is-solid) .header-item:hover {
+    color: var(--color-grey);
+}
+
+.page-template-template-about-doctor .header.container--full-width-padding:not(.is-solid) .header-brand-name {
+    color: var(--color-dark) !important;
+    text-shadow: none;
+}
+
+.page-template-template-about-doctor .header.container--full-width-padding:not(.is-solid) .header-brand-subtitle {
+    color: var(--color-dark) !important;
+    opacity: 0.8;
+}
+
+.page-template-template-about-doctor .header.container--full-width-padding:not(.is-solid) .menu-text {
+    color: var(--color-dark);
+}
+
+.page-template-template-about-doctor .header.container--full-width-padding:not(.is-solid) .hamburger-line {
+    background-color: var(--color-dark);
+}
+
 /* Хедер перекрывает первый блок (без отступа сверху у контента) */
 .site-content {
     margin: 0 !important;
