@@ -1193,10 +1193,17 @@ body.overlay-open .header.container--full-width-padding {
     padding: 0;
 }
 
-/* Hide default Swiper navigation arrows */
-.certificates-swiper .swiper-button-next,
-.certificates-swiper .swiper-button-prev {
+/* Hide ALL default Swiper navigation arrows */
+.certificates-section .swiper-button-next:not(.certificates-button-next),
+.certificates-section .swiper-button-prev:not(.certificates-button-prev),
+.certificates-swiper .swiper-button-next:not(.certificates-button-next),
+.certificates-swiper .swiper-button-prev:not(.certificates-button-prev),
+.certificates-slider-wrapper .swiper-button-next:not(.certificates-button-next),
+.certificates-slider-wrapper .swiper-button-prev:not(.certificates-button-prev) {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 .certificates-button-wrapper {
@@ -1209,64 +1216,76 @@ body.overlay-open .header.container--full-width-padding {
 
 .certificates-button-next,
 .certificates-button-prev {
-    width: 60px;
-    height: 60px;
-    margin: 0;
-    top: auto;
-    bottom: 0;
-    left: auto;
-    right: auto;
-    transform: none;
-    position: relative;
-    color: var(--color-white);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.8;
+    width: 50px !important;
+    height: 50px !important;
+    margin: 0 !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    position: relative !important;
+    background: #e5e5e5 !important;
+    border: none !important;
+    border-radius: 50% !important;
+    transition: background-color 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    outline: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
 }
 
 .certificates-button-next::after,
 .certificates-button-prev::after {
-    content: '';
-    font-size: 0;
-    width: 0;
-    height: 0;
+    display: none !important;
+    content: '' !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: none !important;
 }
 
 .certificates-button-next::before,
 .certificates-button-prev::before {
-    content: '→';
-    font-family: var(--font-sans);
-    font-size: 24px;
-    font-weight: 300;
-    color: var(--color-white);
-    line-height: 1;
-    transition: transform 0.3s ease;
+    content: '→' !important;
+    font-family: var(--font-sans) !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    color: #000000 !important;
+    line-height: 1 !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    position: static !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
 }
 
 .certificates-button-prev::before {
-    content: '←';
+    content: '←' !important;
 }
 
 .certificates-button-next:hover,
 .certificates-button-prev:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.4);
-    opacity: 1;
-    transform: scale(1.05);
+    background: #d0d0d0 !important;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
-.certificates-button-next:hover::before {
-    transform: translateX(3px);
-}
-
+.certificates-button-next:hover::before,
 .certificates-button-prev:hover::before {
-    transform: translateX(-3px);
+    transform: none !important;
+    color: #000000 !important;
 }
 
 .certificates-button-next {
@@ -1293,13 +1312,13 @@ body.overlay-open .header.container--full-width-padding {
     
     .certificates-button-next,
     .certificates-button-prev {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
     }
     
     .certificates-button-next::before,
     .certificates-button-prev::before {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
@@ -1330,13 +1349,13 @@ body.overlay-open .header.container--full-width-padding {
     
     .certificates-button-next,
     .certificates-button-prev {
-        width: 45px;
-        height: 45px;
+        width: 40px;
+        height: 40px;
     }
     
     .certificates-button-next::before,
     .certificates-button-prev::before {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
