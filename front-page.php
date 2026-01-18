@@ -23,6 +23,11 @@ get_header();
             <a href="<?php echo home_url('/dr-benedict'); ?>" class="hero-btn hero-btn-secondary">Про лікаря</a>
         </div>
     </div>
+    <a href="#about" class="hero-scroll-indicator" aria-label="Scroll down">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
 </section>
 
 <!-- About Section -->
