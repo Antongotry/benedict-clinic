@@ -3055,54 +3055,36 @@ body.overlay-open .header-menu-btn {
         padding-right: 5vw;
     }
     
-    /* Reorder: image first, then content */
-    .about-doctor-path-inner {
-        display: flex;
-        flex-direction: column;
-        gap: 6vw;
-    }
-    
-    .about-doctor-path-image {
-        order: 1;
-    }
-    
-    .about-doctor-path-content {
-        order: 2;
-    }
-    
-    .about-doctor-surgery-inner {
-        display: flex;
-        flex-direction: column;
-        gap: 6vw;
-    }
-    
-    .about-doctor-surgery-content {
-        order: 2;
-    }
-    
-    .about-doctor-surgery-image {
-        order: 1;
-    }
-    
+    /* Reorder: image first, then content - MOBILE */
+    .about-doctor-path-inner,
+    .about-doctor-surgery-inner,
     .about-doctor-diagnostics-inner {
-        display: flex;
-        flex-direction: column;
-        gap: 6vw;
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: none !important;
+        gap: 6vw !important;
     }
     
+    .about-doctor-path-image,
+    .about-doctor-surgery-image,
     .about-doctor-diagnostics-image {
         order: 1;
+        width: 100%;
     }
     
+    .about-doctor-path-content,
+    .about-doctor-surgery-content,
     .about-doctor-diagnostics-content {
         order: 2;
+        width: 100%;
     }
     
     .about-doctor-path-image img,
     .about-doctor-surgery-image img,
     .about-doctor-diagnostics-image img {
-        width: 100%;
-        height: auto;
+        width: 100% !important;
+        height: auto !important;
+        max-width: none !important;
     }
     
     .about-doctor-path-label {
@@ -3115,27 +3097,22 @@ body.overlay-open .header-menu-btn {
     .about-doctor-diagnostics-title {
         font-size: 7vw;
         line-height: 1.2;
+        margin-bottom: 4vw;
     }
     
-    .about-doctor-path-text p {
-        font-size: 4.2vw;
-        line-height: 1.7;
-    }
-    
-    .about-doctor-surgery-text p {
-        font-size: 4.2vw;
-        line-height: 1.7;
-    }
-    
+    .about-doctor-path-text p,
+    .about-doctor-surgery-text p,
     .about-doctor-diagnostics-text p {
         font-size: 4.2vw;
         line-height: 1.7;
+        margin-bottom: 3vw;
     }
     
     .about-doctor-diagnostics-title {
         white-space: normal;
     }
     
+    .about-doctor-path,
     .about-doctor-surgery,
     .about-doctor-diagnostics {
         padding-bottom: 10vw;
