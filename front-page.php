@@ -556,6 +556,35 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(counter);
     });
 });
+
+// FAQ Accordion
+document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const item = this.parentElement;
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            // Close all other items
+            faqQuestions.forEach(q => {
+                if (q !== this) {
+                    q.setAttribute('aria-expanded', 'false');
+                    q.parentElement.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            if (isExpanded) {
+                this.setAttribute('aria-expanded', 'false');
+                item.classList.remove('active');
+            } else {
+                this.setAttribute('aria-expanded', 'true');
+                item.classList.add('active');
+            }
+        });
+    });
+});
 </script>
 
 <!-- Benefits Section (using Surgery Center structure) -->
