@@ -734,7 +734,7 @@ body.overlay-open .header.container--full-width-padding {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 clamp(20px, 3vw, 40px);
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -746,39 +746,41 @@ body.overlay-open .header.container--full-width-padding {
     display: flex;
     flex-direction: column;
     padding: 0;
-    max-width: 600px;
+    max-width: min(600px, 45vw);
+    width: 100%;
     text-align: center;
     margin: 0 auto;
-    margin-left: calc(28.125vw + 20px);
-    margin-right: calc(28.125vw + 20px);
+    margin-left: max(calc(28.125vw + 20px), 20px);
+    margin-right: max(calc(28.125vw + 20px), 20px);
+    box-sizing: border-box;
 }
 
 .about-label {
-    font-size: 11px;
+    font-size: clamp(9px, 0.8vw, 11px);
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--color-dark);
-    margin-bottom: 25px;
+    margin-bottom: clamp(20px, 2vw, 25px);
     line-height: 1.6;
     font-family: var(--font-sans);
 }
 
 .about-name {
     font-family: var(--font-serif);
-    font-size: 42px;
+    font-size: clamp(28px, 3vw, 42px);
     font-weight: 400;
     letter-spacing: 0.5px;
     color: var(--color-dark);
-    margin-bottom: 40px;
+    margin-bottom: clamp(30px, 3vw, 40px);
     line-height: 1.1;
 }
 
 .about-services {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    margin-bottom: 40px;
+    gap: clamp(25px, 2.5vw, 30px);
+    margin-bottom: clamp(30px, 3vw, 40px);
 }
 
 .about-service-item {
@@ -788,16 +790,16 @@ body.overlay-open .header.container--full-width-padding {
 
 .about-service-title {
     font-family: var(--font-sans);
-    font-size: 16px;
+    font-size: clamp(14px, 1.2vw, 16px);
     font-weight: 400;
     letter-spacing: 0.5px;
     color: var(--color-dark);
-    margin-bottom: 12px;
+    margin-bottom: clamp(10px, 1vw, 12px);
     line-height: 1.4;
 }
 
 .about-service-text {
-    font-size: 13px;
+    font-size: clamp(12px, 0.9vw, 13px);
     line-height: 1.7;
     color: var(--color-dark);
     font-family: var(--font-sans);
@@ -1576,10 +1578,7 @@ body.overlay-open .header.container--full-width-padding {
         width: 100%;
         margin-left: 0;
         margin-right: 0;
-        padding: 0;
-    }
-    
-    .about-content {
+        padding: 0 20px;
         box-sizing: border-box;
         text-align: center;
     }
@@ -1597,25 +1596,25 @@ body.overlay-open .header.container--full-width-padding {
     }
     
     .about-name {
-        font-size: 32px;
+        font-size: clamp(24px, 6vw, 32px);
     }
     
     .about-label {
-        font-size: 9px;
+        font-size: clamp(9px, 2vw, 11px);
     }
     
     .about-services {
-        gap: 25px;
-        margin-bottom: 30px;
+        gap: clamp(20px, 4vw, 25px);
+        margin-bottom: clamp(25px, 5vw, 30px);
     }
     
     .about-service-title {
-        font-size: 15px;
-        margin-bottom: 10px;
+        font-size: clamp(14px, 3vw, 15px);
+        margin-bottom: clamp(8px, 2vw, 10px);
     }
     
     .about-service-text {
-        font-size: 12px;
+        font-size: clamp(11px, 2.5vw, 12px);
         line-height: 1.6;
     }
     
