@@ -3782,11 +3782,11 @@ body.overlay-open .header-menu-btn {
     font-size: 28px;
     font-weight: 700;
     color: var(--color-dark);
-    background: rgba(0, 0, 0, 0.05);
+    background: transparent;
     padding: 12px 24px;
     letter-spacing: 0;
     text-transform: none;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: none;
 }
 
 .pricing-card-desc {
