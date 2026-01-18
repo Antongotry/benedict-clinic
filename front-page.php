@@ -18,6 +18,15 @@ get_header();
     <div class="hero-video-content">
         <h1 class="hero-video-title">DR. BENEDICT</h1>
         <p class="hero-video-subtitle">лікар уролог, засновник benedict clinic</p>
+        <div class="hero-video-info">
+            <p class="hero-video-role">Лікар-уролог</p>
+            <p class="hero-video-evidence">Доказова медицина<br>для чоловіків та жінок</p>
+            <p class="hero-video-description">Індивідуальний підхід до кожного пацієнта. Точна діагностика, ефективне лікування та сучасні методи хірургії – від сечокам'яної хвороби до онкоурології та реконструктивних операцій</p>
+        </div>
+        <div class="hero-video-buttons">
+            <a href="#contact" class="hero-btn hero-btn-primary">Записатись на консультацію</a>
+            <a href="<?php echo home_url('/dr-benedict'); ?>" class="hero-btn hero-btn-secondary">Про лікаря</a>
+        </div>
     </div>
 </section>
 

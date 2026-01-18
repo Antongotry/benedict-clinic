@@ -64,6 +64,18 @@ function rosenberg_enqueue_scripts() {
     // Main theme stylesheet
     wp_enqueue_style('rosenberg-theme-style', get_template_directory_uri() . '/assets/css/theme.css', array(), time());
     
+    // Menu overlay styles
+    wp_enqueue_style('rosenberg-menu-overlay', get_template_directory_uri() . '/assets/css/menu-overlay.css', array('rosenberg-theme-style'), time());
+    
+    // Hero block styles
+    wp_enqueue_style('rosenberg-hero-styles', get_template_directory_uri() . '/assets/css/hero-styles.css', array('rosenberg-theme-style'), time());
+    
+    // Lenis Smooth Scroll
+    wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js', array(), '1.0.27', false);
+    
+    // Lenis initialization
+    wp_enqueue_script('rosenberg-lenis', get_template_directory_uri() . '/assets/js/lenis-init.js', array('lenis'), time(), true);
+    
     // Overlay menu JavaScript
     wp_enqueue_script('rosenberg-overlay-menu', get_template_directory_uri() . '/assets/js/overlay-menu.js', array(), time(), true);
     
