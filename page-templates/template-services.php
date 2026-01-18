@@ -179,28 +179,38 @@ get_header();
         <div class="services-page-process-grid">
             <div class="services-process-step">
                 <span class="services-process-number">01</span>
-                <h3>Консультація</h3>
-                <p>Детальний збір анамнезу, огляд та обговорення ваших скарг і побажань</p>
+                <div class="services-process-content">
+                    <h3>Консультація</h3>
+                    <p>Детальний збір анамнезу, огляд та обговорення ваших скарг і побажань</p>
+                </div>
             </div>
             <div class="services-process-step">
                 <span class="services-process-number">02</span>
-                <h3>Діагностика</h3>
-                <p>Проведення необхідних обстежень: УЗД, аналізи, інструментальні дослідження</p>
+                <div class="services-process-content">
+                    <h3>Діагностика</h3>
+                    <p>Проведення необхідних обстежень: УЗД, аналізи, інструментальні дослідження</p>
+                </div>
             </div>
             <div class="services-process-step">
                 <span class="services-process-number">03</span>
-                <h3>План лікування</h3>
-                <p>Розробка індивідуальної стратегії з урахуванням особливостей вашого організму</p>
+                <div class="services-process-content">
+                    <h3>План лікування</h3>
+                    <p>Розробка індивідуальної стратегії з урахуванням особливостей вашого організму</p>
+                </div>
             </div>
             <div class="services-process-step">
                 <span class="services-process-number">04</span>
-                <h3>Лікування</h3>
-                <p>Проведення терапії або операції з використанням сучасних методів</p>
+                <div class="services-process-content">
+                    <h3>Лікування</h3>
+                    <p>Проведення терапії або операції з використанням сучасних методів</p>
+                </div>
             </div>
             <div class="services-process-step">
                 <span class="services-process-number">05</span>
-                <h3>Супровід</h3>
-                <p>Контроль результатів, корекція терапії та підтримка на етапі відновлення</p>
+                <div class="services-process-content">
+                    <h3>Супровід</h3>
+                    <p>Контроль результатів, корекція терапії та підтримка на етапі відновлення</p>
+                </div>
             </div>
         </div>
     </div>

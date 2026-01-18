@@ -6958,7 +6958,7 @@ body.overlay-open .header-menu-btn {
     opacity: 0.3;
 }
 
-.services-process-step h3 {
+.services-process-content h3 {
     font-family: var(--font-sans);
     font-size: 16px;
     font-weight: 500;
@@ -6968,7 +6968,7 @@ body.overlay-open .header-menu-btn {
     letter-spacing: 1px;
 }
 
-.services-process-step p {
+.services-process-content p {
     font-family: var(--font-sans);
     font-size: 14px;
     font-weight: 300;
@@ -7114,51 +7114,63 @@ body.overlay-open .header-menu-btn {
     }
     
     .services-page-process {
-        padding: 60px 5vw;
+        padding: 15vw 5vw;
+        background-color: #000000;
     }
     
     .services-page-process-title {
-        font-size: 7vw;
-        margin-bottom: 10vw;
+        font-size: 8vw;
+        margin-bottom: 12vw;
+        color: #ffffff;
     }
     
     .services-page-process-grid {
         display: flex;
         flex-direction: column;
-        gap: 8vw;
+        gap: 0;
     }
     
     .services-process-step {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        gap: 5vw;
+        gap: 6vw;
         text-align: left;
-        padding-bottom: 8vw;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding: 8vw 0;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    
+    .services-process-step::after {
+        display: none;
     }
     
     .services-process-step:last-child {
         border-bottom: none;
-        padding-bottom: 0;
     }
     
     .services-process-number {
-        font-size: 10vw;
+        font-size: 12vw;
         line-height: 1;
         margin-bottom: 0;
         flex-shrink: 0;
-        width: 15vw;
+        color: #ffffff;
+        opacity: 0.4;
     }
     
-    .services-process-step h3 {
-        font-size: 4.5vw;
+    .services-process-content {
+        flex: 1;
+    }
+    
+    .services-process-content h3 {
+        font-size: 5vw;
         margin-bottom: 3vw;
+        color: #ffffff;
     }
     
-    .services-process-step p {
+    .services-process-content p {
         font-size: 4vw;
-        line-height: 1.6;
+        line-height: 1.7;
+        color: rgba(255,255,255,0.7);
     }
     
     .services-page-cta {
