@@ -4501,6 +4501,16 @@ body.overlay-open .header-menu-btn {
     font-weight: 500;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+    background-color: #000;
+    color: var(--color-white);
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.consultation-modal-submit:hover {
+    background-color: #111;
 }
 
 .consultation-modal-success {
