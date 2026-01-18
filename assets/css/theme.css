@@ -4673,9 +4673,7 @@ body.overlay-open .header-menu-btn {
 }
 
 .contacts-info {
-    /* Sticky handled by GSAP ScrollTrigger */
     align-self: start;
-    height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 30px;
