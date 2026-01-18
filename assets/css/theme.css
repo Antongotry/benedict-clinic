@@ -5442,6 +5442,8 @@ body.overlay-open .header-menu-btn {
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 5;
 }
 
 .error-404-btn {
@@ -5454,6 +5456,9 @@ body.overlay-open .header-menu-btn {
     padding: 16px 35px;
     transition: all 0.3s ease;
     display: inline-block;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
 }
 
 .error-404-btn-primary {
