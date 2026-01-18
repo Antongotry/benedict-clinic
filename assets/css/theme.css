@@ -4307,6 +4307,14 @@ body.overlay-open .header-menu-btn {
     .faq-image {
         height: 50vh;
         min-height: 400px;
+        padding: 0;
+    }
+    
+    .faq-image img {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        object-fit: cover;
     }
     
     .faq-content {
