@@ -416,11 +416,14 @@ body.overlay-open .header.container--full-width-padding {
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.4s ease, visibility 0.4s ease;
+    overflow: hidden;
 }
 
 .overlay-menu.active {
     visibility: visible;
     opacity: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .overlay-background {
@@ -448,7 +451,7 @@ body.overlay-open .header.container--full-width-padding {
 .overlay-content {
     position: relative;
     z-index: 2;
-    height: 100%;
+    min-height: 100%;
     width: 100%;
     max-width: 100% !important;
     margin: 0;
@@ -2423,6 +2426,8 @@ body.overlay-open .header.container--full-width-padding {
     
     .hero-video-section {
         width: 100vw;
+        height: 100svh;
+        min-height: 100svh;
     }
     
     .hero-video-content {
