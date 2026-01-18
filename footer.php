@@ -37,7 +37,7 @@
     <!-- Secondary Footer -->
     <div class="secondary-footer">
         <div class="secondary-footer-container container--md">
-            <p class="footer-copyright">© 2025 Dr. Benedict Urology</p>
+            <p class="footer-copyright">Copyright © 2026. Benedikt.com | Doktor Benedikt</p>
             <p class="footer-credit">Дизайн і розробка <a href="https://t.me/notarikon" target="_blank" rel="noopener noreferrer">AntonGotry</a></p>
         </div>
     </div>
