@@ -927,8 +927,17 @@ body.overlay-open .header.container--full-width-padding {
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--color-dark);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     line-height: 1.6;
+}
+
+.services-title {
+    font-family: var(--font-serif);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 400;
+    color: var(--color-dark);
+    margin-bottom: 25px;
+    line-height: 1.2;
 }
 
 .services-subtitle {
