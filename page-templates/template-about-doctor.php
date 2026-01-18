@@ -247,13 +247,133 @@ get_header();
     <div class="schedule-consultation-about-overlay"></div>
     <div class="schedule-consultation-about-content">
         <h2 class="schedule-consultation-about-title">Заплануйте свою консультацію</h2>
-        <a href="#contact" class="schedule-consultation-about-button" data-consultation-open>
+        <a href="#" class="schedule-consultation-about-button" data-consultation-open>
             Зв'яжіться зі мною
         </a>
     </div>
 </section>
 
+<!-- Consultation Modal -->
+<div class="consultation-modal" id="consultation-modal" aria-hidden="true">
+    <div class="consultation-modal-backdrop" data-consultation-close></div>
+    <div class="consultation-modal-content" role="dialog" aria-modal="true" aria-labelledby="consultation-modal-title">
+        <button class="consultation-modal-close" type="button" aria-label="Закрити" data-consultation-close></button>
+        <div class="consultation-modal-header">
+            <h3 class="consultation-modal-title" id="consultation-modal-title">Записатись на прийом</h3>
+        </div>
+        <form class="consultation-modal-form" id="consultation-modal-form">
+            <label class="consultation-modal-field">
+                <span>ПІБ</span>
+                <input type="text" name="name" required placeholder="Введіть ваше повне ім'я">
+            </label>
+            <label class="consultation-modal-field">
+                <span>Телефон</span>
+                <input type="tel" name="phone" required placeholder="+380 XX XXX XX XX">
+            </label>
+            <button class="consultation-modal-submit btn-primary" type="submit">Зателефонувати мені</button>
+        </form>
+        <div class="consultation-modal-success" id="consultation-modal-success" hidden>
+            <h4>Дякуємо!</h4>
+            <p>Ваша заявка прийнята. Ми звʼяжемось з вами найближчим часом для підтвердження запису.</p>
+        </div>
+    </div>
+</div>
+
 <script>
+// Consultation Modal
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('consultation-modal');
+    const modalForm = document.getElementById('consultation-modal-form');
+    const modalSuccess = document.getElementById('consultation-modal-success');
+    const openBtns = document.querySelectorAll('[data-consultation-open]');
+    const closeBtns = document.querySelectorAll('[data-consultation-close]');
+    
+    if (!modal) return;
+    
+    function openModal(e) {
+        e.preventDefault();
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        modalForm.reset();
+        modalForm.hidden = false;
+        modalSuccess.hidden = true;
+    }
+    
+    function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+    
+    openBtns.forEach(btn => {
+        btn.addEventListener('click', openModal);
+    });
+    
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', closeModal);
+    });
+    
+    // Close on backdrop click
+    if (modal.querySelector('.consultation-modal-backdrop')) {
+        modal.querySelector('.consultation-modal-backdrop').addEventListener('click', closeModal);
+    }
+    
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+    
+    // Handle form submission
+    if (modalForm) {
+        const consultSubmitBtn = modalForm.querySelector('button[type="submit"]');
+        
+        modalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (consultSubmitBtn) {
+                consultSubmitBtn.disabled = true;
+                consultSubmitBtn.textContent = 'Відправка...';
+            }
+            
+            const formData = new FormData(modalForm);
+            formData.append('action', 'rosenberg_form_submission');
+            formData.append('nonce', rosenbergAjax.nonce);
+            formData.append('form_id', 'consultation-modal-form');
+            
+            fetch(rosenbergAjax.ajaxurl, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    modalForm.hidden = true;
+                    modalSuccess.hidden = false;
+                    setTimeout(closeModal, 3000);
+                } else {
+                    alert(data.data || 'Помилка відправки');
+                    if (consultSubmitBtn) {
+                        consultSubmitBtn.disabled = false;
+                        consultSubmitBtn.textContent = 'Зателефонувати мені';
+                    }
+                }
+            })
+            .catch(() => {
+                alert('Виникла помилка при відправці форми.');
+                if (consultSubmitBtn) {
+                    consultSubmitBtn.disabled = false;
+                    consultSubmitBtn.textContent = 'Зателефонувати мені';
+                }
+            });
+        });
+    }
+});
+
+// Experience Tabs
+document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const tabBtns = document.querySelectorAll('.experience-tab-btn');
     const tabPanels = document.querySelectorAll('.experience-tab-panel');

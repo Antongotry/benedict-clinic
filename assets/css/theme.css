@@ -3722,19 +3722,19 @@ body.overlay-open .header-menu-btn {
     font-family: var(--font-sans);
     font-size: clamp(14px, 1.042vw, 20px);
     font-weight: 400;
-    color: #000000;
+    color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background-color: #ffffff;
-    border: 1px solid #000000;
+    background-color: transparent;
+    border: 1px solid #ffffff;
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .schedule-consultation-about-button:hover {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 .schedule-consultation-about-button::after {
