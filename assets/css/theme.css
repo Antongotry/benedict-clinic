@@ -5541,3 +5541,326 @@ body.overlay-open .header-menu-btn {
         font-size: 20px;
     }
 }
+
+/* ===================================
+   Contact Page Styles
+   =================================== */
+
+.contact-page-hero {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: var(--color-dark);
+    padding: 120px 40px 80px;
+}
+
+.contact-page-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/low-angle-view-buildings-against-sky-dusk_result-scaled.webp');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.25) grayscale(30%);
+    z-index: 1;
+}
+
+.contact-page-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+}
+
+.contact-page-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 20px;
+}
+
+.contact-page-title {
+    font-family: var(--font-serif);
+    font-size: 56px;
+    font-weight: 300;
+    color: var(--color-white);
+    margin: 0 0 20px 0;
+    letter-spacing: 1px;
+}
+
+.contact-page-subtitle {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.contact-page-main {
+    padding: 80px 0;
+    background: var(--color-white);
+}
+
+.contact-page-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.contact-page-info-title,
+.contact-page-form-title {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--color-dark);
+    margin: 0 0 35px 0;
+}
+
+.contact-page-items {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contact-page-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: border-color 0.3s ease;
+}
+
+.contact-page-item:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.contact-page-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-dark);
+    color: var(--color-white);
+    flex-shrink: 0;
+}
+
+.contact-page-item-content {
+    flex: 1;
+}
+
+.contact-page-item-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-grey);
+    margin-bottom: 8px;
+}
+
+.contact-page-item-value {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-dark);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.contact-page-item-note {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--color-grey);
+    margin: 5px 0 0 0;
+}
+
+.contact-page-link {
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    display: inline-block;
+}
+
+.contact-page-link:hover {
+    opacity: 0.7;
+}
+
+.contact-page-form-wrapper {
+    background: #f8f8f8;
+    padding: 40px;
+}
+
+.contact-page-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-page-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.contact-page-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-page-field span {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: var(--color-dark);
+    text-transform: uppercase;
+}
+
+.contact-page-field input,
+.contact-page-field textarea {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    padding: 14px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: var(--color-white);
+    transition: border-color 0.3s ease;
+    outline: none;
+}
+
+.contact-page-field input:focus,
+.contact-page-field textarea:focus {
+    border-color: var(--color-dark);
+}
+
+.contact-page-field textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-page-submit {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    background: var(--color-dark);
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    align-self: flex-start;
+}
+
+.contact-page-submit:hover {
+    opacity: 0.85;
+}
+
+.contact-page-success {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.contact-page-success h4 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--color-dark);
+    margin: 0 0 15px 0;
+}
+
+.contact-page-success p {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--color-grey);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.contact-page-map {
+    width: 100%;
+    line-height: 0;
+}
+
+.contact-page-map iframe {
+    width: 100%;
+    height: 500px;
+    border: 0;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+}
+
+.contact-page-map iframe:hover {
+    filter: grayscale(0%);
+}
+
+@media (max-width: 1024px) {
+    .contact-page-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-page-hero {
+        min-height: 40vh;
+        padding: 100px 20px 60px;
+    }
+    
+    .contact-page-title {
+        font-size: 36px;
+    }
+    
+    .contact-page-subtitle {
+        font-size: 14px;
+    }
+    
+    .contact-page-main {
+        padding: 50px 0;
+    }
+    
+    .contact-page-info-title,
+    .contact-page-form-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+    
+    .contact-page-form-wrapper {
+        padding: 30px 20px;
+    }
+    
+    .contact-page-form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-page-item {
+        padding: 20px;
+    }
+    
+    .contact-page-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .contact-page-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .contact-page-map iframe {
+        height: 350px;
+    }
+}
