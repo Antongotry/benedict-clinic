@@ -26,10 +26,10 @@
             <div class="footer-contact-section">
                 <p class="footer-phone"><a href="tel:+380951344029">+38 095 13 44 029</a></p>
                 <p class="footer-address">Київ, вул. Олеся Бердника, 1Д</p>
-                <div class="footer-logo">
+                <a href="<?php echo home_url('/'); ?>" class="footer-logo">
                     <span class="footer-logo-text">DR. BENEDICT</span>
                     <span class="footer-logo-sub">UROLOGY</span>
-                </div>
+                </a>
             </div>
         </div>
     </div>

@@ -2677,6 +2677,12 @@ body.overlay-open .header-menu-btn {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-logo:hover {
+    opacity: 0.8;
 }
 
 .footer-logo-text {
