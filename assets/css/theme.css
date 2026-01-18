@@ -4734,6 +4734,8 @@ body.overlay-open .header-menu-btn {
 }
 
 .contacts-info {
+    position: sticky;
+    top: 120px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -4743,6 +4745,25 @@ body.overlay-open .header-menu-btn {
     padding: 24px;
     border: 1px solid rgba(0, 0, 0, 0.08);
     background: var(--color-white);
+}
+
+.contacts-item-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.contacts-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-dark);
+    flex-shrink: 0;
 }
 
 .contacts-label {
@@ -4917,6 +4938,10 @@ body.overlay-open .header-menu-btn {
     .contacts-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+    
+    .contacts-info {
+        position: static;
     }
 }
 

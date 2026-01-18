@@ -1191,15 +1191,38 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="contacts-grid">
             <div class="contacts-info">
                 <div class="contacts-item">
-                    <p class="contacts-label">Адреса</p>
+                    <div class="contacts-item-header">
+                        <span class="contacts-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 12.5c1.6569 0 3-1.3431 3-3 0-1.6569-1.3431-3-3-3-1.6569 0-3 1.3431-3 3 0 1.6569 1.3431 3 3 3z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0z" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </span>
+                        <p class="contacts-label">Адреса</p>
+                    </div>
                     <p class="contacts-value">Київ, вул. Олеся Бердника, 1Д</p>
                 </div>
                 <div class="contacts-item">
-                    <p class="contacts-label">Телефон</p>
+                    <div class="contacts-item-header">
+                        <span class="contacts-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <path d="M7 4h4l1 5-3 2c1 2.5 3.5 5 6 6l2-3 5 1v4c0 1.1-.9 2-2 2-9.4 0-17-7.6-17-17 0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <p class="contacts-label">Телефон</p>
+                    </div>
                     <a class="contacts-value contacts-link" href="tel:+380951344029">+38 095 13 44 029</a>
                 </div>
                 <div class="contacts-item">
-                    <p class="contacts-label">Електронна пошта</p>
+                    <div class="contacts-item-header">
+                        <span class="contacts-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </span>
+                        <p class="contacts-label">Електронна пошта</p>
+                    </div>
                     <a class="contacts-value contacts-link" href="mailto:dokbenedikt@gmail.com">dokbenedikt@gmail.com</a>
                 </div>
             </div>
