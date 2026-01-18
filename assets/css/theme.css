@@ -3901,6 +3901,18 @@ body.overlay-open .header-menu-btn {
     border-bottom: none !important;
     box-shadow: none !important;
     outline: none !important;
+    margin-bottom: -2px;
+}
+
+.instagram-follow-about-section::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background-color: #000000;
+    z-index: 10;
 }
 
 .instagram-follow-about-background {
