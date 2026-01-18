@@ -430,7 +430,7 @@ body.overlay-open .header.container--full-width-padding {
     width: 100%;
     max-width: 100% !important;
     margin: 0;
-    padding: 80px 60px;
+    padding: 80px 40px;
     box-sizing: border-box;
     background-color: transparent !important;
 }
