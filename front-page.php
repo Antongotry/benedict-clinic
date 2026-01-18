@@ -863,6 +863,15 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
+<!-- Schedule Consultation Section -->
+<section id="contact" class="schedule-consultation-section">
+    <div class="schedule-consultation-bg"></div>
+    <div class="schedule-consultation-content">
+        <h2 class="schedule-consultation-title">ЗАПИСАТИСЬ НА КОНСУЛЬТАЦІЮ</h2>
+        <a href="/contact" class="schedule-consultation-cta">ЗВ'ЯЗАТИСЯ З НАМИ</a>
+    </div>
+</section>
+
 <!-- Diagnostics Section -->
 <section class="meet-surgeons-section section-padding diagnostics-section">
     <div class="meet-surgeons-content">
@@ -873,15 +882,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p>Мінімум непотрібних втручань — максимум доказової медицини. Якщо проблему можна вирішити корекцією звичок — ми починаємо з цього.</p>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- Schedule Consultation Section -->
-<section id="contact" class="schedule-consultation-section">
-    <div class="schedule-consultation-bg"></div>
-    <div class="schedule-consultation-content">
-        <h2 class="schedule-consultation-title">ЗАПИСАТИСЬ НА КОНСУЛЬТАЦІЮ</h2>
-        <a href="/contact" class="schedule-consultation-cta">ЗВ'ЯЗАТИСЯ З НАМИ</a>
     </div>
 </section>
 
