@@ -2844,6 +2844,14 @@ body.overlay-open .header-menu-btn {
     object-position: center;
 }
 
+.about-doctor-hero-bg .hero-bg-desktop {
+    display: block;
+}
+
+.about-doctor-hero-bg .hero-bg-mobile {
+    display: none;
+}
+
 .about-doctor-hero-content {
     position: relative;
     z-index: 2;
@@ -2949,13 +2957,22 @@ body.overlay-open .header-menu-btn {
 }
 
 @media (max-width: 768px) {
+    /* Hero Section Mobile */
     .about-doctor-hero {
-        height: auto;
-        min-height: 100vh;
+        height: 100svh;
+        min-height: 100svh;
+    }
+    
+    .about-doctor-hero-bg .hero-bg-desktop {
+        display: none;
+    }
+    
+    .about-doctor-hero-bg .hero-bg-mobile {
+        display: block;
     }
     
     .about-doctor-hero-content {
-        padding-top: 28vw;
+        padding-top: 30vw;
         padding-left: 6vw;
         padding-right: 6vw;
         display: flex;
@@ -2965,42 +2982,48 @@ body.overlay-open .header-menu-btn {
     }
     
     .about-doctor-name {
-        font-size: 11vw;
+        font-size: 12vw;
         line-height: 1.05;
-        margin-bottom: 4vw;
+        margin-bottom: 3vw;
     }
     
     .about-doctor-subtitle {
-        font-size: 3.8vw;
+        font-size: 4vw;
         line-height: 1.3;
-        letter-spacing: 0.2vw;
-        margin-bottom: 8vw;
+        letter-spacing: 0.1vw;
+        margin-bottom: 6vw;
     }
     
     .about-doctor-bottom {
         flex-direction: row;
         align-items: center;
-        gap: 2.5vw;
-        padding-bottom: 10vw;
+        gap: 3vw;
+        padding-bottom: 8vw;
+        margin-top: auto;
     }
     
     .about-doctor-badge {
-        width: 10vw;
+        width: 12vw;
         margin-right: 0;
         margin-bottom: 0;
     }
     
     .about-doctor-bottom-text {
-        font-size: 3vw;
+        font-size: 3.2vw;
         line-height: 1.4;
+    }
+    
+    /* Professional Path Mobile */
+    .about-doctor-path {
+        margin-top: 10vw;
     }
     
     .about-doctor-path,
     .about-doctor-surgery,
     .about-doctor-diagnostics,
     .about-doctor-divider {
-        padding-left: 4vw;
-        padding-right: 4vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
     }
     
     .about-doctor-path-inner,
@@ -3014,63 +3037,80 @@ body.overlay-open .header-menu-btn {
     .about-doctor-surgery-image img,
     .about-doctor-diagnostics-image img {
         width: 100%;
+        height: auto;
+    }
+    
+    .about-doctor-path-label {
+        font-size: 3vw;
+        margin-bottom: 2vw;
     }
     
     .about-doctor-path-name,
     .about-doctor-surgery-title,
     .about-doctor-diagnostics-title {
-        font-size: 5vw;
+        font-size: 6vw;
         line-height: 1.2;
     }
     
     .about-doctor-path-text p {
-        font-size: 3.2vw;
-        line-height: 1.6;
+        font-size: 3.8vw;
+        line-height: 1.7;
     }
     
     .about-doctor-surgery-text p {
-        font-size: 3.4vw;
-        line-height: 1.6;
+        font-size: 3.8vw;
+        line-height: 1.7;
     }
     
     .about-doctor-diagnostics-text p {
-        font-size: 3.4vw;
-        line-height: 1.6;
+        font-size: 3.8vw;
+        line-height: 1.7;
     }
     
     .about-doctor-diagnostics-title {
-        white-space: normal; /* позволяем перенос на маленьких экранах */
+        white-space: normal;
+    }
+    
+    /* Surgery section - image first on mobile */
+    .about-doctor-surgery-inner {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+    /* Divider Mobile */
+    .about-doctor-divider {
+        margin: 8vw 0;
     }
 }
 
 @media (max-width: 480px) {
     .about-doctor-hero-content {
-        padding-top: 32vw;
+        padding-top: 28vw;
         padding-left: 5vw;
         padding-right: 5vw;
     }
     
     .about-doctor-name {
-        font-size: 10vw;
+        font-size: 14vw;
         margin-bottom: 3vw;
     }
     
     .about-doctor-subtitle {
-        font-size: 3.6vw;
-        margin-bottom: 7vw;
+        font-size: 4.5vw;
+        margin-bottom: 6vw;
     }
     
     .about-doctor-bottom {
-        padding-bottom: 9vw;
+        padding-bottom: 10vw;
         gap: 3vw;
     }
     
     .about-doctor-badge {
-        width: 12vw;
+        width: 14vw;
     }
     
     .about-doctor-bottom-text {
-        font-size: 3.4vw;
+        font-size: 3.8vw;
     }
     
     .about-doctor-path,
@@ -3414,47 +3454,54 @@ body.overlay-open .header-menu-btn {
 
 @media (max-width: 768px) {
     .about-doctor-experience {
-        padding: 60px 20px;
+        padding: 50px 5vw;
         margin-top: 10vw;
     }
     
     .about-doctor-experience-inner {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
         padding-left: 0;
         padding-right: 0;
     }
     
     .experience-tabs-nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 10px 20px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 8px;
         padding-right: 0;
     }
     
     .experience-tab-btn {
-        flex-direction: column;
-        gap: 5px;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 8px;
     }
     
     .experience-tab-title {
-        font-size: 14px;
+        font-size: 4.5vw;
     }
     
     .experience-tab-count {
-        font-size: 11px;
+        font-size: 3vw;
     }
     
     .experience-tabs-content {
         min-height: auto;
+        height: auto;
+    }
+    
+    .experience-tab-panel {
+        position: relative;
     }
     
     .experience-item {
-        padding: 20px 0;
+        padding: 15px 0;
     }
     
     .experience-item p {
-        font-size: 14px;
+        font-size: 3.8vw;
+        line-height: 1.6;
     }
 }
 
@@ -3621,32 +3668,36 @@ body.overlay-open .header-menu-btn {
 
 @media (max-width: 768px) {
     .podcast-talks-section {
-        padding: 60px 20px;
+        padding: 50px 5vw;
     }
     
     .podcast-talks-title {
-        font-size: 36px;
-        margin-bottom: 8px;
+        font-size: 8vw;
+        margin-bottom: 3vw;
     }
     
     .podcast-talks-subtitle {
-        font-size: 16px;
-        margin-bottom: 40px;
+        font-size: 3.8vw;
+        margin-bottom: 8vw;
     }
     
     .podcast-videos-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
-        margin-bottom: 40px;
+        gap: 6vw;
+        margin-bottom: 8vw;
     }
     
     .podcast-video-title {
-        font-size: 16px;
+        font-size: 4vw;
+    }
+    
+    .podcast-video-thumbnail {
+        margin-bottom: 3vw;
     }
     
     .podcast-subscribe-button {
-        font-size: 14px;
-        padding: 12px 24px;
+        font-size: 3.5vw;
+        padding: 3vw 6vw;
     }
 }
 
@@ -3744,21 +3795,23 @@ body.overlay-open .header-menu-btn {
 
 @media (max-width: 768px) {
     .schedule-consultation-about-section {
-        height: 50vh;
-        min-height: 350px;
+        height: 60vh;
+        min-height: 300px;
     }
     
     .schedule-consultation-about-content {
-        gap: 30px;
+        gap: 6vw;
+        padding: 0 5vw;
     }
     
     .schedule-consultation-about-title {
-        font-size: 28px;
+        font-size: 7vw;
+        line-height: 1.3;
     }
     
     .schedule-consultation-about-button {
-        font-size: 14px;
-        padding: 12px 24px;
+        font-size: 3.5vw;
+        padding: 3vw 6vw;
     }
 }
 
@@ -3855,21 +3908,23 @@ body.overlay-open .header-menu-btn {
 
 @media (max-width: 768px) {
     .instagram-follow-about-section {
-        height: 50vh;
-        min-height: 350px;
+        height: 60vh;
+        min-height: 300px;
     }
     
     .instagram-follow-about-content {
-        gap: 12px;
+        gap: 4vw;
+        padding: 0 5vw;
     }
     
     .instagram-follow-about-title {
-        font-size: 28px;
+        font-size: 8vw;
+        line-height: 1.2;
     }
     
     .instagram-follow-about-handle {
-        font-size: 16px;
-        padding: 6px 20px;
+        font-size: 4vw;
+        padding: 2vw 5vw;
     }
 }
 
