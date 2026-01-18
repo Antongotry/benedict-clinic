@@ -193,8 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
             slidesPerView: 1,
             spaceBetween: 40,
             centeredSlides: true,
-            loop: true,
-            loopAdditionalSlides: 2,
+            loop: false,
             initialSlide: 0,
             autoHeight: false,
             navigation: {
@@ -209,29 +208,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 1024: {
                     slidesPerView: 3,
-                    spaceBetween: 50,
-                    centeredSlides: true,
+                    spaceBetween: 40,
+                    centeredSlides: false,
                 },
             },
             on: {
                 init: function() {
                     // Убеждаемся что первый слайд виден при загрузке
                     this.slideTo(0, 0);
-                },
-                resize: function() {
-                    // Обновляем позицию при изменении размера окна
-                    this.update();
                 }
             }
         });
         
-        // Дополнительно прокручиваем к первому слайду после полной загрузки
-        window.addEventListener('load', function() {
-            if (certificatesSwiper) {
-                certificatesSwiper.slideTo(0, 0);
-                certificatesSwiper.update();
-            }
-        });
     }
     
     // Certificate Lightbox Functionality
