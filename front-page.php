@@ -788,6 +788,50 @@ document.addEventListener('DOMContentLoaded', function() {
         modalSuccess.hidden = false;
     });
 });
+
+// Consultation Modal
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('consultation-modal');
+    const modalForm = document.getElementById('consultation-modal-form');
+    const modalSuccess = document.getElementById('consultation-modal-success');
+    const openBtns = document.querySelectorAll('[data-consultation-open]');
+    const closeBtns = document.querySelectorAll('[data-consultation-close]');
+    
+    function openModal() {
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        modalForm.reset();
+        modalForm.hidden = false;
+        modalSuccess.hidden = true;
+    }
+    
+    function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+    
+    openBtns.forEach(btn => {
+        btn.addEventListener('click', openModal);
+    });
+    
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', closeModal);
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+    
+    modalForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        modalForm.hidden = true;
+        modalSuccess.hidden = false;
+    });
+});
 </script>
 
 <!-- YouTube Section -->
