@@ -3561,6 +3561,7 @@ body.overlay-open .header-menu-btn {
     background-color: var(--color-dark);
     overflow: hidden;
     margin-top: 40px;
+    margin-bottom: 60px;
 }
 
 .statistics-background {
@@ -3688,5 +3689,255 @@ body.overlay-open .header-menu-btn {
     
     .statistic-label {
         font-size: 11px;
+    }
+}
+
+/* Pricing Section */
+.pricing-section {
+    background-color: var(--color-white);
+    padding: 120px 0;
+}
+
+.pricing-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.pricing-title {
+    font-family: var(--font-serif);
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--color-dark);
+    margin-bottom: 15px;
+}
+
+.pricing-subtitle {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-grey);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.pricing-card {
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 40px 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+}
+
+.pricing-card-title {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 400;
+    margin: 0 0 6px 0;
+    color: var(--color-dark);
+}
+
+.pricing-card-subtitle {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-grey);
+    margin-bottom: 20px;
+}
+
+.pricing-card-price {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 16px;
+}
+
+.pricing-card-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--color-grey);
+    margin-bottom: 25px;
+}
+
+.pricing-card-button {
+    align-self: stretch;
+    text-align: center;
+}
+
+/* Pricing Modal */
+.pricing-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 9999;
+}
+
+.pricing-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pricing-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.pricing-modal-content {
+    position: relative;
+    background: var(--color-white);
+    padding: 40px 35px;
+    width: min(520px, 90vw);
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.pricing-modal-close::before,
+.pricing-modal-close::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 18px;
+    height: 1px;
+    background: var(--color-dark);
+}
+
+.pricing-modal-close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.pricing-modal-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.pricing-modal-eyebrow {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-grey);
+    margin-bottom: 10px;
+}
+
+.pricing-modal-title {
+    font-family: var(--font-serif);
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--color-dark);
+    margin-bottom: 6px;
+}
+
+.pricing-modal-price {
+    font-size: 14px;
+    color: var(--color-grey);
+    margin-bottom: 14px;
+}
+
+.pricing-modal-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--color-grey);
+    margin-bottom: 25px;
+}
+
+.pricing-modal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-grey);
+    margin-bottom: 18px;
+}
+
+.pricing-modal-field input {
+    padding: 12px 14px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    text-transform: none;
+}
+
+.pricing-modal-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--color-grey);
+    margin-bottom: 20px;
+}
+
+.pricing-modal-checkbox input {
+    width: 16px;
+    height: 16px;
+}
+
+.pricing-modal-checkbox a {
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
+.pricing-modal-submit {
+    width: 100%;
+    text-align: center;
+}
+
+.pricing-modal-success h4 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+}
+
+.pricing-modal-success p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-grey);
+}
+
+@media (max-width: 1024px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-section {
+        padding: 80px 0;
+    }
+
+    .pricing-title {
+        font-size: 36px;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-card {
+        padding: 30px 25px;
     }
 }

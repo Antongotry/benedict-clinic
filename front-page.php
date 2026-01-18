@@ -601,6 +601,133 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
+<!-- Pricing Section -->
+<section class="pricing-section section-padding">
+    <div class="container">
+        <div class="pricing-header">
+            <h2 class="pricing-title">Ціни</h2>
+            <p class="pricing-subtitle">Вартість послуг залежить від обсягу обстеження та індивідуального плану лікування. Завітайте на консультацію, щоб дізнатись, що саме потрібно саме вам</p>
+        </div>
+        <div class="pricing-grid">
+            <article class="pricing-card">
+                <div class="pricing-card-header">
+                    <h3 class="pricing-card-title">Консультація</h3>
+                    <p class="pricing-card-subtitle">онлайн</p>
+                </div>
+                <div class="pricing-card-price">від 1190 грн</div>
+                <p class="pricing-card-desc">зручний формат для отримання кваліфікованої медичної допомоги в будь-який час</p>
+                <button class="pricing-card-button btn-primary" data-pricing-open data-service="Консультація" data-format="онлайн" data-price="від 1190 грн" data-desc="Зручний формат для отримання кваліфікованої медичної допомоги в будь-який час.">Записатись</button>
+            </article>
+            <article class="pricing-card">
+                <div class="pricing-card-header">
+                    <h3 class="pricing-card-title">Профілактичний огляд</h3>
+                    <p class="pricing-card-subtitle">виключно офлайн</p>
+                </div>
+                <div class="pricing-card-price">від 1400 грн</div>
+                <p class="pricing-card-desc">рекомендується проходити раз на рік з метою передбачення захворювань на ранніх стадіях</p>
+                <button class="pricing-card-button btn-primary" data-pricing-open data-service="Профілактичний огляд" data-format="виключно офлайн" data-price="від 1400 грн" data-desc="Рекомендується проходити раз на рік з метою передбачення захворювань на ранніх стадіях.">Записатись</button>
+            </article>
+            <article class="pricing-card">
+                <div class="pricing-card-header">
+                    <h3 class="pricing-card-title">Оперативне втручання</h3>
+                    <p class="pricing-card-subtitle">малоінвазивне та хірургічне</p>
+                </div>
+                <div class="pricing-card-price">від 20000 грн</div>
+                <p class="pricing-card-desc">комплексний підхід до відновлення здоров'я під час захворювань</p>
+                <button class="pricing-card-button btn-primary" data-pricing-open data-service="Оперативне втручання" data-format="малоінвазивне та хірургічне" data-price="від 20000 грн" data-desc="Комплексний підхід до відновлення здоров'я під час захворювань.">Записатись</button>
+            </article>
+        </div>
+    </div>
+</section>
+
+<div class="pricing-modal" id="pricing-modal" aria-hidden="true">
+    <div class="pricing-modal-backdrop" data-pricing-close></div>
+    <div class="pricing-modal-content" role="dialog" aria-modal="true" aria-labelledby="pricing-modal-title">
+        <button class="pricing-modal-close" type="button" aria-label="Закрити" data-pricing-close></button>
+        <div class="pricing-modal-header">
+            <p class="pricing-modal-eyebrow">Запис на послугу</p>
+            <h3 class="pricing-modal-title" id="pricing-modal-title"></h3>
+            <p class="pricing-modal-price" id="pricing-modal-price"></p>
+            <p class="pricing-modal-desc" id="pricing-modal-desc"></p>
+        </div>
+        <form class="pricing-modal-form" id="pricing-modal-form">
+            <input type="hidden" name="service" id="pricing-modal-service">
+            <label class="pricing-modal-field">
+                <span>Імʼя</span>
+                <input type="text" name="name" required>
+            </label>
+            <label class="pricing-modal-field">
+                <span>Номер телефону</span>
+                <input type="tel" name="phone" required>
+            </label>
+            <label class="pricing-modal-field">
+                <span>Email (необовʼязково)</span>
+                <input type="email" name="email">
+            </label>
+            <label class="pricing-modal-checkbox">
+                <input type="checkbox" name="privacy" required>
+                <span>Погоджуюсь з <a href="/privacy-policy">політикою конфіденційності</a></span>
+            </label>
+            <button class="pricing-modal-submit btn-primary" type="submit">Надіслати</button>
+        </form>
+        <div class="pricing-modal-success" id="pricing-modal-success" hidden>
+            <h4>Дякуємо за довіру!</h4>
+            <p>Ваша заявка вже у нас. Ми звʼяжемось з вами найближчим часом, щоб підтвердити запис та відповісти на всі запитання.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('pricing-modal');
+    const modalTitle = document.getElementById('pricing-modal-title');
+    const modalPrice = document.getElementById('pricing-modal-price');
+    const modalDesc = document.getElementById('pricing-modal-desc');
+    const modalService = document.getElementById('pricing-modal-service');
+    const modalForm = document.getElementById('pricing-modal-form');
+    const modalSuccess = document.getElementById('pricing-modal-success');
+
+    function openModal(trigger) {
+        modalTitle.textContent = trigger.dataset.service;
+        modalPrice.textContent = `${trigger.dataset.price} • ${trigger.dataset.format}`;
+        modalDesc.textContent = trigger.dataset.desc;
+        modalService.value = trigger.dataset.service;
+        modalForm.reset();
+        modalForm.hidden = false;
+        modalSuccess.hidden = true;
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-pricing-open]').forEach(button => {
+        button.addEventListener('click', () => openModal(button));
+    });
+
+    document.querySelectorAll('[data-pricing-close]').forEach(element => {
+        element.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    modalForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        modalForm.hidden = true;
+        modalSuccess.hidden = false;
+    });
+});
+</script>
+
 <!-- Diagnostics Section -->
 <section class="meet-surgeons-section section-padding diagnostics-section">
     <div class="meet-surgeons-content">
