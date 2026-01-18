@@ -4499,7 +4499,7 @@ body.overlay-open .header-menu-btn {
     transform: none !important;
     position: relative !important;
     color: var(--color-dark) !important;
-    background: rgba(0, 0, 0, 0.05) !important;
+    background: transparent !important;
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
     border: 1px solid rgba(0, 0, 0, 0.15) !important;
@@ -4536,7 +4536,7 @@ body.overlay-open .header-menu-btn {
 
 .testimonials-button-next:hover,
 .testimonials-button-prev:hover {
-    background: rgba(0, 0, 0, 0.1) !important;
+    background: rgba(0, 0, 0, 0.05) !important;
     border-color: rgba(0, 0, 0, 0.3) !important;
     opacity: 1 !important;
     transform: scale(1.05) !important;
