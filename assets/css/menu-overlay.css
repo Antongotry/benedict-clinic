@@ -3,7 +3,7 @@
 /* Background with darkened image */
 .overlay-background {
     background-image: url('https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/low-angle-view-buildings-against-sky-dusk_result-scaled.webp') !important;
-    filter: brightness(0.2) !important;
+    filter: brightness(0.3) !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -11,7 +11,7 @@
 
 /* Menu grid layout */
 .overlay-content {
-    background-color: rgba(0, 0, 0, 0.95) !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
 .overlay-menu-grid {
@@ -34,7 +34,7 @@
     text-align: right;
 }
 
-/* Sub-menu styles */
+/* Sub-menu styles - Fixed */
 .overlay-nav-primary > ul > li {
     margin-bottom: 30px;
     position: relative;
@@ -44,15 +44,40 @@
     position: relative;
 }
 
+.overlay-nav-primary .menu-item-has-children > a {
+    position: relative;
+    cursor: pointer;
+}
+
+.overlay-nav-primary .menu-item-has-children > a::after {
+    content: ' +';
+    font-size: 0.8em;
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.overlay-nav-primary .menu-item-has-children.active > a::after {
+    transform: rotate(45deg);
+}
+
 .overlay-nav-primary .sub-menu {
     list-style: none;
     padding: 0;
     margin: 15px 0 0 30px;
     display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
 }
 
-.overlay-nav-primary .menu-item-has-children:hover .sub-menu {
+.overlay-nav-primary .menu-item-has-children.active .sub-menu {
     display: block;
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 500px;
 }
 
 .overlay-nav-primary .sub-menu li {
@@ -60,15 +85,18 @@
 }
 
 .overlay-nav-primary .sub-menu a {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.75);
     letter-spacing: 0.5px;
+    display: block;
+    font-family: var(--font-sans);
 }
 
 .overlay-nav-primary .sub-menu a:hover {
     color: var(--color-white);
     opacity: 1;
+    padding-left: 10px;
 }
 
 /* Updated overlay styles */

@@ -39,12 +39,33 @@
             }
         });
 
-        // Close menu when clicking on menu links
+        // Close menu when clicking on menu links (but not dropdown toggles)
         const menuLinks = overlayMenu.querySelectorAll('a');
         menuLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                closeMenu();
-            });
+            // Skip dropdown parent links
+            if (link.closest('.menu-item-has-children') && link.parentElement.classList.contains('menu-item-has-children')) {
+                // Handle dropdown toggle
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const parent = this.parentElement;
+                    const isActive = parent.classList.contains('active');
+                    
+                    // Close all other dropdowns
+                    overlayMenu.querySelectorAll('.menu-item-has-children.active').forEach(function(item) {
+                        if (item !== parent) {
+                            item.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    parent.classList.toggle('active', !isActive);
+                });
+            } else {
+                // Regular menu links - close menu
+                link.addEventListener('click', function() {
+                    closeMenu();
+                });
+            }
         });
 
         function openMenu() {
