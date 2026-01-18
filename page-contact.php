@@ -128,12 +128,46 @@ get_header();
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-page-form');
     const success = document.getElementById('contact-page-success');
+    const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
     
-    if (form) {
+    if (form && typeof rosenbergAjax !== 'undefined') {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            form.hidden = true;
-            success.hidden = false;
+            
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Відправка...';
+            }
+            
+            const formData = new FormData(form);
+            formData.append('action', 'benedict_form_submit');
+            formData.append('nonce', rosenbergAjax.nonce);
+            formData.append('form_type', 'Контактна форма');
+            
+            fetch(rosenbergAjax.ajaxurl, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    form.hidden = true;
+                    success.hidden = false;
+                } else {
+                    alert(data.data.message || 'Помилка відправки');
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Надіслати';
+                    }
+                }
+            })
+            .catch(error => {
+                alert('Помилка з\'єднання');
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Надіслати';
+                }
+            });
         });
     }
 });

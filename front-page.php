@@ -787,10 +787,46 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    const pricingSubmitBtn = modalForm ? modalForm.querySelector('button[type="submit"]') : null;
+    
     modalForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        modalForm.hidden = true;
-        modalSuccess.hidden = false;
+        
+        if (pricingSubmitBtn) {
+            pricingSubmitBtn.disabled = true;
+            pricingSubmitBtn.textContent = 'Відправка...';
+        }
+        
+        const formData = new FormData(modalForm);
+        formData.append('action', 'benedict_form_submit');
+        formData.append('nonce', rosenbergAjax.nonce);
+        formData.append('form_type', 'Запис на послугу');
+        
+        fetch(rosenbergAjax.ajaxurl, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                modalForm.hidden = true;
+                modalSuccess.hidden = false;
+                setTimeout(closeModal, 3000);
+            } else {
+                alert(data.data.message || 'Помилка');
+                if (pricingSubmitBtn) {
+                    pricingSubmitBtn.disabled = false;
+                    pricingSubmitBtn.textContent = 'ЗАПИСАТИСЬ';
+                }
+            }
+        })
+        .catch(() => {
+            alert('Помилка з\'єднання');
+            if (pricingSubmitBtn) {
+                pricingSubmitBtn.disabled = false;
+                pricingSubmitBtn.textContent = 'ЗАПИСАТИСЬ';
+            }
+        });
     });
 });
 
@@ -819,16 +855,50 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Contacts Form (frontend-only)
+// Contacts Form (AJAX)
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contacts-form');
     const success = document.getElementById('contacts-success');
+    const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
     if (!form || !success) return;
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        form.hidden = true;
-        success.hidden = false;
+        
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Відправка...';
+        }
+        
+        const formData = new FormData(form);
+        formData.append('action', 'benedict_form_submit');
+        formData.append('nonce', rosenbergAjax.nonce);
+        formData.append('form_type', 'Форма контактів (головна)');
+        
+        fetch(rosenbergAjax.ajaxurl, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                form.hidden = true;
+                success.hidden = false;
+            } else {
+                alert(data.data.message || 'Помилка');
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'НАДІСЛАТИ';
+                }
+            }
+        })
+        .catch(() => {
+            alert('Помилка з\'єднання');
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'НАДІСЛАТИ';
+            }
+        });
     });
 });
 
@@ -869,10 +939,46 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    const consultSubmitBtn = modalForm ? modalForm.querySelector('button[type="submit"]') : null;
+    
     modalForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        modalForm.hidden = true;
-        modalSuccess.hidden = false;
+        
+        if (consultSubmitBtn) {
+            consultSubmitBtn.disabled = true;
+            consultSubmitBtn.textContent = 'Відправка...';
+        }
+        
+        const formData = new FormData(modalForm);
+        formData.append('action', 'benedict_form_submit');
+        formData.append('nonce', rosenbergAjax.nonce);
+        formData.append('form_type', 'Запис на консультацію');
+        
+        fetch(rosenbergAjax.ajaxurl, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                modalForm.hidden = true;
+                modalSuccess.hidden = false;
+                setTimeout(closeModal, 3000);
+            } else {
+                alert(data.data.message || 'Помилка');
+                if (consultSubmitBtn) {
+                    consultSubmitBtn.disabled = false;
+                    consultSubmitBtn.textContent = 'Зателефонувати мені';
+                }
+            }
+        })
+        .catch(() => {
+            alert('Помилка з\'єднання');
+            if (consultSubmitBtn) {
+                consultSubmitBtn.disabled = false;
+                consultSubmitBtn.textContent = 'Зателефонувати мені';
+            }
+        });
     });
 });
 </script>

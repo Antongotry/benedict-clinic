@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const success = document.getElementById('error-modal-success');
     const openBtn = document.getElementById('error-contact-btn');
     const closeBtns = document.querySelectorAll('[data-error-close]');
+    const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
     
     function openModal() {
         modal.classList.add('active');
@@ -79,9 +80,46 @@ document.addEventListener('DOMContentLoaded', function() {
     
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        form.hidden = true;
-        success.hidden = false;
-        setTimeout(closeModal, 3000);
+        
+        if (typeof rosenbergAjax !== 'undefined') {
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Відправка...';
+            }
+            
+            const formData = new FormData(form);
+            formData.append('action', 'benedict_form_submit');
+            formData.append('nonce', rosenbergAjax.nonce);
+            formData.append('form_type', 'Форма зі сторінки 404');
+            
+            fetch(rosenbergAjax.ajaxurl, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    form.hidden = true;
+                    success.hidden = false;
+                    setTimeout(closeModal, 3000);
+                } else {
+                    alert(data.data.message || 'Помилка');
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Зателефонувати мені';
+                    }
+                }
+            })
+            .catch(() => {
+                form.hidden = true;
+                success.hidden = false;
+                setTimeout(closeModal, 3000);
+            });
+        } else {
+            form.hidden = true;
+            success.hidden = false;
+            setTimeout(closeModal, 3000);
+        }
     });
 });
 </script>

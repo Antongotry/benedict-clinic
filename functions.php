@@ -394,3 +394,179 @@ function benedict_disable_service_worker() {
     </script>' . "\n";
 }
 add_action('wp_footer', 'benedict_disable_service_worker', 999);
+
+/**
+ * Register Form Submissions Post Type
+ */
+function benedict_register_submissions_post_type() {
+    register_post_type('form_submission', array(
+        'labels' => array(
+            'name' => 'Заявки',
+            'singular_name' => 'Заявка',
+            'menu_name' => 'Заявки з форм',
+            'all_items' => 'Всі заявки',
+            'view_item' => 'Переглянути',
+            'search_items' => 'Пошук заявок',
+            'not_found' => 'Заявок не знайдено',
+        ),
+        'public' => false,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_icon' => 'dashicons-email-alt',
+        'supports' => array('title'),
+        'capability_type' => 'post',
+    ));
+}
+add_action('init', 'benedict_register_submissions_post_type');
+
+/**
+ * Add custom columns to submissions list
+ */
+function benedict_submissions_columns($columns) {
+    $columns = array(
+        'cb' => '<input type="checkbox" />',
+        'title' => 'Ім\'я',
+        'phone' => 'Телефон',
+        'email' => 'Email',
+        'form_type' => 'Тип форми',
+        'date' => 'Дата',
+    );
+    return $columns;
+}
+add_filter('manage_form_submission_posts_columns', 'benedict_submissions_columns');
+
+function benedict_submissions_column_data($column, $post_id) {
+    switch ($column) {
+        case 'phone':
+            echo esc_html(get_post_meta($post_id, '_submission_phone', true));
+            break;
+        case 'email':
+            echo esc_html(get_post_meta($post_id, '_submission_email', true));
+            break;
+        case 'form_type':
+            echo esc_html(get_post_meta($post_id, '_submission_form_type', true));
+            break;
+    }
+}
+add_action('manage_form_submission_posts_custom_column', 'benedict_submissions_column_data', 10, 2);
+
+/**
+ * Add meta box to show submission details
+ */
+function benedict_submission_meta_box() {
+    add_meta_box(
+        'submission_details',
+        'Деталі заявки',
+        'benedict_submission_meta_box_html',
+        'form_submission',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'benedict_submission_meta_box');
+
+function benedict_submission_meta_box_html($post) {
+    $phone = get_post_meta($post->ID, '_submission_phone', true);
+    $email = get_post_meta($post->ID, '_submission_email', true);
+    $message = get_post_meta($post->ID, '_submission_message', true);
+    $form_type = get_post_meta($post->ID, '_submission_form_type', true);
+    $service = get_post_meta($post->ID, '_submission_service', true);
+    ?>
+    <table class="form-table">
+        <tr>
+            <th>Телефон:</th>
+            <td><a href="tel:<?php echo esc_attr($phone); ?>"><?php echo esc_html($phone); ?></a></td>
+        </tr>
+        <?php if ($email) : ?>
+        <tr>
+            <th>Email:</th>
+            <td><a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></td>
+        </tr>
+        <?php endif; ?>
+        <?php if ($service) : ?>
+        <tr>
+            <th>Послуга:</th>
+            <td><?php echo esc_html($service); ?></td>
+        </tr>
+        <?php endif; ?>
+        <?php if ($message) : ?>
+        <tr>
+            <th>Повідомлення:</th>
+            <td><?php echo nl2br(esc_html($message)); ?></td>
+        </tr>
+        <?php endif; ?>
+        <tr>
+            <th>Тип форми:</th>
+            <td><?php echo esc_html($form_type); ?></td>
+        </tr>
+    </table>
+    <?php
+}
+
+/**
+ * AJAX Handler for Form Submissions
+ */
+function benedict_handle_form_submission() {
+    // Verify nonce
+    if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'rosenberg-nonce')) {
+        wp_send_json_error(array('message' => 'Security check failed'));
+    }
+    
+    // Get form data
+    $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
+    $phone = isset($_POST['phone']) ? sanitize_text_field($_POST['phone']) : '';
+    $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
+    $message = isset($_POST['message']) ? sanitize_textarea_field($_POST['message']) : '';
+    $form_type = isset($_POST['form_type']) ? sanitize_text_field($_POST['form_type']) : 'Загальна форма';
+    $service = isset($_POST['service']) ? sanitize_text_field($_POST['service']) : '';
+    
+    // Validate required fields
+    if (empty($name) || empty($phone)) {
+        wp_send_json_error(array('message' => 'Будь ласка, заповніть обов\'язкові поля'));
+    }
+    
+    // Create submission post
+    $post_id = wp_insert_post(array(
+        'post_title' => $name,
+        'post_type' => 'form_submission',
+        'post_status' => 'publish',
+    ));
+    
+    if ($post_id) {
+        // Save meta data
+        update_post_meta($post_id, '_submission_phone', $phone);
+        update_post_meta($post_id, '_submission_email', $email);
+        update_post_meta($post_id, '_submission_message', $message);
+        update_post_meta($post_id, '_submission_form_type', $form_type);
+        update_post_meta($post_id, '_submission_service', $service);
+        
+        // Send email to admin
+        $admin_email = get_option('admin_email');
+        $subject = 'Нова заявка з сайту: ' . $form_type;
+        
+        $email_body = "Нова заявка з сайту Benedict Clinic\n\n";
+        $email_body .= "Тип форми: {$form_type}\n";
+        $email_body .= "Ім'я: {$name}\n";
+        $email_body .= "Телефон: {$phone}\n";
+        if ($email) {
+            $email_body .= "Email: {$email}\n";
+        }
+        if ($service) {
+            $email_body .= "Послуга: {$service}\n";
+        }
+        if ($message) {
+            $email_body .= "\nПовідомлення:\n{$message}\n";
+        }
+        $email_body .= "\n---\nДата: " . date('d.m.Y H:i');
+        
+        $headers = array('Content-Type: text/plain; charset=UTF-8');
+        
+        wp_mail($admin_email, $subject, $email_body, $headers);
+        
+        wp_send_json_success(array('message' => 'Дякуємо! Ваша заявка прийнята.'));
+    } else {
+        wp_send_json_error(array('message' => 'Помилка збереження'));
+    }
+}
+add_action('wp_ajax_benedict_form_submit', 'benedict_handle_form_submission');
+add_action('wp_ajax_nopriv_benedict_form_submit', 'benedict_handle_form_submission');
