@@ -209,14 +209,6 @@ get_header();
                 </div>
                 <div class="podcast-video-content">
                     <h3 class="podcast-video-title">Шоу "На відвертій хвилі". Тема випуску: "Я..."</h3>
-                    <div class="podcast-video-actions">
-                        <a href="https://www.youtube.com/watch?v=sHnnM56ilIE" target="_blank" class="podcast-watch-button">
-                            <span>Дивитися на</span>
-                            <svg width="20" height="14" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M23.498 2.666A3.063 3.063 0 0 0 20.847.019C18.555 0 7.512 0 7.512 0S-3.531 0-5.823.019a3.063 3.063 0 0 0-2.651 2.647C-8.544 4.956-8.544 8.5-8.544 8.5s0 3.544.03 5.834a3.063 3.063 0 0 0 2.651 2.666c2.292.019 13.335.019 13.335.019s10.023 0 12.315-.019a3.063 3.063 0 0 0 2.651-2.666c.03-2.29.03-5.834.03-5.834s0-3.544-.03-5.834ZM9.614 12.178V4.822l8.74 3.678-8.74 3.678Z" fill="#FF0000"/>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
             </div>
             
@@ -234,14 +226,6 @@ get_header();
                 </div>
                 <div class="podcast-video-content">
                     <h3 class="podcast-video-title">Чому чоловіки бояться урологів і як це ру...</h3>
-                    <div class="podcast-video-actions">
-                        <a href="https://www.youtube.com/@dr_benedikt" target="_blank" class="podcast-watch-button">
-                            <span>Дивитися на</span>
-                            <svg width="20" height="14" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M23.498 2.666A3.063 3.063 0 0 0 20.847.019C18.555 0 7.512 0 7.512 0S-3.531 0-5.823.019a3.063 3.063 0 0 0-2.651 2.647C-8.544 4.956-8.544 8.5-8.544 8.5s0 3.544.03 5.834a3.063 3.063 0 0 0 2.651 2.666c2.292.019 13.335.019 13.335.019s10.023 0 12.315-.019a3.063 3.063 0 0 0 2.651-2.666c.03-2.29.03-5.834.03-5.834s0-3.544-.03-5.834ZM9.614 12.178V4.822l8.74 3.678-8.74 3.678Z" fill="#FF0000"/>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>

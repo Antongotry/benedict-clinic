@@ -3521,7 +3521,6 @@ body.overlay-open .header-menu-btn {
 .podcast-video-content {
     display: flex;
     flex-direction: column;
-    gap: 15px;
 }
 
 .podcast-video-title {
@@ -3531,33 +3530,6 @@ body.overlay-open .header-menu-btn {
     color: #111111;
     line-height: 1.5;
     margin: 0;
-}
-
-.podcast-video-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.podcast-watch-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-sans);
-    font-size: 0.938vw; /* 18px / 1920 */
-    font-weight: 300;
-    color: #111111;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-}
-
-.podcast-watch-button:hover {
-    opacity: 0.7;
-}
-
-.podcast-watch-button svg {
-    width: 20px;
-    height: auto;
 }
 
 .podcast-subscribe-wrapper {
@@ -3611,10 +3583,6 @@ body.overlay-open .header-menu-btn {
         font-size: 18px;
     }
     
-    .podcast-watch-button {
-        font-size: 14px;
-    }
-    
     .podcast-subscribe-button {
         font-size: 16px;
     }
@@ -3643,10 +3611,6 @@ body.overlay-open .header-menu-btn {
     
     .podcast-video-title {
         font-size: 16px;
-    }
-    
-    .podcast-watch-button {
-        font-size: 14px;
     }
     
     .podcast-subscribe-button {
