@@ -4766,9 +4766,15 @@ body.overlay-open .header-menu-btn {
 }
 
 .contacts-item {
-    padding: 24px;
+    padding: 28px;
     border: 1px solid rgba(0, 0, 0, 0.08);
     background: var(--color-white);
+    transition: all 0.3s ease;
+}
+
+.contacts-item:hover {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .contacts-item-header {
@@ -4779,15 +4785,25 @@ body.overlay-open .header-menu-btn {
 }
 
 .contacts-icon {
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #f8f8f8 0%, #fff 100%);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     color: var(--color-dark);
     flex-shrink: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.contacts-item:hover .contacts-icon {
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-color: var(--color-dark);
+    transform: scale(1.05);
 }
 
 .contacts-label {

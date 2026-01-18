@@ -827,30 +827,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Contacts Info Sticky (GSAP ScrollTrigger pin)
-document.addEventListener('DOMContentLoaded', function() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-    
-    const contactsGrid = document.querySelector('.contacts-grid');
-    const contactsInfo = document.querySelector('.contacts-info');
-    const contactsFormWrapper = document.querySelector('.contacts-form-wrapper');
-    
-    if (!contactsGrid || !contactsInfo || !contactsFormWrapper) return;
-    
-    // Only enable on desktop (> 1024px)
-    ScrollTrigger.matchMedia({
-        "(min-width: 1025px)": function() {
-            ScrollTrigger.create({
-                trigger: contactsGrid,
-                start: "top 120px",
-                end: () => `+=${contactsFormWrapper.offsetHeight - contactsInfo.offsetHeight}`,
-                pin: contactsInfo,
-                pinSpacing: false
-            });
-        }
-    });
-});
-
 // Consultation Modal
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('consultation-modal');
@@ -1217,9 +1193,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="contacts-item">
                     <div class="contacts-item-header">
                         <span class="contacts-icon" aria-hidden="true">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 12.5c1.6569 0 3-1.3431 3-3 0-1.6569-1.3431-3-3-3-1.6569 0-3 1.3431-3 3 0 1.6569 1.3431 3 3 3z" stroke="currentColor" stroke-width="1.5"/>
-                                <path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0z" stroke="currentColor" stroke-width="1.5"/>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.2"/>
                             </svg>
                         </span>
                         <p class="contacts-label">Адреса</p>
@@ -1229,8 +1205,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="contacts-item">
                     <div class="contacts-item-header">
                         <span class="contacts-icon" aria-hidden="true">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                                <path d="M7 4h4l1 5-3 2c1 2.5 3.5 5 6 6l2-3 5 1v4c0 1.1-.9 2-2 2-9.4 0-17-7.6-17-17 0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </span>
                         <p class="contacts-label">Телефон</p>
@@ -1240,9 +1216,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="contacts-item">
                     <div class="contacts-item-header">
                         <span class="contacts-icon" aria-hidden="true">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                                <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/>
-                                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.5"/>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </span>
                         <p class="contacts-label">Електронна пошта</p>
