@@ -258,18 +258,22 @@ function rosenberg_fallback_menu() {
 }
 
 /**
- * Disable all caching for development
+ * Disable all caching for development - AGGRESSIVE VERSION
  */
 function benedict_disable_all_cache() {
     // Disable WordPress object cache
-    wp_cache_flush();
+    if (function_exists('wp_cache_flush')) {
+        wp_cache_flush();
+    }
     
-    // Disable browser cache headers
+    // Disable browser cache headers - VERY AGGRESSIVE
     if (!headers_sent()) {
-        header('Cache-Control: no-cache, no-store, must-revalidate, max-age=0');
+        header('Cache-Control: no-cache, no-store, must-revalidate, max-age=0, private');
         header('Pragma: no-cache');
-        header('Expires: 0');
+        header('Expires: Wed, 11 Jan 1984 05:00:00 GMT');
         header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+        header('ETag: "' . md5(microtime()) . '"');
+        header('X-Accel-Expires: 0');
     }
     
     // Disable WP Super Cache if active
@@ -286,22 +290,47 @@ function benedict_disable_all_cache() {
     if (function_exists('rocket_clean_domain')) {
         rocket_clean_domain();
     }
+    
+    // Disable LiteSpeed Cache if active
+    if (defined('LSCWP_V')) {
+        do_action('litespeed_purge_all');
+    }
+    
+    // Disable Autoptimize cache
+    if (class_exists('autoptimizeCache')) {
+        autoptimizeCache::clearall();
+    }
 }
+
+// Run at multiple hooks to ensure it works
 add_action('init', 'benedict_disable_all_cache', 1);
+add_action('template_redirect', 'benedict_disable_all_cache', 1);
+add_action('send_headers', 'benedict_disable_all_cache', 1);
 
 /**
- * Add version timestamp to CSS/JS files to prevent caching
+ * Add version timestamp to CSS/JS files to prevent caching - AGGRESSIVE
  */
 function benedict_asset_version($src) {
-    if (strpos($src, 'ver=') === false) {
-        $src = add_query_arg('ver', time(), $src);
-    } else {
-        $src = preg_replace('/ver=([^&]+)/', 'ver=' . time(), $src);
+    if (empty($src)) {
+        return $src;
     }
+    
+    // Add microtime for maximum uniqueness
+    $version = time() . '_' . rand(1000, 9999);
+    
+    if (strpos($src, 'ver=') === false) {
+        $src = add_query_arg('ver', $version, $src);
+    } else {
+        $src = preg_replace('/ver=([^&]+)/', 'ver=' . $version, $src);
+    }
+    
+    // Add cache buster
+    $src = add_query_arg('nocache', $version, $src);
+    
     return $src;
 }
-add_filter('style_loader_src', 'benedict_asset_version', 10, 1);
-add_filter('script_loader_src', 'benedict_asset_version', 10, 1);
+add_filter('style_loader_src', 'benedict_asset_version', 999, 1);
+add_filter('script_loader_src', 'benedict_asset_version', 999, 1);
 
 /**
  * Disable WordPress cache
@@ -311,11 +340,31 @@ if (!defined('WP_CACHE')) {
 }
 
 /**
- * Force refresh CSS/JS on every load
+ * Force refresh CSS/JS on every load - AGGRESSIVE
  */
 function benedict_nocache_meta() {
-    echo '<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">' . "\n";
+    $timestamp = time();
+    echo '<!-- Cache Buster: ' . $timestamp . ' -->' . "\n";
+    echo '<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0, private">' . "\n";
     echo '<meta http-equiv="Pragma" content="no-cache">' . "\n";
     echo '<meta http-equiv="Expires" content="0">' . "\n";
+    echo '<meta http-equiv="Last-Modified" content="' . gmdate('D, d M Y H:i:s') . ' GMT">' . "\n";
+    echo '<script>if (window.navigator && navigator.serviceWorker) { navigator.serviceWorker.getRegistrations().then(function(registrations) { for(let registration of registrations) { registration.unregister(); } }); }</script>' . "\n";
 }
 add_action('wp_head', 'benedict_nocache_meta', 1);
+
+/**
+ * Disable service worker caching
+ */
+function benedict_disable_service_worker() {
+    echo '<script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                for(let registration of registrations) {
+                    registration.unregister();
+                }
+            });
+        }
+    </script>' . "\n";
+}
+add_action('wp_footer', 'benedict_disable_service_worker', 999);
