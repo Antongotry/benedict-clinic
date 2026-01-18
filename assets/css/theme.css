@@ -3730,10 +3730,13 @@ body.overlay-open .header-menu-btn {
     padding: 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     position: relative;
     overflow: hidden;
+    min-height: 500px;
 }
 
 .pricing-card:hover {
@@ -3745,6 +3748,7 @@ body.overlay-open .header-menu-btn {
     background: var(--color-dark);
     padding: 24px 30px;
     width: 100%;
+    text-align: center;
 }
 
 .pricing-card-title {
@@ -3767,22 +3771,19 @@ body.overlay-open .header-menu-btn {
     margin-bottom: 0;
 }
 
-.pricing-card > *:not(.pricing-card-header) {
-    padding: 0 30px;
-}
-
 .pricing-card-price-wrapper {
-    padding: 0 30px;
     margin: 24px 0;
+    text-align: center;
+    width: 100%;
 }
 
 .pricing-card-price {
     display: inline-block;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 700;
     color: var(--color-dark);
     background: rgba(0, 0, 0, 0.05);
-    padding: 12px 20px;
+    padding: 12px 24px;
     letter-spacing: 0;
     text-transform: none;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -3792,30 +3793,33 @@ body.overlay-open .header-menu-btn {
     font-size: 14px;
     line-height: 1.7;
     color: var(--color-grey);
-    margin-bottom: 30px;
+    margin: 0 30px 30px 30px;
+    text-align: center;
 }
 
 .pricing-card-button {
-    align-self: stretch;
+    width: calc(100% - 60px);
+    max-width: 280px;
     text-align: center;
     margin: 0 30px 30px 30px;
     background: transparent;
     border: 2px solid var(--color-dark);
     color: var(--color-dark);
-    padding: 14px 40px;
+    padding: 16px 30px;
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: all 0.25s ease;
-    border-radius: 50px;
+    border-radius: 0;
     cursor: pointer;
+    margin-top: auto;
 }
 
 .pricing-card-button:hover {
     background: var(--color-dark);
     color: var(--color-white);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: none;
+    box-shadow: none;
 }
 
 /* Pricing buttons override */
