@@ -1,6 +1,6 @@
-/* Menu Overlay Styles */
+/* Menu Overlay Styles - Simple & Clean */
 
-/* Background with darkened image - 40% darker total */
+/* Background with darkened image */
 .overlay-background {
     background-image: url('https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/low-angle-view-buildings-against-sky-dusk_result-scaled.webp') !important;
     filter: brightness(0.26) !important;
@@ -9,28 +9,22 @@
     background-repeat: no-repeat !important;
 }
 
-/* Menu grid layout - Full width like reference, aligned with header-right */
+/* Menu grid layout */
 .overlay-content {
     background-color: transparent !important;
     max-width: 100% !important;
     width: 100% !important;
-    padding: 80px 40px !important;
+    padding: 100px 40px 40px !important;
 }
 
 .overlay-menu-grid {
     display: grid;
     grid-template-columns: 1fr 350px;
     gap: 60px;
-    height: 100%;
     align-items: start;
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
-    justify-content: space-between;
-}
-
-.overlay-menu-info {
-    justify-self: end;
 }
 
 .overlay-menu-main {
@@ -45,7 +39,7 @@
     text-align: right;
 }
 
-/* Primary Navigation Styles - Override theme.css */
+/* Primary Navigation */
 .overlay-nav-primary > ul {
     list-style: none !important;
     padding: 0 !important;
@@ -53,130 +47,65 @@
 }
 
 .overlay-nav-primary > ul > li {
-    margin-bottom: 18px !important;
-    position: relative;
+    margin-bottom: 15px !important;
 }
 
 .overlay-nav-primary > ul > li > a {
     font-family: var(--font-sans) !important;
-    font-size: 28px !important;
+    font-size: 26px !important;
     font-weight: 300 !important;
     color: var(--color-white) !important;
     text-decoration: none !important;
     letter-spacing: 1px !important;
-    transition: var(--transition) !important;
+    transition: opacity 0.3s ease, padding-left 0.3s ease !important;
     display: inline-block !important;
     line-height: 1.3 !important;
 }
 
 .overlay-nav-primary > ul > li > a:hover {
-    color: var(--color-white) !important;
+    opacity: 0.7 !important;
     padding-left: 10px !important;
-    opacity: 0.8 !important;
 }
 
-/* Sub-menu slide transition styles */
-.overlay-nav-primary > ul {
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-}
-
-.overlay-nav-primary > ul.menu-hidden {
-    transform: translateX(-100%);
-    opacity: 0;
-    pointer-events: none;
-}
-
-.overlay-nav-primary .menu-item-has-children {
-    position: static;
-}
-
+/* Dropdown parent with arrow */
 .overlay-nav-primary .menu-item-has-children > a {
     position: relative;
-    cursor: pointer;
-    padding-right: 30px;
+    padding-right: 25px;
 }
 
 .overlay-nav-primary .menu-item-has-children > a::after {
-    content: '→';
+    content: '+';
     position: absolute;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 300;
-    opacity: 0.5;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    display: inline-block;
-    line-height: 1;
+    opacity: 0.6;
+    transition: transform 0.3s ease;
 }
 
-.overlay-nav-primary .menu-item-has-children:hover > a::after {
-    transform: translateY(-50%) translateX(5px);
-    opacity: 1;
+.overlay-nav-primary .menu-item-has-children.active > a::after {
+    transform: translateY(-50%) rotate(45deg);
 }
 
-/* Submenu - slides in from right */
+/* Submenu - Simple accordion */
 .overlay-nav-primary .sub-menu {
     list-style: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    transform: translateX(100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
 }
 
-.overlay-nav-primary .menu-item-has-children.submenu-active .sub-menu {
-    transform: translateX(0);
-    opacity: 1;
-    pointer-events: auto;
+.overlay-nav-primary .menu-item-has-children.active .sub-menu {
+    max-height: 400px;
+    padding: 15px 0 10px 20px;
 }
 
-/* Back button */
-.overlay-nav-primary .sub-menu .submenu-back {
-    margin-bottom: 30px !important;
-}
-
-.overlay-nav-primary .sub-menu .submenu-back a {
-    font-family: var(--font-sans) !important;
-    font-size: 14px !important;
-    font-weight: 400 !important;
-    color: rgba(255, 255, 255, 0.6) !important;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.overlay-nav-primary .sub-menu .submenu-back a:hover {
-    color: var(--color-white) !important;
-}
-
-/* Submenu title */
-.overlay-nav-primary .sub-menu .submenu-title {
-    margin-bottom: 25px !important;
-}
-
-.overlay-nav-primary .sub-menu .submenu-title span {
-    font-family: var(--font-sans) !important;
-    font-size: 28px !important;
-    font-weight: 300 !important;
-    color: var(--color-white) !important;
-    letter-spacing: 1px;
-}
-
-/* Submenu items */
 .overlay-nav-primary .sub-menu li {
-    margin-bottom: 15px;
-    position: relative;
-}
-
-.overlay-nav-primary .sub-menu li::before {
-    display: none;
+    margin-bottom: 12px;
 }
 
 .overlay-nav-primary .sub-menu li:last-child {
@@ -185,81 +114,72 @@
 
 .overlay-nav-primary .sub-menu a {
     font-family: var(--font-sans);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.8);
-    letter-spacing: 0.5px;
-    display: block;
+    color: rgba(255, 255, 255, 0.75);
     text-decoration: none;
     transition: color 0.3s ease, padding-left 0.3s ease;
+    display: block;
     line-height: 1.4;
 }
 
 .overlay-nav-primary .sub-menu a:hover {
     color: var(--color-white);
-    padding-left: 10px;
+    padding-left: 8px;
 }
 
-/* Updated overlay styles */
+/* Contact info styles */
 .overlay-phone a {
     color: var(--color-white);
     text-decoration: none;
-    transition: var(--transition);
+    transition: opacity 0.3s ease;
 }
 
 .overlay-phone a:hover {
-    color: rgba(255, 255, 255, 0.8);
+    opacity: 0.7;
 }
 
 .overlay-social-title {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     letter-spacing: 1px;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: 15px;
     text-transform: uppercase;
 }
 
 .overlay-social-links {
     display: flex;
-    gap: 20px;
+    gap: 18px;
     justify-content: flex-end;
 }
 
 .overlay-social-links a {
     color: var(--color-white);
-    transition: var(--transition);
+    transition: opacity 0.3s ease, transform 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .overlay-social-links a:hover {
-    color: rgba(255, 255, 255, 0.7);
+    opacity: 0.7;
     transform: scale(1.1);
 }
 
-/* Responsive */
+/* Tablet */
 @media (max-width: 1024px) {
     .overlay-content {
-        padding: 60px 40px !important;
+        padding: 100px 30px 40px !important;
     }
     
     .overlay-menu-grid {
         grid-template-columns: 1fr;
-        gap: 60px;
-        max-width: 100%;
+        gap: 50px;
     }
     
     .overlay-menu-info {
-        width: 100%;
         align-items: flex-start;
-        text-align: left;
-    }
-    
-    .overlay-brand,
-    .overlay-contact,
-    .overlay-social {
         text-align: left;
     }
     
@@ -272,46 +192,34 @@
     }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
     .overlay-content {
-        padding: 100px 20px 40px !important;
-        overflow-y: auto !important;
+        padding: 90px 20px 30px !important;
+        height: 100%;
+        overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
     
     .overlay-menu-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 30px;
-        max-width: 100%;
-        min-height: auto;
-        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        min-height: 100%;
     }
     
     .overlay-menu-main {
-        order: 1;
-        position: relative;
-        min-height: 250px;
-    }
-    
-    .overlay-nav-primary {
-        position: relative;
+        flex: 1;
     }
     
     .overlay-menu-info {
-        order: 2;
-        width: 100%;
         align-items: flex-start;
         text-align: left;
+        padding-bottom: 20px;
     }
     
     .overlay-brand {
         display: none;
-    }
-    
-    .overlay-contact,
-    .overlay-social {
-        text-align: left;
     }
     
     .overlay-social-links {
@@ -324,25 +232,10 @@
     
     .overlay-nav-primary > ul > li > a {
         font-size: 20px !important;
-        line-height: 1.2 !important;
-    }
-    
-    .overlay-nav-primary .sub-menu {
-        position: relative;
-        top: auto;
-        left: auto;
-    }
-    
-    .overlay-nav-primary .sub-menu .submenu-title span {
-        font-size: 22px !important;
     }
     
     .overlay-nav-primary .sub-menu a {
-        font-size: 16px !important;
-    }
-    
-    .overlay-nav-primary .sub-menu li {
-        margin-bottom: 10px;
+        font-size: 16px;
     }
     
     .overlay-phone {
@@ -354,7 +247,7 @@
     }
     
     .overlay-social-title {
-        font-size: 12px;
+        font-size: 11px;
         margin-bottom: 10px;
     }
     
