@@ -61,14 +61,17 @@ function rosenberg_enqueue_scripts() {
     // Google Fonts
     wp_enqueue_style('rosenberg-fonts', 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&family=Inter:wght@300;400;700&family=Rubik:wght@300;400;700&display=swap', array(), null);
     
+    // Generate unique cache buster
+    $cache_buster = time() . '_' . rand(10000, 99999);
+    
     // Main theme stylesheet
-    wp_enqueue_style('rosenberg-theme-style', get_template_directory_uri() . '/assets/css/theme.css', array(), time());
+    wp_enqueue_style('rosenberg-theme-style', get_template_directory_uri() . '/assets/css/theme.css?v=' . $cache_buster, array(), null);
     
     // Menu overlay styles
-    wp_enqueue_style('rosenberg-menu-overlay', get_template_directory_uri() . '/assets/css/menu-overlay.css', array('rosenberg-theme-style'), time());
+    wp_enqueue_style('rosenberg-menu-overlay', get_template_directory_uri() . '/assets/css/menu-overlay.css?v=' . $cache_buster, array('rosenberg-theme-style'), null);
     
     // Hero block styles
-    wp_enqueue_style('rosenberg-hero-styles', get_template_directory_uri() . '/assets/css/hero-styles.css', array('rosenberg-theme-style'), time());
+    wp_enqueue_style('rosenberg-hero-styles', get_template_directory_uri() . '/assets/css/hero-styles.css?v=' . $cache_buster, array('rosenberg-theme-style'), null);
     
     // Lenis Smooth Scroll
     wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js', array(), '1.0.27', false);
@@ -76,18 +79,27 @@ function rosenberg_enqueue_scripts() {
     // Lenis initialization
     wp_enqueue_script('rosenberg-lenis', get_template_directory_uri() . '/assets/js/lenis-init.js', array('lenis'), time(), true);
     
+    // Generate unique cache buster for JS
+    $js_cache_buster = time() . '_' . rand(10000, 99999);
+    
     // Overlay menu JavaScript
-    wp_enqueue_script('rosenberg-overlay-menu', get_template_directory_uri() . '/assets/js/overlay-menu.js', array(), time(), true);
+    wp_enqueue_script('rosenberg-overlay-menu', get_template_directory_uri() . '/assets/js/overlay-menu.js?v=' . $js_cache_buster, array(), null, true);
     
     // Main JavaScript
-    wp_enqueue_script('rosenberg-main-script', get_template_directory_uri() . '/assets/js/main.js', array(), time(), true);
+    wp_enqueue_script('rosenberg-main-script', get_template_directory_uri() . '/assets/js/main.js?v=' . $js_cache_buster, array(), null, true);
     
     // Header scroll behavior (transparent -> solid)
-    wp_enqueue_script('rosenberg-header-scroll', get_template_directory_uri() . '/assets/js/header-scroll.js', array(), time(), true);
+    wp_enqueue_script('rosenberg-header-scroll', get_template_directory_uri() . '/assets/js/header-scroll.js?v=' . $js_cache_buster, array(), null, true);
+    
+    // Lenis Smooth Scroll
+    wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js?v=' . $js_cache_buster, array(), null, false);
+    
+    // Lenis initialization
+    wp_enqueue_script('rosenberg-lenis', get_template_directory_uri() . '/assets/js/lenis-init.js?v=' . $js_cache_buster, array('lenis'), null, true);
     
     // Light Panels Landing Page JavaScript
     if (is_front_page()) {
-        wp_enqueue_script('light-panels-script', get_template_directory_uri() . '/assets/js/light-panels.js', array(), time(), true);
+        wp_enqueue_script('light-panels-script', get_template_directory_uri() . '/assets/js/light-panels.js?v=' . $js_cache_buster, array(), null, true);
     }
     
     // Localize script for AJAX
