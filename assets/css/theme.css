@@ -4998,6 +4998,10 @@ body.overlay-open .header-menu-btn {
         font-size: 14px;
     }
     
+    .contacts-info {
+        gap: 15px;
+    }
+    
     .contacts-form-wrapper {
         padding: 30px;
     }
