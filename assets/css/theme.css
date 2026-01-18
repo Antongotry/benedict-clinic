@@ -5324,16 +5324,20 @@ body.overlay-open .header-menu-btn {
 
 .instagram-feed-shortcode {
     display: grid;
-    grid-template-columns: repeat(var(--columns, 3), 1fr);
+    grid-template-columns: repeat(var(--columns-mobile, 2), 1fr);
     gap: 20px;
 }
 
-.instagram-feed-shortcode[data-columns="2"] {
-    grid-template-columns: repeat(2, 1fr);
+@media (min-width: 768px) {
+    .instagram-feed-shortcode {
+        grid-template-columns: repeat(var(--columns-tablet, 2), 1fr);
+    }
 }
 
-.instagram-feed-shortcode[data-columns="4"] {
-    grid-template-columns: repeat(4, 1fr);
+@media (min-width: 1024px) {
+    .instagram-feed-shortcode {
+        grid-template-columns: repeat(var(--columns-desktop, 3), 1fr);
+    }
 }
 
 @media (min-width: 768px) {

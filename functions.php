@@ -726,6 +726,36 @@ function rosenberg_instagram_settings_page() {
             echo '</div>';
         }
         ?>
+        
+        <div class="notice notice-info" style="margin-top: 20px; max-width: 900px;">
+            <h3 style="margin-top: 0;"><?php _e('Використання шорткодів', 'rosenberg-clinic'); ?></h3>
+            <p><strong><?php _e('Повна секція з заголовком та кнопкою:', 'rosenberg-clinic'); ?></strong></p>
+            <code style="display: block; padding: 10px; background: #f5f5f5; margin: 10px 0; border-left: 4px solid #2271b1;">[instagram_section]</code>
+            
+            <p><strong><?php _e('Тільки сітка постів (без заголовка):', 'rosenberg-clinic'); ?></strong></p>
+            <code style="display: block; padding: 10px; background: #f5f5f5; margin: 10px 0; border-left: 4px solid #2271b1;">[instagram_feed]</code>
+            
+            <p><strong><?php _e('Приклади з параметрами:', 'rosenberg-clinic'); ?></strong></p>
+            <ul style="list-style: disc; margin-left: 20px;">
+                <li><code>[instagram_section title="Наш Instagram" limit="9" columns_desktop="3"]</code> - з власним заголовком</li>
+                <li><code>[instagram_feed limit="6" columns="3"]</code> - тільки сітка з 6 постами</li>
+                <li><code>[instagram_section show_header="no" show_button="no"]</code> - без заголовка та кнопки</li>
+            </ul>
+            
+            <p><strong><?php _e('Доступні параметри:', 'rosenberg-clinic'); ?></strong></p>
+            <ul style="list-style: disc; margin-left: 20px;">
+                <li><code>title</code> - заголовок секції</li>
+                <li><code>subtitle</code> - підзаголовок</li>
+                <li><code>button_text</code> - текст кнопки</li>
+                <li><code>limit</code> - кількість постів (3-12)</li>
+                <li><code>columns_desktop</code> - колонки на десктопі (2-6)</li>
+                <li><code>columns_tablet</code> - колонки на планшеті (1-4)</li>
+                <li><code>columns_mobile</code> - колонки на мобільному (1-3)</li>
+                <li><code>show_header</code> - показувати заголовок (yes/no)</li>
+                <li><code>show_button</code> - показувати кнопку (yes/no)</li>
+            </ul>
+            <p><em><?php _e('Якщо параметри не вказані, використовуються значення з налаштувань вище.', 'rosenberg-clinic'); ?></em></p>
+        </div>
     </div>
     <?php
 }
