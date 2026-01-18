@@ -746,58 +746,11 @@ body.overlay-open .header.container--full-width-padding {
     display: flex;
     flex-direction: column;
     padding: 0;
-    max-width: 900px;
-    text-align: left;
+    max-width: 600px;
+    text-align: center;
     margin: 0 auto;
     margin-left: calc(28.125vw + 20px);
     margin-right: calc(28.125vw + 20px);
-}
-
-.about-title {
-    font-family: var(--font-serif);
-    font-size: 56px;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-    color: var(--color-dark);
-    margin-bottom: 60px;
-    line-height: 1.1;
-    text-align: center;
-}
-
-.about-benefits-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    width: 100%;
-}
-
-.about-benefit-card {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    background-color: transparent;
-}
-
-.about-benefit-card:first-child {
-    grid-column: 1 / -1;
-    text-align: center;
-}
-
-.about-benefit-title {
-    font-family: var(--font-serif);
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-    color: var(--color-dark);
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-
-.about-benefit-text {
-    font-size: 14px;
-    line-height: 1.8;
-    color: var(--color-dark);
-    font-family: var(--font-sans);
 }
 
 .about-label {
