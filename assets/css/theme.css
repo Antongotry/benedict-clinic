@@ -2345,17 +2345,7 @@ body.overlay-open .header.container--full-width-padding {
     }
     
     .surgery-decorative-text {
-        font-size: 40px;
-        letter-spacing: 5px;
-        opacity: 0.15;
-    }
-    
-    .surgery-text-1 {
-        right: 10px;
-    }
-    
-    .surgery-text-2 {
-        left: 10px;
+        display: none;
     }
     
     .surgery-center-content {
