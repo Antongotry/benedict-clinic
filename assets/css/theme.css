@@ -4700,6 +4700,7 @@ body.overlay-open .header-menu-btn {
 .contacts-section {
     background: var(--color-white);
     padding: 100px 0;
+    overflow: visible;
 }
 
 .contacts-header {
@@ -4736,6 +4737,8 @@ body.overlay-open .header-menu-btn {
 .contacts-info {
     position: sticky;
     top: 120px;
+    align-self: start;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 30px;
