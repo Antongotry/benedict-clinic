@@ -1161,7 +1161,7 @@ body.overlay-open .header.container--full-width-padding {
     align-items: center;
     justify-content: center;
     opacity: 0.6;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, width 0.3s ease;
 }
 
 .certificates-swiper .swiper-slide-active {
@@ -1178,14 +1178,16 @@ body.overlay-open .header.container--full-width-padding {
     background-color: var(--color-white);
     padding: 20px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease;
     cursor: pointer;
 }
 
 .certificates-swiper .swiper-slide-active img {
-    transform: scale(1.05);
+    transform: scale(1.15);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     border-radius: 0;
+    z-index: 2;
+    position: relative;
 }
 
 .certificates-slider-wrapper {
@@ -1216,8 +1218,8 @@ body.overlay-open .header.container--full-width-padding {
 
 .certificates-button-next,
 .certificates-button-prev {
-    width: 60px !important;
-    height: 60px !important;
+    width: 50px !important;
+    height: 50px !important;
     margin: 0 !important;
     top: auto !important;
     bottom: auto !important;
@@ -1254,12 +1256,13 @@ body.overlay-open .header.container--full-width-padding {
 .certificates-button-prev::before {
     content: '→' !important;
     font-family: var(--font-sans) !important;
-    font-size: 24px !important;
+    font-size: 20px !important;
     font-weight: 300 !important;
     color: var(--color-white) !important;
     line-height: 1 !important;
     display: block !important;
-    transition: transform 0.3s ease !important;
+    transition: none !important;
+    transform: none !important;
 }
 
 .certificates-button-prev::before {
@@ -1274,12 +1277,9 @@ body.overlay-open .header.container--full-width-padding {
     transform: scale(1.05) !important;
 }
 
-.certificates-button-next:hover::before {
-    transform: translateX(3px) !important;
-}
-
+.certificates-button-next:hover::before,
 .certificates-button-prev:hover::before {
-    transform: translateX(-3px) !important;
+    transform: none !important;
 }
 
 .certificates-button-next {
@@ -1306,13 +1306,13 @@ body.overlay-open .header.container--full-width-padding {
     
     .certificates-button-next,
     .certificates-button-prev {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
     }
     
     .certificates-button-next::before,
     .certificates-button-prev::before {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
@@ -1341,15 +1341,20 @@ body.overlay-open .header.container--full-width-padding {
         border-radius: 0;
     }
     
+    .certificates-swiper .swiper-slide-active img {
+        transform: scale(1.15);
+        width: 115%;
+    }
+    
     .certificates-button-next,
     .certificates-button-prev {
-        width: 45px;
-        height: 45px;
+        width: 40px;
+        height: 40px;
     }
     
     .certificates-button-next::before,
     .certificates-button-prev::before {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
@@ -1390,6 +1395,12 @@ body.overlay-open .header.container--full-width-padding {
     object-fit: contain;
     border-radius: 0;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.certificate-lightbox-content img.loaded {
+    opacity: 1;
 }
 
 .certificate-lightbox-close {

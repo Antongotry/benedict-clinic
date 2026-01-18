@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 1024: {
                     slidesPerView: 3,
                     spaceBetween: 50,
-                    centeredSlides: false,
+                    centeredSlides: true,
                 },
             },
         });
@@ -249,6 +249,32 @@ function initCertificateLightbox() {
     const nextBtn = lightbox.querySelector('.certificate-lightbox-next');
     let currentIndex = 0;
     
+    // Function to load and show image in lightbox
+    function loadImage(src) {
+        // Hide current image
+        lightboxImg.classList.remove('loaded');
+        lightboxImg.style.opacity = '0';
+        
+        // Create new image to preload
+        const newImg = new Image();
+        newImg.onload = function() {
+            // Set src only after image is loaded
+            lightboxImg.src = src;
+            // Show image after a small delay to ensure smooth transition
+            setTimeout(function() {
+                lightboxImg.classList.add('loaded');
+                lightboxImg.style.opacity = '1';
+            }, 50);
+        };
+        newImg.onerror = function() {
+            // If image fails to load, still show it (fallback)
+            lightboxImg.src = src;
+            lightboxImg.classList.add('loaded');
+            lightboxImg.style.opacity = '1';
+        };
+        newImg.src = src;
+    }
+    
     // Open lightbox on certificate click
     certificateImages.forEach(img => {
         img.addEventListener('click', function(e) {
@@ -256,9 +282,9 @@ function initCertificateLightbox() {
             const clickedSrc = this.src;
             currentIndex = imageSources.findIndex(src => src === clickedSrc);
             if (currentIndex === -1) currentIndex = 0;
-            lightboxImg.src = clickedSrc;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
+            loadImage(clickedSrc);
         });
     });
     
@@ -266,6 +292,8 @@ function initCertificateLightbox() {
     function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
+        lightboxImg.classList.remove('loaded');
+        lightboxImg.style.opacity = '0';
     }
     
     closeBtn.addEventListener('click', closeLightbox);
@@ -279,12 +307,12 @@ function initCertificateLightbox() {
     // Navigate prev/next
     function showPrev() {
         currentIndex = (currentIndex - 1 + imageSources.length) % imageSources.length;
-        lightboxImg.src = imageSources[currentIndex];
+        loadImage(imageSources[currentIndex]);
     }
     
     function showNext() {
         currentIndex = (currentIndex + 1) % imageSources.length;
-        lightboxImg.src = imageSources[currentIndex];
+        loadImage(imageSources[currentIndex]);
     }
     
     prevBtn.addEventListener('click', showPrev);
