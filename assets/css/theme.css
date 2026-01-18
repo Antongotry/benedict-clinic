@@ -3726,12 +3726,18 @@ body.overlay-open .header-menu-btn {
 
 .pricing-card {
     background: var(--color-white);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 40px 35px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 46px 40px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.06);
 }
 
 .pricing-card-title {
@@ -3751,17 +3757,19 @@ body.overlay-open .header-menu-btn {
 }
 
 .pricing-card-price {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     color: var(--color-dark);
-    margin-bottom: 16px;
+    margin-bottom: 18px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .pricing-card-desc {
-    font-size: 13px;
-    line-height: 1.7;
+    font-size: 12px;
+    line-height: 1.8;
     color: var(--color-grey);
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .pricing-card-button {
@@ -3774,7 +3782,7 @@ body.overlay-open .header-menu-btn {
 .pricing-modal .btn-primary {
     background-color: #000;
     color: var(--color-white);
-    border-radius: 2px;
+    border-radius: 0;
 }
 
 .pricing-section .btn-primary:hover,
