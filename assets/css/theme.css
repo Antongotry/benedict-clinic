@@ -289,6 +289,14 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 /* Хедер на странице "Про лікаря" - черные элементы по умолчанию */
+.page-template-template-about-doctor {
+    overflow-x: hidden;
+}
+
+.page-template-template-about-doctor .site-content {
+    overflow-x: hidden;
+}
+
 .page-template-template-about-doctor .header.container--full-width-padding:not(.is-solid) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -3103,9 +3111,9 @@ body.overlay-open .header-menu-btn {
     .about-doctor-path-text p,
     .about-doctor-surgery-text p,
     .about-doctor-diagnostics-text p {
-        font-size: 4.2vw;
+        font-size: 4.5vw;
         line-height: 1.7;
-        margin-bottom: 3vw;
+        margin-bottom: 4vw;
     }
     
     .about-doctor-diagnostics-title {
