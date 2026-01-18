@@ -39,33 +39,46 @@
             }
         });
 
-        // Close menu when clicking on menu links (but not dropdown toggles)
-        const menuLinks = overlayMenu.querySelectorAll('a');
-        menuLinks.forEach(function(link) {
-            // Skip dropdown parent links
-            if (link.closest('.menu-item-has-children') && link.parentElement.classList.contains('menu-item-has-children')) {
-                // Handle dropdown toggle
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const parent = this.parentElement;
-                    const isActive = parent.classList.contains('active');
-                    
-                    // Close all other dropdowns
-                    overlayMenu.querySelectorAll('.menu-item-has-children.active').forEach(function(item) {
-                        if (item !== parent) {
-                            item.classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle current dropdown
-                    parent.classList.toggle('active', !isActive);
+        // Handle dropdown menu items
+        const dropdownItems = overlayMenu.querySelectorAll('.menu-item-has-children');
+        dropdownItems.forEach(function(item) {
+            const link = item.querySelector('> a');
+            if (!link) return;
+            
+            // Handle dropdown toggle
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const isActive = item.classList.contains('active');
+                
+                // Close all other dropdowns
+                dropdownItems.forEach(function(otherItem) {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
                 });
-            } else {
-                // Regular menu links - close menu
-                link.addEventListener('click', function() {
-                    closeMenu();
+                
+                // Toggle current dropdown
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Close menu when clicking on regular menu links
+        const regularLinks = overlayMenu.querySelectorAll('.overlay-nav-primary > ul > li:not(.menu-item-has-children) > a, .overlay-nav-primary .sub-menu a');
+        regularLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                // Close all dropdowns first
+                dropdownItems.forEach(function(item) {
+                    item.classList.remove('active');
                 });
-            }
+                // Then close menu
+                closeMenu();
+            });
         });
 
         function openMenu() {
