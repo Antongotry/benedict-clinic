@@ -1596,27 +1596,7 @@ body.overlay-open .header.container--full-width-padding {
         padding: 0;
     }
     
-    .about-title {
-        font-size: 42px;
-        margin-bottom: 40px;
-    }
-    
-    .about-benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .about-benefit-card:first-child {
-        grid-column: 1;
-    }
-    
-    .about-benefit-title {
-        font-size: 22px;
-    }
-    
-    .about-benefit-text {
-        font-size: 13px;
-    }
+    .about-content {
         box-sizing: border-box;
         text-align: center;
     }
