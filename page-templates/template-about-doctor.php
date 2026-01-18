@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Handle form submission
-    if (modalForm) {
+    if (modalForm && typeof rosenbergAjax !== 'undefined') {
         const consultSubmitBtn = modalForm.querySelector('button[type="submit"]');
         
         modalForm.addEventListener('submit', function(e) {
