@@ -141,6 +141,75 @@ get_header();
     </div>
 </section>
 
+<!-- Certificates Section -->
+<section class="certificates-section section-padding">
+    <div class="certificates-background"></div>
+    <div class="container">
+        <div class="certificates-header">
+            <h2 class="certificates-title">Сертифікати</h2>
+            <p class="certificates-subtitle">Постійне навчання і вдосконалення — запорука сучасного та безпечного лікування, що дозволяє обирати найефективніші методи для кожного пацієнта</p>
+        </div>
+        <div class="certificates-slider-wrapper">
+            <div class="swiper certificates-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-8_result-1.webp" alt="Сертифікат 1" loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/5.jpg" alt="Сертифікат 2" loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-7_result-1.webp" alt="Сертифікат 3" loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-6_result-1.webp" alt="Сертифікат 4" loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-5_result-1.webp" alt="Сертифікат 5" loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-3_result-1.webp" alt="Сертифікат 6" loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-2_result-1.webp" alt="Сертифікат 7" loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-1_result-1.webp" alt="Сертифікат 8" loading="lazy">
+                    </div>
+                </div>
+                <div class="swiper-button-next certificates-button-next"></div>
+                <div class="swiper-button-prev certificates-button-prev"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof Swiper !== 'undefined') {
+        const certificatesSwiper = new Swiper('.certificates-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: '.certificates-button-next',
+                prevEl: '.certificates-button-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                },
+            },
+        });
+    }
+});
+</script>
+
 <!-- Benefits Section (using Surgery Center structure) -->
 <section class="surgery-center-section section-padding">
     <div class="surgery-center-image">

@@ -91,6 +91,12 @@ function rosenberg_enqueue_scripts() {
     // Header scroll behavior (transparent -> solid)
     wp_enqueue_script('rosenberg-header-scroll', get_template_directory_uri() . '/assets/js/header-scroll.js?v=' . $js_cache_buster, array(), null, true);
     
+    // Swiper for certificates slider
+    if (is_front_page()) {
+        wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11');
+        wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11', true);
+    }
+    
     // Lenis Smooth Scroll
     wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js?v=' . $js_cache_buster, array(), null, false);
     
