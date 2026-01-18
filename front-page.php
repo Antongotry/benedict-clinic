@@ -62,20 +62,22 @@ get_header();
     <div class="container">
         <div class="why-choose-header">
             <h2 class="why-choose-title">Чому варто звернутись до мене?</h2>
-            <p class="why-choose-subtitle">Більше 11 років досвіду, хірургічний досвід в США та Європі. Член Європейської асоціації урологів та Міжнародного товариства реконструктивної урології</p>
         </div>
         <div class="why-choose-grid">
             <div class="why-choose-card">
-                <h3 class="why-choose-card-title">Більше 11 років досвіду</h3>
-                <p class="why-choose-card-text">Багаторічна практика дозволяє точно діагностувати та ефективно лікувати навіть найскладніші випадки урологічних захворювань</p>
+                <h3 class="why-choose-card-title">Точна діагностика складних випадків</h3>
+                <p class="why-choose-card-text">Багаторічний досвід дозволяє швидко визначити проблему та обрати оптимальний план лікування</p>
+                <span class="why-choose-card-note">Більше 11 років практики</span>
             </div>
             <div class="why-choose-card">
-                <h3 class="why-choose-card-title">Хірургічний досвід в США та Європі</h3>
-                <p class="why-choose-card-text">Мій хірургічний досвід в США та Європі дозволяє застосовувати найсучасніші методи лікування та забезпечувати високий рівень ефективності</p>
+                <h3 class="why-choose-card-title">Сучасні методи з мінімальним відновленням</h3>
+                <p class="why-choose-card-text">Застосовую найсучасніші методи лікування з високою ефективністю та коротким періодом реабілітації</p>
+                <span class="why-choose-card-note">Досвід в клініках США та Європи</span>
             </div>
             <div class="why-choose-card">
-                <h3 class="why-choose-card-title">Член Європейської асоціації урологів</h3>
-                <p class="why-choose-card-text">Членство в провідних міжнародних організаціях забезпечує доступ до новітніх досліджень та протоколів лікування світового рівня</p>
+                <h3 class="why-choose-card-title">Доступ до новітніх протоколів лікування</h3>
+                <p class="why-choose-card-text">Використовую актуальні міжнародні стандарти та найновіші дослідження у сфері урології</p>
+                <span class="why-choose-card-note">Член Європейської асоціації урологів</span>
             </div>
         </div>
     </div>
