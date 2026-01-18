@@ -4500,8 +4500,8 @@ body.overlay-open .header-menu-btn {
     position: relative !important;
     color: var(--color-dark) !important;
     background: transparent !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     border: 1px solid rgba(0, 0, 0, 0.15) !important;
     border-radius: 50% !important;
     transition: all 0.3s ease !important;
@@ -4536,14 +4536,15 @@ body.overlay-open .header-menu-btn {
 
 .testimonials-button-next:hover,
 .testimonials-button-prev:hover {
-    background: rgba(0, 0, 0, 0.05) !important;
-    border-color: rgba(0, 0, 0, 0.3) !important;
+    background: var(--color-dark) !important;
+    border-color: var(--color-dark) !important;
     opacity: 1 !important;
     transform: scale(1.05) !important;
 }
 
 .testimonials-button-next:hover::before,
 .testimonials-button-prev:hover::before {
+    color: var(--color-white) !important;
     transform: none !important;
 }
 
