@@ -3260,6 +3260,153 @@ body.overlay-open .header-menu-btn {
 }
 
 /* ===================================
+   About Doctor - Experience Tabs
+   =================================== */
+
+.about-doctor-experience {
+    background-color: #111111;
+    padding: 80px 6.771vw;
+}
+
+.about-doctor-experience-inner {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.experience-tabs-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.experience-tab-btn {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+    transition: opacity 0.3s ease;
+}
+
+.experience-tab-btn:hover {
+    opacity: 0.7;
+}
+
+.experience-tab-btn.active {
+    opacity: 1;
+}
+
+.experience-tab-btn:not(.active) {
+    opacity: 0.4;
+}
+
+.experience-tab-title {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--color-white);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.experience-tab-count {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+    vertical-align: super;
+}
+
+.experience-tabs-content {
+    padding-top: 10px;
+}
+
+.experience-tab-panel {
+    display: none;
+}
+
+.experience-tab-panel.active {
+    display: block;
+}
+
+.experience-item {
+    padding: 25px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.experience-item:first-child {
+    padding-top: 0;
+}
+
+.experience-item:last-child {
+    border-bottom: none;
+}
+
+.experience-item p {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .about-doctor-experience-inner {
+        grid-template-columns: 300px 1fr;
+        gap: 50px;
+    }
+    
+    .experience-tab-title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-doctor-experience {
+        padding: 60px 20px;
+    }
+    
+    .about-doctor-experience-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .experience-tabs-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px 20px;
+    }
+    
+    .experience-tab-btn {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .experience-tab-title {
+        font-size: 14px;
+    }
+    
+    .experience-tab-count {
+        font-size: 11px;
+    }
+    
+    .experience-item {
+        padding: 20px 0;
+    }
+    
+    .experience-item p {
+        font-size: 14px;
+    }
+}
+
+/* ===================================
    Materials Section (Articles)
    =================================== */
 
