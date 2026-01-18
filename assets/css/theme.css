@@ -2509,10 +2509,10 @@ body.overlay-open .header-menu-btn {
 /* Secondary Footer */
 .secondary-footer {
     width: 100%;
-    background-color: #000000;
-    color: rgba(255, 255, 255, 0.5);
+    background-color: var(--color-white);
+    color: var(--color-grey);
     padding: 25px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .secondary-footer-container {
@@ -2528,46 +2528,26 @@ body.overlay-open .header-menu-btn {
 
 .footer-copyright {
     margin: 0;
-    font-size: 11px;
+    font-size: 12px;
     font-family: var(--font-sans);
-    letter-spacing: 1px;
-}
-
-.footer-center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.footer-center-logo {
-    font-family: var(--font-serif);
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-center-logo:hover {
-    color: var(--color-white);
+    color: var(--color-grey);
 }
 
 .footer-credit {
     margin: 0;
-    font-size: 11px;
+    font-size: 12px;
     font-family: var(--font-sans);
-    letter-spacing: 1px;
+    color: var(--color-grey);
 }
 
 .secondary-footer a {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-dark);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .secondary-footer a:hover {
-    color: var(--color-white);
+    color: var(--color-grey);
 }
 
 /* Primary Footer */
@@ -2705,19 +2685,13 @@ body.overlay-open .header-menu-btn {
     
     .secondary-footer-container {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
         text-align: center;
-    }
-    
-    .footer-center {
-        position: static;
-        transform: none;
-        order: -1;
     }
     
     .footer-copyright,
     .footer-credit {
-        font-size: 10px;
+        font-size: 11px;
     }
     
     .primary-footer {

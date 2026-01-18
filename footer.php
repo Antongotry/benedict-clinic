@@ -37,11 +37,8 @@
     <!-- Secondary Footer -->
     <div class="secondary-footer">
         <div class="secondary-footer-container container--md">
-            <p class="footer-copyright">© 2025</p>
-            <div class="footer-center">
-                <a href="/" class="footer-center-logo">Dr. Benedict Urology</a>
-            </div>
-            <p class="footer-credit"><a href="https://t.me/notarikon" target="_blank" rel="noopener noreferrer">AntonGotry</a></p>
+            <p class="footer-copyright">© 2025 Dr. Benedict Urology</p>
+            <p class="footer-credit">Дизайн і розробка <a href="https://t.me/notarikon" target="_blank" rel="noopener noreferrer">AntonGotry</a></p>
         </div>
     </div>
 </footer>
