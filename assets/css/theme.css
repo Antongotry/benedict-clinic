@@ -1175,9 +1175,7 @@ body.overlay-open .header.container--full-width-padding {
 
 .certificates-swiper .swiper-slide img {
     width: 100%;
-    height: auto;
-    max-height: 450px;
-    min-height: 450px;
+    height: 450px;
     object-fit: contain;
     display: block;
     border-radius: 0;
@@ -1342,8 +1340,7 @@ body.overlay-open .header.container--full-width-padding {
     }
     
     .certificates-swiper .swiper-slide img {
-        max-height: 350px;
-        min-height: 350px;
+        height: 350px;
         padding: 15px;
         border-radius: 0;
     }
