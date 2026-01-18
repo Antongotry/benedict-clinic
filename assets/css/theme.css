@@ -1174,21 +1174,29 @@ body.overlay-open .header.container--full-width-padding {
     max-height: 450px;
     object-fit: contain;
     display: block;
-    border-radius: 8px;
+    border-radius: 0;
     background-color: var(--color-white);
     padding: 20px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .certificates-swiper .swiper-slide-active img {
     transform: scale(1.05);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 0;
 }
 
 .certificates-slider-wrapper {
     position: relative;
-    padding: 0 80px 80px 80px;
+    padding: 0;
+}
+
+/* Hide default Swiper navigation arrows */
+.certificates-swiper .swiper-button-next,
+.certificates-swiper .swiper-button-prev {
+    display: none !important;
 }
 
 .certificates-button-wrapper {
@@ -1275,7 +1283,7 @@ body.overlay-open .header.container--full-width-padding {
     }
     
     .certificates-slider-wrapper {
-        padding: 0 20px 60px 20px;
+        padding: 0;
     }
     
     .certificates-button-wrapper {
@@ -1306,7 +1314,7 @@ body.overlay-open .header.container--full-width-padding {
     }
     
     .certificates-slider-wrapper {
-        padding: 0 10px 50px 10px;
+        padding: 0;
     }
     
     .certificates-button-wrapper {
@@ -1317,6 +1325,7 @@ body.overlay-open .header.container--full-width-padding {
     .certificates-swiper .swiper-slide img {
         max-height: 350px;
         padding: 15px;
+        border-radius: 0;
     }
     
     .certificates-button-next,
@@ -1328,6 +1337,141 @@ body.overlay-open .header.container--full-width-padding {
     .certificates-button-next::before,
     .certificates-button-prev::before {
         font-size: 18px;
+    }
+}
+
+/* Certificate Lightbox Styles */
+.certificate-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.certificate-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.certificate-lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certificate-lightbox-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 0;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.certificate-lightbox-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.certificate-lightbox-close::before,
+.certificate-lightbox-close::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: var(--color-white);
+    transition: background-color 0.3s ease;
+}
+
+.certificate-lightbox-close::before {
+    transform: rotate(45deg);
+}
+
+.certificate-lightbox-close::after {
+    transform: rotate(-45deg);
+}
+
+.certificate-lightbox-close:hover {
+    transform: scale(1.1);
+}
+
+.certificate-lightbox-close:hover::before,
+.certificate-lightbox-close:hover::after {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.certificate-lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: var(--color-white);
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.certificate-lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.certificate-lightbox-prev {
+    left: 30px;
+}
+
+.certificate-lightbox-next {
+    right: 30px;
+}
+
+@media (max-width: 768px) {
+    .certificate-lightbox-nav {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+    
+    .certificate-lightbox-prev {
+        left: 15px;
+    }
+    
+    .certificate-lightbox-next {
+        right: 15px;
+    }
+    
+    .certificate-lightbox-close {
+        top: -40px;
+        right: 10px;
     }
 }
 

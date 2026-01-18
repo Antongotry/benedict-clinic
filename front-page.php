@@ -213,7 +213,91 @@ document.addEventListener('DOMContentLoaded', function() {
             },
         });
     }
+    
+    // Certificate Lightbox Functionality
+    initCertificateLightbox();
 });
+
+function initCertificateLightbox() {
+    const certificateImages = document.querySelectorAll('.certificates-swiper .swiper-slide img');
+    if (!certificateImages.length) return;
+    
+    // Collect all certificate image sources
+    const imageSources = [];
+    document.querySelectorAll('.certificates-swiper .swiper-slide:not(.swiper-slide-duplicate) img').forEach(img => {
+        if (!imageSources.includes(img.src)) {
+            imageSources.push(img.src);
+        }
+    });
+    
+    // Create lightbox container
+    const lightbox = document.createElement('div');
+    lightbox.className = 'certificate-lightbox';
+    lightbox.innerHTML = `
+        <div class="certificate-lightbox-content">
+            <button class="certificate-lightbox-close" aria-label="Close"></button>
+            <img src="" alt="Certificate">
+        </div>
+        <button class="certificate-lightbox-nav certificate-lightbox-prev" aria-label="Previous">←</button>
+        <button class="certificate-lightbox-nav certificate-lightbox-next" aria-label="Next">→</button>
+    `;
+    document.body.appendChild(lightbox);
+    
+    const lightboxImg = lightbox.querySelector('.certificate-lightbox-content img');
+    const closeBtn = lightbox.querySelector('.certificate-lightbox-close');
+    const prevBtn = lightbox.querySelector('.certificate-lightbox-prev');
+    const nextBtn = lightbox.querySelector('.certificate-lightbox-next');
+    let currentIndex = 0;
+    
+    // Open lightbox on certificate click
+    certificateImages.forEach(img => {
+        img.addEventListener('click', function(e) {
+            e.preventDefault();
+            const clickedSrc = this.src;
+            currentIndex = imageSources.findIndex(src => src === clickedSrc);
+            if (currentIndex === -1) currentIndex = 0;
+            lightboxImg.src = clickedSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    // Close lightbox
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    closeBtn.addEventListener('click', closeLightbox);
+    
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    // Navigate prev/next
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + imageSources.length) % imageSources.length;
+        lightboxImg.src = imageSources[currentIndex];
+    }
+    
+    function showNext() {
+        currentIndex = (currentIndex + 1) % imageSources.length;
+        lightboxImg.src = imageSources[currentIndex];
+    }
+    
+    prevBtn.addEventListener('click', showPrev);
+    nextBtn.addEventListener('click', showNext);
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'ArrowRight') showNext();
+    });
+}
 </script>
 
 <!-- Benefits Section (using Surgery Center structure) -->
