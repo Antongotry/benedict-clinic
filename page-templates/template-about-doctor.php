@@ -239,6 +239,20 @@ get_header();
     </div>
 </section>
 
+<!-- Schedule Consultation Section -->
+<section class="schedule-consultation-about-section">
+    <div class="schedule-consultation-about-background">
+        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/13_result-scaled.webp" alt="Schedule Consultation">
+    </div>
+    <div class="schedule-consultation-about-overlay"></div>
+    <div class="schedule-consultation-about-content">
+        <h2 class="schedule-consultation-about-title">Заплануйте свою консультацію</h2>
+        <a href="#contact" class="schedule-consultation-about-button" data-consultation-open>
+            Зв'яжіться зі мною
+        </a>
+    </div>
+</section>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const tabBtns = document.querySelectorAll('.experience-tab-btn');

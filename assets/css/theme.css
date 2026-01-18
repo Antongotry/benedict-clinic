@@ -3620,6 +3620,118 @@ body.overlay-open .header-menu-btn {
 }
 
 /* ===================================
+   Schedule Consultation - About Page
+   =================================== */
+
+.schedule-consultation-about-section {
+    position: relative;
+    width: 100%;
+    height: 37.76vw; /* 725px / 1920px */
+    min-height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.schedule-consultation-about-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.schedule-consultation-about-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.schedule-consultation-about-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.schedule-consultation-about-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.schedule-consultation-about-title {
+    font-family: var(--font-serif);
+    font-size: clamp(32px, 3.5vw, 56px);
+    font-weight: 400;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.schedule-consultation-about-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    font-family: var(--font-sans);
+    font-size: clamp(14px, 1.042vw, 20px);
+    font-weight: 400;
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.schedule-consultation-about-button:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.schedule-consultation-about-button::after {
+    content: "→";
+    margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+    .schedule-consultation-about-section {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .schedule-consultation-about-content {
+        gap: 30px;
+    }
+    
+    .schedule-consultation-about-title {
+        font-size: 28px;
+    }
+    
+    .schedule-consultation-about-button {
+        font-size: 14px;
+        padding: 12px 24px;
+    }
+}
+
+/* ===================================
    Materials Section (Articles)
    =================================== */
 
