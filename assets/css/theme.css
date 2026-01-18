@@ -766,12 +766,42 @@ body.overlay-open .header.container--full-width-padding {
 
 .about-name {
     font-family: var(--font-serif);
-    font-size: 56px;
+    font-size: 42px;
     font-weight: 400;
     letter-spacing: 0.5px;
     color: var(--color-dark);
-    margin-bottom: 35px;
+    margin-bottom: 40px;
     line-height: 1.1;
+}
+
+.about-services {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.about-service-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-service-title {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.about-service-text {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--color-dark);
+    font-family: var(--font-sans);
+    margin: 0;
 }
 
 .about-description {
@@ -1572,6 +1602,21 @@ body.overlay-open .header.container--full-width-padding {
     
     .about-label {
         font-size: 9px;
+    }
+    
+    .about-services {
+        gap: 25px;
+        margin-bottom: 30px;
+    }
+    
+    .about-service-title {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .about-service-text {
+        font-size: 12px;
+        line-height: 1.6;
     }
     
     .about-description {

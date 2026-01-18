@@ -32,11 +32,26 @@ get_header();
     </div>
     <div class="container">
         <div class="about-content">
-            <p class="about-label">ПРО ЛІКАРЯ</p>
-            <h2 class="about-name">ГАВРИЛИШИН БЕНЕДИКТ</h2>
-            <p class="about-description">Я лікар-уролог із досвідом у хірургічній та малоінвазивній урології. Пройшов клінічну ординатуру у ДУ «Інститут урології НАМН України» після інтернатури за спеціальністю «урологія» у Львівському національному медичному університеті. Медичну освіту отримав в Івано-Франківському національному медичному університеті.</p>
-            <p class="about-description">Мій професійний шлях охоплює роботу в урологічних та хірургічних відділеннях України, Польщі та проходження хірургічної практики у США, де я удосконалював підхід до роботи з пацієнтами та сучасні техніки оперативних втручань.</p>
-            <a href="/dr-benedict" class="about-cta">ПРО ЛІКАРЯ <span>|→</span></a>
+            <p class="about-label">ПОСЛУГИ</p>
+            <h2 class="about-name">НАПРЯМКИ РОБОТИ</h2>
+            <div class="about-services">
+                <div class="about-service-item">
+                    <h3 class="about-service-title">Виконую складні хірургічні втручання</h3>
+                </div>
+                <div class="about-service-item">
+                    <h3 class="about-service-title">Малоінвазивні методи лікування</h3>
+                    <p class="about-service-text">Дозволяють досягати високих результатів з мінімальними травмами для пацієнта та коротким періодом відновлення</p>
+                </div>
+                <div class="about-service-item">
+                    <h3 class="about-service-title">Онкодіагностика та онкоурологія</h3>
+                    <p class="about-service-text">Спрямовані на раннє виявлення та ефективне лікування ракових захворювань сечостатевої системи</p>
+                </div>
+                <div class="about-service-item">
+                    <h3 class="about-service-title">Пластична реконструктивна хірургія</h3>
+                    <p class="about-service-text">Допомагає відновити функції та зовнішній вигляд органів після травм, хвороб чи хірургічних втручань, а також враховує естетичні побажання пацієнта для досягнення гармонійного результату</p>
+                </div>
+            </div>
+            <a href="/procedures" class="about-cta">ПОСЛУГИ <span>|→</span></a>
         </div>
     </div>
     <div class="about-image-right">
