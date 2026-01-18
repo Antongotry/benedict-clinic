@@ -209,11 +209,6 @@ get_header();
                         </div>
                     </a>
                 </div>
-                <div class="podcast-video-content">
-                    <a href="https://www.instagram.com/dr_benedikt/" target="_blank" class="podcast-video-title-link">
-                        <h3 class="podcast-video-title">Шоу "На відвертій хвилі". Тема випуску: "Я..."</h3>
-                    </a>
-                </div>
             </div>
             
             <div class="podcast-video-item">
@@ -226,11 +221,6 @@ get_header();
                                 <path d="M 45,24 27,14 27,34" fill="white"/>
                             </svg>
                         </div>
-                    </a>
-                </div>
-                <div class="podcast-video-content">
-                    <a href="https://www.instagram.com/dr_benedikt/" target="_blank" class="podcast-video-title-link">
-                        <h3 class="podcast-video-title">Чому чоловіки бояться урологів і як це ру...</h3>
                     </a>
                 </div>
             </div>

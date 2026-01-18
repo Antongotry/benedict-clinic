@@ -291,9 +291,16 @@ body.overlay-open .header.container--full-width-padding {
 /* Хедер на странице "Про лікаря" - черные элементы по умолчанию */
 .page-template-template-about-doctor {
     overflow-x: hidden;
+    max-width: 100vw;
 }
 
 .page-template-template-about-doctor .site-content {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+.page-template-template-about-doctor section {
+    max-width: 100vw;
     overflow-x: hidden;
 }
 
@@ -2521,10 +2528,9 @@ body.overlay-open .header-menu-btn {
     background-color: #000000;
     color: var(--color-white);
     border: none !important;
-    border-top: none !important;
     box-shadow: none !important;
     outline: none !important;
-    margin-top: -1px;
+    margin-top: 0;
 }
 
 /* Secondary Footer */
@@ -3080,6 +3086,8 @@ body.overlay-open .header-menu-btn {
         flex-direction: column !important;
         grid-template-columns: none !important;
         gap: 6vw !important;
+        max-width: 100%;
+        overflow-x: hidden;
     }
     
     .about-doctor-path-image,
@@ -3184,14 +3192,18 @@ body.overlay-open .header-menu-btn {
     .about-doctor-path-name,
     .about-doctor-surgery-title,
     .about-doctor-diagnostics-title {
-        font-size: 5.5vw;
+        font-size: 7vw;
     }
     
     .about-doctor-path-text p,
     .about-doctor-surgery-text p,
     .about-doctor-diagnostics-text p {
-        font-size: 3.8vw;
+        font-size: 4.5vw;
         line-height: 1.7;
+    }
+    
+    .about-doctor-path-label {
+        font-size: 4vw;
     }
 }
 
@@ -3907,21 +3919,9 @@ body.overlay-open .header-menu-btn {
     align-items: center;
     justify-content: center;
     border: none !important;
-    border-bottom: none !important;
     box-shadow: none !important;
     outline: none !important;
-    margin-bottom: -2px;
-}
-
-.instagram-follow-about-section::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    right: 0;
-    height: 10px;
-    background-color: #000000;
-    z-index: 10;
+    margin-bottom: 0;
 }
 
 .instagram-follow-about-background {
@@ -4012,15 +4012,9 @@ body.overlay-open .header-menu-btn {
         height: 50vh;
         min-height: 280px;
         border: none !important;
-        border-bottom: none !important;
         box-shadow: none !important;
         outline: none !important;
-        margin-bottom: -2px;
-    }
-    
-    .instagram-follow-about-section::after {
-        height: 15px;
-        bottom: -8px;
+        margin-bottom: 0;
     }
     
     .instagram-follow-about-content {
