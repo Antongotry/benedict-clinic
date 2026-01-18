@@ -3428,6 +3428,235 @@ body.overlay-open .header-menu-btn {
 }
 
 /* ===================================
+   Podcast Talks Section
+   =================================== */
+
+.podcast-talks-section {
+    background-color: var(--color-white);
+    padding: 80px 6.771vw;
+}
+
+.podcast-talks-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.podcast-talks-title {
+    font-family: var(--font-serif);
+    font-size: 4.167vw; /* 80px / 1920 */
+    font-weight: 400;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #000000;
+}
+
+.podcast-talks-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1.25vw; /* 24px / 1920 */
+    font-weight: 300;
+    color: #111111;
+    line-height: 1.6;
+    margin: 0 0 60px 0;
+}
+
+.podcast-videos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.podcast-video-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.podcast-video-thumbnail {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.podcast-video-thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.podcast-video-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.podcast-video-play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+}
+
+.podcast-video-link:hover .podcast-video-play-overlay {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.podcast-video-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.podcast-video-title {
+    font-family: var(--font-sans);
+    font-size: 1.25vw; /* 24px / 1920 */
+    font-weight: 400;
+    color: #111111;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.podcast-video-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.podcast-watch-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-size: 0.938vw; /* 18px / 1920 */
+    font-weight: 300;
+    color: #111111;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.podcast-watch-button:hover {
+    opacity: 0.7;
+}
+
+.podcast-watch-button svg {
+    width: 20px;
+    height: auto;
+}
+
+.podcast-subscribe-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.podcast-subscribe-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    font-family: var(--font-sans);
+    font-size: 1.042vw; /* 20px / 1920 */
+    font-weight: 400;
+    color: #000000;
+    text-decoration: none;
+    border: 1px solid #000000;
+    background-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.podcast-subscribe-button:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.podcast-subscribe-button:hover .podcast-youtube-text {
+    color: #ffffff;
+}
+
+.podcast-youtube-text {
+    color: #FF0023;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+    .podcast-talks-title {
+        font-size: 48px;
+    }
+    
+    .podcast-talks-subtitle {
+        font-size: 18px;
+    }
+    
+    .podcast-video-title {
+        font-size: 18px;
+    }
+    
+    .podcast-watch-button {
+        font-size: 14px;
+    }
+    
+    .podcast-subscribe-button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .podcast-talks-section {
+        padding: 60px 20px;
+    }
+    
+    .podcast-talks-title {
+        font-size: 36px;
+        padding-bottom: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .podcast-talks-subtitle {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+    
+    .podcast-videos-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+    
+    .podcast-video-title {
+        font-size: 16px;
+    }
+    
+    .podcast-watch-button {
+        font-size: 14px;
+    }
+    
+    .podcast-subscribe-button {
+        font-size: 14px;
+        padding: 12px 24px;
+    }
+}
+
+/* ===================================
    Materials Section (Articles)
    =================================== */
 
