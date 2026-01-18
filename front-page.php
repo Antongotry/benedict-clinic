@@ -827,6 +827,30 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Contacts Info Sticky (GSAP ScrollTrigger pin)
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+    
+    const contactsGrid = document.querySelector('.contacts-grid');
+    const contactsInfo = document.querySelector('.contacts-info');
+    const contactsFormWrapper = document.querySelector('.contacts-form-wrapper');
+    
+    if (!contactsGrid || !contactsInfo || !contactsFormWrapper) return;
+    
+    // Only enable on desktop (> 1024px)
+    ScrollTrigger.matchMedia({
+        "(min-width: 1025px)": function() {
+            ScrollTrigger.create({
+                trigger: contactsGrid,
+                start: "top 120px",
+                end: () => `+=${contactsFormWrapper.offsetHeight - contactsInfo.offsetHeight}`,
+                pin: contactsInfo,
+                pinSpacing: false
+            });
+        }
+    });
+});
+
 // Consultation Modal
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('consultation-modal');

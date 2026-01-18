@@ -1,5 +1,5 @@
 /**
- * Lenis Smooth Scroll Initialization
+ * Lenis Smooth Scroll + GSAP ScrollTrigger Integration
  */
 (function() {
     'use strict';
@@ -10,6 +10,15 @@
             console.warn('Lenis smooth scroll library not loaded');
             return;
         }
+
+        // Check if GSAP and ScrollTrigger are available
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+            console.warn('GSAP or ScrollTrigger not loaded');
+            return;
+        }
+
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
 
         // Initialize Lenis
         const lenis = new Lenis({
@@ -24,13 +33,16 @@
             infinite: false,
         });
 
-        // Animation frame
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
+        // Sync ScrollTrigger with Lenis scroll
+        lenis.on('scroll', ScrollTrigger.update);
 
-        requestAnimationFrame(raf);
+        // Use GSAP ticker for Lenis animation
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+
+        // Disable lag smoothing for precise animations
+        gsap.ticker.lagSmoothing(0);
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {

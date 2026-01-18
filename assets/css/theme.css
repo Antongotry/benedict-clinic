@@ -37,6 +37,28 @@ html {
     padding: 0;
 }
 
+/* Lenis Smooth Scroll */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
 /* New Header */
 .site-header-new {
     position: fixed;
@@ -4735,8 +4757,7 @@ body.overlay-open .header-menu-btn {
 }
 
 .contacts-info {
-    position: sticky;
-    top: 120px;
+    /* Sticky handled by GSAP ScrollTrigger */
     align-self: start;
     height: fit-content;
     display: flex;
@@ -4941,10 +4962,6 @@ body.overlay-open .header-menu-btn {
     .contacts-grid {
         grid-template-columns: 1fr;
         gap: 40px;
-    }
-    
-    .contacts-info {
-        position: static;
     }
 }
 
