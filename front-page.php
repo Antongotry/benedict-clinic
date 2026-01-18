@@ -83,6 +83,63 @@ get_header();
     </div>
 </section>
 
+<!-- Services Section -->
+<section class="services-section section-padding">
+    <div class="container">
+        <div class="services-header">
+            <p class="services-label">ПОСЛУГИ</p>
+            <p class="services-subtitle">Урологічні проблеми можуть довго залишатися непоміченими — не відкладайте візит, почніть з консультації. Раннє звернення допоможе уникнути ускладнень і забезпечить ефективне лікування</p>
+        </div>
+        <div class="services-grid">
+            <a href="/consultation" class="service-card">
+                <div class="service-card-content">
+                    <h3 class="service-card-title">Консультація</h3>
+                    <p class="service-card-text">Надаю консультації як офлайн, так і онлайн, щоб ви могли отримати кваліфіковану допомогу у зручний для вас спосіб</p>
+                    <span class="service-card-arrow">→</span>
+                </div>
+            </a>
+            <a href="/treatment" class="service-card">
+                <div class="service-card-content">
+                    <h3 class="service-card-title">Лікування</h3>
+                    <p class="service-card-text">Лікую захворювання нирок, сечового міхура, простати, органів мошонки та статевого члена, застосовуючи сучасні методи для ефективного усунення проблем і відновлення здоров'я</p>
+                    <span class="service-card-arrow">→</span>
+                </div>
+            </a>
+            <a href="/ultrasound" class="service-card">
+                <div class="service-card-content">
+                    <h3 class="service-card-title">УЗД</h3>
+                    <p class="service-card-text">Проводжу УЗД нирок, сечового міхура, доплерографію судин мошонки та статевого члена для виявлення патологій і оцінки стану органів</p>
+                    <span class="service-card-arrow">→</span>
+                </div>
+            </a>
+            <a href="/surgery" class="service-card">
+                <div class="service-card-content">
+                    <h3 class="service-card-title">Оперативні втручання</h3>
+                    <p class="service-card-text">Використовую сучасні хірургічні методи для лікування захворювань на різних стадіях, забезпечуючи високу точність, ефективність та мінімальні ризики для пацієнта</p>
+                    <span class="service-card-arrow">→</span>
+                </div>
+            </a>
+            <a href="/plastic-urology" class="service-card">
+                <div class="service-card-content">
+                    <h3 class="service-card-title">Пластична урологія</h3>
+                    <p class="service-card-text">Відновлюю функції та естетику органів сечостатевої системи після травм, операцій або вроджених аномалій</p>
+                    <span class="service-card-arrow">→</span>
+                </div>
+            </a>
+            <a href="/conservative-treatment" class="service-card">
+                <div class="service-card-content">
+                    <h3 class="service-card-title">Консервативне лікування</h3>
+                    <p class="service-card-text">Включає застосування медикаментів, фізіотерапії та інших методів для ефективного контролю і корекції захворювань без хірургічного втручання</p>
+                    <span class="service-card-arrow">→</span>
+                </div>
+            </a>
+        </div>
+        <div class="services-cta">
+            <a href="/procedures" class="services-cta-button">Детальніше <span>|→</span></a>
+        </div>
+    </div>
+</section>
+
 <!-- Benefits Section (using Surgery Center structure) -->
 <section class="surgery-center-section section-padding">
     <div class="surgery-center-image">
