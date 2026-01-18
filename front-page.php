@@ -750,6 +750,63 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
+<!-- FAQ Section -->
+<section class="faq-section section-padding">
+    <div class="faq-image">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/faq-image.webp" alt="FAQ" loading="lazy">
+    </div>
+    <div class="faq-content">
+        <h2 class="faq-title">Відповіді на ваші основні питання<br>щодо здоров'я та лікування</h2>
+        <div class="faq-accordion">
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Чи займаєтесь Ви лікуванням безпліддя?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Лікуєте інфекції, які передаються статевим шляхом?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Запальні процеси в нирках і сечовому міхурі</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Як підготуватись до прийому уролога?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Як підготуватись до урологічної операції?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Diagnostics Section -->
 <section class="meet-surgeons-section section-padding diagnostics-section">
     <div class="meet-surgeons-content">
