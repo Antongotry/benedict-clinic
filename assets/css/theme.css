@@ -3265,33 +3265,34 @@ body.overlay-open .header-menu-btn {
 
 .about-doctor-experience {
     background-color: #111111;
-    padding: 80px 6.771vw;
+    padding: 80px 0;
 }
 
 .about-doctor-experience-inner {
     display: grid;
-    grid-template-columns: 380px 1fr;
-    gap: 80px;
-    max-width: 1400px;
-    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding-left: 6.771vw;
+    padding-right: 6.771vw;
 }
 
 .experience-tabs-nav {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
+    padding-right: 60px;
 }
 
 .experience-tab-btn {
     display: flex;
     align-items: baseline;
-    gap: 15px;
+    gap: 12px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
     text-align: left;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
 }
 
 .experience-tab-btn:hover {
@@ -3303,12 +3304,12 @@ body.overlay-open .header-menu-btn {
 }
 
 .experience-tab-btn:not(.active) {
-    opacity: 0.4;
+    opacity: 0.35;
 }
 
 .experience-tab-title {
     font-family: var(--font-serif);
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 300;
     color: var(--color-white);
     letter-spacing: 1px;
@@ -3317,27 +3318,37 @@ body.overlay-open .header-menu-btn {
 
 .experience-tab-count {
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.4);
     vertical-align: super;
 }
 
 .experience-tabs-content {
-    padding-top: 10px;
+    padding-top: 0;
+    position: relative;
+    min-height: 300px;
 }
 
 .experience-tab-panel {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 .experience-tab-panel.active {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    position: relative;
 }
 
 .experience-item {
-    padding: 25px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .experience-item:first-child {
@@ -3359,12 +3370,15 @@ body.overlay-open .header-menu-btn {
 
 @media (max-width: 1024px) {
     .about-doctor-experience-inner {
-        grid-template-columns: 300px 1fr;
-        gap: 50px;
+        grid-template-columns: 40% 60%;
     }
     
     .experience-tab-title {
-        font-size: 22px;
+        font-size: 20px;
+    }
+    
+    .experience-tabs-nav {
+        padding-right: 40px;
     }
 }
 
@@ -3376,12 +3390,15 @@ body.overlay-open .header-menu-btn {
     .about-doctor-experience-inner {
         grid-template-columns: 1fr;
         gap: 40px;
+        padding-left: 0;
+        padding-right: 0;
     }
     
     .experience-tabs-nav {
         flex-direction: row;
         flex-wrap: wrap;
         gap: 10px 20px;
+        padding-right: 0;
     }
     
     .experience-tab-btn {
@@ -3395,6 +3412,10 @@ body.overlay-open .header-menu-btn {
     
     .experience-tab-count {
         font-size: 11px;
+    }
+    
+    .experience-tabs-content {
+        min-height: auto;
     }
     
     .experience-item {
