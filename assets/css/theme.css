@@ -7117,22 +7117,48 @@ body.overlay-open .header-menu-btn {
         padding: 60px 5vw;
     }
     
+    .services-page-process-title {
+        font-size: 7vw;
+        margin-bottom: 10vw;
+    }
+    
     .services-page-process-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 8vw;
     }
     
     .services-process-step {
-        display: grid;
-        grid-template-columns: 80px 1fr;
-        gap: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 5vw;
         text-align: left;
-        align-items: start;
+        padding-bottom: 8vw;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .services-process-step:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
     }
     
     .services-process-number {
-        font-size: 36px;
+        font-size: 10vw;
+        line-height: 1;
         margin-bottom: 0;
+        flex-shrink: 0;
+        width: 15vw;
+    }
+    
+    .services-process-step h3 {
+        font-size: 4.5vw;
+        margin-bottom: 3vw;
+    }
+    
+    .services-process-step p {
+        font-size: 4vw;
+        line-height: 1.6;
     }
     
     .services-page-cta {
