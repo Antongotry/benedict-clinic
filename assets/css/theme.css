@@ -4496,6 +4496,7 @@ body.overlay-open .header-menu-btn {
     justify-content: center !important;
     background: transparent !important;
     border: 2px solid var(--color-dark) !important;
+    border-radius: 50% !important;
     color: var(--color-dark) !important;
     cursor: pointer;
     transition: all 0.3s ease;
