@@ -159,7 +159,7 @@ get_header();
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-2_result-1.webp" alt="Сертифікат 2" loading="lazy" data-lightbox-index="1">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-3_result-1.webp" alt="Сертифікат 3" loading="lazy" data-lightbox-index="2">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-8_result-1.webp" alt="Сертифікат 7" loading="lazy" data-lightbox-index="2">
                     </div>
                     <div class="swiper-slide">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-5_result-1.webp" alt="Сертифікат 4" loading="lazy" data-lightbox-index="3">
@@ -171,7 +171,7 @@ get_header();
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-7_result-1.webp" alt="Сертифікат 6" loading="lazy" data-lightbox-index="5">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-8_result-1.webp" alt="Сертифікат 7" loading="lazy" data-lightbox-index="6">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-3_result-1.webp" alt="Сертифікат 3" loading="lazy" data-lightbox-index="6">
                     </div>
                     <div class="swiper-slide">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/5.jpg" alt="Сертифікат 8" loading="lazy" data-lightbox-index="7">
