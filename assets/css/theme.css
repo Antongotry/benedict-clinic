@@ -3307,4 +3307,234 @@ body.overlay-open .header-menu-btn {
 .about-doctor-diagnostics-text p:last-child {
     margin-bottom: 0;
 }
+
+/* ===================================
+   Materials Section (Articles)
+   =================================== */
+
+.materials-section {
+    background-color: var(--color-white);
+    padding: 100px 0;
+}
+
+.materials-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.materials-title {
+    font-family: var(--font-serif);
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 400;
+    color: var(--color-dark);
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.materials-subtitle {
+    font-family: var(--font-sans);
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.8;
+    color: var(--color-grey);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.materials-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.materials-filter {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: var(--color-dark);
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.materials-filter:hover {
+    border-color: var(--color-dark);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.materials-filter.active {
+    background: #0891b2;
+    border-color: #0891b2;
+    color: var(--color-white);
+}
+
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+}
+
+.material-card {
     position: relative;
+    overflow: hidden;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.material-card.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+    position: absolute;
+    visibility: hidden;
+}
+
+.material-card.visible {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    visibility: visible;
+}
+
+.material-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.material-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.material-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.material-card:hover .material-card-image img {
+    transform: scale(1.08);
+}
+
+.material-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.material-card:hover .material-card-content {
+    transform: translateY(0);
+}
+
+.material-card-category {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #0891b2;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.material-card-title {
+    font-family: var(--font-serif);
+    font-size: clamp(16px, 1.3vw, 20px);
+    font-weight: 400;
+    color: var(--color-white);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Materials Grid - 2 rows layout */
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 3px;
+}
+
+@media (max-width: 1200px) {
+    .materials-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .materials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .materials-filters {
+        gap: 10px;
+    }
+    
+    .materials-filter {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 600px) {
+    .materials-section {
+        padding: 60px 0;
+    }
+    
+    .materials-header {
+        margin-bottom: 30px;
+        padding: 0 20px;
+    }
+    
+    .materials-filters {
+        margin-bottom: 30px;
+        padding: 0 10px;
+        gap: 8px;
+    }
+    
+    .materials-filter {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    .materials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+    }
+    
+    .material-card-content {
+        padding: 15px;
+        transform: translateY(0);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 70%, transparent 100%);
+    }
+    
+    .material-card-category {
+        font-size: 9px;
+        margin-bottom: 6px;
+    }
+    
+    .material-card-title {
+        font-size: 13px;
+        line-height: 1.3;
+    }
+}

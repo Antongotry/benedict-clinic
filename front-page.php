@@ -383,6 +383,162 @@ function initCertificateLightbox() {
     </div>
 </section>
 
+<!-- Useful Materials Section -->
+<section class="materials-section section-padding">
+    <div class="container">
+        <div class="materials-header">
+            <h2 class="materials-title">Корисні матеріали</h2>
+            <p class="materials-subtitle">Дізнайтеся більше про операції, захворювання, обстеження та методи лікування в наших статтях</p>
+        </div>
+        
+        <div class="materials-filters">
+            <button class="materials-filter active" data-filter="all">Всі статті</button>
+            <button class="materials-filter" data-filter="diseases">Захворювання</button>
+            <button class="materials-filter" data-filter="treatment">Лікування</button>
+            <button class="materials-filter" data-filter="diagnostics">Обстеження</button>
+            <button class="materials-filter" data-filter="operations">Операції</button>
+        </div>
+        
+        <div class="materials-grid">
+            <article class="material-card" data-category="diagnostics">
+                <a href="#" class="material-card-link">
+                    <div class="material-card-image">
+                        <img src="https://grey-goldfinch-461893.hostingersite.com/wp-content/uploads/2025/10/б-7_result.webp" alt="Стаття 1" loading="lazy">
+                    </div>
+                    <div class="material-card-content">
+                        <span class="material-card-category">Обстеження</span>
+                        <h3 class="material-card-title">УЗД органів сечостатевої системи</h3>
+                    </div>
+                </a>
+            </article>
+            
+            <article class="material-card" data-category="diseases">
+                <a href="#" class="material-card-link">
+                    <div class="material-card-image">
+                        <img src="https://grey-goldfinch-461893.hostingersite.com/wp-content/uploads/2025/10/б-6_result.webp" alt="Стаття 2" loading="lazy">
+                    </div>
+                    <div class="material-card-content">
+                        <span class="material-card-category">Захворювання</span>
+                        <h3 class="material-card-title">Захворювання нирок: симптоми та профілактика</h3>
+                    </div>
+                </a>
+            </article>
+            
+            <article class="material-card" data-category="operations">
+                <a href="#" class="material-card-link">
+                    <div class="material-card-image">
+                        <img src="https://grey-goldfinch-461893.hostingersite.com/wp-content/uploads/2025/10/б-8_result.webp" alt="Стаття 3" loading="lazy">
+                    </div>
+                    <div class="material-card-content">
+                        <span class="material-card-category">Операції</span>
+                        <h3 class="material-card-title">Малоінвазивні хірургічні втручання</h3>
+                    </div>
+                </a>
+            </article>
+            
+            <article class="material-card" data-category="treatment">
+                <a href="#" class="material-card-link">
+                    <div class="material-card-image">
+                        <img src="https://grey-goldfinch-461893.hostingersite.com/wp-content/uploads/2025/10/б-5_result.webp" alt="Стаття 4" loading="lazy">
+                    </div>
+                    <div class="material-card-content">
+                        <span class="material-card-category">Лікування</span>
+                        <h3 class="material-card-title">Сучасні методи лікування простатиту</h3>
+                    </div>
+                </a>
+            </article>
+            
+            <article class="material-card" data-category="diseases">
+                <a href="#" class="material-card-link">
+                    <div class="material-card-image">
+                        <img src="https://grey-goldfinch-461893.hostingersite.com/wp-content/uploads/2025/10/б-3_result.webp" alt="Стаття 5" loading="lazy">
+                    </div>
+                    <div class="material-card-content">
+                        <span class="material-card-category">Захворювання</span>
+                        <h3 class="material-card-title">Чоловіче безпліддя: причини та діагностика</h3>
+                    </div>
+                </a>
+            </article>
+            
+            <article class="material-card" data-category="diagnostics">
+                <a href="#" class="material-card-link">
+                    <div class="material-card-image">
+                        <img src="https://grey-goldfinch-461893.hostingersite.com/wp-content/uploads/2025/10/б-2_result.webp" alt="Стаття 6" loading="lazy">
+                    </div>
+                    <div class="material-card-content">
+                        <span class="material-card-category">Обстеження</span>
+                        <h3 class="material-card-title">Доплерографія судин: коли потрібна</h3>
+                    </div>
+                </a>
+            </article>
+            
+            <article class="material-card" data-category="operations">
+                <a href="#" class="material-card-link">
+                    <div class="material-card-image">
+                        <img src="https://grey-goldfinch-461893.hostingersite.com/wp-content/uploads/2025/10/б-1_result.webp" alt="Стаття 7" loading="lazy">
+                    </div>
+                    <div class="material-card-content">
+                        <span class="material-card-category">Операції</span>
+                        <h3 class="material-card-title">Реконструктивна урологія</h3>
+                    </div>
+                </a>
+            </article>
+            
+            <article class="material-card" data-category="treatment">
+                <a href="#" class="material-card-link">
+                    <div class="material-card-image">
+                        <img src="https://grey-goldfinch-461893.hostingersite.com/wp-content/uploads/2025/10/б-8_result.webp" alt="Стаття 8" loading="lazy">
+                    </div>
+                    <div class="material-card-content">
+                        <span class="material-card-category">Лікування</span>
+                        <h3 class="material-card-title">Консервативна терапія в урології</h3>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<script>
+// Materials Filter Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.materials-filter');
+    const materialCards = document.querySelectorAll('.material-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            materialCards.forEach((card, index) => {
+                const category = card.getAttribute('data-category');
+                
+                if (filter === 'all' || category === filter) {
+                    // Show card with staggered animation
+                    card.style.transitionDelay = (index * 0.05) + 's';
+                    card.classList.remove('hidden');
+                    card.classList.add('visible');
+                } else {
+                    // Hide card
+                    card.style.transitionDelay = '0s';
+                    card.classList.add('hidden');
+                    card.classList.remove('visible');
+                }
+            });
+        });
+    });
+    
+    // Initialize all cards as visible
+    materialCards.forEach(card => {
+        card.classList.add('visible');
+    });
+});
+</script>
+
 <!-- Schedule Consultation Section -->
 <section id="contact" class="schedule-consultation-section">
     <div class="schedule-consultation-bg"></div>
