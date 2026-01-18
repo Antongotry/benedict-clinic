@@ -3763,6 +3763,134 @@ body.overlay-open .header-menu-btn {
 }
 
 /* ===================================
+   Instagram Follow - About Page
+   =================================== */
+
+.instagram-follow-about-section {
+    position: relative;
+    width: 100%;
+    height: 37.76vw; /* 725px / 1920px */
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.instagram-follow-about-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.instagram-follow-about-link:hover {
+    opacity: 0.95;
+}
+
+.instagram-follow-about-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.instagram-follow-about-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.instagram-follow-about-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.instagram-follow-about-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.instagram-follow-about-title {
+    font-family: var(--font-serif);
+    font-size: clamp(32px, 3.5vw, 56px);
+    font-weight: 400;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.instagram-follow-about-handle {
+    font-family: var(--font-sans);
+    font-size: clamp(18px, 1.25vw, 24px);
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 8px 24px;
+    border: 1px solid #ffffff;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .instagram-follow-about-section {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .instagram-follow-about-content {
+        gap: 12px;
+    }
+    
+    .instagram-follow-about-title {
+        font-size: 28px;
+    }
+    
+    .instagram-follow-about-handle {
+        font-size: 16px;
+        padding: 6px 20px;
+    }
+}
+
+/* Podcast Video Title Link */
+.podcast-video-title-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.podcast-video-title-link:hover {
+    opacity: 0.7;
+}
+
+.podcast-video-title-link .podcast-video-title {
+    margin: 0;
+    cursor: pointer;
+}
+
+/* ===================================
    Materials Section (Articles)
    =================================== */
 
