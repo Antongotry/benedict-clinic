@@ -1161,7 +1161,7 @@ body.overlay-open .header.container--full-width-padding {
     align-items: center;
     justify-content: center;
     opacity: 0.6;
-    transition: opacity 0.3s ease, width 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
 .certificates-swiper .swiper-slide-active {
@@ -1172,18 +1172,19 @@ body.overlay-open .header.container--full-width-padding {
     width: 100%;
     height: auto;
     max-height: 450px;
+    min-height: 450px;
     object-fit: contain;
     display: block;
     border-radius: 0;
     background-color: var(--color-white);
     padding: 20px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
 .certificates-swiper .swiper-slide-active img {
-    transform: scale(1.15);
+    transform: scaleX(1.15) scaleY(1.08);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     border-radius: 0;
     z-index: 2;
@@ -1337,13 +1338,13 @@ body.overlay-open .header.container--full-width-padding {
     
     .certificates-swiper .swiper-slide img {
         max-height: 350px;
+        min-height: 350px;
         padding: 15px;
         border-radius: 0;
     }
     
     .certificates-swiper .swiper-slide-active img {
-        transform: scale(1.15);
-        width: 115%;
+        transform: scaleX(1.15) scaleY(1.08);
     }
     
     .certificates-button-next,
