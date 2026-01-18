@@ -3,24 +3,29 @@
 /* Background with darkened image */
 .overlay-background {
     background-image: url('https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/low-angle-view-buildings-against-sky-dusk_result-scaled.webp') !important;
-    filter: brightness(0.6) !important;
+    filter: brightness(0.4) !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
 }
 
-/* Menu grid layout */
+/* Menu grid layout - Full width like reference */
 .overlay-content {
-    background-color: rgba(0, 0, 0, 0.18) !important;
+    background-color: transparent !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 80px 60px !important;
 }
 
 .overlay-menu-grid {
     display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 100px;
+    grid-template-columns: 1fr 400px;
+    gap: 120px;
     height: 100%;
     align-items: start;
-    padding-top: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .overlay-menu-main {
@@ -177,10 +182,14 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
+    .overlay-content {
+        padding: 60px 40px !important;
+    }
+    
     .overlay-menu-grid {
         grid-template-columns: 1fr;
         gap: 60px;
-        padding-top: 60px;
+        max-width: 100%;
     }
     
     .overlay-menu-info {
@@ -205,10 +214,14 @@
 }
 
 @media (max-width: 768px) {
+    .overlay-content {
+        padding: 40px 30px !important;
+    }
+    
     .overlay-menu-grid {
         grid-template-columns: 1fr;
         gap: 40px;
-        padding-top: 40px;
+        max-width: 100%;
     }
     
     .overlay-menu-info {
