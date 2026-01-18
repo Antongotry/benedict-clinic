@@ -1216,8 +1216,8 @@ body.overlay-open .header.container--full-width-padding {
 
 .certificates-button-next,
 .certificates-button-prev {
-    width: 50px !important;
-    height: 50px !important;
+    width: 60px !important;
+    height: 60px !important;
     margin: 0 !important;
     top: auto !important;
     bottom: auto !important;
@@ -1225,50 +1225,41 @@ body.overlay-open .header.container--full-width-padding {
     right: auto !important;
     transform: none !important;
     position: relative !important;
-    background: #e5e5e5 !important;
-    border: none !important;
+    color: var(--color-white) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 50% !important;
-    transition: background-color 0.3s ease !important;
+    transition: all 0.3s ease !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    cursor: pointer !important;
-    outline: none !important;
-    opacity: 1 !important;
+    opacity: 0.8 !important;
     visibility: visible !important;
     pointer-events: auto !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
+    cursor: pointer !important;
+    outline: none !important;
 }
 
 .certificates-button-next::after,
 .certificates-button-prev::after {
     display: none !important;
     content: '' !important;
+    font-size: 0 !important;
     width: 0 !important;
     height: 0 !important;
-    margin: 0 !important;
-    border: none !important;
-    background: none !important;
 }
 
 .certificates-button-next::before,
 .certificates-button-prev::before {
     content: '→' !important;
     font-family: var(--font-sans) !important;
-    font-size: 20px !important;
-    font-weight: 400 !important;
-    color: #000000 !important;
+    font-size: 24px !important;
+    font-weight: 300 !important;
+    color: var(--color-white) !important;
     line-height: 1 !important;
     display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-    background: none !important;
-    position: static !important;
-    transform: none !important;
-    width: auto !important;
-    height: auto !important;
+    transition: transform 0.3s ease !important;
 }
 
 .certificates-button-prev::before {
@@ -1277,15 +1268,18 @@ body.overlay-open .header.container--full-width-padding {
 
 .certificates-button-next:hover,
 .certificates-button-prev:hover {
-    background: #d0d0d0 !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
     opacity: 1 !important;
-    transform: none !important;
+    transform: scale(1.05) !important;
 }
 
-.certificates-button-next:hover::before,
+.certificates-button-next:hover::before {
+    transform: translateX(3px) !important;
+}
+
 .certificates-button-prev:hover::before {
-    transform: none !important;
-    color: #000000 !important;
+    transform: translateX(-3px) !important;
 }
 
 .certificates-button-next {
@@ -1312,13 +1306,13 @@ body.overlay-open .header.container--full-width-padding {
     
     .certificates-button-next,
     .certificates-button-prev {
-        width: 45px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
     }
     
     .certificates-button-next::before,
     .certificates-button-prev::before {
-        font-size: 18px;
+        font-size: 20px;
     }
 }
 
@@ -1349,13 +1343,13 @@ body.overlay-open .header.container--full-width-padding {
     
     .certificates-button-next,
     .certificates-button-prev {
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
     }
     
     .certificates-button-next::before,
     .certificates-button-prev::before {
-        font-size: 16px;
+        font-size: 18px;
     }
 }
 
