@@ -1,31 +1,36 @@
 /* Menu Overlay Styles */
 
-/* Background with darkened image */
+/* Background with darkened image - 20% darker */
 .overlay-background {
     background-image: url('https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/low-angle-view-buildings-against-sky-dusk_result-scaled.webp') !important;
-    filter: brightness(0.4) !important;
+    filter: brightness(0.32) !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
 }
 
-/* Menu grid layout - Full width like reference */
+/* Menu grid layout - Full width like reference, aligned with header-right */
 .overlay-content {
     background-color: transparent !important;
     max-width: 100% !important;
     width: 100% !important;
-    padding: 80px 60px !important;
+    padding: 80px 60px 80px 60px !important;
 }
 
 .overlay-menu-grid {
     display: grid;
-    grid-template-columns: 1fr 400px;
-    gap: 120px;
+    grid-template-columns: 1fr 350px;
+    gap: 60px;
     height: 100%;
     align-items: start;
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
+    justify-content: space-between;
+}
+
+.overlay-menu-info {
+    justify-self: end;
 }
 
 .overlay-menu-main {
@@ -69,7 +74,7 @@
     opacity: 0.8 !important;
 }
 
-/* Sub-menu styles - Improved */
+/* Sub-menu styles - Improved with hover support */
 .overlay-nav-primary .menu-item-has-children {
     position: relative;
 }
@@ -94,6 +99,7 @@
     line-height: 1;
 }
 
+.overlay-nav-primary .menu-item-has-children:hover > a::after,
 .overlay-nav-primary .menu-item-has-children.active > a::after {
     transform: translateY(-50%) rotate(45deg);
     opacity: 1;
@@ -109,6 +115,7 @@
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+.overlay-nav-primary .menu-item-has-children:hover .sub-menu,
 .overlay-nav-primary .menu-item-has-children.active .sub-menu {
     opacity: 1 !important;
     visibility: visible !important;
