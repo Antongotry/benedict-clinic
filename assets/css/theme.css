@@ -3858,6 +3858,8 @@ body.overlay-open .header-menu-btn {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
+    border-bottom: none;
 }
 
 .instagram-follow-about-background {
@@ -3947,6 +3949,8 @@ body.overlay-open .header-menu-btn {
     .instagram-follow-about-section {
         height: 60vh;
         min-height: 300px;
+        border: none;
+        border-bottom: none;
     }
     
     .instagram-follow-about-content {
