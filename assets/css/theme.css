@@ -3746,6 +3746,7 @@ body.overlay-open .header-menu-btn {
     font-weight: 400;
     margin: 0 0 6px 0;
     color: var(--color-dark);
+    line-height: 1.2;
 }
 
 .pricing-card-subtitle {
@@ -3775,6 +3776,7 @@ body.overlay-open .header-menu-btn {
 .pricing-card-button {
     align-self: stretch;
     text-align: center;
+    margin-top: auto;
 }
 
 /* Pricing buttons override */
