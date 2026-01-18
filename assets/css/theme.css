@@ -2956,6 +2956,11 @@ body.overlay-open .header-menu-btn {
     }
 }
 
+/* Gradient overlay - hidden on desktop */
+.about-doctor-hero-gradient-mobile {
+    display: none;
+}
+
 @media (max-width: 768px) {
     /* Hero Section Mobile */
     .about-doctor-hero {
@@ -2971,20 +2976,37 @@ body.overlay-open .header-menu-btn {
         display: block;
     }
     
+    /* Gradient overlay on mobile */
+    .about-doctor-hero-gradient-mobile {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+        z-index: 1;
+        pointer-events: none;
+    }
+    
     .about-doctor-hero-content {
         padding-top: 30vw;
         padding-left: 6vw;
         padding-right: 6vw;
+        padding-bottom: 40px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: flex-start;
+        justify-content: space-between;
+        z-index: 2;
     }
     
     .about-doctor-name {
         font-size: 12vw;
         line-height: 1.05;
         margin-bottom: 3vw;
+        color: #ffffff;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
     
     .about-doctor-subtitle {
@@ -2992,13 +3014,15 @@ body.overlay-open .header-menu-btn {
         line-height: 1.3;
         letter-spacing: 0.1vw;
         margin-bottom: 6vw;
+        color: #ffffff;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
     
     .about-doctor-bottom {
         flex-direction: row;
         align-items: center;
         gap: 3vw;
-        padding-bottom: 8vw;
+        padding-bottom: 0;
         margin-top: auto;
     }
     
@@ -3011,6 +3035,8 @@ body.overlay-open .header-menu-btn {
     .about-doctor-bottom-text {
         font-size: 3.2vw;
         line-height: 1.4;
+        color: #ffffff;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
     
     /* Professional Path Mobile */
@@ -3088,20 +3114,23 @@ body.overlay-open .header-menu-btn {
         padding-top: 28vw;
         padding-left: 5vw;
         padding-right: 5vw;
+        padding-bottom: 40px;
     }
     
     .about-doctor-name {
         font-size: 14vw;
         margin-bottom: 3vw;
+        color: #ffffff;
     }
     
     .about-doctor-subtitle {
         font-size: 4.5vw;
         margin-bottom: 6vw;
+        color: #ffffff;
     }
     
     .about-doctor-bottom {
-        padding-bottom: 10vw;
+        padding-bottom: 0;
         gap: 3vw;
     }
     
@@ -3111,6 +3140,7 @@ body.overlay-open .header-menu-btn {
     
     .about-doctor-bottom-text {
         font-size: 3.8vw;
+        color: #ffffff;
     }
     
     .about-doctor-path,

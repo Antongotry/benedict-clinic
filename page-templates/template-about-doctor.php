@@ -12,6 +12,7 @@ get_header();
         <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/hero-about_result-scaled.webp" alt="Dr. Benedict" class="hero-bg-desktop">
         <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/234_result.webp" alt="Dr. Benedict" class="hero-bg-mobile">
     </div>
+    <div class="about-doctor-hero-gradient-mobile"></div>
     <div class="about-doctor-hero-content">
         <div class="about-doctor-main">
             <h1 class="about-doctor-name">DR. BENEDICT</h1>
