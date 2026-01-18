@@ -1425,6 +1425,14 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 /* Responsive */
+@media (max-width: 1440px) {
+    .about-content {
+        max-width: min(600px, 50vw);
+        margin-left: max(calc(28.125vw + 15px), 15px);
+        margin-right: max(calc(28.125vw + 15px), 15px);
+    }
+}
+
 @media (max-width: 1024px) {
     .header-container {
         padding: 0 20px;
@@ -1463,6 +1471,22 @@ body.overlay-open .header.container--full-width-padding {
     .about-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+    
+    .about-section {
+        padding: clamp(60px, 8vw, 80px) 0;
+    }
+    
+    .about-image-left,
+    .about-image-right {
+        width: 25vw;
+        height: 30vw;
+    }
+    
+    .about-content {
+        max-width: min(600px, 55vw);
+        margin-left: max(calc(25vw + 15px), 15px);
+        margin-right: max(calc(25vw + 15px), 15px);
     }
 }
 
