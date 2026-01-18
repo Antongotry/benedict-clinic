@@ -3611,30 +3611,16 @@ body.overlay-open .header-menu-btn {
     font-size: 72px;
     font-weight: 300;
     line-height: 1.1;
-    margin: 20px 0;
+    margin-bottom: 30px;
+    padding: 20px 30px 0 30px;
     color: var(--color-white);
     letter-spacing: -2px;
     position: relative;
     display: inline-block;
-}
-
-.statistic-number::before,
-.statistic-number::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-.statistic-number::before {
-    top: -15px;
-}
-
-.statistic-number::after {
-    bottom: -15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: none;
 }
 
 .statistic-label {
@@ -3645,7 +3631,15 @@ body.overlay-open .header-menu-btn {
     letter-spacing: 1px;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.8);
+    padding: 0 30px 20px 30px;
+    margin-top: 0;
+    display: inline-block;
+    border-top: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
+
 
 @media (max-width: 1024px) {
     .statistics-grid {
