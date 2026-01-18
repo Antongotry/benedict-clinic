@@ -1,9 +1,9 @@
 /* Menu Overlay Styles */
 
-/* Background with darkened image - 20% darker */
+/* Background with darkened image - 40% darker total */
 .overlay-background {
     background-image: url('https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/low-angle-view-buildings-against-sky-dusk_result-scaled.webp') !important;
-    filter: brightness(0.32) !important;
+    filter: brightness(0.26) !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
