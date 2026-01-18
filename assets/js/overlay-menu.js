@@ -39,45 +39,52 @@
             }
         });
 
-        // Handle dropdown menu items - Clean version
+        // Handle dropdown menu items with slide transition
         const dropdownItems = overlayMenu.querySelectorAll('.menu-item-has-children');
+        const mainNav = overlayMenu.querySelector('.overlay-nav-primary > ul');
+        
         dropdownItems.forEach(function(item) {
             const link = item.querySelector('> a');
             const submenu = item.querySelector('.sub-menu');
             
             if (!link || !submenu) return;
             
-            // Handle dropdown toggle
+            // Create back button for submenu
+            const backBtn = document.createElement('li');
+            backBtn.className = 'submenu-back';
+            backBtn.innerHTML = '<a href="#">← Назад</a>';
+            submenu.insertBefore(backBtn, submenu.firstChild);
+            
+            // Add title to submenu
+            const submenuTitle = document.createElement('li');
+            submenuTitle.className = 'submenu-title';
+            submenuTitle.innerHTML = '<span>' + link.textContent + '</span>';
+            submenu.insertBefore(submenuTitle, submenu.children[1]);
+            
+            // Handle dropdown open
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                const isActive = item.classList.contains('active');
-                
-                // Close all other dropdowns
-                dropdownItems.forEach(function(otherItem) {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-                
-                // Toggle current dropdown
-                if (isActive) {
-                    item.classList.remove('active');
-                } else {
-                    item.classList.add('active');
-                }
+                // Hide main menu, show submenu
+                mainNav.classList.add('menu-hidden');
+                item.classList.add('submenu-active');
             });
             
-            // Close dropdown when clicking outside
-            submenu.addEventListener('click', function(e) {
+            // Handle back button
+            backBtn.querySelector('a').addEventListener('click', function(e) {
+                e.preventDefault();
                 e.stopPropagation();
+                
+                // Show main menu, hide submenu
+                mainNav.classList.remove('menu-hidden');
+                item.classList.remove('submenu-active');
             });
         });
         
         // Close menu when clicking on regular menu links and submenu links
         const regularLinks = overlayMenu.querySelectorAll('.overlay-nav-primary > ul > li:not(.menu-item-has-children) > a');
-        const submenuLinks = overlayMenu.querySelectorAll('.overlay-nav-primary .sub-menu a');
+        const submenuLinks = overlayMenu.querySelectorAll('.overlay-nav-primary .sub-menu a:not(.submenu-back a)');
         
         regularLinks.forEach(function(link) {
             link.addEventListener('click', function() {
@@ -86,14 +93,11 @@
         });
         
         submenuLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                // Close dropdowns first
-                dropdownItems.forEach(function(item) {
-                    item.classList.remove('active');
+            if (!link.closest('.submenu-back') && !link.closest('.submenu-title')) {
+                link.addEventListener('click', function() {
+                    closeMenu();
                 });
-                // Then close menu
-                closeMenu();
-            });
+            }
         });
 
         function openMenu() {
@@ -106,6 +110,14 @@
             overlayMenu.classList.remove('active');
             body.classList.remove('overlay-open');
             menuToggle.setAttribute('aria-expanded', 'false');
+            
+            // Reset all submenus
+            setTimeout(function() {
+                mainNav.classList.remove('menu-hidden');
+                dropdownItems.forEach(function(item) {
+                    item.classList.remove('submenu-active');
+                });
+            }, 400);
         }
 
         // Smooth scroll for anchor links in overlay
@@ -165,4 +177,3 @@
     initHeroVideo();
 
 })();
-
