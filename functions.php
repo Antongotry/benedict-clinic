@@ -73,11 +73,15 @@ function rosenberg_enqueue_scripts() {
     // Hero block styles
     wp_enqueue_style('rosenberg-hero-styles', get_template_directory_uri() . '/assets/css/hero-styles.css?v=' . $cache_buster, array('rosenberg-theme-style'), null);
     
+    // GSAP + ScrollTrigger
+    wp_enqueue_script('gsap', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', array(), '3.12.5', false);
+    wp_enqueue_script('gsap-scrolltrigger', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js', array('gsap'), '3.12.5', false);
+    
     // Lenis Smooth Scroll
     wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js', array(), '1.0.27', false);
     
-    // Lenis initialization
-    wp_enqueue_script('rosenberg-lenis', get_template_directory_uri() . '/assets/js/lenis-init.js', array('lenis'), time(), true);
+    // Lenis initialization (depends on GSAP + ScrollTrigger)
+    wp_enqueue_script('rosenberg-lenis', get_template_directory_uri() . '/assets/js/lenis-init.js', array('lenis', 'gsap', 'gsap-scrolltrigger'), time(), true);
     
     // Generate unique cache buster for JS
     $js_cache_buster = time() . '_' . rand(10000, 99999);
@@ -97,11 +101,15 @@ function rosenberg_enqueue_scripts() {
         wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11', true);
     }
     
+    // GSAP + ScrollTrigger
+    wp_enqueue_script('gsap', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js?v=' . $js_cache_buster, array(), null, false);
+    wp_enqueue_script('gsap-scrolltrigger', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js?v=' . $js_cache_buster, array('gsap'), null, false);
+    
     // Lenis Smooth Scroll
     wp_enqueue_script('lenis', 'https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js?v=' . $js_cache_buster, array(), null, false);
     
-    // Lenis initialization
-    wp_enqueue_script('rosenberg-lenis', get_template_directory_uri() . '/assets/js/lenis-init.js?v=' . $js_cache_buster, array('lenis'), null, true);
+    // Lenis initialization (depends on GSAP + ScrollTrigger)
+    wp_enqueue_script('rosenberg-lenis', get_template_directory_uri() . '/assets/js/lenis-init.js?v=' . $js_cache_buster, array('lenis', 'gsap', 'gsap-scrolltrigger'), null, true);
     
     // Light Panels Landing Page JavaScript
     if (is_front_page()) {
@@ -728,10 +736,81 @@ function rosenberg_instagram_settings_page() {
                 if (empty($token)) {
                     echo '<span style="color: #dc3232;">⚠ ' . __('Необхідно налаштувати Access Token', 'rosenberg-clinic') . '</span>';
                 } else {
-                    echo '<span style="color: #dc3232;">⚠ ' . __('Не вдалося отримати пости. Перевірте Access Token та User ID', 'rosenberg-clinic') . '</span>';
+                    $last_error = get_option('rosenberg_instagram_last_error', '');
+                    if (!empty($last_error)) {
+                        echo '<span style="color: #dc3232;">⚠ ' . __('Помилка API:', 'rosenberg-clinic') . ' ' . esc_html($last_error) . '</span>';
+                    } else {
+                        echo '<span style="color: #dc3232;">⚠ ' . __('Не вдалося отримати пости. Перевірте Access Token та User ID', 'rosenberg-clinic') . '</span>';
+                    }
                 }
             }
             echo '</p></div>';
+            
+            // Show token refresh info
+            $last_refresh = get_option('rosenberg_instagram_token_last_refresh', 0);
+            if ($last_refresh > 0) {
+                $days_since = (time() - $last_refresh) / DAY_IN_SECONDS;
+                echo '<div class="notice notice-info" style="margin-top: 10px; max-width: 900px;">';
+                echo '<p>' . __('Токен було оновлено:', 'rosenberg-clinic') . ' ' . human_time_diff($last_refresh) . ' ' . __('тому', 'rosenberg-clinic') . ' ';
+                echo '(' . sprintf(__('через %d днів буде спроба автоматичного оновлення', 'rosenberg-clinic'), ceil(30 - $days_since)) . ')';
+                echo '</p></div>';
+            }
+            
+            // Action buttons
+            echo '<div style="margin-top: 20px; max-width: 900px;">';
+            echo '<button type="button" class="button" id="refresh-instagram-cache">' . __('Оновити кеш постів', 'rosenberg-clinic') . '</button> ';
+            echo '<button type="button" class="button" id="refresh-instagram-token">' . __('Оновити токен', 'rosenberg-clinic') . '</button>';
+            echo '<span id="instagram-action-result" style="margin-left: 10px;"></span>';
+            echo '</div>';
+            
+            // JavaScript for action buttons
+            echo '<script>
+            jQuery(document).ready(function($) {
+                $("#refresh-instagram-cache").on("click", function() {
+                    var $btn = $(this);
+                    var $result = $("#instagram-action-result");
+                    $btn.prop("disabled", true);
+                    $result.html("<span style=\"color: #666;\">Оновлення...</span>");
+                    
+                    $.post(ajaxurl, {
+                        action: "refresh_instagram",
+                        nonce: "' . wp_create_nonce('rosenberg-nonce') . '"
+                    }, function(response) {
+                        if (response.success) {
+                            $result.html("<span style=\"color: #46b450;\">✓ Кеш оновлено! Знайдено " + response.data.count + " постів</span>");
+                            setTimeout(function() {
+                                location.reload();
+                            }, 1500);
+                        } else {
+                            $result.html("<span style=\"color: #dc3232;\">✗ Помилка: " + response.data.message + "</span>");
+                        }
+                        $btn.prop("disabled", false);
+                    });
+                });
+                
+                $("#refresh-instagram-token").on("click", function() {
+                    var $btn = $(this);
+                    var $result = $("#instagram-action-result");
+                    $btn.prop("disabled", true);
+                    $result.html("<span style=\"color: #666;\">Оновлення токену...</span>");
+                    
+                    $.post(ajaxurl, {
+                        action: "refresh_instagram_token",
+                        nonce: "' . wp_create_nonce('rosenberg-nonce') . '"
+                    }, function(response) {
+                        if (response.success) {
+                            $result.html("<span style=\"color: #46b450;\">✓ " + response.data.message + "</span>");
+                            setTimeout(function() {
+                                location.reload();
+                            }, 1500);
+                        } else {
+                            $result.html("<span style=\"color: #dc3232;\">✗ " + response.data.message + "</span>");
+                        }
+                        $btn.prop("disabled", false);
+                    });
+                });
+            });
+            </script>';
         } else {
             echo '<div class="notice notice-warning" style="margin-top: 20px; max-width: 900px;">';
             echo '<p><strong>' . __('Увага:', 'rosenberg-clinic') . '</strong> ' . __('Instagram секція вимкнена. Увімкніть її для відображення на сайті.', 'rosenberg-clinic') . '</p>';
@@ -773,7 +852,58 @@ function rosenberg_instagram_settings_page() {
 }
 
 /**
+ * Refresh Instagram access token (tokens expire after ~60 days)
+ * Similar to Smash Balloon - automatically refresh before expiration
+ */
+function rosenberg_refresh_instagram_token() {
+    $access_token = get_option('rosenberg_instagram_access_token', '');
+    
+    if (empty($access_token)) {
+        return false;
+    }
+    
+    // Check if we need to refresh (try to refresh every 30 days)
+    $last_refresh = get_option('rosenberg_instagram_token_last_refresh', 0);
+    $days_since_refresh = (time() - $last_refresh) / DAY_IN_SECONDS;
+    
+    if ($days_since_refresh < 30) {
+        return true; // Token is still fresh
+    }
+    
+    // Try to refresh the token
+    $refresh_url = 'https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=' . $access_token;
+    
+    $response = wp_remote_get($refresh_url, array(
+        'timeout' => 15,
+        'sslverify' => true
+    ));
+    
+    if (is_wp_error($response)) {
+        error_log('Instagram Token Refresh Error: ' . $response->get_error_message());
+        return false;
+    }
+    
+    $body = wp_remote_retrieve_body($response);
+    $data = json_decode($body, true);
+    
+    if (isset($data['access_token'])) {
+        update_option('rosenberg_instagram_access_token', $data['access_token']);
+        update_option('rosenberg_instagram_token_last_refresh', time());
+        
+        // Clear cache to fetch fresh posts
+        global $wpdb;
+        $wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transient_rosenberg_instagram_posts_%'");
+        $wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transient_timeout_rosenberg_instagram_posts_%'");
+        
+        return true;
+    }
+    
+    return false;
+}
+
+/**
  * Get Instagram posts from API
+ * Similar to Smash Balloon logic - uses Instagram Basic Display API
  */
 function rosenberg_get_instagram_posts($limit = 6) {
     $access_token = get_option('rosenberg_instagram_access_token', '');
@@ -783,7 +913,13 @@ function rosenberg_get_instagram_posts($limit = 6) {
         return array();
     }
     
-    // Check transient cache (cache for 1 hour)
+    // Try to refresh token if needed (like Smash Balloon does)
+    rosenberg_refresh_instagram_token();
+    
+    // Get fresh token in case it was refreshed
+    $access_token = get_option('rosenberg_instagram_access_token', '');
+    
+    // Check transient cache (cache for 1 hour, same as Smash Balloon)
     $cache_key = 'rosenberg_instagram_posts_' . md5($access_token . $user_id . $limit);
     $cached_posts = get_transient($cache_key);
     
@@ -791,7 +927,7 @@ function rosenberg_get_instagram_posts($limit = 6) {
         return $cached_posts;
     }
     
-    // Try Instagram Basic Display API
+    // Try Instagram Basic Display API (same endpoint as Smash Balloon uses)
     $url = 'https://graph.instagram.com/' . $user_id . '/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&access_token=' . $access_token . '&limit=' . $limit;
     
     $response = wp_remote_get($url, array(
@@ -801,15 +937,34 @@ function rosenberg_get_instagram_posts($limit = 6) {
     
     if (is_wp_error($response)) {
         error_log('Instagram API Error: ' . $response->get_error_message());
+        update_option('rosenberg_instagram_last_error', $response->get_error_message());
         return array();
     }
     
+    $response_code = wp_remote_retrieve_response_code($response);
     $body = wp_remote_retrieve_body($response);
     $data = json_decode($body, true);
+    
+    // Handle API errors (like expired token)
+    if ($response_code !== 200) {
+        $error_message = isset($data['error']['message']) ? $data['error']['message'] : 'Unknown error';
+        error_log('Instagram API Error ' . $response_code . ': ' . $error_message);
+        update_option('rosenberg_instagram_last_error', $error_message);
+        
+        // If token expired, try to refresh
+        if (isset($data['error']['code']) && $data['error']['code'] === 190) {
+            rosenberg_refresh_instagram_token();
+        }
+        
+        return array();
+    }
     
     if (!isset($data['data']) || !is_array($data['data'])) {
         return array();
     }
+    
+    // Clear any previous errors on success
+    delete_option('rosenberg_instagram_last_error');
     
     $posts = array();
     foreach ($data['data'] as $item) {
@@ -824,7 +979,7 @@ function rosenberg_get_instagram_posts($limit = 6) {
         );
     }
     
-    // Cache for 1 hour
+    // Cache for 1 hour (same as Smash Balloon default)
     set_transient($cache_key, $posts, HOUR_IN_SECONDS);
     
     return $posts;
@@ -852,6 +1007,32 @@ function rosenberg_refresh_instagram_posts() {
     wp_send_json_success(array('posts' => $posts, 'count' => count($posts)));
 }
 add_action('wp_ajax_refresh_instagram', 'rosenberg_refresh_instagram_posts');
+
+/**
+ * AJAX handler to manually refresh Instagram token
+ */
+function rosenberg_manual_refresh_instagram_token() {
+    check_ajax_referer('rosenberg-nonce', 'nonce');
+    
+    if (!current_user_can('manage_options')) {
+        wp_send_json_error(array('message' => 'Unauthorized'));
+        return;
+    }
+    
+    $result = rosenberg_refresh_instagram_token();
+    
+    if ($result) {
+        // Also clear cache
+        global $wpdb;
+        $wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transient_rosenberg_instagram_posts_%'");
+        $wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transient_timeout_rosenberg_instagram_posts_%'");
+        
+        wp_send_json_success(array('message' => __('Токен успішно оновлено!', 'rosenberg-clinic')));
+    } else {
+        wp_send_json_error(array('message' => __('Не вдалося оновити токен. Перевірте Access Token.', 'rosenberg-clinic')));
+    }
+}
+add_action('wp_ajax_refresh_instagram_token', 'rosenberg_manual_refresh_instagram_token');
 
 /**
  * Shortcode to display Instagram feed (just grid)
