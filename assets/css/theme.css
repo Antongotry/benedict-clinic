@@ -4416,7 +4416,7 @@ body.overlay-open .header-menu-btn {
 }
 
 .testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card {
-    background: rgba(0, 0, 0, 0.02);
+    border: 2px solid var(--color-dark);
 }
 
 .testimonial-card:hover {
