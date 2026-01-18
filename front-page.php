@@ -88,7 +88,7 @@ get_header();
     <div class="container">
         <div class="services-header">
             <p class="services-label">ПОСЛУГИ</p>
-            <h2 class="services-title">ЧОГО МИ НАДАЄМО</h2>
+            <h2 class="services-title">НАШІ ПОСЛУГИ</h2>
             <p class="services-subtitle">Урологічні проблеми можуть довго залишатися непоміченими — не відкладайте візит, почніть з консультації. Раннє звернення допоможе уникнути ускладнень і забезпечить ефективне лікування</p>
         </div>
         <div class="services-grid">
