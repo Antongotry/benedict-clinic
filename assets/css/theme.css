@@ -4677,8 +4677,6 @@ body.overlay-open .header-menu-btn {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    position: sticky;
-    top: 120px;
 }
 
 .contacts-item {
@@ -4916,8 +4914,6 @@ body.overlay-open .header-menu-btn {
     
     .contacts-info {
         gap: 15px;
-        position: static;
-        top: auto;
     }
     
     .contacts-form-wrapper {

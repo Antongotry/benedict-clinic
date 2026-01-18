@@ -64,5 +64,19 @@
         // Expose lenis globally if needed
         window.lenis = lenis;
 
+        // Contacts Info Sticky with GSAP ScrollTrigger
+        const contactsInfo = document.querySelector('.contacts-info');
+        const contactsFormWrapper = document.querySelector('.contacts-form-wrapper');
+        
+        if (contactsInfo && contactsFormWrapper && window.innerWidth > 1024) {
+            ScrollTrigger.create({
+                trigger: '.contacts-grid',
+                start: 'top 120px',
+                end: () => `bottom ${contactsInfo.offsetHeight + 120}px`,
+                pin: contactsInfo,
+                pinSpacing: false,
+                invalidateOnRefresh: true
+            });
+        }
     });
 })();
