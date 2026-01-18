@@ -57,6 +57,30 @@ get_header();
     <div class="about-watermark">UROLOGY</div>
 </section>
 
+<!-- Why Choose Me Section -->
+<section class="why-choose-section section-padding">
+    <div class="container">
+        <div class="why-choose-header">
+            <h2 class="why-choose-title">Чому варто звернутись до мене?</h2>
+            <p class="why-choose-subtitle">Більше 11 років досвіду, хірургічний досвід в США та Європі. Член Європейської асоціації урологів та Міжнародного товариства реконструктивної урології</p>
+        </div>
+        <div class="why-choose-grid">
+            <div class="why-choose-card">
+                <h3 class="why-choose-card-title">Більше 11 років досвіду</h3>
+                <p class="why-choose-card-text">Багаторічна практика дозволяє точно діагностувати та ефективно лікувати навіть найскладніші випадки урологічних захворювань</p>
+            </div>
+            <div class="why-choose-card">
+                <h3 class="why-choose-card-title">Хірургічний досвід в США та Європі</h3>
+                <p class="why-choose-card-text">Мій хірургічний досвід в США та Європі дозволяє застосовувати найсучасніші методи лікування та забезпечувати високий рівень ефективності</p>
+            </div>
+            <div class="why-choose-card">
+                <h3 class="why-choose-card-title">Член Європейської асоціації урологів</h3>
+                <p class="why-choose-card-text">Членство в провідних міжнародних організаціях забезпечує доступ до новітніх досліджень та протоколів лікування світового рівня</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Benefits Section (using Surgery Center structure) -->
 <section class="surgery-center-section section-padding">
     <div class="surgery-center-image">
@@ -83,78 +107,6 @@ get_header();
             <div class="diagnostics-text">
                 <p>Чоловіче здоров'я починається з правильного способу життя та регулярних чекапів. Спочатку — діагностика, потім — діалог та прийняття рішень.</p>
                 <p>Мінімум непотрібних втручань — максимум доказової медицини. Якщо проблему можна вирішити корекцією звичок — ми починаємо з цього.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Cases Section (using Concierge Services structure) -->
-<section class="concierge-services-section section-padding">
-    <div class="container">
-        <div class="concierge-header">
-            <p class="concierge-label">РЕАЛІЗОВАНІ КЕЙСИ</p>
-            <h2 class="concierge-title">НАШІ<br>РЕЗУЛЬТАТИ</h2>
-        </div>
-        <div class="concierge-grid">
-            <div class="concierge-item-wrapper">
-                <div class="concierge-item concierge-item-default">
-                    <div class="concierge-item-bg">
-                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/art-gallery-room.jpg" alt="Реконструктивна хірургія - До" loading="lazy">
-                    </div>
-                    <div class="concierge-item-content">
-                        <h3 class="concierge-item-title">РЕКОНСТРУКТИВНА<br>ХІРУРГІЯ</h3>
-                        <p class="concierge-item-description">Відновлення</p>
-                    </div>
-                </div>
-                <div class="concierge-item concierge-item-hover">
-                    <div class="concierge-item-content-hover">
-                        <h3 class="concierge-item-title">РЕЗУЛЬТАТ</h3>
-                        <p class="concierge-item-description">Успіх</p>
-                    </div>
-                    <div class="concierge-item-bg-hover">
-                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/surgery-room.jpg" alt="Реконструктивна хірургія - Після" loading="lazy">
-                    </div>
-                </div>
-            </div>
-            <div class="concierge-item-wrapper">
-                <div class="concierge-item concierge-item-default">
-                    <div class="concierge-item-bg">
-                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/surgery-center.jpg" alt="Малоінвазивні технології - До" loading="lazy">
-                    </div>
-                    <div class="concierge-item-content">
-                        <h3 class="concierge-item-title">МАЛОІНВАЗИВНІ<br>ТЕХНОЛОГІЇ</h3>
-                        <p class="concierge-item-description">Мінімум</p>
-                    </div>
-                </div>
-                <div class="concierge-item concierge-item-hover">
-                    <div class="concierge-item-content-hover">
-                        <h3 class="concierge-item-title">РЕЗУЛЬТАТ</h3>
-                        <p class="concierge-item-description">Відмінно</p>
-                    </div>
-                    <div class="concierge-item-bg-hover">
-                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/luxury-clinic-interior.jpg" alt="Малоінвазивні технології - Після" loading="lazy">
-                    </div>
-                </div>
-            </div>
-            <div class="concierge-item-wrapper">
-                <div class="concierge-item concierge-item-default">
-                    <div class="concierge-item-bg">
-                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/gallery-interior.jpg" alt="Комплексне лікування - До" loading="lazy">
-                    </div>
-                    <div class="concierge-item-content">
-                        <h3 class="concierge-item-title">КОМПЛЕКСНЕ<br>ЛІКУВАННЯ</h3>
-                        <p class="concierge-item-description">Підхід</p>
-                    </div>
-                </div>
-                <div class="concierge-item concierge-item-hover">
-                    <div class="concierge-item-content-hover">
-                        <h3 class="concierge-item-title">РЕЗУЛЬТАТ</h3>
-                        <p class="concierge-item-description">Здоров'я</p>
-                    </div>
-                    <div class="concierge-item-bg-hover">
-                        <img decoding="async" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/building-facade.jpg" alt="Комплексне лікування - Після" loading="lazy">
-                    </div>
-                </div>
             </div>
         </div>
     </div>
