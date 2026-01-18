@@ -3847,7 +3847,13 @@ body.overlay-open .header-menu-btn {
 .pricing-section .btn-primary:hover,
 .pricing-modal .btn-primary:hover {
     background-color: #111;
-    transform: translateY(-2px);
+    transform: none;
+}
+
+.consultation-modal-submit.btn-primary:hover {
+    background-color: #000;
+    color: var(--color-white);
+    transform: none !important;
 }
 
 /* Pricing Modal */
@@ -4503,11 +4509,13 @@ body.overlay-open .header-menu-btn {
     border-radius: 0;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
+    transform: none !important;
 }
 
 .consultation-modal-submit:hover {
     background-color: #000;
     color: var(--color-white);
+    transform: none !important;
 }
 
 .consultation-modal-success {
