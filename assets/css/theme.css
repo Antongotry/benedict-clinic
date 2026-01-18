@@ -2541,6 +2541,16 @@ body.overlay-open .header-menu-btn {
     color: var(--color-grey);
 }
 
+.footer-credit a {
+    color: var(--color-dark);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-credit a:hover {
+    opacity: 0.6;
+}
+
 .secondary-footer a {
     color: var(--color-dark);
     text-decoration: none;
