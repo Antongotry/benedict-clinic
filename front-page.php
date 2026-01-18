@@ -33,11 +33,8 @@ get_header();
     <div class="container">
         <div class="about-content">
             <p class="about-label">ПОСЛУГИ</p>
-            <h2 class="about-name">НАПРЯМКИ РОБОТИ</h2>
+            <h2 class="about-name">Виконую складні хірургічні втручання</h2>
             <div class="about-services">
-                <div class="about-service-item">
-                    <h3 class="about-service-title">Виконую складні хірургічні втручання</h3>
-                </div>
                 <div class="about-service-item">
                     <h3 class="about-service-title">Малоінвазивні методи лікування</h3>
                     <p class="about-service-text">Дозволяють досягати високих результатів з мінімальними травмами для пацієнта та коротким періодом відновлення</p>
