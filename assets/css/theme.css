@@ -1153,6 +1153,11 @@ body.overlay-open .header.container--full-width-padding {
 .certificates-swiper {
     overflow: visible;
     padding: 20px 0;
+    width: 100%;
+}
+
+.certificates-swiper .swiper-wrapper {
+    align-items: center;
 }
 
 .certificates-swiper .swiper-slide {

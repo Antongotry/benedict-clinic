@@ -195,6 +195,8 @@ document.addEventListener('DOMContentLoaded', function() {
             centeredSlides: true,
             loop: true,
             loopAdditionalSlides: 2,
+            initialSlide: 0,
+            autoHeight: false,
             navigation: {
                 nextEl: '.certificates-button-next',
                 prevEl: '.certificates-button-prev',
@@ -211,6 +213,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     centeredSlides: true,
                 },
             },
+            on: {
+                init: function() {
+                    // Убеждаемся что первый слайд виден при загрузке
+                    this.slideTo(0, 0);
+                },
+                resize: function() {
+                    // Обновляем позицию при изменении размера окна
+                    this.update();
+                }
+            }
+        });
+        
+        // Дополнительно прокручиваем к первому слайду после полной загрузки
+        window.addEventListener('load', function() {
+            if (certificatesSwiper) {
+                certificatesSwiper.slideTo(0, 0);
+                certificatesSwiper.update();
+            }
         });
     }
     
