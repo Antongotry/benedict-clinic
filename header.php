@@ -61,8 +61,9 @@
                         <li><a href="<?php echo home_url('/'); ?>">Головна</a></li>
                         <li><a href="<?php echo home_url('/dr-benedict'); ?>">Про лікаря</a></li>
                         <li class="menu-item-has-children">
-                            <a href="<?php echo home_url('/blog'); ?>">Блог</a>
+                            <a href="#" data-submenu-toggle>Блог</a>
                             <ul class="sub-menu">
+                                <li><a href="<?php echo home_url('/blog'); ?>">Всі статті</a></li>
                                 <li><a href="<?php echo home_url('/blog/operations'); ?>">Операції</a></li>
                                 <li><a href="<?php echo home_url('/blog/diseases'); ?>">Захворювання</a></li>
                                 <li><a href="<?php echo home_url('/blog/examinations'); ?>">Обстеження</a></li>
