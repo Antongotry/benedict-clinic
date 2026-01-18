@@ -506,6 +506,56 @@ document.addEventListener('DOMContentLoaded', function() {
         card.classList.add('visible');
     });
 });
+
+// Statistics Counter Animation
+document.addEventListener('DOMContentLoaded', function() {
+    const counters = document.querySelectorAll('.statistic-number[data-target]');
+    
+    function animateCounter(counter) {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+                if (target >= 1000) {
+                    counter.textContent = Math.floor(current / 1000) + 'к+';
+                } else {
+                    counter.textContent = Math.floor(current) + '+';
+                }
+                requestAnimationFrame(updateCounter);
+            } else {
+                if (target >= 1000) {
+                    counter.textContent = Math.floor(target / 1000) + 'к+';
+                } else {
+                    counter.textContent = target + '+';
+                }
+            }
+        };
+        
+        updateCounter();
+    }
+    
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                entry.target.classList.add('animated');
+                animateCounter(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
+});
 </script>
 
 <!-- Benefits Section (using Surgery Center structure) -->
@@ -523,6 +573,31 @@ document.addEventListener('DOMContentLoaded', function() {
             <p>Сучасні хірургічні методи з мінімальними ризиками.</p>
         </div>
         <a href="/gallery" class="surgery-center-cta">ГАЛЕРЕЯ <span>|→</span></a>
+    </div>
+</section>
+
+<!-- Statistics Counters Section -->
+<section class="statistics-section section-padding">
+    <div class="statistics-background"></div>
+    <div class="container">
+        <div class="statistics-grid">
+            <div class="statistic-item">
+                <div class="statistic-number" data-target="25000">0</div>
+                <div class="statistic-label">Проведених<br>успішних операцій</div>
+            </div>
+            <div class="statistic-item">
+                <div class="statistic-number" data-target="10000">0</div>
+                <div class="statistic-label">Щасливих та<br>вдячних пацієнтів</div>
+            </div>
+            <div class="statistic-item">
+                <div class="statistic-number">24/7</div>
+                <div class="statistic-label">Цілодобова<br>оперативна урологія</div>
+            </div>
+            <div class="statistic-item">
+                <div class="statistic-number" data-target="14">0</div>
+                <div class="statistic-label">Років хірургічного<br>досвіду</div>
+            </div>
+        </div>
     </div>
 </section>
 
