@@ -4413,11 +4413,44 @@ body.overlay-open .header-menu-btn {
     display: flex;
     flex-direction: column;
     transition: box-shadow 0.3s ease;
+    position: relative;
 }
 
+/* Варіант 1: Тонка чорна лінія зверху для парних карток */
 .testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card {
-    border: 2px solid var(--color-dark);
+    border-top: 3px solid var(--color-dark);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+/* Варіант 2: Чорна вертикальна лінія зліва */
+/* .testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--color-dark);
+} */
+
+/* Варіант 3: Чорний акцент-точка зверху */
+/* .testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 8px;
+    height: 8px;
+    background: var(--color-dark);
+    border-radius: 50%;
+} */
+
+/* Варіант 4: Легка тінь для виділених карток */
+/* .testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+} */
 
 .testimonial-card:hover {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
