@@ -5816,7 +5816,7 @@ body.overlay-open .header-menu-btn {
 
 @media (max-width: 768px) {
     .contact-page-hero {
-        min-height: 40vh;
+        min-height: 50vh;
         padding: 100px 20px 60px;
     }
     
