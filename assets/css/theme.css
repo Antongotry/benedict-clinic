@@ -4453,7 +4453,7 @@ body.overlay-open .header-menu-btn {
 } */
 
 /* Варіант 5: Тонка чорна вертикальна лінія зліва (елегантна) */
-.testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card::before {
+/* .testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card::before {
     content: '';
     position: absolute;
     left: 0;
@@ -4461,6 +4461,14 @@ body.overlay-open .header-menu-btn {
     bottom: 0;
     width: 3px;
     background: var(--color-dark);
+} */
+
+/* Варіант 1: Тонка чорна лінія зверху для парних карток */
+.testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card {
+    border-top: 3px solid var(--color-dark);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Варіант 6: Чорний бордер зверху і знизу */
