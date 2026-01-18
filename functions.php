@@ -625,6 +625,18 @@ function rosenberg_instagram_columns_mobile_callback() {
  * Add Instagram settings page to admin menu
  */
 function rosenberg_instagram_admin_menu() {
+    // Додаємо окреме меню в боковій панелі
+    add_menu_page(
+        __('Instagram Settings', 'rosenberg-clinic'),
+        __('Instagram', 'rosenberg-clinic'),
+        'manage_options',
+        'rosenberg-instagram-settings',
+        'rosenberg_instagram_settings_page',
+        'dashicons-camera-alt', // Іконка камери
+        30 // Позиція в меню
+    );
+    
+    // Також додаємо в Налаштування для зручності
     add_options_page(
         __('Instagram Settings', 'rosenberg-clinic'),
         __('Instagram', 'rosenberg-clinic'),
