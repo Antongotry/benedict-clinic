@@ -260,16 +260,17 @@ get_header();
 
 <!-- Instagram Follow Section -->
 <section class="instagram-follow-about-section">
-    <a href="https://www.instagram.com/dr_benedikt/" target="_blank" class="instagram-follow-about-link">
-        <div class="instagram-follow-about-background">
-            <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/12_result-scaled.webp" alt="Follow on Instagram">
-        </div>
-        <div class="instagram-follow-about-overlay"></div>
-        <div class="instagram-follow-about-content">
-            <h2 class="instagram-follow-about-title">СЛІДКУЙТЕ В<br>INSTAGRAM</h2>
-            <p class="instagram-follow-about-handle">@dr_benedikt</p>
-        </div>
-    </a>
+    <div class="instagram-follow-about-background">
+        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/12_result-scaled.webp" alt="Follow on Instagram">
+    </div>
+    <div class="instagram-follow-about-overlay"></div>
+    <div class="instagram-follow-about-content">
+        <h2 class="instagram-follow-about-title">
+            <span class="instagram-follow-small">СЛІДКУЙТЕ В</span>
+            <span class="instagram-follow-big">INSTAGRAM</span>
+        </h2>
+        <a href="https://www.instagram.com/dr_benedikt/" target="_blank" class="instagram-follow-about-handle">@dr_benedikt</a>
+    </div>
 </section>
 
 <!-- Consultation Modal -->
