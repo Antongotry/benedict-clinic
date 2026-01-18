@@ -3619,12 +3619,15 @@ body.overlay-open .header-menu-btn {
     color: var(--color-white);
     letter-spacing: -2px;
     position: relative;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     border-left: 1px solid rgba(255, 255, 255, 0.3);
     border-right: 1px solid rgba(255, 255, 255, 0.3);
     border-bottom: none;
     width: 250px;
+    height: 100px;
     box-sizing: border-box;
     text-align: center;
 }
@@ -3637,14 +3640,17 @@ body.overlay-open .header-menu-btn {
     letter-spacing: 1px;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.8);
-    padding: 0 30px 20px 30px;
+    padding: 0 30px;
     margin-top: 0;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-top: none;
     border-left: 1px solid rgba(255, 255, 255, 0.3);
     border-right: 1px solid rgba(255, 255, 255, 0.3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     width: 250px;
+    height: 100px;
     box-sizing: border-box;
     text-align: center;
 }
