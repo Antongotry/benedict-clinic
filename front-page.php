@@ -814,6 +814,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Contacts Form (frontend-only)
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contacts-form');
+    const success = document.getElementById('contacts-success');
+    if (!form || !success) return;
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        form.hidden = true;
+        success.hidden = false;
+    });
+});
+
 // Consultation Modal
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('consultation-modal');
@@ -874,6 +887,79 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 </section>
+
+<!-- Instagram Section -->
+<?php if (get_option('rosenberg_instagram_enabled', '1') === '1'): ?>
+<section class="instagram-section section-padding">
+    <div class="container">
+        <div class="instagram-header">
+            <p class="instagram-label">INSTAGRAM</p>
+            <h2 class="instagram-title"><?php echo esc_html(get_option('rosenberg_instagram_title', 'Слідкуйте за нами в Instagram')); ?></h2>
+            <?php 
+            $subtitle = get_option('rosenberg_instagram_subtitle', 'Дізнавайтесь останні новини, корисні поради та зворотний зв\'язок від наших пацієнтів');
+            if (!empty($subtitle)):
+            ?>
+            <p class="instagram-subtitle"><?php echo esc_html($subtitle); ?></p>
+            <?php endif; ?>
+        </div>
+        <?php
+        $instagram_posts = rosenberg_get_instagram_posts(get_option('rosenberg_instagram_posts_count', 6));
+        if (!empty($instagram_posts)):
+            $columns_desktop = get_option('rosenberg_instagram_columns_desktop', '3');
+            $columns_tablet = get_option('rosenberg_instagram_columns_tablet', '2');
+            $columns_mobile = get_option('rosenberg_instagram_columns_mobile', '2');
+        ?>
+        <div class="instagram-feed" 
+             data-columns-desktop="<?php echo esc_attr($columns_desktop); ?>"
+             data-columns-tablet="<?php echo esc_attr($columns_tablet); ?>"
+             data-columns-mobile="<?php echo esc_attr($columns_mobile); ?>"
+             style="--columns-desktop: <?php echo esc_attr($columns_desktop); ?>; --columns-tablet: <?php echo esc_attr($columns_tablet); ?>; --columns-mobile: <?php echo esc_attr($columns_mobile); ?>;">
+            <?php foreach ($instagram_posts as $post): ?>
+                <a href="<?php echo esc_url($post['permalink']); ?>" target="_blank" rel="noopener noreferrer" class="instagram-post-card">
+                    <div class="instagram-post-image-wrapper">
+                        <img src="<?php echo esc_url($post['thumbnail_url']); ?>" alt="<?php echo esc_attr($post['caption']); ?>" loading="lazy" class="instagram-post-image" />
+                        <?php if ($post['media_type'] === 'VIDEO'): ?>
+                            <div class="instagram-post-video-overlay">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        <?php endif; ?>
+                        <div class="instagram-post-hover-overlay">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="8" y1="12" x2="16" y2="12"/>
+                                <line x1="12" y1="8" x2="12" y2="16"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <?php if (!empty($post['caption'])): ?>
+                        <div class="instagram-post-caption">
+                            <p><?php echo esc_html(wp_trim_words($post['caption'], 15)); ?></p>
+                        </div>
+                    <?php endif; ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
+        <?php 
+        $instagram_username = get_option('rosenberg_instagram_username', '');
+        $button_text = get_option('rosenberg_instagram_button_text', 'Підписатись в Instagram');
+        if (!empty($instagram_username)):
+        ?>
+        <div class="instagram-cta">
+            <a href="https://www.instagram.com/<?php echo esc_attr($instagram_username); ?>" target="_blank" rel="noopener noreferrer" class="instagram-cta-button">
+                <?php echo esc_html($button_text); ?> <span>→</span>
+            </a>
+        </div>
+        <?php endif; ?>
+        <?php else: ?>
+        <div class="instagram-feed-empty">
+            <p><?php _e('Instagram пости будуть відображені після налаштування в адмін-панелі WordPress.', 'rosenberg-clinic'); ?></p>
+        </div>
+        <?php endif; ?>
+    </div>
+</section>
+<?php endif; ?>
 
 <!-- FAQ Section -->
 <section class="faq-section section-padding">
@@ -1090,6 +1176,61 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="testimonials-navigation">
                 <div class="swiper-button-prev testimonials-button-prev"></div>
                 <div class="swiper-button-next testimonials-button-next"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contacts Section -->
+<section class="contacts-section section-padding">
+    <div class="container">
+        <div class="contacts-header">
+            <h2 class="contacts-title">Контакти</h2>
+            <p class="contacts-subtitle">Залишились запитання або хочете записатися на прийом?<br>Зв'яжіться з нами зручним для вас способом</p>
+        </div>
+        <div class="contacts-grid">
+            <div class="contacts-info">
+                <div class="contacts-item">
+                    <p class="contacts-label">Адреса</p>
+                    <p class="contacts-value">Київ, вул. Олеся Бердника, 1Д</p>
+                </div>
+                <div class="contacts-item">
+                    <p class="contacts-label">Телефон</p>
+                    <a class="contacts-value contacts-link" href="tel:+380951344029">+38 095 13 44 029</a>
+                </div>
+                <div class="contacts-item">
+                    <p class="contacts-label">Електронна пошта</p>
+                    <a class="contacts-value contacts-link" href="mailto:dokbenedikt@gmail.com">dokbenedikt@gmail.com</a>
+                </div>
+            </div>
+            <div class="contacts-form-wrapper">
+                <form class="contacts-form" id="contacts-form">
+                    <label class="contacts-field">
+                        <span>ПІБ</span>
+                        <input type="text" name="name" required placeholder="Введіть ваше повне ім'я">
+                    </label>
+                    <label class="contacts-field">
+                        <span>Телефон</span>
+                        <input type="tel" name="phone" required placeholder="+380 XX XXX XX XX">
+                    </label>
+                    <label class="contacts-field">
+                        <span>Email</span>
+                        <input type="email" name="email" placeholder="example@email.com">
+                    </label>
+                    <label class="contacts-field">
+                        <span>Додаткова інформація</span>
+                        <textarea name="message" rows="4" placeholder="Опишіть, що вас цікавить"></textarea>
+                    </label>
+                    <label class="contacts-checkbox">
+                        <input type="checkbox" name="privacy" required>
+                        <span>Я погоджуюсь із <a href="/privacy-policy">політикою конфіденційності</a></span>
+                    </label>
+                    <button class="contacts-submit btn-primary" type="submit">Надіслати</button>
+                </form>
+                <div class="contacts-success" id="contacts-success" hidden>
+                    <h4>Дякуємо за звернення!</h4>
+                    <p>Ваш запит надіслано. Ми звʼяжемось з вами найближчим часом.</p>
+                </div>
             </div>
         </div>
     </div>
