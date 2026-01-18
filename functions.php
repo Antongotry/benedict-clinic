@@ -294,7 +294,11 @@ add_filter('script_loader_src', 'benedict_asset_version', 10, 1);
 /**
  * Disable WordPress cache
  */
-define('WP_CACHE', false);/**
+if (!defined('WP_CACHE')) {
+    define('WP_CACHE', false);
+}
+
+/**
  * Force refresh CSS/JS on every load
  */
 function benedict_nocache_meta() {
