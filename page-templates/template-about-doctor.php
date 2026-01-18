@@ -385,7 +385,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Experience Tabs
 document.addEventListener('DOMContentLoaded', function() {
-document.addEventListener('DOMContentLoaded', function() {
     const tabBtns = document.querySelectorAll('.experience-tab-btn');
     const tabPanels = document.querySelectorAll('.experience-tab-panel');
     
