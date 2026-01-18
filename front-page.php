@@ -32,7 +32,7 @@ get_header();
     </div>
     <div class="container">
         <div class="about-content">
-            <p class="about-label">ПОСЛУГИ</p>
+            <p class="about-label">НАПРЯМКИ РОБОТИ</p>
             <h2 class="about-name">Виконую складні хірургічні втручання</h2>
             <div class="about-services">
                 <div class="about-service-item">
