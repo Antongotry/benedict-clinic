@@ -372,7 +372,7 @@ function initCertificateLightbox() {
             <article class="material-card" data-category="diagnostics">
                 <a href="#" class="material-card-link">
                     <div class="material-card-image">
-                        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/10/б-7_result.webp" alt="Стаття 1" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-7.webp" alt="Стаття 1" loading="lazy">
                     </div>
                     <div class="material-card-content">
                         <span class="material-card-category">Обстеження</span>
@@ -384,7 +384,7 @@ function initCertificateLightbox() {
             <article class="material-card" data-category="diseases">
                 <a href="#" class="material-card-link">
                     <div class="material-card-image">
-                        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/10/б-6_result.webp" alt="Стаття 2" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-6.webp" alt="Стаття 2" loading="lazy">
                     </div>
                     <div class="material-card-content">
                         <span class="material-card-category">Захворювання</span>
@@ -396,7 +396,7 @@ function initCertificateLightbox() {
             <article class="material-card" data-category="operations">
                 <a href="#" class="material-card-link">
                     <div class="material-card-image">
-                        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/10/б-8_result.webp" alt="Стаття 3" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-8.webp" alt="Стаття 3" loading="lazy">
                     </div>
                     <div class="material-card-content">
                         <span class="material-card-category">Операції</span>
@@ -408,7 +408,7 @@ function initCertificateLightbox() {
             <article class="material-card" data-category="treatment">
                 <a href="#" class="material-card-link">
                     <div class="material-card-image">
-                        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/10/б-5_result.webp" alt="Стаття 4" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-5.webp" alt="Стаття 4" loading="lazy">
                     </div>
                     <div class="material-card-content">
                         <span class="material-card-category">Лікування</span>
@@ -420,7 +420,7 @@ function initCertificateLightbox() {
             <article class="material-card" data-category="diseases">
                 <a href="#" class="material-card-link">
                     <div class="material-card-image">
-                        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/10/б-3_result.webp" alt="Стаття 5" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-3.webp" alt="Стаття 5" loading="lazy">
                     </div>
                     <div class="material-card-content">
                         <span class="material-card-category">Захворювання</span>
@@ -432,7 +432,7 @@ function initCertificateLightbox() {
             <article class="material-card" data-category="diagnostics">
                 <a href="#" class="material-card-link">
                     <div class="material-card-image">
-                        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/10/б-2_result.webp" alt="Стаття 6" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-2.webp" alt="Стаття 6" loading="lazy">
                     </div>
                     <div class="material-card-content">
                         <span class="material-card-category">Обстеження</span>
@@ -444,7 +444,7 @@ function initCertificateLightbox() {
             <article class="material-card" data-category="operations">
                 <a href="#" class="material-card-link">
                     <div class="material-card-image">
-                        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/10/б-1_result.webp" alt="Стаття 7" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-1.webp" alt="Стаття 7" loading="lazy">
                     </div>
                     <div class="material-card-content">
                         <span class="material-card-category">Операції</span>
@@ -456,7 +456,7 @@ function initCertificateLightbox() {
             <article class="material-card" data-category="treatment">
                 <a href="#" class="material-card-link">
                     <div class="material-card-image">
-                        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/10/б-8_result.webp" alt="Стаття 8" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-8.webp" alt="Стаття 8" loading="lazy">
                     </div>
                     <div class="material-card-content">
                         <span class="material-card-category">Лікування</span>
