@@ -26,6 +26,10 @@
             <div class="footer-contact-section">
                 <p class="footer-phone"><a href="tel:+380951344029">+38 095 13 44 029</a></p>
                 <p class="footer-address">Київ, вул. Олеся Бердника, 1Д</p>
+                <div class="footer-logo">
+                    <span class="footer-logo-text">DR. BENEDICT</span>
+                    <span class="footer-logo-sub">UROLOGY</span>
+                </div>
             </div>
         </div>
     </div>
@@ -33,12 +37,11 @@
     <!-- Secondary Footer -->
     <div class="secondary-footer">
         <div class="secondary-footer-container container--md">
-            <div class="secondary-footer-top">
-                <p class="footer-copyright">2025 © Dr. Benedict Urology</p>
+            <p class="footer-copyright">© 2025</p>
+            <div class="footer-center">
+                <a href="/" class="footer-center-logo">Dr. Benedict Urology</a>
             </div>
-            <div class="secondary-footer-bottom">
-                <p class="footer-credit">Розробка і дизайн <a href="https://t.me/notarikon" target="_blank" rel="noopener noreferrer">AntonGotry</a></p>
-            </div>
+            <p class="footer-credit"><a href="https://t.me/notarikon" target="_blank" rel="noopener noreferrer">AntonGotry</a></p>
         </div>
     </div>
 </footer>
