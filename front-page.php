@@ -153,28 +153,28 @@ get_header();
             <div class="swiper certificates-swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-1_result-1.webp" alt="Сертифікат 1" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-1_result-1.webp" alt="Сертифікат 1" loading="lazy" data-lightbox-index="0">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-2_result-1.webp" alt="Сертифікат 2" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-2_result-1.webp" alt="Сертифікат 2" loading="lazy" data-lightbox-index="1">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-3_result-1.webp" alt="Сертифікат 3" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-3_result-1.webp" alt="Сертифікат 3" loading="lazy" data-lightbox-index="2">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-5_result-1.webp" alt="Сертифікат 4" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-5_result-1.webp" alt="Сертифікат 4" loading="lazy" data-lightbox-index="3">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-6_result-1.webp" alt="Сертифікат 5" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-6_result-1.webp" alt="Сертифікат 5" loading="lazy" data-lightbox-index="4">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-7_result-1.webp" alt="Сертифікат 6" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-7_result-1.webp" alt="Сертифікат 6" loading="lazy" data-lightbox-index="5">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-8_result-1.webp" alt="Сертифікат 7" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-8_result-1.webp" alt="Сертифікат 7" loading="lazy" data-lightbox-index="6">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/5.jpg" alt="Сертифікат 8" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/5.jpg" alt="Сертифікат 8" loading="lazy" data-lightbox-index="7">
                     </div>
                 </div>
             </div>
@@ -239,16 +239,32 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initCertificateLightbox() {
+    // Собираем изображения в правильном порядке по data-lightbox-index атрибуту
+    const allImages = Array.from(document.querySelectorAll('.certificates-swiper .swiper-slide img[data-lightbox-index]'));
+    
+    if (allImages.length === 0) return;
+    
+    // Сортируем изображения по data-lightbox-index и собираем уникальные src
+    const imageSources = [];
+    const seenSrcs = new Set();
+    
+    allImages
+        .sort((a, b) => {
+            const indexA = parseInt(a.getAttribute('data-lightbox-index')) || 0;
+            const indexB = parseInt(b.getAttribute('data-lightbox-index')) || 0;
+            return indexA - indexB;
+        })
+        .forEach(img => {
+            if (img.src && !seenSrcs.has(img.src)) {
+                imageSources.push(img.src);
+                seenSrcs.add(img.src);
+            }
+        });
+    
+    if (imageSources.length === 0) return;
+    
     const certificateImages = document.querySelectorAll('.certificates-swiper .swiper-slide img');
     if (!certificateImages.length) return;
-    
-    // Collect all certificate image sources
-    const imageSources = [];
-    document.querySelectorAll('.certificates-swiper .swiper-slide:not(.swiper-slide-duplicate) img').forEach(img => {
-        if (!imageSources.includes(img.src)) {
-            imageSources.push(img.src);
-        }
-    });
     
     // Create lightbox container
     const lightbox = document.createElement('div');
