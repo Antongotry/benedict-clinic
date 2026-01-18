@@ -1187,6 +1187,20 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
+<!-- Instagram Section -->
+<section class="instagram-section section-padding">
+    <div class="container">
+        <div class="instagram-header">
+            <p class="instagram-label">INSTAGRAM</p>
+            <h2 class="instagram-title">Слідкуйте за оновленнями у моєму Instagram</h2>
+            <p class="instagram-subtitle">Підписуйтесь, щоб першими дізнаватись про нові послуги, акції та цікаві факти про здоров'я</p>
+        </div>
+        <div class="instagram-feed-wrapper">
+            <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
+        </div>
+    </div>
+</section>
+
 <!-- Consultation Modal -->
 <div class="consultation-modal" id="consultation-modal" aria-hidden="true">
     <div class="consultation-modal-backdrop" data-consultation-close></div>

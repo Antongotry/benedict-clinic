@@ -2522,8 +2522,9 @@ body.overlay-open .header-menu-btn {
     padding-right: 40px;
     box-sizing: border-box;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 100px;
 }
 
 .footer-copyright {
@@ -2685,13 +2686,22 @@ body.overlay-open .header-menu-btn {
     
     .secondary-footer-container {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
         text-align: center;
     }
     
     .footer-copyright,
     .footer-credit {
         font-size: 11px;
+    }
+    
+    .footer-copyright {
+        order: 1;
+    }
+    
+    .footer-credit {
+        order: 0;
+        opacity: 0.7;
     }
     
     .primary-footer {
@@ -5114,6 +5124,64 @@ body.overlay-open .header-menu-btn {
     
     .schedule-consultation-desc {
         font-size: 14px;
+    }
+}
+
+/* Instagram Section */
+.instagram-section {
+    background-color: var(--color-white);
+    position: relative;
+}
+
+.instagram-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.instagram-label {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-grey);
+    margin-bottom: 16px;
+    display: block;
+}
+
+.instagram-title {
+    font-family: var(--font-serif);
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--color-dark);
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.instagram-subtitle {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-grey);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.instagram-feed-wrapper {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .instagram-title {
+        font-size: 32px;
+    }
+    
+    .instagram-subtitle {
+        font-size: 14px;
+    }
+    
+    .instagram-header {
+        margin-bottom: 40px;
     }
 }
 
