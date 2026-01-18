@@ -867,10 +867,37 @@ document.addEventListener('DOMContentLoaded', function() {
 <section id="contact" class="schedule-consultation-section">
     <div class="schedule-consultation-bg"></div>
     <div class="schedule-consultation-content">
-        <h2 class="schedule-consultation-title">ЗАПИСАТИСЬ НА КОНСУЛЬТАЦІЮ</h2>
-        <a href="/contact" class="schedule-consultation-cta">ЗВ'ЯЗАТИСЯ З НАМИ</a>
+        <h2 class="schedule-consultation-title">Записатись на прийом</h2>
+        <p class="schedule-consultation-desc">Не відкладайте турботу про своє здоровʼя, записуйтесь на консультацію просто зараз, отримайте персональний план лікування та висококваліфікаційну медичну допомогу</p>
+        <button class="schedule-consultation-cta" data-consultation-open>ЗВ'ЯЗАТИСЯ З НАМИ</button>
     </div>
 </section>
+
+<!-- Consultation Modal -->
+<div class="consultation-modal" id="consultation-modal" aria-hidden="true">
+    <div class="consultation-modal-backdrop" data-consultation-close></div>
+    <div class="consultation-modal-content" role="dialog" aria-modal="true" aria-labelledby="consultation-modal-title">
+        <button class="consultation-modal-close" type="button" aria-label="Закрити" data-consultation-close></button>
+        <div class="consultation-modal-header">
+            <h3 class="consultation-modal-title" id="consultation-modal-title">Записатись на прийом</h3>
+        </div>
+        <form class="consultation-modal-form" id="consultation-modal-form">
+            <label class="consultation-modal-field">
+                <span>ПІБ</span>
+                <input type="text" name="name" required placeholder="Введіть ваше повне ім'я">
+            </label>
+            <label class="consultation-modal-field">
+                <span>Телефон</span>
+                <input type="tel" name="phone" required placeholder="+380 XX XXX XX XX">
+            </label>
+            <button class="consultation-modal-submit btn-primary" type="submit">Зателефонувати мені</button>
+        </form>
+        <div class="consultation-modal-success" id="consultation-modal-success" hidden>
+            <h4>Дякуємо!</h4>
+            <p>Ваша заявка прийнята. Ми звʼяжемось з вами найближчим часом для підтвердження запису.</p>
+        </div>
+    </div>
+</div>
 
 <!-- Diagnostics Section -->
 <section class="meet-surgeons-section section-padding diagnostics-section">
