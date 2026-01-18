@@ -734,6 +734,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<!-- YouTube Section -->
+<section class="youtube-section section-padding">
+    <div class="youtube-background"></div>
+    <div class="container">
+        <div class="youtube-content">
+            <p class="youtube-text">Підписуйтесь на Youtube та дізнайтесь більше<br>корисної інформації про урологічне здоровʼя</p>
+            <a href="https://www.youtube.com/@dr_benedikt" target="_blank" rel="noopener noreferrer" class="youtube-play-button">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="30" fill="#FF0000"/>
+                    <path d="M24 18L42 30L24 42V18Z" fill="white"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- Diagnostics Section -->
 <section class="meet-surgeons-section section-padding diagnostics-section">
     <div class="meet-surgeons-content">
