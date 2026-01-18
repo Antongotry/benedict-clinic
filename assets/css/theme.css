@@ -4183,19 +4183,21 @@ body.overlay-open .header-menu-btn {
     position: relative;
     overflow: visible;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding-top: 10%;
 }
 
 .faq-image img {
     width: 80%;
-    height: 80%;
-    object-fit: cover;
+    height: auto;
+    max-height: 90vh;
+    object-fit: contain;
+    object-position: center top;
     display: block;
-    position: relative;
+    position: sticky;
+    top: 10%;
     z-index: 2;
-    margin: 0;
-    margin-top: 10%;
 }
 
 .faq-content {
@@ -4204,13 +4206,13 @@ body.overlay-open .header-menu-btn {
     padding: 80px 60px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
 }
 
 .faq-title {
     font-family: var(--font-serif);
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 400;
     letter-spacing: 1px;
     color: var(--color-dark);
@@ -4312,7 +4314,7 @@ body.overlay-open .header-menu-btn {
     }
     
     .faq-title {
-        font-size: 28px;
+        font-size: 26px;
     }
 }
 
