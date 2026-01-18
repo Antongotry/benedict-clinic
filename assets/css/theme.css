@@ -4181,23 +4181,23 @@ body.overlay-open .header-menu-btn {
 .faq-image {
     width: 50%;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    padding-top: 10%;
 }
 
 .faq-image img {
     width: 80%;
-    height: auto;
-    max-height: 90vh;
-    object-fit: contain;
-    object-position: center top;
+    height: 80%;
+    object-fit: cover;
     display: block;
-    position: sticky;
-    top: 10%;
+    position: relative;
     z-index: 2;
+    margin: 0;
+    margin-top: 10%;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .faq-content {
@@ -4206,7 +4206,7 @@ body.overlay-open .header-menu-btn {
     padding: 80px 60px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     position: relative;
 }
 

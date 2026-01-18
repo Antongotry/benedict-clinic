@@ -584,6 +584,33 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    // FAQ Image Parallax
+    const faqImage = document.querySelector('.faq-image img');
+    const faqSection = document.querySelector('.faq-section');
+    
+    if (faqImage && faqSection) {
+        let ticking = false;
+        
+        function updateParallax() {
+            const rect = faqSection.getBoundingClientRect();
+            const scrollProgress = (rect.top + rect.height / 2 - window.innerHeight / 2) / window.innerHeight;
+            const parallaxValue = scrollProgress * 50;
+            
+            faqImage.style.transform = `translateY(${parallaxValue}px) translateZ(0)`;
+            ticking = false;
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestTick, { passive: true });
+        updateParallax();
+    }
 });
 </script>
 
