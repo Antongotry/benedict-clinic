@@ -73,6 +73,11 @@ function rosenberg_enqueue_scripts() {
     // Header scroll behavior (transparent -> solid)
     wp_enqueue_script('rosenberg-header-scroll', get_template_directory_uri() . '/assets/js/header-scroll.js', array(), time(), true);
     
+    // Light Panels Landing Page JavaScript
+    if (is_front_page()) {
+        wp_enqueue_script('light-panels-script', get_template_directory_uri() . '/assets/js/light-panels.js', array(), time(), true);
+    }
+    
     // Localize script for AJAX
     wp_localize_script('rosenberg-main-script', 'rosenbergAjax', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
@@ -289,20 +294,12 @@ add_filter('script_loader_src', 'benedict_asset_version', 10, 1);
 /**
  * Disable WordPress cache
  */
-if (!defined('WP_CACHE')) {
-    define('WP_CACHE', false);
-}
-
-/**
+define('WP_CACHE', false);/**
  * Force refresh CSS/JS on every load
  */
 function benedict_nocache_meta() {
-    echo '<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">' . "
-";
-    echo '<meta http-equiv="Pragma" content="no-cache">' . "
-";
-    echo '<meta http-equiv="Expires" content="0">' . "
-";
+    echo '<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">' . "\n";
+    echo '<meta http-equiv="Pragma" content="no-cache">' . "\n";
+    echo '<meta http-equiv="Expires" content="0">' . "\n";
 }
 add_action('wp_head', 'benedict_nocache_meta', 1);
-

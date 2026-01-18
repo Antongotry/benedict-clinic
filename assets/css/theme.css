@@ -60,7 +60,7 @@ html {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    padding: 20px 0;
+    padding: 30px 0;
     background: transparent; /* изначально прозрачный */
     box-shadow: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.7);
@@ -74,7 +74,7 @@ html {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding: 0 40px;
     box-sizing: border-box;
 }
 
@@ -82,7 +82,7 @@ html {
 .header-left {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 24px;
     justify-content: flex-start;
 }
 
@@ -95,12 +95,12 @@ html {
 .header-right {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 24px;
     justify-content: flex-end;
 }
 
 .header .header-item {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 400; /* тоньше */
     letter-spacing: 0.5px;
     color: var(--color-white); /* изначально белые элементы */
@@ -121,7 +121,7 @@ html {
 .header-brand-name {
     display: block;
     font-family: var(--font-serif);
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 400;
     letter-spacing: 3px;
     color: #ffffff;
@@ -331,9 +331,9 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .logo-name {
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     color: var(--color-dark);
     font-family: var(--font-sans);
 }
@@ -516,15 +516,15 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .overlay-phone {
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 600;
     color: var(--color-white);
-    margin-bottom: 8px;
+    margin-bottom: 20px;
 }
 
 .overlay-address {
-    font-size: 10px;
-    line-height: 1.4;
+    font-size: 14px;
+    line-height: 1.8;
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -636,7 +636,7 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .hero-video-subtitle {
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 300;
     letter-spacing: 2px;
     opacity: 0.95;
@@ -661,8 +661,8 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .section-text-elegant {
-    font-size: 12px;
-    line-height: 1.3;
+    font-size: 18px;
+    line-height: 1.8;
     color: var(--color-grey);
     max-width: 800px;
 }
@@ -902,7 +902,7 @@ body.overlay-open .header.container--full-width-padding {
 
 .surgery-center-title {
     font-family: var(--font-serif);
-    font-size: 48px;
+    font-size: 72px;
     font-weight: 300;
     letter-spacing: 1px;
     color: rgba(0, 0, 0, 0.15);
@@ -916,7 +916,7 @@ body.overlay-open .header.container--full-width-padding {
 .surgery-center-content {
     width: 50%;
     background-color: var(--color-white);
-    padding: 60px 40px;
+    padding: 80px 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -936,7 +936,7 @@ body.overlay-open .header.container--full-width-padding {
 
 .surgery-center-title {
     font-family: var(--font-serif);
-    font-size: 48px;
+    font-size: 72px;
     font-weight: 400;
     letter-spacing: 1px;
     color: var(--color-dark);
@@ -949,7 +949,7 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .surgery-center-text p {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.8;
     color: var(--color-dark);
     font-family: var(--font-sans);
@@ -1110,60 +1110,6 @@ body.overlay-open .header.container--full-width-padding {
     margin-top: 0;
 }
 
-/* Diagnostics Section Styles */
-.diagnostics-section {
-    background-color: #1a1a1a;
-    color: var(--color-white);
-    position: relative;
-}
-
-.diagnostics-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-    z-index: 1;
-}
-
-.diagnostics-section .meet-surgeons-content {
-    position: relative;
-    z-index: 2;
-}
-
-.diagnostics-section .meet-surgeons-title {
-    color: var(--color-white);
-}
-
-.diagnostics-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
-    position: relative;
-    z-index: 2;
-}
-
-.diagnostics-text {
-    text-align: left;
-    max-width: 100%;
-}
-
-.diagnostics-text p {
-    font-size: 1.8rem;
-    line-height: 1.6;
-    color: var(--color-white);
-    margin-top: 2rem;
-    margin-bottom: 0;
-    font-family: var(--font-sans);
-}
-
-.diagnostics-text p:first-child {
-    margin-top: 0;
-}
-
-
 .concierge-header {
     text-align: center;
     margin-bottom: 80px;
@@ -1247,11 +1193,10 @@ body.overlay-open .header.container--full-width-padding {
     height: 100%;
     object-fit: cover;
     display: block;
-    line-height: 1.3;
 }
 
 .concierge-item-content {
-    padding: 20px 15px;
+    padding: 50px 40px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1264,7 +1209,7 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .concierge-item-content-hover {
-    padding: 20px 15px;
+    padding: 50px 40px;
     position: absolute;
     top: 0;
     left: 0;
@@ -1295,19 +1240,18 @@ body.overlay-open .header.container--full-width-padding {
 }
 
 .concierge-item-title {
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--color-dark);
-    margin-bottom: 8px;
-    line-height: 1.3;
+    margin-bottom: 20px;
     font-family: var(--font-sans);
 }
 
 .concierge-item-description {
-    font-size: 10px;
-    line-height: 1.3;
+    font-size: 14px;
+    line-height: 1.8;
     color: var(--color-dark);
     font-family: var(--font-sans);
     margin: 0;
@@ -1364,7 +1308,7 @@ body.overlay-open .header.container--full-width-padding {
     font-family: var(--font-serif);
     font-size: 64px;
     font-weight: 400;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     color: var(--color-white);
     margin-bottom: 40px;
     line-height: 1.2;
@@ -1511,7 +1455,7 @@ body.overlay-open .header.container--full-width-padding {
     }
     
     .header-brand-name {
-        font-size: 12px;
+        font-size: 18px;
         font-weight: 400;
         letter-spacing: 1.5px;
     }
@@ -1680,7 +1624,7 @@ body.overlay-open .header.container--full-width-padding {
     }
     
     .concierge-item-title {
-        font-size: 10px;
+        font-size: 14px;
     }
     
     .concierge-item-description {
@@ -1804,7 +1748,7 @@ body.overlay-open .header-menu-btn {
     width: 100%;
     background-color: var(--color-white);
     color: var(--color-dark);
-    padding: 20px 0;
+    padding: 30px 0;
 }
 
 .secondary-footer-container {
@@ -1819,7 +1763,7 @@ body.overlay-open .header-menu-btn {
 
 .secondary-footer-top {
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
 }
 
 .footer-copyright {
@@ -1941,7 +1885,7 @@ body.overlay-open .header-menu-btn {
 }
 
 .footer-phone {
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 600;
     margin-bottom: 20px;
 }
@@ -1954,7 +1898,7 @@ body.overlay-open .header-menu-btn {
 .footer-address {
     font-size: 13px;
     letter-spacing: 1px;
-    line-height: 1.3;
+    line-height: 1.8;
     margin-bottom: 15px;
     color: rgba(255, 255, 255, 0.8);
 }

@@ -1,0 +1,162 @@
+/* Menu Overlay Styles */
+
+/* Background with darkened image */
+.overlay-background {
+    background-image: url('https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/low-angle-view-buildings-against-sky-dusk_result-scaled.webp') !important;
+    filter: brightness(0.2) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Menu grid layout */
+.overlay-content {
+    background-color: rgba(0, 0, 0, 0.95) !important;
+}
+
+.overlay-menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 80px;
+    height: 100%;
+    align-items: start;
+}
+
+.overlay-menu-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay-menu-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+/* Sub-menu styles */
+.overlay-nav-primary > ul > li {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.overlay-nav-primary .menu-item-has-children {
+    position: relative;
+}
+
+.overlay-nav-primary .sub-menu {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 30px;
+    display: none;
+}
+
+.overlay-nav-primary .menu-item-has-children:hover .sub-menu {
+    display: block;
+}
+
+.overlay-nav-primary .sub-menu li {
+    margin-bottom: 15px;
+}
+
+.overlay-nav-primary .sub-menu a {
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.5px;
+}
+
+.overlay-nav-primary .sub-menu a:hover {
+    color: var(--color-white);
+    opacity: 1;
+}
+
+/* Updated overlay styles */
+.overlay-phone a {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.overlay-phone a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.overlay-social-title {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.overlay-social-links {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.overlay-social-links a {
+    color: var(--color-white);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay-social-links a:hover {
+    color: rgba(255, 255, 255, 0.7);
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .overlay-menu-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    
+    .overlay-menu-info {
+        width: 100%;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .overlay-brand,
+    .overlay-contact,
+    .overlay-social {
+        text-align: left;
+    }
+    
+    .overlay-social-links {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .overlay-menu-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .overlay-menu-info {
+        width: 100%;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .overlay-brand,
+    .overlay-contact,
+    .overlay-social {
+        text-align: left;
+    }
+    
+    .overlay-social-links {
+        justify-content: flex-start;
+    }
+    
+    .overlay-nav-primary .sub-menu a {
+        font-size: 18px;
+    }
+}
