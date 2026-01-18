@@ -153,28 +153,28 @@ get_header();
             <div class="swiper certificates-swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-8_result-1.webp" alt="Сертифікат 1" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-1_result-1.webp" alt="Сертифікат 1" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/5.jpg" alt="Сертифікат 2" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-2_result-1.webp" alt="Сертифікат 2" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-7_result-1.webp" alt="Сертифікат 3" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-3_result-1.webp" alt="Сертифікат 3" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-6_result-1.webp" alt="Сертифікат 4" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-5_result-1.webp" alt="Сертифікат 4" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-5_result-1.webp" alt="Сертифікат 5" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-6_result-1.webp" alt="Сертифікат 5" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-3_result-1.webp" alt="Сертифікат 6" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-7_result-1.webp" alt="Сертифікат 6" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-2_result-1.webp" alt="Сертифікат 7" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-8_result-1.webp" alt="Сертифікат 7" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/c-1_result-1.webp" alt="Сертифікат 8" loading="lazy">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/5.jpg" alt="Сертифікат 8" loading="lazy">
                     </div>
                 </div>
                 <div class="swiper-button-next certificates-button-next"></div>
@@ -189,8 +189,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof Swiper !== 'undefined') {
         const certificatesSwiper = new Swiper('.certificates-swiper', {
             slidesPerView: 1,
-            spaceBetween: 30,
+            spaceBetween: 40,
+            centeredSlides: true,
             loop: true,
+            loopAdditionalSlides: 2,
             navigation: {
                 nextEl: '.certificates-button-next',
                 prevEl: '.certificates-button-prev',
@@ -199,10 +201,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 768: {
                     slidesPerView: 2,
                     spaceBetween: 40,
+                    centeredSlides: true,
                 },
                 1024: {
                     slidesPerView: 3,
-                    spaceBetween: 40,
+                    spaceBetween: 50,
+                    centeredSlides: false,
                 },
             },
         });
