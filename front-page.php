@@ -614,27 +614,33 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h3 class="pricing-card-title">Консультація</h3>
                     <p class="pricing-card-subtitle">онлайн</p>
                 </div>
-                <div class="pricing-card-price">від 1190 грн</div>
+                <div class="pricing-card-price-wrapper">
+                    <div class="pricing-card-price">від 1190 грн</div>
+                </div>
                 <p class="pricing-card-desc">зручний формат для отримання кваліфікованої медичної допомоги в будь-який час</p>
-                <button class="pricing-card-button btn-primary" data-pricing-open data-service="Консультація" data-format="онлайн" data-price="від 1190 грн" data-desc="Зручний формат для отримання кваліфікованої медичної допомоги в будь-який час.">Записатись</button>
+                <button class="pricing-card-button" data-pricing-open data-service="Консультація" data-format="онлайн" data-price="від 1190 грн" data-desc="Зручний формат для отримання кваліфікованої медичної допомоги в будь-який час.">Записатись</button>
             </article>
             <article class="pricing-card">
                 <div class="pricing-card-header">
                     <h3 class="pricing-card-title">Профілактичний огляд</h3>
                     <p class="pricing-card-subtitle">виключно офлайн</p>
                 </div>
-                <div class="pricing-card-price">від 1400 грн</div>
+                <div class="pricing-card-price-wrapper">
+                    <div class="pricing-card-price">від 1400 грн</div>
+                </div>
                 <p class="pricing-card-desc">рекомендується проходити раз на рік з метою передбачення захворювань на ранніх стадіях</p>
-                <button class="pricing-card-button btn-primary" data-pricing-open data-service="Профілактичний огляд" data-format="виключно офлайн" data-price="від 1400 грн" data-desc="Рекомендується проходити раз на рік з метою передбачення захворювань на ранніх стадіях.">Записатись</button>
+                <button class="pricing-card-button" data-pricing-open data-service="Профілактичний огляд" data-format="виключно офлайн" data-price="від 1400 грн" data-desc="Рекомендується проходити раз на рік з метою передбачення захворювань на ранніх стадіях.">Записатись</button>
             </article>
             <article class="pricing-card">
                 <div class="pricing-card-header">
                     <h3 class="pricing-card-title">Оперативне втручання</h3>
                     <p class="pricing-card-subtitle">малоінвазивне та хірургічне</p>
                 </div>
-                <div class="pricing-card-price">від 20000 грн</div>
+                <div class="pricing-card-price-wrapper">
+                    <div class="pricing-card-price">від 20000 грн</div>
+                </div>
                 <p class="pricing-card-desc">комплексний підхід до відновлення здоров'я під час захворювань</p>
-                <button class="pricing-card-button btn-primary" data-pricing-open data-service="Оперативне втручання" data-format="малоінвазивне та хірургічне" data-price="від 20000 грн" data-desc="Комплексний підхід до відновлення здоров'я під час захворювань.">Записатись</button>
+                <button class="pricing-card-button" data-pricing-open data-service="Оперативне втручання" data-format="малоінвазивне та хірургічне" data-price="від 20000 грн" data-desc="Комплексний підхід до відновлення здоров'я під час захворювань.">Записатись</button>
             </article>
         </div>
     </div>
