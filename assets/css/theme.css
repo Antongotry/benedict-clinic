@@ -767,13 +767,11 @@ body.overlay-open .header.container--full-width-padding {
 .about-content {
     display: flex;
     flex-direction: column;
-    padding: 0;
-    max-width: min(600px, 45vw);
+    padding: 0 40px;
+    max-width: 650px;
     width: 100%;
     text-align: center;
     margin: 0 auto;
-    margin-left: max(calc(28.125vw + 20px), 20px);
-    margin-right: max(calc(28.125vw + 20px), 20px);
     box-sizing: border-box;
 }
 
@@ -2101,9 +2099,8 @@ body.overlay-open .header.container--full-width-padding {
 }
 
     .about-content {
-        max-width: min(600px, 50vw);
-        margin-left: max(calc(28.125vw + 15px), 15px);
-        margin-right: max(calc(28.125vw + 15px), 15px);
+        max-width: 600px;
+        padding: 0 30px;
     }
 }
 
@@ -2158,9 +2155,8 @@ body.overlay-open .header.container--full-width-padding {
     }
     
     .about-content {
-        max-width: min(600px, 55vw);
-        margin-left: max(calc(25vw + 15px), 15px);
-        margin-right: max(calc(25vw + 15px), 15px);
+        max-width: 550px;
+        padding: 0 25px;
     }
 }
 
