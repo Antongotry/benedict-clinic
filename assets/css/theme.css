@@ -3451,6 +3451,7 @@ body.overlay-open .header-menu-btn {
     margin: 0 0 20px 0;
     padding-bottom: 15px;
     border-bottom: 1px solid #000000;
+    text-align: center;
 }
 
 .podcast-talks-subtitle {
@@ -3460,6 +3461,7 @@ body.overlay-open .header-menu-btn {
     color: #111111;
     line-height: 1.6;
     margin: 0 0 60px 0;
+    text-align: center;
 }
 
 .podcast-videos-grid {
