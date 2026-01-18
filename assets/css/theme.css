@@ -2520,6 +2520,11 @@ body.overlay-open .header-menu-btn {
 .site-footer {
     background-color: #000000;
     color: var(--color-white);
+    border: none !important;
+    border-top: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    margin-top: -1px;
 }
 
 /* Secondary Footer */
@@ -2581,6 +2586,10 @@ body.overlay-open .header-menu-btn {
 .primary-footer {
     padding: 60px 0;
     background-color: #000000;
+    border: none;
+    border-top: none;
+    box-shadow: none;
+    outline: none;
 }
 
 .primary-footer .footer-content {
