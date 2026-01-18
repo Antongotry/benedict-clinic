@@ -4436,7 +4436,7 @@ body.overlay-open .header-menu-btn {
 } */
 
 /* Варіант 3: Чорний акцент-точка зверху */
-.testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card::before {
+/* .testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card::before {
     content: '';
     position: absolute;
     left: 30px;
@@ -4445,11 +4445,41 @@ body.overlay-open .header-menu-btn {
     height: 8px;
     background: var(--color-dark);
     border-radius: 50%;
-}
+} */
 
 /* Варіант 4: Легка тінь для виділених карток */
 /* .testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+} */
+
+/* Варіант 5: Тонка чорна вертикальна лінія зліва (елегантна) */
+.testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--color-dark);
+}
+
+/* Варіант 6: Чорний бордер зверху і знизу */
+/* .testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card {
+    border-top: 2px solid var(--color-dark);
+    border-bottom: 2px solid var(--color-dark);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+} */
+
+/* Варіант 7: Чорний акцент-квадрат зверху */
+/* .testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 6px;
+    height: 6px;
+    background: var(--color-dark);
 } */
 
 .testimonial-card:hover {
