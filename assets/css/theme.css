@@ -3314,7 +3314,7 @@ body.overlay-open .header-menu-btn {
 
 .materials-section {
     background-color: var(--color-white);
-    padding: 100px 0;
+    padding: 100px 0 0 0;
 }
 
 .materials-header {
@@ -3513,7 +3513,7 @@ body.overlay-open .header-menu-btn {
 
 @media (max-width: 600px) {
     .materials-section {
-        padding: 60px 0;
+        padding: 60px 0 0 0;
     }
     
     .materials-header {
