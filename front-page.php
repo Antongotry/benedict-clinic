@@ -1193,9 +1193,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="contacts-item">
                     <div class="contacts-item-header">
                         <span class="contacts-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.2"/>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 21c0 0-8-6.5-8-12a8 8 0 1116 0c0 5.5-8 12-8 12z" stroke="currentColor" stroke-width="1.3"/>
+                                <circle cx="12" cy="9" r="2" fill="currentColor"/>
+                                <path d="M12 21v-4" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2 2"/>
                             </svg>
                         </span>
                         <p class="contacts-label">Адреса</p>
@@ -1205,8 +1206,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="contacts-item">
                     <div class="contacts-item-header">
                         <span class="contacts-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 5.5C3 14.06 9.94 21 18.5 21c.386 0 .763-.014 1.135-.042" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                                <path d="M3 5.5V10h4.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="17" cy="7" r="4" stroke="currentColor" stroke-width="1.3"/>
+                                <circle cx="17" cy="7" r="1.5" fill="currentColor"/>
                             </svg>
                         </span>
                         <p class="contacts-label">Телефон</p>
@@ -1216,9 +1220,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="contacts-item">
                     <div class="contacts-item-header">
                         <span class="contacts-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/>
+                                <path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.3"/>
+                                <circle cx="12" cy="12" r="2" fill="currentColor" opacity="0.3"/>
+                                <path d="M17 3l2 2M7 3L5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
                             </svg>
                         </span>
                         <p class="contacts-label">Електронна пошта</p>
