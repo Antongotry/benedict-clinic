@@ -2345,18 +2345,19 @@ body.overlay-open .header.container--full-width-padding {
     }
     
     .surgery-decorative-text {
-        font-size: 60px;
-        letter-spacing: 8px;
-        opacity: 0.12;
+        font-size: 50px;
+        letter-spacing: 5px;
+        opacity: 0.15;
     }
     
     .surgery-text-1 {
         right: auto;
-        left: 60%;
+        left: 55%;
     }
     
     .surgery-text-2 {
-        left: 20%;
+        left: 5%;
+        right: auto;
     }
     
     .surgery-center-content {
