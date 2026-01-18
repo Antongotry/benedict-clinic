@@ -177,8 +177,10 @@ get_header();
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/certificates/5.jpg" alt="Сертифікат 8" loading="lazy">
                     </div>
                 </div>
-                <div class="swiper-button-next certificates-button-next"></div>
+            </div>
+            <div class="certificates-button-wrapper">
                 <div class="swiper-button-prev certificates-button-prev"></div>
+                <div class="swiper-button-next certificates-button-next"></div>
             </div>
         </div>
     </div>
