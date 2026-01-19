@@ -1145,11 +1145,17 @@
     color: var(--color-dark);
 }
 
+/* Гамбургер іконки при scrolled на блозі - завжди чорні */
 .archive .header.scrolled .hamburger-icon,
 .category .header.scrolled .hamburger-icon,
 .single-post .header.scrolled .hamburger-icon,
-.blog .header.scrolled .hamburger-icon {
+.blog .header.scrolled .hamburger-icon,
+.archive .header.scrolled .hamburger svg,
+.category .header.scrolled .hamburger svg,
+.single-post .header.scrolled .hamburger svg,
+.blog .header.scrolled .hamburger svg {
     stroke: var(--color-dark) !important;
+    color: var(--color-dark) !important;
 }
 
 .archive .header.scrolled .hamburger-icon-close,
@@ -1157,14 +1163,20 @@
 .single-post .header.scrolled .hamburger-icon-close,
 .blog .header.scrolled .hamburger-icon-close {
     stroke: var(--color-dark) !important;
+    color: var(--color-dark) !important;
 }
 
 /* Також для кнопки гамбургера при scrolled */
 .archive .header.scrolled .header-menu-btn .hamburger-icon,
 .category .header.scrolled .header-menu-btn .hamburger-icon,
 .single-post .header.scrolled .header-menu-btn .hamburger-icon,
-.blog .header.scrolled .header-menu-btn .hamburger-icon {
+.blog .header.scrolled .header-menu-btn .hamburger-icon,
+.archive .header.scrolled .header-menu-btn .hamburger svg,
+.category .header.scrolled .header-menu-btn .hamburger svg,
+.single-post .header.scrolled .header-menu-btn .hamburger svg,
+.blog .header.scrolled .header-menu-btn .hamburger svg {
     stroke: var(--color-dark) !important;
+    color: var(--color-dark) !important;
 }
 
 .archive .header.scrolled .header-menu-btn .hamburger-icon-close,
@@ -1172,6 +1184,7 @@
 .single-post .header.scrolled .header-menu-btn .hamburger-icon-close,
 .blog .header.scrolled .header-menu-btn .hamburger-icon-close {
     stroke: var(--color-dark) !important;
+    color: var(--color-dark) !important;
 }
 
 /* Перекриваємо білий колір для scrolled хедера навіть коли overlay-open */
@@ -1193,8 +1206,13 @@ body.overlay-open .blog .header.scrolled .hamburger-icon-close,
 body.overlay-open .archive .header.scrolled .header-menu-btn .hamburger-icon-close,
 body.overlay-open .category .header.scrolled .header-menu-btn .hamburger-icon-close,
 body.overlay-open .single-post .header.scrolled .header-menu-btn .hamburger-icon-close,
-body.overlay-open .blog .header.scrolled .header-menu-btn .hamburger-icon-close {
+body.overlay-open .blog .header.scrolled .header-menu-btn .hamburger-icon-close,
+body.overlay-open .archive .header.scrolled .hamburger svg,
+body.overlay-open .category .header.scrolled .hamburger svg,
+body.overlay-open .single-post .header.scrolled .hamburger svg,
+body.overlay-open .blog .header.scrolled .hamburger svg {
     stroke: var(--color-dark) !important;
+    color: var(--color-dark) !important;
 }
 
 /* Гарантуємо що гамбургер завжди видимий */
