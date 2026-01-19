@@ -139,6 +139,38 @@
     opacity: 0.7;
 }
 
+/* Language Switcher in Overlay */
+.overlay-language-switcher {
+    margin-bottom: 30px;
+}
+
+.overlay-language-title {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.overlay-language-switcher a,
+.overlay-language-switcher span {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-language-switcher a:hover {
+    opacity: 0.7;
+}
+
+.overlay-language-switcher .current-language,
+.overlay-language-switcher .trp-ls-shortcode-current-language {
+    font-weight: 500;
+}
+
 .overlay-social-title {
     font-size: 13px;
     font-weight: 400;

@@ -23,6 +23,9 @@
                 </svg>
                 <span>@dr_benedikt</span>
             </a>
+            <div class="header-item header-language-switcher">
+                <?php echo do_shortcode('[language-switcher]'); ?>
+            </div>
         </div>
         
         <!-- Center Section: Logo -->
@@ -100,6 +103,11 @@
                     <p class="overlay-address">
                         Київ, вул. Олеся Бердника, 1Д
                     </p>
+                </div>
+                
+                <div class="overlay-language-switcher">
+                    <p class="overlay-language-title">Мова:</p>
+                    <?php echo do_shortcode('[language-switcher]'); ?>
                 </div>
                 
                 <div class="overlay-social">

@@ -264,6 +264,45 @@ body.overlay-open .header.container--full-width-padding {
     border-bottom: none;
 }
 
+/* Header Language Switcher */
+.header-language-switcher {
+    display: flex;
+    align-items: center;
+}
+
+.header-language-switcher a,
+.header-language-switcher span {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.header-language-switcher a:hover {
+    opacity: 0.75;
+}
+
+.header-language-switcher .current-language,
+.header-language-switcher .trp-ls-shortcode-current-language {
+    font-weight: 500;
+}
+
+.header.container--full-width-padding.is-solid .header-language-switcher a,
+.header.container--full-width-padding.is-solid .header-language-switcher span {
+    color: var(--color-dark);
+}
+
+.header.container--full-width-padding.is-solid .header-language-switcher a:hover {
+    color: var(--color-grey);
+}
+
+body.overlay-open .header .header-language-switcher a,
+body.overlay-open .header .header-language-switcher span {
+    color: var(--color-white) !important;
+}
+
 /* Состояние при скролле: белый фон, тень, тёмные элементы */
 .header.container--full-width-padding.is-solid {
     background-color: var(--color-white);
@@ -2671,6 +2710,29 @@ body.overlay-open .header-menu-btn {
     line-height: 1.8;
     margin-bottom: 30px;
     color: rgba(255, 255, 255, 0.8);
+}
+
+/* Footer Language Switcher */
+.footer-language-switcher {
+    margin-bottom: 20px;
+}
+
+.footer-language-switcher a,
+.footer-language-switcher span {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-language-switcher a:hover {
+    opacity: 0.7;
+}
+
+.footer-language-switcher .current-language,
+.footer-language-switcher .trp-ls-shortcode-current-language {
+    font-weight: 500;
 }
 
 .footer-logo {
