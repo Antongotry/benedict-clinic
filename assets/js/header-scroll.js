@@ -6,8 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var scrolled = window.pageYOffset || document.documentElement.scrollTop || 0;
         if (scrolled > 10) {
             header.classList.add('is-solid');
+            header.classList.add('scrolled');
         } else {
             header.classList.remove('is-solid');
+            header.classList.remove('scrolled');
         }
     }
 
