@@ -1165,7 +1165,7 @@
    =================================== */
 .blog-cta-section {
     position: relative;
-    padding: 100px 40px;
+    padding: 120px 40px 140px;
     background-color: var(--color-dark);
     background-image: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     overflow: hidden;
@@ -1181,9 +1181,22 @@
     z-index: 1;
 }
 
+/* Gradient fade to black at bottom - blends with footer */
+.blog-cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 40%, #000000 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
 .blog-cta-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     text-align: center;
     max-width: 700px;
     margin: 0 auto;
@@ -1227,11 +1240,13 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 16px 32px;
-    font-size: 0.9375rem;
+    padding: 18px 36px;
+    font-size: 14px;
     font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 0;
     cursor: pointer;
     transition: var(--blog-transition);
     border: none;
@@ -1244,19 +1259,19 @@
 }
 
 .blog-cta-btn.primary:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-    transform: translateY(-2px);
+    background: transparent;
+    color: var(--color-white);
+    box-shadow: inset 0 0 0 2px var(--color-white);
 }
 
 .blog-cta-btn.secondary {
     background-color: transparent;
     color: var(--color-white);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
 }
 
 .blog-cta-btn.secondary:hover {
-    border-color: var(--color-white);
-    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 2px var(--color-white);
 }
 
 .blog-cta-btn.secondary svg {
@@ -1266,7 +1281,7 @@
 /* Responsive CTA */
 @media (max-width: 768px) {
     .blog-cta-section {
-        padding: 70px 20px;
+        padding: 80px 20px 100px;
     }
     
     .blog-cta-title {
@@ -1286,6 +1301,7 @@
     .blog-cta-btn {
         width: 100%;
         max-width: 280px;
+        justify-content: center;
     }
 }
 
