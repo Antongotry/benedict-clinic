@@ -1174,6 +1174,29 @@
     stroke: var(--color-dark) !important;
 }
 
+/* Перекриваємо білий колір для scrolled хедера навіть коли overlay-open */
+.archive .header.scrolled .hamburger-icon-close,
+.category .header.scrolled .hamburger-icon-close,
+.single-post .header.scrolled .hamburger-icon-close,
+.blog .header.scrolled .hamburger-icon-close,
+.archive .header.scrolled .header-menu-btn .hamburger-icon-close,
+.category .header.scrolled .header-menu-btn .hamburger-icon-close,
+.single-post .header.scrolled .header-menu-btn .hamburger-icon-close,
+.blog .header.scrolled .header-menu-btn .hamburger-icon-close {
+    stroke: var(--color-dark) !important;
+}
+
+body.overlay-open .archive .header.scrolled .hamburger-icon-close,
+body.overlay-open .category .header.scrolled .hamburger-icon-close,
+body.overlay-open .single-post .header.scrolled .hamburger-icon-close,
+body.overlay-open .blog .header.scrolled .hamburger-icon-close,
+body.overlay-open .archive .header.scrolled .header-menu-btn .hamburger-icon-close,
+body.overlay-open .category .header.scrolled .header-menu-btn .hamburger-icon-close,
+body.overlay-open .single-post .header.scrolled .header-menu-btn .hamburger-icon-close,
+body.overlay-open .blog .header.scrolled .header-menu-btn .hamburger-icon-close {
+    stroke: var(--color-dark) !important;
+}
+
 /* Гарантуємо що гамбургер завжди видимий */
 .archive .header .hamburger,
 .category .header .hamburger,
