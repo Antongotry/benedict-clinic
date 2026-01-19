@@ -6522,6 +6522,15 @@ body.overlay-open .header-menu-btn {
     align-self: start;
 }
 
+/* Pin spacer для sticky контактної інформації на сторінці контактів */
+.contact-page-grid .pin-spacer {
+    align-self: start;
+}
+
+.contact-page-grid .pin-spacer .contact-page-info {
+    position: relative;
+}
+
 .contact-page-info-title,
 .contact-page-form-title {
     font-family: var(--font-serif);

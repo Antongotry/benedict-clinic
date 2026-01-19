@@ -65,18 +65,22 @@
         window.lenis = lenis;
 
         // Contacts Info Sticky with GSAP ScrollTrigger (optimized for Lenis)
+        // Обробка для головної сторінки (contacts-info)
         const contactsInfo = document.querySelector('.contacts-info');
-        const contactPageInfo = document.querySelector('.contact-page-info');
-        const contactPageFormWrapper = document.querySelector('.contact-page-form-wrapper');
         const contactsFormWrapper = document.querySelector('.contacts-form-wrapper');
-        const contactPageGrid = document.querySelector('.contact-page-grid');
         const contactsGrid = document.querySelector('.contacts-grid');
         
-        const targetElement = contactsInfo || contactPageInfo;
-        const formWrapper = contactPageFormWrapper || contactsFormWrapper;
-        const gridContainer = contactPageGrid || contactsGrid;
+        // Обробка для сторінки контактів (contact-page-info)
+        const contactPageInfo = document.querySelector('.contact-page-info');
+        const contactPageFormWrapper = document.querySelector('.contact-page-form-wrapper');
+        const contactPageGrid = document.querySelector('.contact-page-grid');
         
-        if (targetElement && formWrapper && gridContainer && window.innerWidth > 1024) {
+        // Функція для створення sticky ефекту
+        const createStickyEffect = (targetElement, formWrapper, gridContainer) => {
+            if (!targetElement || !formWrapper || !gridContainer || window.innerWidth <= 1024) {
+                return;
+            }
+            
             // Функція для оновлення висоти pin-spacer
             const updatePinSpacerHeight = () => {
                 const pinSpacer = targetElement.parentElement;
@@ -118,6 +122,16 @@
                     }, 150);
                 });
             }, 100);
+        };
+        
+        // Застосовуємо sticky для головної сторінки
+        if (contactsInfo && contactsFormWrapper && contactsGrid) {
+            createStickyEffect(contactsInfo, contactsFormWrapper, contactsGrid);
+        }
+        
+        // Застосовуємо sticky для сторінки контактів
+        if (contactPageInfo && contactPageFormWrapper && contactPageGrid) {
+            createStickyEffect(contactPageInfo, contactPageFormWrapper, contactPageGrid);
         }
     });
 })();
