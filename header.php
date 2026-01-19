@@ -15,25 +15,33 @@
 <?php
 // Language switcher logic
 $current_uri = $_SERVER['REQUEST_URI'];
-$is_english = (strpos($current_uri, '/en/') === 0 || strpos($current_uri, '/en') === 0);
+
+// Check if we're on English version
+$is_english = (strpos($current_uri, '/en/') === 0 || $current_uri === '/en' || $current_uri === '/en/');
 
 if ($is_english) {
-    // On English page - remove /en/ to get Ukrainian URL
-    $uk_url = preg_replace('#^/en/?#', '/', $current_uri);
+    // On English page - remove /en or /en/ from the beginning
+    $uk_url = preg_replace('#^/en(?:/|$)#', '/', $current_uri);
+    if (empty($uk_url) || $uk_url === '') {
+        $uk_url = '/';
+    }
     $en_url = $current_uri;
 } else {
-    // On Ukrainian page - add /en/ to get English URL
+    // On Ukrainian page - add /en to the beginning
     $uk_url = $current_uri;
-    $en_url = '/en' . $current_uri;
+    if ($current_uri === '/' || $current_uri === '') {
+        $en_url = '/en/';
+    } else {
+        $en_url = '/en' . $current_uri;
+    }
 }
 
-// Clean up double slashes
-$uk_url = preg_replace('#/+#', '/', $uk_url);
-$en_url = preg_replace('#/+#', '/', $en_url);
+// Clean up double slashes (but keep single leading slash)
+$uk_url = '/' . ltrim(preg_replace('#/+#', '/', $uk_url), '/');
+$en_url = '/' . ltrim(preg_replace('#/+#', '/', $en_url), '/');
 
-// Ensure URLs start with /
-if (empty($uk_url) || $uk_url === '') $uk_url = '/';
-if (substr($en_url, 0, 1) !== '/') $en_url = '/' . $en_url;
+// Final check
+if ($uk_url === '') $uk_url = '/';
 ?>
 
 <header id="header-40cd750b" class="header container--full-width-padding">
