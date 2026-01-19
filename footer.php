@@ -18,14 +18,24 @@
                     <h4>ІНФОРМАЦІЯ</h4>
                     <ul>
                         <li><a href="/contact">Контакти</a></li>
-                        <li><a href="/quiz">Квіз</a></li>
                         <li><a href="/privacy-policy">Політика конфіденційності</a></li>
+                    </ul>
+                </div>
+                <div class="footer-menu-column">
+                    <h4>КВІЗИ</h4>
+                    <ul>
+                        <li><a href="/quiz-ipss">IPSS — сечовипускання</a></li>
+                        <li><a href="/quiz-iief">IIEF — еректильна функція</a></li>
+                        <li><a href="/quiz-nih-cpsi">NIH-CPSI — простатит</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-contact-section">
                 <p class="footer-phone"><a href="tel:+380951344029">+38 095 13 44 029</a></p>
                 <p class="footer-address">Київ, вул. Олеся Бердника, 1Д</p>
+                <div class="footer-language-switcher">
+                    <?php echo do_shortcode('[language-switcher]'); ?>
+                </div>
                 <a href="<?php echo home_url('/'); ?>" class="footer-logo">
                     <span class="footer-logo-text">DR. BENEDICT</span>
                     <span class="footer-logo-sub">UROLOGY</span>
