@@ -6,6 +6,21 @@
 
 get_header();
 
+// Force enqueue blog styles
+wp_enqueue_style('benedict-blog-styles', get_template_directory_uri() . '/assets/css/blog.css', array(), time());
+?><style>
+/* Inline override for blog hero padding */
+.blog-hero {
+    padding-top: 280px !important;
+    min-height: 55vh !important;
+}
+@media (max-width: 768px) {
+    .blog-hero {
+        padding-top: 220px !important;
+    }
+}
+</style><?php
+
 // Get customizer settings
 $hero_image = get_theme_mod('benedict_blog_hero_image');
 $hero_title = get_theme_mod('benedict_blog_hero_title', 'БЛОГ');
