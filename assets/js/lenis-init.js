@@ -63,5 +63,35 @@
 
         // Expose lenis globally if needed
         window.lenis = lenis;
+
+        // Contacts Info Sticky with GSAP ScrollTrigger (optimized for Lenis)
+        const contactsInfo = document.querySelector('.contacts-info');
+        const contactPageInfo = document.querySelector('.contact-page-info');
+        const contactPageGrid = document.querySelector('.contact-page-grid');
+        const contactsGrid = document.querySelector('.contacts-grid');
+        
+        const targetElement = contactsInfo || contactPageInfo;
+        const gridContainer = contactPageGrid || contactsGrid;
+        
+        if (targetElement && gridContainer && window.innerWidth > 1024) {
+            // Refresh ScrollTrigger after Lenis is ready
+            setTimeout(() => {
+                ScrollTrigger.create({
+                    trigger: gridContainer,
+                    start: 'top 120px',
+                    end: () => `+=${targetElement.offsetHeight}`,
+                    pin: targetElement,
+                    pinSpacing: false,
+                    invalidateOnRefresh: true,
+                    refreshPriority: -1,
+                    markers: false
+                });
+                
+                // Refresh on resize
+                window.addEventListener('resize', () => {
+                    ScrollTrigger.refresh();
+                });
+            }, 100);
+        }
     });
 })();
