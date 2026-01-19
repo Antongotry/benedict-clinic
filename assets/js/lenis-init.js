@@ -82,8 +82,17 @@
                 ScrollTrigger.create({
                     trigger: gridContainer,
                     start: 'top 120px',
-                    endTrigger: formWrapper,
-                    end: 'bottom bottom',
+                    end: () => {
+                        // Обчислюємо коли форма закінчується відносно gridContainer
+                        const gridRect = gridContainer.getBoundingClientRect();
+                        const formRect = formWrapper.getBoundingClientRect();
+                        const scrollY = window.scrollY || window.pageYOffset;
+                        
+                        // Висота форми від початку gridContainer
+                        const formBottomRelative = (formRect.bottom + scrollY) - (gridRect.top + scrollY);
+                        
+                        return formBottomRelative - 120;
+                    },
                     pin: targetElement,
                     pinSpacing: false,
                     invalidateOnRefresh: true,
