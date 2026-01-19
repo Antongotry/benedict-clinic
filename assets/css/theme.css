@@ -7992,7 +7992,7 @@ body.overlay-open .header-menu-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 160px 40px 80px;
+    padding: 200px 40px 100px;
     background-color: #1a1a1a;
     overflow: hidden;
 }
@@ -8148,7 +8148,7 @@ body.overlay-open .header-menu-btn {
 
 @media (max-width: 768px) {
     .privacy-page-hero {
-        padding: 140px 20px 60px;
+        padding: 160px 20px 60px;
         min-height: 30vh;
     }
     
