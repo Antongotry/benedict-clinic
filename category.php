@@ -41,7 +41,7 @@ $categories = get_categories(array(
         <nav class="blog-breadcrumbs" aria-label="Хлібні крихти">
             <a href="<?php echo home_url('/'); ?>">Головна</a>
             <span class="breadcrumb-separator">/</span>
-            <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>">Блог</a>
+            <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>">Корисні статті</a>
             <span class="breadcrumb-separator">/</span>
             <span class="breadcrumb-current"><?php echo esc_html($current_category->name); ?></span>
         </nav>

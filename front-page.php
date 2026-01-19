@@ -633,7 +633,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <p>Відновлення функцій та зовнішнього вигляду органів після травм та хвороб.</p>
             <p>Сучасні хірургічні методи з мінімальними ризиками.</p>
         </div>
-        <a href="/gallery" class="surgery-center-cta">ГАЛЕРЕЯ <span>|→</span></a>
+        <a href="/coming-soon" class="surgery-center-cta">ГАЛЕРЕЯ <span>|→</span></a>
     </div>
 </section>
 

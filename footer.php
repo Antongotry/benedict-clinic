@@ -16,7 +16,7 @@ $is_english = (substr($current_path_footer, 0, 4) === '/en/' || $current_path_fo
                     <ul>
                         <li><a href="/">Головна</a></li>
                         <li><a href="/dr-benedict">Про лікаря</a></li>
-                        <li><a href="/blog">Блог</a></li>
+                        <li><a href="/blog">Корисні статті</a></li>
                         <li><a href="/services">Послуги</a></li>
                     </ul>
                 </div>

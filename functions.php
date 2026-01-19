@@ -278,7 +278,7 @@ function rosenberg_fallback_menu() {
     echo '<li><a href="' . home_url('/') . '">Home</a></li>';
     echo '<li><a href="' . home_url('/dr-benedict') . '">Dr. Benedict</a></li>';
     echo '<li><a href="' . home_url('/about') . '">About</a></li>';
-    echo '<li><a href="' . home_url('/gallery') . '">Gallery</a></li>';
+    echo '<li><a href="' . home_url('/404') . '">Gallery</a></li>';
     echo '<li><a href="' . home_url('/contact') . '">Contact</a></li>';
     echo '</ul>';
 }

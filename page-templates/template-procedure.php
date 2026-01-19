@@ -133,7 +133,7 @@ get_header();
             ?>
         </div>
         <div class="text-center">
-            <a href="/gallery" class="btn-primary">View Full Gallery</a>
+            <a href="/404" class="btn-primary">View Full Gallery</a>
         </div>
     </div>
 </section>
