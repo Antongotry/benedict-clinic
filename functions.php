@@ -665,6 +665,18 @@ function benedict_get_excerpt($length = 20, $post_id = null) {
 }
 
 /**
+ * Set posts per page for blog archives (multiple of 3 for grid layout)
+ */
+function benedict_blog_posts_per_page($query) {
+    if (!is_admin() && $query->is_main_query()) {
+        if (is_home() || is_category() || is_archive()) {
+            $query->set('posts_per_page', 9);
+        }
+    }
+}
+add_action('pre_get_posts', 'benedict_blog_posts_per_page');
+
+/**
  * Blog Customizer Settings
  */
 function benedict_blog_customizer($wp_customize) {
