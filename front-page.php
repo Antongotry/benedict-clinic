@@ -53,7 +53,7 @@ get_header();
                     <p class="about-service-text">Допомагає відновити функції та зовнішній вигляд органів після травм, хвороб чи хірургічних втручань, а також враховує естетичні побажання пацієнта для досягнення гармонійного результату</p>
                 </div>
             </div>
-            <a href="/procedures" class="about-cta">ПОСЛУГИ <span>|→</span></a>
+            <a href="<?php echo home_url('/services'); ?>" class="about-cta">ПОСЛУГИ <span>|→</span></a>
         </div>
     </div>
     <div class="about-image-right">
@@ -141,7 +141,7 @@ get_header();
             </a>
         </div>
         <div class="services-cta">
-            <a href="/procedures" class="services-cta-button">Детальніше <span>|→</span></a>
+            <a href="<?php echo home_url('/services'); ?>" class="services-cta-button">Детальніше <span>|→</span></a>
         </div>
     </div>
 </section>
