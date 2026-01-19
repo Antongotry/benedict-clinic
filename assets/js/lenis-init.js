@@ -64,73 +64,26 @@
         // Expose lenis globally if needed
         window.lenis = lenis;
 
-        // Contacts Info Sticky with GSAP ScrollTrigger (optimized for Lenis)
-        // Обробка для головної сторінки (contacts-info)
+        // Видаляємо sticky позиціонування для контактної інформації
+        // (вимкнено, щоб елементи не виходили за межі контейнерів)
         const contactsInfo = document.querySelector('.contacts-info');
-        const contactsFormWrapper = document.querySelector('.contacts-form-wrapper');
-        const contactsGrid = document.querySelector('.contacts-grid');
-        
-        // Обробка для сторінки контактів (contact-page-info)
         const contactPageInfo = document.querySelector('.contact-page-info');
-        const contactPageFormWrapper = document.querySelector('.contact-page-form-wrapper');
-        const contactPageGrid = document.querySelector('.contact-page-grid');
         
-        // Функція для створення sticky ефекту
-        const createStickyEffect = (targetElement, formWrapper, gridContainer) => {
-            if (!targetElement || !formWrapper || !gridContainer || window.innerWidth <= 1024) {
-                return;
-            }
-            
-            // Функція для оновлення висоти pin-spacer
-            const updatePinSpacerHeight = () => {
-                const pinSpacer = targetElement.parentElement;
-                if (pinSpacer && pinSpacer.classList.contains('pin-spacer')) {
-                    // Встановлюємо висоту pin-spacer рівну висоті форми
-                    const formHeight = formWrapper.offsetHeight;
-                    pinSpacer.style.height = formHeight + 'px';
+        // Видаляємо існуючі ScrollTrigger для contacts-info
+        if (contactsInfo) {
+            ScrollTrigger.getAll().forEach(trigger => {
+                if (trigger.vars && trigger.vars.pin === contactsInfo) {
+                    trigger.kill();
                 }
-            };
-            
-            // Refresh ScrollTrigger after Lenis is ready
-            setTimeout(() => {
-                ScrollTrigger.create({
-                    trigger: gridContainer,
-                    start: 'top 120px',
-                    endTrigger: formWrapper,
-                    end: 'bottom top',
-                    pin: targetElement,
-                    pinSpacing: true,
-                    invalidateOnRefresh: true,
-                    refreshPriority: -1,
-                    markers: false,
-                    onRefresh: updatePinSpacerHeight
-                });
-                
-                // Встановлюємо початкову висоту pin-spacer після створення
-                setTimeout(() => {
-                    updatePinSpacerHeight();
-                    ScrollTrigger.refresh();
-                }, 200);
-                
-                // Refresh on resize
-                let resizeTimeout;
-                window.addEventListener('resize', () => {
-                    clearTimeout(resizeTimeout);
-                    resizeTimeout = setTimeout(() => {
-                        updatePinSpacerHeight();
-                        ScrollTrigger.refresh();
-                    }, 150);
-                });
-            }, 100);
-        };
-        
-        // Застосовуємо sticky тільки для головної сторінки
-        if (contactsInfo && contactsFormWrapper && contactsGrid) {
-            createStickyEffect(contactsInfo, contactsFormWrapper, contactsGrid);
+            });
+            // Видаляємо pin-spacer, якщо він існує
+            const pinSpacer = contactsInfo.parentElement;
+            if (pinSpacer && pinSpacer.classList.contains('pin-spacer')) {
+                pinSpacer.replaceWith(contactsInfo);
+            }
         }
         
-        // Sticky для сторінки контактів вимкнено, щоб елемент не виходив за межі контейнера
-        // Видаляємо існуючі ScrollTrigger для contact-page-info, якщо вони є
+        // Видаляємо існуючі ScrollTrigger для contact-page-info
         if (contactPageInfo) {
             ScrollTrigger.getAll().forEach(trigger => {
                 if (trigger.vars && trigger.vars.pin === contactPageInfo) {
