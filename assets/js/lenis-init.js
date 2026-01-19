@@ -64,25 +64,24 @@
         // Expose lenis globally if needed
         window.lenis = lenis;
 
-        // Contacts Info animation with GSAP (without sticky)
+        // Contacts Info Sticky with GSAP ScrollTrigger (without animation)
         const contactsInfo = document.querySelector('.contacts-info');
         const contactPageInfo = document.querySelector('.contact-page-info');
+        const contactPageGrid = document.querySelector('.contact-page-grid');
+        const contactsGrid = document.querySelector('.contacts-grid');
         
-        if ((contactsInfo || contactPageInfo) && window.innerWidth > 1024) {
-            const targetElement = contactsInfo || contactPageInfo;
-            
-            gsap.from(targetElement, {
-                opacity: 0,
-                y: 30,
-                duration: 1,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: targetElement,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none none',
-                    once: true
-                }
+        const targetElement = contactsInfo || contactPageInfo;
+        const gridContainer = contactPageGrid || contactsGrid;
+        
+        if (targetElement && gridContainer && window.innerWidth > 1024) {
+            ScrollTrigger.create({
+                trigger: gridContainer,
+                start: 'top 120px',
+                end: () => `bottom ${targetElement.offsetHeight + 120}px`,
+                pin: targetElement,
+                pinSpacing: false,
+                invalidateOnRefresh: true,
+                markers: false
             });
         }
     });
