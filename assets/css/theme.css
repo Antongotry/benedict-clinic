@@ -8112,10 +8112,53 @@ body.overlay-open .header-menu-btn {
     color: #1a1a1a;
 }
 
+.privacy-contact-box {
+    background-color: #f8f8f8;
+    padding: 30px;
+    margin: 25px 0;
+    border-left: 4px solid #1a1a1a;
+}
+
+.privacy-contact-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.privacy-contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.privacy-contact-item strong {
+    min-width: 80px;
+}
+
+.privacy-contact-item a {
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: 1px solid #1a1a1a;
+    transition: opacity 0.3s ease;
+}
+
+.privacy-contact-item a:hover {
+    opacity: 0.6;
+}
+
 @media (max-width: 768px) {
     .privacy-page-hero {
         padding: 140px 20px 60px;
         min-height: 30vh;
+    }
+    
+    .privacy-contact-box {
+        padding: 20px;
+    }
+    
+    .privacy-contact-item {
+        flex-direction: column;
+        gap: 5px;
     }
     
     .privacy-page-content {
