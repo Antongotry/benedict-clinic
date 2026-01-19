@@ -378,66 +378,73 @@ function initCertificateLightbox() {
         );
         shuffle($placeholder_images);
         
-        // Get latest posts
-        $materials_query = new WP_Query(array(
-            'post_type' => 'post',
-            'posts_per_page' => 8,
-            'post_status' => 'publish',
-            'orderby' => 'date',
-            'order' => 'DESC',
+        // Get all categories
+        $all_categories = get_categories(array(
+            'hide_empty' => true,
+            'orderby' => 'name',
+            'order' => 'ASC',
         ));
         
-        // Collect categories from displayed posts
-        $displayed_categories = array();
-        if ($materials_query->have_posts()) {
-            while ($materials_query->have_posts()) {
-                $materials_query->the_post();
-                $post_cats = get_the_category();
-                if (!empty($post_cats)) {
-                    $cat = $post_cats[0];
-                    if (!isset($displayed_categories[$cat->slug])) {
-                        $displayed_categories[$cat->slug] = $cat->name;
-                    }
-                }
+        // Collect 2 posts from each category
+        $materials_posts = array();
+        foreach ($all_categories as $cat) {
+            $cat_posts = get_posts(array(
+                'post_type' => 'post',
+                'posts_per_page' => 2,
+                'post_status' => 'publish',
+                'category' => $cat->term_id,
+                'orderby' => 'date',
+                'order' => 'DESC',
+            ));
+            foreach ($cat_posts as $post) {
+                $materials_posts[$post->ID] = array(
+                    'post' => $post,
+                    'category_slug' => $cat->slug,
+                    'category_name' => $cat->name,
+                );
             }
-            $materials_query->rewind_posts();
         }
+        
+        // Shuffle posts for variety
+        $materials_posts = array_values($materials_posts);
+        shuffle($materials_posts);
+        
+        // Limit to 8 posts max
+        $materials_posts = array_slice($materials_posts, 0, 8);
         
         $card_index = 0;
         ?>
         
         <div class="materials-filters">
             <button class="materials-filter active" data-filter="all">Всі статті</button>
-            <?php foreach ($displayed_categories as $slug => $name) : ?>
-                <button class="materials-filter" data-filter="<?php echo esc_attr($slug); ?>"><?php echo esc_html($name); ?></button>
+            <?php foreach ($all_categories as $cat) : ?>
+                <button class="materials-filter" data-filter="<?php echo esc_attr($cat->slug); ?>"><?php echo esc_html($cat->name); ?></button>
             <?php endforeach; ?>
         </div>
         
         <div class="materials-grid">
-            <?php if ($materials_query->have_posts()) : ?>
-                <?php while ($materials_query->have_posts()) : $materials_query->the_post(); ?>
-                    <?php
-                    $categories = get_the_category();
-                    $category_slug = !empty($categories) ? $categories[0]->slug : 'all';
-                    $category_name = !empty($categories) ? $categories[0]->name : 'Стаття';
+            <?php if (!empty($materials_posts)) : ?>
+                <?php foreach ($materials_posts as $item) : 
+                    $post = $item['post'];
+                    $category_slug = $item['category_slug'];
+                    $category_name = $item['category_name'];
                     
                     // Use placeholder image in random order
                     $image_url = $placeholder_images[$card_index % count($placeholder_images)];
                     $card_index++;
-                    ?>
+                ?>
                     <article class="material-card" data-category="<?php echo esc_attr($category_slug); ?>">
-                        <a href="<?php the_permalink(); ?>" class="material-card-link">
+                        <a href="<?php echo get_permalink($post->ID); ?>" class="material-card-link">
                             <div class="material-card-image">
-                                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy">
+                                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($post->post_title); ?>" loading="lazy">
                             </div>
                             <div class="material-card-content">
                                 <span class="material-card-category"><?php echo esc_html($category_name); ?></span>
-                                <h3 class="material-card-title"><?php the_title(); ?></h3>
+                                <h3 class="material-card-title"><?php echo esc_html($post->post_title); ?></h3>
                             </div>
                         </a>
                     </article>
-                <?php endwhile; ?>
-                <?php wp_reset_postdata(); ?>
+                <?php endforeach; ?>
             <?php else : ?>
                 <!-- Fallback if no posts -->
                 <p class="materials-empty">Статті незабаром з'являться</p>
