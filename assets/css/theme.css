@@ -269,6 +269,8 @@ body.overlay-open .header.container--full-width-padding {
     display: flex;
     align-items: center;
     gap: 6px;
+    height: 16px;
+    line-height: 1;
 }
 
 .header-language-switcher .lang-link {
@@ -279,6 +281,9 @@ body.overlay-open .header.container--full-width-padding {
     text-decoration: none;
     opacity: 0.6;
     transition: opacity 0.25s ease;
+    line-height: 1;
+    display: flex;
+    align-items: center;
 }
 
 .header-language-switcher .lang-link:hover,
@@ -290,6 +295,7 @@ body.overlay-open .header.container--full-width-padding {
     font-size: 13px;
     color: var(--color-white);
     opacity: 0.4;
+    line-height: 1;
 }
 
 .header.container--full-width-padding.is-solid .header-language-switcher .lang-link {
