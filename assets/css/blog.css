@@ -1143,14 +1143,29 @@
 .category .header.scrolled .hamburger-icon,
 .single-post .header.scrolled .hamburger-icon,
 .blog .header.scrolled .hamburger-icon {
-    stroke: var(--color-dark);
+    stroke: var(--color-dark) !important;
 }
 
 .archive .header.scrolled .hamburger-icon-close,
 .category .header.scrolled .hamburger-icon-close,
 .single-post .header.scrolled .hamburger-icon-close,
 .blog .header.scrolled .hamburger-icon-close {
-    stroke: var(--color-dark);
+    stroke: var(--color-dark) !important;
+}
+
+/* Також для кнопки гамбургера при scrolled */
+.archive .header.scrolled .header-menu-btn .hamburger-icon,
+.category .header.scrolled .header-menu-btn .hamburger-icon,
+.single-post .header.scrolled .header-menu-btn .hamburger-icon,
+.blog .header.scrolled .header-menu-btn .hamburger-icon {
+    stroke: var(--color-dark) !important;
+}
+
+.archive .header.scrolled .header-menu-btn .hamburger-icon-close,
+.category .header.scrolled .header-menu-btn .hamburger-icon-close,
+.single-post .header.scrolled .header-menu-btn .hamburger-icon-close,
+.blog .header.scrolled .header-menu-btn .hamburger-icon-close {
+    stroke: var(--color-dark) !important;
 }
 
 /* Гарантуємо що гамбургер завжди видимий */
