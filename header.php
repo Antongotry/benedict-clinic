@@ -72,7 +72,13 @@
                         </li>
                         <li><a href="<?php echo home_url('/services'); ?>">Послуги</a></li>
                         <li><a href="<?php echo home_url('/contact'); ?>">Контакти</a></li>
-                        <li><a href="<?php echo home_url('/quiz'); ?>">Квіз</a></li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Квіз</a>
+                            <ul class="sub-menu">
+                                <li><a href="<?php echo home_url('/quiz-ipss'); ?>">IPSS — шкала сечовипускання</a></li>
+                                <li><a href="<?php echo home_url('/quiz-iief'); ?>">IIEF — шкала еректильної функції</a></li>
+                            </ul>
+                        </li>
                         <li><a href="<?php echo home_url('/privacy-policy'); ?>">Політика конфіденційності</a></li>
                     </ul>
                 </nav>
