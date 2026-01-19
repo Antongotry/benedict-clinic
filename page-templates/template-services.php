@@ -64,7 +64,10 @@ get_header();
                         <li>Повторна консультація</li>
                         <li>Консультація з результатами аналізів</li>
                     </ul>
-                    <a href="#" class="services-page-card-btn" data-consultation-open>Записатися</a>
+                    <div class="services-page-card-footer">
+                        <span class="services-page-card-price">від 1190 грн</span>
+                        <a href="#" class="services-page-card-btn" data-consultation-open data-service="Консультація">Записатися</a>
+                    </div>
                 </div>
             </div>
 
@@ -84,7 +87,10 @@ get_header();
                         <li>Інфекції сечовивідних шляхів</li>
                         <li>Чоловіче безпліддя</li>
                     </ul>
-                    <a href="#" class="services-page-card-btn" data-consultation-open>Записатися</a>
+                    <div class="services-page-card-footer">
+                        <span class="services-page-card-price">індивідуально</span>
+                        <a href="#" class="services-page-card-btn" data-consultation-open data-service="Лікування">Записатися</a>
+                    </div>
                 </div>
             </div>
 
@@ -104,7 +110,10 @@ get_header();
                         <li>УЗД простати</li>
                         <li>Доплерографія судин</li>
                     </ul>
-                    <a href="#" class="services-page-card-btn" data-consultation-open>Записатися</a>
+                    <div class="services-page-card-footer">
+                        <span class="services-page-card-price">від 800 грн</span>
+                        <a href="#" class="services-page-card-btn" data-consultation-open data-service="УЗД діагностика">Записатися</a>
+                    </div>
                 </div>
             </div>
 
@@ -125,7 +134,10 @@ get_header();
                         <li>Ендоскопічні втручання</li>
                         <li>Відкриті операції</li>
                     </ul>
-                    <a href="#" class="services-page-card-btn" data-consultation-open>Записатися</a>
+                    <div class="services-page-card-footer">
+                        <span class="services-page-card-price">від 20000 грн</span>
+                        <a href="#" class="services-page-card-btn" data-consultation-open data-service="Оперативні втручання">Записатися</a>
+                    </div>
                 </div>
             </div>
 
@@ -145,7 +157,10 @@ get_header();
                         <li>Відновлення після травм</li>
                         <li>Естетична урологія</li>
                     </ul>
-                    <a href="#" class="services-page-card-btn" data-consultation-open>Записатися</a>
+                    <div class="services-page-card-footer">
+                        <span class="services-page-card-price">індивідуально</span>
+                        <a href="#" class="services-page-card-btn" data-consultation-open data-service="Пластична урологія">Записатися</a>
+                    </div>
                 </div>
             </div>
 
@@ -165,7 +180,10 @@ get_header();
                         <li>Профілактичні програми</li>
                         <li>Реабілітація</li>
                     </ul>
-                    <a href="#" class="services-page-card-btn" data-consultation-open>Записатися</a>
+                    <div class="services-page-card-footer">
+                        <span class="services-page-card-price">індивідуально</span>
+                        <a href="#" class="services-page-card-btn" data-consultation-open data-service="Консервативне лікування">Записатися</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -238,8 +256,10 @@ get_header();
         <button class="consultation-modal-close" type="button" aria-label="Закрити" data-consultation-close></button>
         <div class="consultation-modal-header">
             <h3 class="consultation-modal-title" id="consultation-modal-title">Записатись на прийом</h3>
+            <p class="consultation-modal-service" id="consultation-modal-service"></p>
         </div>
         <form class="consultation-modal-form" id="consultation-modal-form">
+            <input type="hidden" name="service" id="consultation-service-input">
             <label class="consultation-modal-field">
                 <span>ПІБ</span>
                 <input type="text" name="name" required placeholder="Введіть ваше повне ім'я">
@@ -263,6 +283,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('consultation-modal');
     const modalForm = document.getElementById('consultation-modal-form');
     const modalSuccess = document.getElementById('consultation-modal-success');
+    const modalTitle = document.getElementById('consultation-modal-title');
+    const modalService = document.getElementById('consultation-modal-service');
+    const serviceInput = document.getElementById('consultation-service-input');
     const openBtns = document.querySelectorAll('[data-consultation-open]');
     const closeBtns = document.querySelectorAll('[data-consultation-close]');
     
@@ -270,10 +293,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function openModal(e) {
         e.preventDefault();
+        
+        // Get service name from data attribute
+        const serviceName = this.getAttribute('data-service');
+        if (serviceName) {
+            modalTitle.textContent = 'Записатись на послугу';
+            modalService.textContent = serviceName;
+            modalService.style.display = 'block';
+            serviceInput.value = serviceName;
+        } else {
+            modalTitle.textContent = 'Записатись на прийом';
+            modalService.textContent = '';
+            modalService.style.display = 'none';
+            serviceInput.value = '';
+        }
+        
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
         modalForm.reset();
+        if (serviceName) serviceInput.value = serviceName;
         modalForm.hidden = false;
         modalSuccess.hidden = true;
     }
