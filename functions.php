@@ -125,6 +125,60 @@ function rosenberg_enqueue_scripts() {
 add_action('wp_enqueue_scripts', 'rosenberg_enqueue_scripts');
 
 /**
+ * Handle consultation form submission via AJAX
+ */
+function benedict_form_submit_handler() {
+    // Get form data
+    $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
+    $phone = isset($_POST['phone']) ? sanitize_text_field($_POST['phone']) : '';
+    $form_type = isset($_POST['form_type']) ? sanitize_text_field($_POST['form_type']) : 'Форма з сайту';
+    $service = isset($_POST['service']) ? sanitize_text_field($_POST['service']) : '';
+    
+    // Validate required fields
+    if (empty($name) || empty($phone)) {
+        wp_send_json_error('Будь ласка, заповніть всі поля');
+        return;
+    }
+    
+    // Prepare email content
+    $to = get_option('admin_email');
+    $subject = 'Нова заявка з сайту: ' . $form_type;
+    
+    $message = "Нова заявка з сайту\n\n";
+    $message .= "Тип: " . $form_type . "\n";
+    if (!empty($service)) {
+        $message .= "Послуга: " . $service . "\n";
+    }
+    $message .= "Ім'я: " . $name . "\n";
+    $message .= "Телефон: " . $phone . "\n";
+    $message .= "Час: " . date('d.m.Y H:i:s') . "\n";
+    $message .= "Сторінка: " . (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'Невідомо') . "\n";
+    
+    $headers = array('Content-Type: text/plain; charset=UTF-8');
+    
+    // Send email
+    $sent = wp_mail($to, $subject, $message, $headers);
+    
+    // Also save to database as custom post (optional, for lead tracking)
+    $lead_data = array(
+        'post_title'   => $name . ' - ' . $phone,
+        'post_content' => $message,
+        'post_status'  => 'private',
+        'post_type'    => 'lead',
+    );
+    
+    // Try to insert lead (will work if 'lead' post type exists)
+    @wp_insert_post($lead_data);
+    
+    // Return success regardless of email status (for UX)
+    wp_send_json_success(array(
+        'message' => 'Дякуємо! Ми зв\'яжемось з вами найближчим часом.'
+    ));
+}
+add_action('wp_ajax_benedict_form_submit', 'benedict_form_submit_handler');
+add_action('wp_ajax_nopriv_benedict_form_submit', 'benedict_form_submit_handler');
+
+/**
  * Register widget areas
  */
 function rosenberg_widgets_init() {

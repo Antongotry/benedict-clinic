@@ -68,8 +68,10 @@ $is_english = (substr($current_path_footer, 0, 4) === '/en/' || $current_path_fo
         <button class="consultation-modal-close" type="button" aria-label="Закрити" data-consultation-close></button>
         <div class="consultation-modal-header">
             <h3 class="consultation-modal-title" id="consultation-modal-title">Записатись на прийом</h3>
+            <p class="consultation-modal-service" id="consultation-modal-service" style="display:none;"></p>
         </div>
         <form class="consultation-modal-form" id="consultation-modal-form">
+            <input type="hidden" name="service" id="consultation-service-input">
             <label class="consultation-modal-field">
                 <span>ПІБ</span>
                 <input type="text" name="name" required placeholder="Введіть ваше повне ім'я">
@@ -93,15 +95,41 @@ $is_english = (substr($current_path_footer, 0, 4) === '/en/' || $current_path_fo
     const modal = document.getElementById('consultation-modal');
     const modalForm = document.getElementById('consultation-modal-form');
     const modalSuccess = document.getElementById('consultation-modal-success');
+    const modalTitle = document.getElementById('consultation-modal-title');
+    const modalService = document.getElementById('consultation-modal-service');
+    const serviceInput = document.getElementById('consultation-service-input');
     const openBtns = document.querySelectorAll('[data-consultation-open]');
     const closeBtns = document.querySelectorAll('[data-consultation-close]');
     
     if (!modal) return;
     
-    function openModal() {
+    function openModal(serviceName) {
+        // Handle service name from data-service attribute
+        if (serviceName) {
+            if (modalTitle) modalTitle.textContent = 'Записатись на послугу';
+            if (modalService) {
+                modalService.textContent = serviceName;
+                modalService.style.display = 'block';
+            }
+            if (serviceInput) serviceInput.value = serviceName;
+        } else {
+            if (modalTitle) modalTitle.textContent = 'Записатись на прийом';
+            if (modalService) {
+                modalService.textContent = '';
+                modalService.style.display = 'none';
+            }
+            if (serviceInput) serviceInput.value = '';
+        }
+        
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        if (modalForm) {
+            modalForm.reset();
+            modalForm.hidden = false;
+            if (serviceName && serviceInput) serviceInput.value = serviceName;
+        }
+        if (modalSuccess) modalSuccess.hidden = true;
     }
     
     function closeModal() {
@@ -116,7 +144,8 @@ $is_english = (substr($current_path_footer, 0, 4) === '/en/' || $current_path_fo
     openBtns.forEach(function(btn) {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            openModal();
+            var serviceName = this.getAttribute('data-service') || '';
+            openModal(serviceName);
         });
     });
     
@@ -136,7 +165,13 @@ $is_english = (substr($current_path_footer, 0, 4) === '/en/' || $current_path_fo
         modalForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const formData = new FormData(modalForm);
+            var submitBtn = modalForm.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Відправка...';
+            }
+            
+            var formData = new FormData(modalForm);
             formData.append('action', 'benedict_form_submit');
             formData.append('form_type', 'Консультація з сайту');
             formData.append('nonce', typeof rosenbergAjax !== 'undefined' ? rosenbergAjax.nonce : '');
@@ -149,11 +184,19 @@ $is_english = (substr($current_path_footer, 0, 4) === '/en/' || $current_path_fo
             .then(function(data) {
                 modalForm.hidden = true;
                 modalSuccess.hidden = false;
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Зателефонувати мені';
+                }
                 setTimeout(closeModal, 3000);
             })
             .catch(function(error) {
                 modalForm.hidden = true;
                 modalSuccess.hidden = false;
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Зателефонувати мені';
+                }
                 setTimeout(closeModal, 3000);
             });
         });
