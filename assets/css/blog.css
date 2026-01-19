@@ -1226,6 +1226,19 @@ body.overlay-open .blog .header.scrolled .hamburger svg {
     z-index: 10001;
 }
 
+/* Загальне правило для всіх SVG в гамбургері при scrolled на блозі */
+.archive .header.scrolled .hamburger svg,
+.category .header.scrolled .hamburger svg,
+.single-post .header.scrolled .hamburger svg,
+.blog .header.scrolled .hamburger svg,
+.archive .header.scrolled .header-menu-btn svg,
+.category .header.scrolled .header-menu-btn svg,
+.single-post .header.scrolled .header-menu-btn svg,
+.blog .header.scrolled .header-menu-btn svg {
+    stroke: var(--color-dark) !important;
+    color: var(--color-dark) !important;
+}
+
 .archive .header .header-menu-btn,
 .category .header .header-menu-btn,
 .single-post .header .header-menu-btn,
