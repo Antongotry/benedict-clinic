@@ -53,9 +53,15 @@ $is_english = (substr($current_path, 0, 4) === '/en/' || $current_path === '/en'
             <a href="<?php echo home_url('/contact'); ?>" class="header-item header-link">Контакти</a>
             <button class="header-item header-menu-btn" id="menuToggle" aria-label="Toggle Menu">
                 <span class="hamburger" aria-hidden="true">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
+                    <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                    <svg class="hamburger-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
                 </span>
             </button>
         </div>
