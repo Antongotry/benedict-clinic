@@ -34,9 +34,9 @@
                 <p class="footer-phone"><a href="tel:+380951344029">+38 095 13 44 029</a></p>
                 <p class="footer-address">Київ, вул. Олеся Бердника, 1Д</p>
                 <div class="footer-language-switcher">
-                    <a href="<?php echo home_url('/'); ?>" class="lang-link lang-uk<?php echo (strpos($_SERVER['REQUEST_URI'], '/en/') === false) ? ' active' : ''; ?>">UK</a>
+                    <a href="<?php echo esc_url($uk_url); ?>" class="lang-link lang-uk<?php echo !$is_english ? ' active' : ''; ?>">UK</a>
                     <span class="lang-divider">|</span>
-                    <a href="<?php echo home_url('/en/'); ?>" class="lang-link lang-en<?php echo (strpos($_SERVER['REQUEST_URI'], '/en/') !== false) ? ' active' : ''; ?>">EN</a>
+                    <a href="<?php echo esc_url($en_url); ?>" class="lang-link lang-en<?php echo $is_english ? ' active' : ''; ?>">EN</a>
                 </div>
                 <a href="<?php echo home_url('/'); ?>" class="footer-logo">
                     <span class="footer-logo-text">DR. BENEDICT</span>

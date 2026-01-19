@@ -12,6 +12,30 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<?php
+// Language switcher logic
+$current_uri = $_SERVER['REQUEST_URI'];
+$is_english = (strpos($current_uri, '/en/') === 0 || strpos($current_uri, '/en') === 0);
+
+if ($is_english) {
+    // On English page - remove /en/ to get Ukrainian URL
+    $uk_url = preg_replace('#^/en/?#', '/', $current_uri);
+    $en_url = $current_uri;
+} else {
+    // On Ukrainian page - add /en/ to get English URL
+    $uk_url = $current_uri;
+    $en_url = '/en' . $current_uri;
+}
+
+// Clean up double slashes
+$uk_url = preg_replace('#/+#', '/', $uk_url);
+$en_url = preg_replace('#/+#', '/', $en_url);
+
+// Ensure URLs start with /
+if (empty($uk_url) || $uk_url === '') $uk_url = '/';
+if (substr($en_url, 0, 1) !== '/') $en_url = '/' . $en_url;
+?>
+
 <header id="header-40cd750b" class="header container--full-width-padding">
     <div class="header-wrapper">
         <!-- Left Section: Phone + Instagram -->
@@ -24,9 +48,9 @@
                 <span>@dr_benedikt</span>
             </a>
             <div class="header-item header-language-switcher">
-                <a href="<?php echo home_url('/'); ?>" class="lang-link lang-uk<?php echo (strpos($_SERVER['REQUEST_URI'], '/en/') === false) ? ' active' : ''; ?>">UK</a>
+                <a href="<?php echo esc_url($uk_url); ?>" class="lang-link lang-uk<?php echo !$is_english ? ' active' : ''; ?>">UK</a>
                 <span class="lang-divider">|</span>
-                <a href="<?php echo home_url('/en/'); ?>" class="lang-link lang-en<?php echo (strpos($_SERVER['REQUEST_URI'], '/en/') !== false) ? ' active' : ''; ?>">EN</a>
+                <a href="<?php echo esc_url($en_url); ?>" class="lang-link lang-en<?php echo $is_english ? ' active' : ''; ?>">EN</a>
             </div>
         </div>
         
@@ -108,9 +132,9 @@
                 </div>
                 
                 <div class="overlay-language-switcher">
-                    <a href="<?php echo home_url('/'); ?>" class="lang-link lang-uk<?php echo (strpos($_SERVER['REQUEST_URI'], '/en/') === false) ? ' active' : ''; ?>">UK</a>
+                    <a href="<?php echo esc_url($uk_url); ?>" class="lang-link lang-uk<?php echo !$is_english ? ' active' : ''; ?>">UK</a>
                     <span class="lang-divider">|</span>
-                    <a href="<?php echo home_url('/en/'); ?>" class="lang-link lang-en<?php echo (strpos($_SERVER['REQUEST_URI'], '/en/') !== false) ? ' active' : ''; ?>">EN</a>
+                    <a href="<?php echo esc_url($en_url); ?>" class="lang-link lang-en<?php echo $is_english ? ' active' : ''; ?>">EN</a>
                 </div>
                 
                 <div class="overlay-social">
