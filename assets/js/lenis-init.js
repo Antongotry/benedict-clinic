@@ -77,6 +77,16 @@
         const gridContainer = contactPageGrid || contactsGrid;
         
         if (targetElement && formWrapper && gridContainer && window.innerWidth > 1024) {
+            // Функція для оновлення висоти pin-spacer
+            const updatePinSpacerHeight = () => {
+                const pinSpacer = targetElement.parentElement;
+                if (pinSpacer && pinSpacer.classList.contains('pin-spacer')) {
+                    // Встановлюємо висоту pin-spacer рівну висоті форми
+                    const formHeight = formWrapper.offsetHeight;
+                    pinSpacer.style.height = formHeight + 'px';
+                }
+            };
+            
             // Refresh ScrollTrigger after Lenis is ready
             setTimeout(() => {
                 ScrollTrigger.create({
@@ -85,15 +95,27 @@
                     endTrigger: formWrapper,
                     end: 'bottom top',
                     pin: targetElement,
-                    pinSpacing: false,
+                    pinSpacing: true,
                     invalidateOnRefresh: true,
                     refreshPriority: -1,
-                    markers: false
+                    markers: false,
+                    onRefresh: updatePinSpacerHeight
                 });
                 
-                // Refresh on resize
-                window.addEventListener('resize', () => {
+                // Встановлюємо початкову висоту pin-spacer після створення
+                setTimeout(() => {
+                    updatePinSpacerHeight();
                     ScrollTrigger.refresh();
+                }, 200);
+                
+                // Refresh on resize
+                let resizeTimeout;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(() => {
+                        updatePinSpacerHeight();
+                        ScrollTrigger.refresh();
+                    }, 150);
                 });
             }, 100);
         }

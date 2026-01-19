@@ -5560,6 +5560,15 @@ body.overlay-open .header-menu-btn {
     gap: 30px;
 }
 
+/* Pin spacer для sticky контактної інформації */
+.contacts-grid .pin-spacer {
+    align-self: start;
+}
+
+.contacts-grid .pin-spacer .contacts-info {
+    position: relative;
+}
+
 .contacts-item {
     padding: 28px;
     border: 1px solid rgba(0, 0, 0, 0.08);
