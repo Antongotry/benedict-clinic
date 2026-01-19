@@ -406,18 +406,13 @@ function initCertificateLightbox() {
             );
         }
         
-        // Get only categories that are represented in the displayed posts
-        $displayed_category_slugs = array_unique(array_column($materials_posts, 'category_slug'));
-        $displayed_categories = array_filter($all_categories, function($cat) use ($displayed_category_slugs) {
-            return in_array($cat->slug, $displayed_category_slugs);
-        });
         
         $card_index = 0;
         ?>
         
         <div class="materials-filters">
             <button class="materials-filter active" data-filter="all">Всі статті</button>
-            <?php foreach ($displayed_categories as $cat) : ?>
+            <?php foreach ($all_categories as $cat) : ?>
                 <button class="materials-filter" data-filter="<?php echo esc_attr($cat->slug); ?>"><?php echo esc_html($cat->name); ?></button>
             <?php endforeach; ?>
         </div>
