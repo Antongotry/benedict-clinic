@@ -49,7 +49,70 @@ $is_english = (substr($current_path, 0, 4) === '/en/' || $current_path === '/en'
             <a href="<?php echo home_url('/'); ?>" class="header-item header-link">Головна</a>
             <a href="<?php echo home_url('/dr-benedict'); ?>" class="header-item header-link">Про лікаря</a>
             <a href="<?php echo home_url('/blog'); ?>" class="header-item header-link">Корисні статті</a>
-            <a href="<?php echo home_url('/services'); ?>" class="header-item header-link">Послуги</a>
+            <div class="header-item header-dropdown">
+                <a href="<?php echo home_url('/services'); ?>" class="header-link header-dropdown-trigger">
+                    Послуги
+                    <svg class="header-dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <div class="header-dropdown-menu">
+                    <div class="header-dropdown-content">
+                        <a href="<?php echo home_url('/consultation'); ?>" class="header-dropdown-item">
+                            <span class="header-dropdown-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                                </svg>
+                            </span>
+                            <span class="header-dropdown-text">Консультація</span>
+                        </a>
+                        <a href="<?php echo home_url('/treatment'); ?>" class="header-dropdown-item">
+                            <span class="header-dropdown-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M19.5 12.572l-7.5 7.428-7.5-7.428A5 5 0 1112 6.006a5 5 0 017.5 6.566z"/>
+                                </svg>
+                            </span>
+                            <span class="header-dropdown-text">Лікування</span>
+                        </a>
+                        <a href="<?php echo home_url('/ultrasound'); ?>" class="header-dropdown-item">
+                            <span class="header-dropdown-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2m0 0V7a2 2 0 00-2-2h-2a2 2 0 00-2 2m6 10h2a2 2 0 002-2v-4m0 0V7a2 2 0 00-2-2h-2"/>
+                                </svg>
+                            </span>
+                            <span class="header-dropdown-text">УЗД діагностика</span>
+                        </a>
+                        <a href="<?php echo home_url('/surgery'); ?>" class="header-dropdown-item">
+                            <span class="header-dropdown-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                                    <path d="M12 14l6.16-3.422A12.083 12.083 0 0121 12.75c0 5.385-4.365 9.75-9.75 9.75a9.75 9.75 0 01-9-6"/>
+                                </svg>
+                            </span>
+                            <span class="header-dropdown-text">Оперативні втручання</span>
+                        </a>
+                        <a href="<?php echo home_url('/plastic-urology'); ?>" class="header-dropdown-item">
+                            <span class="header-dropdown-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </span>
+                            <span class="header-dropdown-text">Пластична урологія</span>
+                        </a>
+                        <a href="<?php echo home_url('/conservative-treatment'); ?>" class="header-dropdown-item">
+                            <span class="header-dropdown-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </span>
+                            <span class="header-dropdown-text">Консервативне лікування</span>
+                        </a>
+                        <div class="header-dropdown-footer">
+                            <a href="<?php echo home_url('/services'); ?>" class="header-dropdown-all">Всі послуги →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <a href="<?php echo home_url('/contact'); ?>" class="header-item header-link">Контакти</a>
             <button class="header-item header-menu-btn" id="menuToggle" aria-label="Toggle Menu">
                 <span class="hamburger" aria-hidden="true">
@@ -88,7 +151,17 @@ $is_english = (substr($current_path, 0, 4) === '/en/' || $current_path === '/en'
                                 <li><a href="<?php echo home_url('/blog/treatment'); ?>">Лікування</a></li>
                             </ul>
                         </li>
-                        <li><a href="<?php echo home_url('/services'); ?>">Послуги</a></li>
+                        <li class="menu-item-has-children">
+                            <a href="<?php echo home_url('/services'); ?>">Послуги</a>
+                            <ul class="sub-menu">
+                                <li><a href="<?php echo home_url('/consultation'); ?>">Консультація</a></li>
+                                <li><a href="<?php echo home_url('/treatment'); ?>">Лікування</a></li>
+                                <li><a href="<?php echo home_url('/ultrasound'); ?>">УЗД діагностика</a></li>
+                                <li><a href="<?php echo home_url('/surgery'); ?>">Оперативні втручання</a></li>
+                                <li><a href="<?php echo home_url('/plastic-urology'); ?>">Пластична урологія</a></li>
+                                <li><a href="<?php echo home_url('/conservative-treatment'); ?>">Консервативне лікування</a></li>
+                            </ul>
+                        </li>
                         <li><a href="<?php echo home_url('/contact'); ?>">Контакти</a></li>
                         <li class="menu-item-has-children">
                             <a href="#">Квіз</a>

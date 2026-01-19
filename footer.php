@@ -14,25 +14,30 @@ $is_english = (substr($current_path_footer, 0, 4) === '/en/' || $current_path_fo
                 <div class="footer-menu-column">
                     <h4>НАВІГАЦІЯ</h4>
                     <ul>
-                        <li><a href="/">Головна</a></li>
-                        <li><a href="/dr-benedict">Про лікаря</a></li>
-                        <li><a href="/blog">Корисні статті</a></li>
-                        <li><a href="/services">Послуги</a></li>
+                        <li><a href="<?php echo home_url('/'); ?>">Головна</a></li>
+                        <li><a href="<?php echo home_url('/dr-benedict'); ?>">Про лікаря</a></li>
+                        <li><a href="<?php echo home_url('/blog'); ?>">Корисні статті</a></li>
+                        <li><a href="<?php echo home_url('/contact'); ?>">Контакти</a></li>
+                    </ul>
+                </div>
+                <div class="footer-menu-column">
+                    <h4>ПОСЛУГИ</h4>
+                    <ul>
+                        <li><a href="<?php echo home_url('/consultation'); ?>">Консультація</a></li>
+                        <li><a href="<?php echo home_url('/treatment'); ?>">Лікування</a></li>
+                        <li><a href="<?php echo home_url('/ultrasound'); ?>">УЗД діагностика</a></li>
+                        <li><a href="<?php echo home_url('/surgery'); ?>">Оперативні втручання</a></li>
+                        <li><a href="<?php echo home_url('/plastic-urology'); ?>">Пластична урологія</a></li>
+                        <li><a href="<?php echo home_url('/conservative-treatment'); ?>">Консервативне лікування</a></li>
                     </ul>
                 </div>
                 <div class="footer-menu-column">
                     <h4>ІНФОРМАЦІЯ</h4>
                     <ul>
-                        <li><a href="/contact">Контакти</a></li>
+                        <li><a href="<?php echo home_url('/services'); ?>">Всі послуги</a></li>
                         <li><a href="<?php echo home_url('/privacy-policy'); ?>">Політика конфіденційності</a></li>
-                    </ul>
-                </div>
-                <div class="footer-menu-column">
-                    <h4>КВІЗИ</h4>
-                    <ul>
-                        <li><a href="/quiz-ipss">IPSS — сечовипускання</a></li>
-                        <li><a href="/quiz-iief">IIEF — еректильна функція</a></li>
-                        <li><a href="/quiz-nih-cpsi">NIH-CPSI — простатит</a></li>
+                        <li><a href="<?php echo home_url('/quiz-ipss'); ?>">IPSS — сечовипускання</a></li>
+                        <li><a href="<?php echo home_url('/quiz-iief'); ?>">IIEF — еректильна функція</a></li>
                     </ul>
                 </div>
             </div>

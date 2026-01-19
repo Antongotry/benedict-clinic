@@ -62,7 +62,7 @@ get_header();
                     </svg>
                 </div>
                 <div class="services-page-card-content">
-                    <h3>Консультація</h3>
+                    <h3><a href="<?php echo home_url('/consultation'); ?>">Консультація</a></h3>
                     <p>Надаю консультації як офлайн, так і онлайн, щоб ви могли отримати кваліфіковану допомогу у зручний для вас спосіб. Детальний аналіз вашої ситуації та розробка індивідуального плану лікування.</p>
                     <ul class="services-page-card-features">
                         <li>Первинна консультація</li>
@@ -72,6 +72,7 @@ get_header();
                     </ul>
                     <div class="services-page-card-footer">
                         <span class="services-page-card-price">від 1190 грн</span>
+                        <a href="<?php echo home_url('/consultation'); ?>" class="services-page-card-btn-link">Детальніше</a>
                         <a href="#" class="services-page-card-btn" data-consultation-open data-service="Консультація">Записатися</a>
                     </div>
                 </div>
@@ -85,7 +86,7 @@ get_header();
                     </svg>
                 </div>
                 <div class="services-page-card-content">
-                    <h3>Лікування</h3>
+                    <h3><a href="<?php echo home_url('/treatment'); ?>">Лікування</a></h3>
                     <p>Лікую захворювання нирок, сечового міхура, простати, органів мошонки та статевого члена, застосовуючи сучасні методи для ефективного усунення проблем і відновлення здоров'я.</p>
                     <ul class="services-page-card-features">
                         <li>Захворювання простати</li>
@@ -95,6 +96,7 @@ get_header();
                     </ul>
                     <div class="services-page-card-footer">
                         <span class="services-page-card-price">індивідуально</span>
+                        <a href="<?php echo home_url('/treatment'); ?>" class="services-page-card-btn-link">Детальніше</a>
                         <a href="#" class="services-page-card-btn" data-consultation-open data-service="Лікування">Записатися</a>
                     </div>
                 </div>
@@ -108,7 +110,7 @@ get_header();
                     </svg>
                 </div>
                 <div class="services-page-card-content">
-                    <h3>УЗД діагностика</h3>
+                    <h3><a href="<?php echo home_url('/ultrasound'); ?>">УЗД діагностика</a></h3>
                     <p>Проводжу УЗД нирок, сечового міхура, доплерографію судин мошонки та статевого члена для виявлення патологій і оцінки стану органів.</p>
                     <ul class="services-page-card-features">
                         <li>УЗД нирок</li>
@@ -118,6 +120,7 @@ get_header();
                     </ul>
                     <div class="services-page-card-footer">
                         <span class="services-page-card-price">від 800 грн</span>
+                        <a href="<?php echo home_url('/ultrasound'); ?>" class="services-page-card-btn-link">Детальніше</a>
                         <a href="#" class="services-page-card-btn" data-consultation-open data-service="УЗД діагностика">Записатися</a>
                     </div>
                 </div>
@@ -132,7 +135,7 @@ get_header();
                     </svg>
                 </div>
                 <div class="services-page-card-content">
-                    <h3>Оперативні втручання</h3>
+                    <h3><a href="<?php echo home_url('/surgery'); ?>">Оперативні втручання</a></h3>
                     <p>Використовую сучасні хірургічні методи для лікування захворювань на різних стадіях, забезпечуючи високу точність, ефективність та мінімальні ризики для пацієнта.</p>
                     <ul class="services-page-card-features">
                         <li>Малоінвазивна хірургія</li>
@@ -142,6 +145,7 @@ get_header();
                     </ul>
                     <div class="services-page-card-footer">
                         <span class="services-page-card-price">від 20000 грн</span>
+                        <a href="<?php echo home_url('/surgery'); ?>" class="services-page-card-btn-link">Детальніше</a>
                         <a href="#" class="services-page-card-btn" data-consultation-open data-service="Оперативні втручання">Записатися</a>
                     </div>
                 </div>
@@ -155,7 +159,7 @@ get_header();
                     </svg>
                 </div>
                 <div class="services-page-card-content">
-                    <h3>Пластична урологія</h3>
+                    <h3><a href="<?php echo home_url('/plastic-urology'); ?>">Пластична урологія</a></h3>
                     <p>Відновлюю функції та естетику органів сечостатевої системи після травм, операцій або вроджених аномалій. Враховую естетичні побажання пацієнта.</p>
                     <ul class="services-page-card-features">
                         <li>Реконструктивна хірургія</li>
@@ -165,6 +169,7 @@ get_header();
                     </ul>
                     <div class="services-page-card-footer">
                         <span class="services-page-card-price">індивідуально</span>
+                        <a href="<?php echo home_url('/plastic-urology'); ?>" class="services-page-card-btn-link">Детальніше</a>
                         <a href="#" class="services-page-card-btn" data-consultation-open data-service="Пластична урологія">Записатися</a>
                     </div>
                 </div>
@@ -178,7 +183,7 @@ get_header();
                     </svg>
                 </div>
                 <div class="services-page-card-content">
-                    <h3>Консервативне лікування</h3>
+                    <h3><a href="<?php echo home_url('/conservative-treatment'); ?>">Консервативне лікування</a></h3>
                     <p>Включає застосування медикаментів, фізіотерапії та інших методів для ефективного контролю і корекції захворювань без хірургічного втручання.</p>
                     <ul class="services-page-card-features">
                         <li>Медикаментозна терапія</li>
@@ -188,6 +193,7 @@ get_header();
                     </ul>
                     <div class="services-page-card-footer">
                         <span class="services-page-card-price">індивідуально</span>
+                        <a href="<?php echo home_url('/conservative-treatment'); ?>" class="services-page-card-btn-link">Детальніше</a>
                         <a href="#" class="services-page-card-btn" data-consultation-open data-service="Консервативне лікування">Записатися</a>
                     </div>
                 </div>

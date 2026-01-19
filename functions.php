@@ -926,3 +926,17 @@ function benedict_enqueue_blog_styles() {
     }
 }
 add_action('wp_enqueue_scripts', 'benedict_enqueue_blog_styles');
+
+/**
+ * Enqueue service single page styles
+ */
+function benedict_enqueue_service_styles() {
+    // List of service page slugs
+    $service_pages = array('consultation', 'treatment', 'ultrasound', 'surgery', 'plastic-urology', 'conservative-treatment');
+    
+    if (is_page($service_pages)) {
+        $cache_buster = time() . '_' . rand(10000, 99999);
+        wp_enqueue_style('benedict-service-styles', get_template_directory_uri() . '/assets/css/service-single.css?v=' . $cache_buster, array('rosenberg-theme-style'), null);
+    }
+}
+add_action('wp_enqueue_scripts', 'benedict_enqueue_service_styles');
