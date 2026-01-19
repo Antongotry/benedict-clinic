@@ -67,19 +67,22 @@
         // Contacts Info Sticky with GSAP ScrollTrigger (optimized for Lenis)
         const contactsInfo = document.querySelector('.contacts-info');
         const contactPageInfo = document.querySelector('.contact-page-info');
+        const contactPageFormWrapper = document.querySelector('.contact-page-form-wrapper');
+        const contactsFormWrapper = document.querySelector('.contacts-form-wrapper');
         const contactPageGrid = document.querySelector('.contact-page-grid');
         const contactsGrid = document.querySelector('.contacts-grid');
         
         const targetElement = contactsInfo || contactPageInfo;
+        const formWrapper = contactPageFormWrapper || contactsFormWrapper;
         const gridContainer = contactPageGrid || contactsGrid;
         
-        if (targetElement && gridContainer && window.innerWidth > 1024) {
+        if (targetElement && formWrapper && gridContainer && window.innerWidth > 1024) {
             // Refresh ScrollTrigger after Lenis is ready
             setTimeout(() => {
                 ScrollTrigger.create({
                     trigger: gridContainer,
                     start: 'top 120px',
-                    end: () => `+=${targetElement.offsetHeight}`,
+                    end: () => `bottom bottom-=${formWrapper.offsetHeight + 40}px`,
                     pin: targetElement,
                     pinSpacing: false,
                     invalidateOnRefresh: true,
