@@ -64,7 +64,7 @@ get_header();
                         <li>Повторна консультація</li>
                         <li>Консультація з результатами аналізів</li>
                     </ul>
-                    <span class="services-page-card-price">від 1190 грн</span>
+                    <a href="#" class="services-page-card-btn" data-consultation-open>Записатися</a>
                 </div>
             </div>
 
@@ -84,7 +84,7 @@ get_header();
                         <li>Інфекції сечовивідних шляхів</li>
                         <li>Чоловіче безпліддя</li>
                     </ul>
-                    <span class="services-page-card-price">індивідуально</span>
+                    <a href="#" class="services-page-card-btn" data-consultation-open>Записатися</a>
                 </div>
             </div>
 
@@ -104,7 +104,7 @@ get_header();
                         <li>УЗД простати</li>
                         <li>Доплерографія судин</li>
                     </ul>
-                    <span class="services-page-card-price">від 800 грн</span>
+                    <a href="#" class="services-page-card-btn" data-consultation-open>Записатися</a>
                 </div>
             </div>
 
@@ -125,7 +125,7 @@ get_header();
                         <li>Ендоскопічні втручання</li>
                         <li>Відкриті операції</li>
                     </ul>
-                    <span class="services-page-card-price">від 20000 грн</span>
+                    <a href="#" class="services-page-card-btn" data-consultation-open>Записатися</a>
                 </div>
             </div>
 
@@ -145,7 +145,7 @@ get_header();
                         <li>Відновлення після травм</li>
                         <li>Естетична урологія</li>
                     </ul>
-                    <span class="services-page-card-price">індивідуально</span>
+                    <a href="#" class="services-page-card-btn" data-consultation-open>Записатися</a>
                 </div>
             </div>
 
@@ -165,7 +165,7 @@ get_header();
                         <li>Профілактичні програми</li>
                         <li>Реабілітація</li>
                     </ul>
-                    <span class="services-page-card-price">індивідуально</span>
+                    <a href="#" class="services-page-card-btn" data-consultation-open>Записатися</a>
                 </div>
             </div>
         </div>

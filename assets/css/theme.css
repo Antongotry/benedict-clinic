@@ -6891,16 +6891,24 @@ body.overlay-open .header-menu-btn {
     border-bottom: none;
 }
 
-.services-page-card-price {
+.services-page-card-btn {
     display: inline-block;
     font-family: var(--font-sans);
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     color: #000000;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: 1px solid #000000;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.services-page-card-btn:hover {
+    background-color: #000000;
+    color: #ffffff;
 }
 
 /* Process Section */
@@ -7009,7 +7017,7 @@ body.overlay-open .header-menu-btn {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.6);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.95) 100%);
     z-index: 2;
 }
 
