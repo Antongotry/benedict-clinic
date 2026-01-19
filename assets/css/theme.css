@@ -6853,6 +6853,8 @@ body.overlay-open .header-menu-btn {
     padding: 50px 40px;
     transition: all 0.4s ease;
     border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
 }
 
 .services-page-card:hover {
@@ -6863,6 +6865,12 @@ body.overlay-open .header-menu-btn {
 .services-page-card-icon {
     margin-bottom: 30px;
     color: #000000;
+}
+
+.services-page-card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .services-page-card-icon svg {
