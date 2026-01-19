@@ -7253,7 +7253,8 @@ body.overlay-open .header-menu-btn {
 /* Hero */
 .quiz-hero {
     background-color: #000000;
-    padding: 180px 5vw 80px;
+    /* add extra top space so content doesn't sit under fixed header */
+    padding: calc(234px + env(safe-area-inset-top)) 5vw 80px;
     text-align: center;
 }
 
@@ -7762,7 +7763,7 @@ body.overlay-open .header-menu-btn {
 /* Mobile */
 @media (max-width: 768px) {
     .quiz-hero {
-        padding: 140px 5vw 60px;
+        padding: calc(182px + env(safe-area-inset-top)) 5vw 60px;
     }
     
     .quiz-hero-title {
