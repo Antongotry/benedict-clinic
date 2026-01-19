@@ -1,5 +1,11 @@
 </div><!-- #content -->
 
+<?php
+// Language switcher - detect current language (for footer)
+$current_path_footer = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$is_english = (substr($current_path_footer, 0, 4) === '/en/' || $current_path_footer === '/en');
+?>
+
 <footer class="site-footer">
     <!-- Primary Footer -->
     <div class="primary-footer container--full-width-padding">

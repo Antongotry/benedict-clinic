@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="560" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative lines -->
+  <line x1="50" y1="180" x2="750" y2="180" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1"/>
+  <line x1="50" y1="380" x2="750" y2="380" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1"/>
+  
+  <!-- Medical cross icon -->
+  <g transform="translate(400, 250)">
+    <rect x="-8" y="-30" width="16" height="60" fill="#ffffff" fill-opacity="0.15" rx="2"/>
+    <rect x="-30" y="-8" width="60" height="16" fill="#ffffff" fill-opacity="0.15" rx="2"/>
+  </g>
+  
+  <!-- Text: DR BENEDICT -->
+  <text x="400" y="340" font-family="Georgia, serif" font-size="28" fill="#ffffff" fill-opacity="0.3" text-anchor="middle" letter-spacing="8">DR BENEDICT</text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="375" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.2" text-anchor="middle" letter-spacing="3">UROLOGY BLOG</text>
+  
+  <!-- Corner decorations -->
+  <path d="M30,30 L30,60 M30,30 L60,30" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1" fill="none"/>
+  <path d="M770,30 L770,60 M770,30 L740,30" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1" fill="none"/>
+  <path d="M30,530 L30,500 M30,530 L60,530" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1" fill="none"/>
+  <path d="M770,530 L770,500 M770,530 L740,530" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1" fill="none"/>
+</svg>

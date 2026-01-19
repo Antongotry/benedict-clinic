@@ -570,3 +570,293 @@ function benedict_handle_form_submission() {
 }
 add_action('wp_ajax_benedict_form_submit', 'benedict_handle_form_submission');
 add_action('wp_ajax_nopriv_benedict_form_submit', 'benedict_handle_form_submission');
+
+/**
+ * =========================================
+ * BLOG SYSTEM FUNCTIONS
+ * =========================================
+ */
+
+/**
+ * Add custom image sizes for blog
+ */
+function benedict_blog_image_sizes() {
+    add_image_size('blog-card', 400, 280, true);
+    add_image_size('blog-hero', 1920, 600, true);
+    add_image_size('blog-featured', 1200, 600, true);
+}
+add_action('after_setup_theme', 'benedict_blog_image_sizes');
+
+/**
+ * Calculate reading time for a post
+ * 
+ * @param int $post_id The post ID
+ * @return int Reading time in minutes
+ */
+function benedict_reading_time($post_id = null) {
+    if (!$post_id) {
+        $post_id = get_the_ID();
+    }
+    
+    $content = get_post_field('post_content', $post_id);
+    $word_count = str_word_count(strip_tags($content));
+    $reading_time = ceil($word_count / 200); // Average reading speed: 200 words per minute
+    
+    return max(1, $reading_time); // Minimum 1 minute
+}
+
+/**
+ * Get related posts based on categories
+ * 
+ * @param int $post_id The current post ID
+ * @param int $limit Number of related posts to return
+ * @return WP_Query Related posts query
+ */
+function benedict_related_posts($post_id = null, $limit = 3) {
+    if (!$post_id) {
+        $post_id = get_the_ID();
+    }
+    
+    $categories = wp_get_post_categories($post_id);
+    
+    if (empty($categories)) {
+        return new WP_Query();
+    }
+    
+    $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => $limit,
+        'post__not_in' => array($post_id),
+        'category__in' => $categories,
+        'orderby' => 'rand',
+        'post_status' => 'publish',
+    );
+    
+    return new WP_Query($args);
+}
+
+/**
+ * Get post excerpt with custom length
+ * 
+ * @param int $length Number of words
+ * @param int $post_id Post ID (optional)
+ * @return string Trimmed excerpt
+ */
+function benedict_get_excerpt($length = 20, $post_id = null) {
+    if (!$post_id) {
+        $post_id = get_the_ID();
+    }
+    
+    $excerpt = get_the_excerpt($post_id);
+    
+    if (empty($excerpt)) {
+        $excerpt = get_the_content(null, false, $post_id);
+    }
+    
+    $excerpt = strip_tags($excerpt);
+    $words = explode(' ', $excerpt);
+    
+    if (count($words) > $length) {
+        $words = array_slice($words, 0, $length);
+        $excerpt = implode(' ', $words) . '...';
+    }
+    
+    return $excerpt;
+}
+
+/**
+ * Blog Customizer Settings
+ */
+function benedict_blog_customizer($wp_customize) {
+    // Blog Settings Section
+    $wp_customize->add_section('benedict_blog_settings', array(
+        'title' => __('Blog Settings', 'rosenberg-clinic'),
+        'description' => __('Customize blog appearance', 'rosenberg-clinic'),
+        'priority' => 120,
+    ));
+    
+    // Blog Hero Background Image
+    $wp_customize->add_setting('benedict_blog_hero_image', array(
+        'default' => '',
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'benedict_blog_hero_image', array(
+        'label' => __('Blog Archive Hero Image', 'rosenberg-clinic'),
+        'description' => __('Background image for blog archive page hero section', 'rosenberg-clinic'),
+        'section' => 'benedict_blog_settings',
+        'settings' => 'benedict_blog_hero_image',
+    )));
+    
+    // Default Post Placeholder Image
+    $wp_customize->add_setting('benedict_blog_placeholder_image', array(
+        'default' => '',
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'benedict_blog_placeholder_image', array(
+        'label' => __('Default Post Featured Image', 'rosenberg-clinic'),
+        'description' => __('Fallback image when a post has no featured image', 'rosenberg-clinic'),
+        'section' => 'benedict_blog_settings',
+        'settings' => 'benedict_blog_placeholder_image',
+    )));
+    
+    // Blog Hero Title
+    $wp_customize->add_setting('benedict_blog_hero_title', array(
+        'default' => 'БЛОГ',
+        'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    
+    $wp_customize->add_control('benedict_blog_hero_title', array(
+        'label' => __('Blog Hero Title', 'rosenberg-clinic'),
+        'section' => 'benedict_blog_settings',
+        'type' => 'text',
+    ));
+    
+    // Blog Hero Subtitle
+    $wp_customize->add_setting('benedict_blog_hero_subtitle', array(
+        'default' => 'Корисні статті про урологічне здоров\'я',
+        'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    
+    $wp_customize->add_control('benedict_blog_hero_subtitle', array(
+        'label' => __('Blog Hero Subtitle', 'rosenberg-clinic'),
+        'section' => 'benedict_blog_settings',
+        'type' => 'text',
+    ));
+}
+add_action('customize_register', 'benedict_blog_customizer');
+
+/**
+ * Get featured image URL with fallback
+ * 
+ * @param int $post_id Post ID
+ * @param string $size Image size
+ * @return string Image URL
+ */
+function benedict_get_featured_image($post_id = null, $size = 'blog-card') {
+    if (!$post_id) {
+        $post_id = get_the_ID();
+    }
+    
+    if (has_post_thumbnail($post_id)) {
+        return get_the_post_thumbnail_url($post_id, $size);
+    }
+    
+    // Try to get placeholder from customizer
+    $placeholder = get_theme_mod('benedict_blog_placeholder_image');
+    
+    if ($placeholder) {
+        return $placeholder;
+    }
+    
+    // Default placeholder
+    return get_template_directory_uri() . '/assets/images/blog-placeholder.svg';
+}
+
+/**
+ * Custom comment callback for threaded comments
+ */
+function benedict_comment_callback($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment;
+    ?>
+    <li id="comment-<?php comment_ID(); ?>" <?php comment_class('blog-comment'); ?>>
+        <article class="comment-body">
+            <header class="comment-header">
+                <div class="comment-avatar">
+                    <?php echo get_avatar($comment, 60); ?>
+                </div>
+                <div class="comment-meta">
+                    <span class="comment-author"><?php comment_author(); ?></span>
+                    <span class="comment-date">
+                        <?php 
+                        printf(
+                            '%1$s о %2$s',
+                            get_comment_date('d.m.Y'),
+                            get_comment_time('H:i')
+                        ); 
+                        ?>
+                    </span>
+                </div>
+            </header>
+            
+            <div class="comment-content">
+                <?php if ($comment->comment_approved == '0') : ?>
+                    <p class="comment-awaiting-moderation"><?php _e('Ваш коментар очікує модерації.', 'rosenberg-clinic'); ?></p>
+                <?php endif; ?>
+                <?php comment_text(); ?>
+            </div>
+            
+            <footer class="comment-footer">
+                <?php
+                comment_reply_link(array_merge($args, array(
+                    'reply_text' => __('Відповісти', 'rosenberg-clinic'),
+                    'depth' => $depth,
+                    'max_depth' => $args['max_depth'],
+                    'before' => '<span class="comment-reply-link-wrapper">',
+                    'after' => '</span>',
+                )));
+                ?>
+            </footer>
+        </article>
+    <?php
+}
+
+/**
+ * Modify comment form defaults
+ */
+function benedict_comment_form_defaults($defaults) {
+    $defaults['title_reply'] = __('Залишити коментар', 'rosenberg-clinic');
+    $defaults['title_reply_to'] = __('Відповісти на коментар %s', 'rosenberg-clinic');
+    $defaults['cancel_reply_link'] = __('Скасувати', 'rosenberg-clinic');
+    $defaults['label_submit'] = __('Опублікувати', 'rosenberg-clinic');
+    $defaults['comment_notes_before'] = '';
+    $defaults['class_form'] = 'blog-comment-form';
+    $defaults['class_submit'] = 'blog-comment-submit btn-primary';
+    
+    return $defaults;
+}
+add_filter('comment_form_defaults', 'benedict_comment_form_defaults');
+
+/**
+ * Custom comment form fields
+ */
+function benedict_comment_form_fields($fields) {
+    $commenter = wp_get_current_commenter();
+    
+    $fields['author'] = '<div class="comment-form-field comment-form-author">
+        <label for="author">' . __('Ім\'я', 'rosenberg-clinic') . ' <span class="required">*</span></label>
+        <input id="author" name="author" type="text" value="' . esc_attr($commenter['comment_author']) . '" required>
+    </div>';
+    
+    $fields['email'] = '<div class="comment-form-field comment-form-email">
+        <label for="email">' . __('Email', 'rosenberg-clinic') . ' <span class="required">*</span></label>
+        <input id="email" name="email" type="email" value="' . esc_attr($commenter['comment_author_email']) . '" required>
+    </div>';
+    
+    $fields['url'] = '<div class="comment-form-field comment-form-url">
+        <label for="url">' . __('Веб-сайт', 'rosenberg-clinic') . '</label>
+        <input id="url" name="url" type="url" value="' . esc_attr($commenter['comment_author_url']) . '">
+    </div>';
+    
+    // Remove cookies field
+    unset($fields['cookies']);
+    
+    return $fields;
+}
+add_filter('comment_form_default_fields', 'benedict_comment_form_fields');
+
+/**
+ * Enqueue blog styles
+ */
+function benedict_enqueue_blog_styles() {
+    if (is_singular('post') || is_archive() || is_category() || is_home()) {
+        $cache_buster = time() . '_' . rand(10000, 99999);
+        wp_enqueue_style('benedict-blog-styles', get_template_directory_uri() . '/assets/css/blog.css?v=' . $cache_buster, array('rosenberg-theme-style'), null);
+    }
+}
+add_action('wp_enqueue_scripts', 'benedict_enqueue_blog_styles');
