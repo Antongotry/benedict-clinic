@@ -77,6 +77,7 @@
                             <ul class="sub-menu">
                                 <li><a href="<?php echo home_url('/quiz-ipss'); ?>">IPSS — шкала сечовипускання</a></li>
                                 <li><a href="<?php echo home_url('/quiz-iief'); ?>">IIEF — шкала еректильної функції</a></li>
+                                <li><a href="<?php echo home_url('/quiz-nih-cpsi'); ?>">NIH-CPSI — хронічний простатит</a></li>
                             </ul>
                         </li>
                         <li><a href="<?php echo home_url('/privacy-policy'); ?>">Політика конфіденційності</a></li>

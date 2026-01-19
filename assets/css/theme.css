@@ -7666,6 +7666,30 @@ body.overlay-open .header-menu-btn {
     border-top: 10px solid #000000;
 }
 
+/* Scale with 4 segments (for IIEF) */
+.quiz-scale-bar-4 {
+    display: flex;
+}
+
+.quiz-scale-bar-4 .quiz-scale-segment {
+    flex: 1;
+}
+
+.quiz-scale-labels-4 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.quiz-scale-labels-4 span {
+    flex: 1;
+    text-align: center;
+}
+
+.quiz-scale-normal {
+    background-color: #4CAF50;
+    color: #ffffff;
+}
+
 /* Results Description */
 .quiz-results-description {
     background-color: #f8f8f8;
