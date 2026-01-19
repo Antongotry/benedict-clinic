@@ -378,46 +378,46 @@ function initCertificateLightbox() {
         );
         shuffle($placeholder_images);
         
-        // Get all categories
+        // Get all categories for filters
         $all_categories = get_categories(array(
             'hide_empty' => true,
             'orderby' => 'name',
             'order' => 'ASC',
         ));
         
-        // Collect 2 posts from each category
+        // Get 8 latest posts
+        $latest_posts = get_posts(array(
+            'post_type' => 'post',
+            'posts_per_page' => 8,
+            'post_status' => 'publish',
+            'orderby' => 'date',
+            'order' => 'DESC',
+        ));
+        
+        // Build materials array with category info
         $materials_posts = array();
-        foreach ($all_categories as $cat) {
-            $cat_posts = get_posts(array(
-                'post_type' => 'post',
-                'posts_per_page' => 2,
-                'post_status' => 'publish',
-                'category' => $cat->term_id,
-                'orderby' => 'date',
-                'order' => 'DESC',
-            ));
-            foreach ($cat_posts as $post) {
-                $materials_posts[$post->ID] = array(
-                    'post' => $post,
-                    'category_slug' => $cat->slug,
-                    'category_name' => $cat->name,
-                );
-            }
+        foreach ($latest_posts as $post) {
+            $categories = get_the_category($post->ID);
+            $cat = !empty($categories) ? $categories[0] : null;
+            $materials_posts[] = array(
+                'post' => $post,
+                'category_slug' => $cat ? $cat->slug : 'uncategorized',
+                'category_name' => $cat ? $cat->name : 'Без категорії',
+            );
         }
         
-        // Shuffle posts for variety
-        $materials_posts = array_values($materials_posts);
-        shuffle($materials_posts);
-        
-        // Limit to 8 posts max
-        $materials_posts = array_slice($materials_posts, 0, 8);
+        // Get only categories that are represented in the displayed posts
+        $displayed_category_slugs = array_unique(array_column($materials_posts, 'category_slug'));
+        $displayed_categories = array_filter($all_categories, function($cat) use ($displayed_category_slugs) {
+            return in_array($cat->slug, $displayed_category_slugs);
+        });
         
         $card_index = 0;
         ?>
         
         <div class="materials-filters">
             <button class="materials-filter active" data-filter="all">Всі статті</button>
-            <?php foreach ($all_categories as $cat) : ?>
+            <?php foreach ($displayed_categories as $cat) : ?>
                 <button class="materials-filter" data-filter="<?php echo esc_attr($cat->slug); ?>"><?php echo esc_html($cat->name); ?></button>
             <?php endforeach; ?>
         </div>
