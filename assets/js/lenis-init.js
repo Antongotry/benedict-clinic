@@ -124,14 +124,24 @@
             }, 100);
         };
         
-        // Застосовуємо sticky для головної сторінки
+        // Застосовуємо sticky тільки для головної сторінки
         if (contactsInfo && contactsFormWrapper && contactsGrid) {
             createStickyEffect(contactsInfo, contactsFormWrapper, contactsGrid);
         }
         
-        // Застосовуємо sticky для сторінки контактів
-        if (contactPageInfo && contactPageFormWrapper && contactPageGrid) {
-            createStickyEffect(contactPageInfo, contactPageFormWrapper, contactPageGrid);
+        // Sticky для сторінки контактів вимкнено, щоб елемент не виходив за межі контейнера
+        // Видаляємо існуючі ScrollTrigger для contact-page-info, якщо вони є
+        if (contactPageInfo) {
+            ScrollTrigger.getAll().forEach(trigger => {
+                if (trigger.vars && trigger.vars.pin === contactPageInfo) {
+                    trigger.kill();
+                }
+            });
+            // Видаляємо pin-spacer, якщо він існує
+            const pinSpacer = contactPageInfo.parentElement;
+            if (pinSpacer && pinSpacer.classList.contains('pin-spacer')) {
+                pinSpacer.replaceWith(contactPageInfo);
+            }
         }
     });
 })();
