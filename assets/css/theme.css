@@ -398,7 +398,7 @@ body.overlay-open .header .header-language-switcher .lang-divider {
     padding: 0 !important;
 }
 
-#content > *:first-child:not(.quiz-hero) {
+#content > *:first-child:not(.quiz-hero):not(.privacy-page-hero):not(.contact-page-hero) {
     margin-top: 0 !important;
     padding-top: 0 !important;
 }
