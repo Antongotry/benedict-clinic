@@ -347,7 +347,7 @@ body.overlay-open .header.container--full-width-padding {
     padding: 0 !important;
 }
 
-#content > *:first-child {
+#content > *:first-child:not(.quiz-hero) {
     margin-top: 0 !important;
     padding-top: 0 !important;
 }
