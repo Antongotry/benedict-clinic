@@ -11,12 +11,12 @@ wp_enqueue_style('benedict-blog-styles', get_template_directory_uri() . '/assets
 ?><style>
 /* Inline override for blog hero padding */
 .blog-hero {
-    padding-top: 280px !important;
+    padding-top: 210px !important;
     min-height: 55vh !important;
 }
 @media (max-width: 768px) {
     .blog-hero {
-        padding-top: 220px !important;
+        padding-top: 170px !important;
     }
 }
 </style><?php

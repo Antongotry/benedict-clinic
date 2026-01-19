@@ -23,8 +23,8 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 280px 40px 100px !important;
-    padding-top: 280px !important;
+    padding: 210px 40px 100px !important;
+    padding-top: 210px !important;
 }
 
 .blog-hero .blog-hero-overlay {
@@ -940,8 +940,8 @@
 @media (max-width: 768px) {
     .blog-hero {
         min-height: 45vh;
-        padding: 220px 20px 70px !important;
-        padding-top: 220px !important;
+        padding: 170px 20px 70px !important;
+        padding-top: 170px !important;
     }
     
     .blog-hero-title {
@@ -1152,10 +1152,11 @@
 .category .header.scrolled .hamburger-icon,
 .single-post .header.scrolled .hamburger-icon,
 .blog .header.scrolled .hamburger-icon,
-.archive .header.scrolled .hamburger svg,
-.category .header.scrolled .hamburger svg,
-.single-post .header.scrolled .hamburger svg,
-.blog .header.scrolled .hamburger svg {
+/* hamburger-icon (три лінії) чорний при scrolled */
+.archive .header.scrolled .hamburger .hamburger-icon,
+.category .header.scrolled .hamburger .hamburger-icon,
+.single-post .header.scrolled .hamburger .hamburger-icon,
+.blog .header.scrolled .hamburger .hamburger-icon {
     stroke: var(--color-dark) !important;
     color: var(--color-dark) !important;
 }
@@ -1173,15 +1174,11 @@
     color: var(--color-white) !important;
 }
 
-/* Також для кнопки гамбургера при scrolled */
+/* Також для кнопки гамбургера при scrolled - тільки hamburger-icon */
 .archive .header.scrolled .header-menu-btn .hamburger-icon,
 .category .header.scrolled .header-menu-btn .hamburger-icon,
 .single-post .header.scrolled .header-menu-btn .hamburger-icon,
-.blog .header.scrolled .header-menu-btn .hamburger-icon,
-.archive .header.scrolled .header-menu-btn .hamburger svg,
-.category .header.scrolled .header-menu-btn .hamburger svg,
-.single-post .header.scrolled .header-menu-btn .hamburger svg,
-.blog .header.scrolled .header-menu-btn .hamburger svg {
+.blog .header.scrolled .header-menu-btn .hamburger-icon {
     stroke: var(--color-dark) !important;
     color: var(--color-dark) !important;
 }
@@ -1206,17 +1203,22 @@
     z-index: 10001;
 }
 
-/* Загальне правило для всіх SVG в гамбургері при scrolled на блозі */
-.archive .header.scrolled .hamburger svg,
-.category .header.scrolled .hamburger svg,
-.single-post .header.scrolled .hamburger svg,
-.blog .header.scrolled .hamburger svg,
-.archive .header.scrolled .header-menu-btn svg,
-.category .header.scrolled .header-menu-btn svg,
-.single-post .header.scrolled .header-menu-btn svg,
-.blog .header.scrolled .header-menu-btn svg {
+/* Тільки hamburger-icon (три лінії) чорний при scrolled, НЕ hamburger-icon-close */
+.archive .header.scrolled .hamburger-icon,
+.category .header.scrolled .hamburger-icon,
+.single-post .header.scrolled .hamburger-icon,
+.blog .header.scrolled .hamburger-icon {
     stroke: var(--color-dark) !important;
     color: var(--color-dark) !important;
+}
+
+/* hamburger-icon-close ЗАВЖДИ білий (видимий тільки при overlay-open з темним фоном) */
+.archive .header.scrolled .hamburger-icon-close,
+.category .header.scrolled .hamburger-icon-close,
+.single-post .header.scrolled .hamburger-icon-close,
+.blog .header.scrolled .hamburger-icon-close {
+    stroke: var(--color-white) !important;
+    color: var(--color-white) !important;
 }
 
 .archive .header .header-menu-btn,
