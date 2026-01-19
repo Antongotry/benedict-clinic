@@ -366,17 +366,6 @@ function initCertificateLightbox() {
         </div>
         
         <?php
-        // Get all categories for filters
-        $blog_categories = get_categories(array('hide_empty' => true));
-        ?>
-        <div class="materials-filters">
-            <button class="materials-filter active" data-filter="all">Всі статті</button>
-            <?php foreach ($blog_categories as $cat) : ?>
-                <button class="materials-filter" data-filter="<?php echo esc_attr($cat->slug); ?>"><?php echo esc_html($cat->name); ?></button>
-            <?php endforeach; ?>
-        </div>
-        
-        <?php
         // Placeholder images array (random order)
         $placeholder_images = array(
             get_template_directory_uri() . '/assets/images/materials-b-7.webp',
@@ -398,8 +387,31 @@ function initCertificateLightbox() {
             'order' => 'DESC',
         ));
         
+        // Collect categories from displayed posts
+        $displayed_categories = array();
+        if ($materials_query->have_posts()) {
+            while ($materials_query->have_posts()) {
+                $materials_query->the_post();
+                $post_cats = get_the_category();
+                if (!empty($post_cats)) {
+                    $cat = $post_cats[0];
+                    if (!isset($displayed_categories[$cat->slug])) {
+                        $displayed_categories[$cat->slug] = $cat->name;
+                    }
+                }
+            }
+            $materials_query->rewind_posts();
+        }
+        
         $card_index = 0;
         ?>
+        
+        <div class="materials-filters">
+            <button class="materials-filter active" data-filter="all">Всі статті</button>
+            <?php foreach ($displayed_categories as $slug => $name) : ?>
+                <button class="materials-filter" data-filter="<?php echo esc_attr($slug); ?>"><?php echo esc_html($name); ?></button>
+            <?php endforeach; ?>
+        </div>
         
         <div class="materials-grid">
             <?php if ($materials_query->have_posts()) : ?>
