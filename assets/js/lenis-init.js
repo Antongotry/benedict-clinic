@@ -82,7 +82,11 @@
                 ScrollTrigger.create({
                     trigger: gridContainer,
                     start: 'top 120px',
-                    end: () => `bottom bottom-=${formWrapper.offsetHeight + 40}px`,
+                    end: () => {
+                        const formBottom = formWrapper.getBoundingClientRect().bottom + window.scrollY;
+                        const gridBottom = gridContainer.getBoundingClientRect().bottom + window.scrollY;
+                        return formBottom < gridBottom ? formBottom - window.scrollY - 120 : 'bottom bottom';
+                    },
                     pin: targetElement,
                     pinSpacing: false,
                     invalidateOnRefresh: true,
