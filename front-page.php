@@ -385,25 +385,37 @@ function initCertificateLightbox() {
             'order' => 'ASC',
         ));
         
-        // Get 8 latest posts
-        $latest_posts = get_posts(array(
-            'post_type' => 'post',
-            'posts_per_page' => 8,
-            'post_status' => 'publish',
-            'orderby' => 'date',
-            'order' => 'DESC',
-        ));
-        
-        // Build materials array with category info
+        // Collect 2 posts from each category
         $materials_posts = array();
-        foreach ($latest_posts as $post) {
-            $categories = get_the_category($post->ID);
-            $cat = !empty($categories) ? $categories[0] : null;
-            $materials_posts[] = array(
-                'post' => $post,
-                'category_slug' => $cat ? $cat->slug : 'uncategorized',
-                'category_name' => $cat ? $cat->name : 'Без категорії',
-            );
+        $used_post_ids = array();
+        
+        foreach ($all_categories as $cat) {
+            $cat_posts = get_posts(array(
+                'post_type' => 'post',
+                'posts_per_page' => 4, // Get more to account for duplicates
+                'post_status' => 'publish',
+                'category' => $cat->term_id,
+                'orderby' => 'date',
+                'order' => 'DESC',
+            ));
+            
+            $count = 0;
+            foreach ($cat_posts as $post) {
+                // Skip if already used (post in multiple categories)
+                if (in_array($post->ID, $used_post_ids)) {
+                    continue;
+                }
+                
+                $materials_posts[] = array(
+                    'post' => $post,
+                    'category_slug' => $cat->slug,
+                    'category_name' => $cat->name,
+                );
+                $used_post_ids[] = $post->ID;
+                $count++;
+                
+                if ($count >= 2) break; // 2 posts per category
+            }
         }
         
         
