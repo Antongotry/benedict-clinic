@@ -6701,6 +6701,20 @@ body.overlay-open .header-menu-btn {
     z-index: 1;
 }
 
+.services-hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.services-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
 .services-page-hero-bg img {
     width: 100%;
     height: 100%;
@@ -7116,8 +7130,16 @@ body.overlay-open .header-menu-btn {
 
 @media (max-width: 768px) {
     .services-page-hero {
-        height: 50vh;
-        min-height: 350px;
+        height: 55vh;
+        min-height: 380px;
+    }
+    
+    .services-hero-video {
+        display: none;
+    }
+    
+    .services-hero-img {
+        display: block;
     }
     
     .services-page-intro {

@@ -9,7 +9,13 @@ get_header();
 <!-- Hero Section -->
 <section class="services-page-hero">
     <div class="services-page-hero-bg">
-        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/photo-90-копія-1_result.webp" alt="Послуги">
+        <!-- Video for desktop -->
+        <video class="services-hero-video" autoplay muted loop playsinline>
+            <source src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/GettyImages-1403279841.mov" type="video/quicktime">
+            <source src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/GettyImages-1403279841.mov" type="video/mp4">
+        </video>
+        <!-- Image for mobile -->
+        <img class="services-hero-img" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/photo-90-копія-1_result.webp" alt="Послуги">
     </div>
     <div class="services-page-hero-overlay"></div>
     <div class="services-page-hero-content">

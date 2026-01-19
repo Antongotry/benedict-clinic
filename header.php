@@ -37,6 +37,7 @@
         <div class="header-right">
             <a href="<?php echo home_url('/'); ?>" class="header-item header-link">Головна</a>
             <a href="<?php echo home_url('/dr-benedict'); ?>" class="header-item header-link">Про лікаря</a>
+            <a href="<?php echo home_url('/services'); ?>" class="header-item header-link">Послуги</a>
             <a href="<?php echo home_url('/contact'); ?>" class="header-item header-link">Контакти</a>
             <button class="header-item header-menu-btn" id="menuToggle" aria-label="Toggle Menu">
                 <span class="hamburger" aria-hidden="true">
