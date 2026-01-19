@@ -6,6 +6,21 @@
 
 get_header();
 
+// Force enqueue blog styles
+wp_enqueue_style('benedict-blog-styles', get_template_directory_uri() . '/assets/css/blog.css', array(), time());
+?><style>
+/* Inline override for single post hero padding */
+.single-post-hero {
+    padding-top: 280px !important;
+    min-height: 55vh !important;
+}
+@media (max-width: 768px) {
+    .single-post-hero {
+        padding-top: 220px !important;
+    }
+}
+</style><?php
+
 // Get post data
 $post_id = get_the_ID();
 $categories = get_the_category($post_id);

@@ -940,8 +940,8 @@
 @media (max-width: 768px) {
     .blog-hero {
         min-height: 45vh;
-        padding: 180px 20px 70px !important;
-        padding-top: 180px !important;
+        padding: 220px 20px 70px !important;
+        padding-top: 220px !important;
     }
     
     .blog-hero-title {
