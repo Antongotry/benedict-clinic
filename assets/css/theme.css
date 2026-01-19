@@ -6509,6 +6509,13 @@ body.overlay-open .header-menu-btn {
     align-items: start;
 }
 
+.contact-page-info {
+    position: sticky;
+    top: 140px;
+    align-self: start;
+    will-change: transform;
+}
+
 .contact-page-info-title,
 .contact-page-form-title {
     font-family: var(--font-serif);
@@ -6735,6 +6742,10 @@ body.overlay-open .header-menu-btn {
     .contact-page-grid {
         grid-template-columns: 1fr;
         gap: 50px;
+    }
+    
+    .contact-page-info {
+        position: static;
     }
 }
 
