@@ -7253,8 +7253,10 @@ body.overlay-open .header-menu-btn {
 /* Hero */
 .quiz-hero {
     background-color: #000000;
+    /* shift entire section down to avoid header overlap */
+    margin-top: calc(90px + env(safe-area-inset-top)) !important;
     /* add extra top space so content doesn't sit under fixed header */
-    padding-top: calc(234px + env(safe-area-inset-top)) !important;
+    padding-top: calc(144px + env(safe-area-inset-top)) !important;
     padding-left: 5vw;
     padding-right: 5vw;
     padding-bottom: 80px;
@@ -7766,7 +7768,8 @@ body.overlay-open .header-menu-btn {
 /* Mobile */
 @media (max-width: 768px) {
     .quiz-hero {
-        padding-top: calc(182px + env(safe-area-inset-top)) !important;
+        margin-top: calc(70px + env(safe-area-inset-top)) !important;
+        padding-top: calc(112px + env(safe-area-inset-top)) !important;
         padding-left: 5vw;
         padding-right: 5vw;
         padding-bottom: 60px;
