@@ -24,9 +24,9 @@
                 <span>@dr_benedikt</span>
             </a>
             <div class="header-item header-language-switcher">
-                <a href="?lang=uk" class="lang-link lang-uk active">UK</a>
+                <a href="<?php echo home_url('/'); ?>" class="lang-link lang-uk<?php echo (strpos($_SERVER['REQUEST_URI'], '/en/') === false) ? ' active' : ''; ?>">UK</a>
                 <span class="lang-divider">|</span>
-                <a href="?lang=en" class="lang-link lang-en">EN</a>
+                <a href="<?php echo home_url('/en/'); ?>" class="lang-link lang-en<?php echo (strpos($_SERVER['REQUEST_URI'], '/en/') !== false) ? ' active' : ''; ?>">EN</a>
             </div>
         </div>
         
@@ -108,9 +108,9 @@
                 </div>
                 
                 <div class="overlay-language-switcher">
-                    <a href="?lang=uk" class="lang-link lang-uk active">UK</a>
+                    <a href="<?php echo home_url('/'); ?>" class="lang-link lang-uk<?php echo (strpos($_SERVER['REQUEST_URI'], '/en/') === false) ? ' active' : ''; ?>">UK</a>
                     <span class="lang-divider">|</span>
-                    <a href="?lang=en" class="lang-link lang-en">EN</a>
+                    <a href="<?php echo home_url('/en/'); ?>" class="lang-link lang-en<?php echo (strpos($_SERVER['REQUEST_URI'], '/en/') !== false) ? ' active' : ''; ?>">EN</a>
                 </div>
                 
                 <div class="overlay-social">
