@@ -6510,10 +6510,7 @@ body.overlay-open .header-menu-btn {
 }
 
 .contact-page-info {
-    position: sticky;
-    top: 140px;
     align-self: start;
-    will-change: transform;
 }
 
 .contact-page-info-title,

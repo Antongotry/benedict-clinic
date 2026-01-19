@@ -63,5 +63,27 @@
 
         // Expose lenis globally if needed
         window.lenis = lenis;
+
+        // Contacts Info animation with GSAP (without sticky)
+        const contactsInfo = document.querySelector('.contacts-info');
+        const contactPageInfo = document.querySelector('.contact-page-info');
+        
+        if ((contactsInfo || contactPageInfo) && window.innerWidth > 1024) {
+            const targetElement = contactsInfo || contactPageInfo;
+            
+            gsap.from(targetElement, {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: targetElement,
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none none',
+                    once: true
+                }
+            });
+        }
     });
 })();
