@@ -61,6 +61,106 @@ $is_english = (substr($current_path_footer, 0, 4) === '/en/' || $current_path_fo
     </div>
 </footer>
 
+<!-- Consultation Modal (Global) -->
+<div class="consultation-modal" id="consultation-modal" aria-hidden="true">
+    <div class="consultation-modal-backdrop" data-consultation-close></div>
+    <div class="consultation-modal-content" role="dialog" aria-modal="true" aria-labelledby="consultation-modal-title">
+        <button class="consultation-modal-close" type="button" aria-label="Закрити" data-consultation-close></button>
+        <div class="consultation-modal-header">
+            <h3 class="consultation-modal-title" id="consultation-modal-title">Записатись на прийом</h3>
+        </div>
+        <form class="consultation-modal-form" id="consultation-modal-form">
+            <label class="consultation-modal-field">
+                <span>ПІБ</span>
+                <input type="text" name="name" required placeholder="Введіть ваше повне ім'я">
+            </label>
+            <label class="consultation-modal-field">
+                <span>Телефон</span>
+                <input type="tel" name="phone" required placeholder="+380 XX XXX XX XX">
+            </label>
+            <button class="consultation-modal-submit btn-primary" type="submit">Зателефонувати мені</button>
+        </form>
+        <div class="consultation-modal-success" id="consultation-modal-success" hidden>
+            <h4>Дякуємо!</h4>
+            <p>Ваша заявка прийнята. Ми зв'яжемось з вами найближчим часом для підтвердження запису.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+// Consultation Modal
+(function() {
+    const modal = document.getElementById('consultation-modal');
+    const modalForm = document.getElementById('consultation-modal-form');
+    const modalSuccess = document.getElementById('consultation-modal-success');
+    const openBtns = document.querySelectorAll('[data-consultation-open]');
+    const closeBtns = document.querySelectorAll('[data-consultation-close]');
+    
+    if (!modal) return;
+    
+    function openModal() {
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (modalForm) modalForm.reset();
+        if (modalSuccess) modalSuccess.hidden = true;
+        if (modalForm) modalForm.hidden = false;
+    }
+    
+    openBtns.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal();
+        });
+    });
+    
+    closeBtns.forEach(function(btn) {
+        btn.addEventListener('click', closeModal);
+    });
+    
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+    
+    // Form submit
+    if (modalForm) {
+        modalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(modalForm);
+            formData.append('action', 'benedict_form_submit');
+            formData.append('form_type', 'Консультація з сайту');
+            formData.append('nonce', typeof rosenbergAjax !== 'undefined' ? rosenbergAjax.nonce : '');
+            
+            fetch(typeof rosenbergAjax !== 'undefined' ? rosenbergAjax.ajaxurl : '/wp-admin/admin-ajax.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(function(response) { return response.json(); })
+            .then(function(data) {
+                modalForm.hidden = true;
+                modalSuccess.hidden = false;
+                setTimeout(closeModal, 3000);
+            })
+            .catch(function(error) {
+                modalForm.hidden = true;
+                modalSuccess.hidden = false;
+                setTimeout(closeModal, 3000);
+            });
+        });
+    }
+})();
+</script>
+
 <script>
 // Language Switcher
 document.addEventListener('DOMContentLoaded', function() {
