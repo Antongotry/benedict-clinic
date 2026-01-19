@@ -365,110 +365,81 @@ function initCertificateLightbox() {
             <p class="materials-subtitle">Дізнайтеся більше про операції, захворювання, обстеження та методи лікування в наших статтях</p>
         </div>
         
+        <?php
+        // Get all categories for filters
+        $blog_categories = get_categories(array('hide_empty' => true));
+        ?>
         <div class="materials-filters">
             <button class="materials-filter active" data-filter="all">Всі статті</button>
-            <button class="materials-filter" data-filter="diseases">Захворювання</button>
-            <button class="materials-filter" data-filter="treatment">Лікування</button>
-            <button class="materials-filter" data-filter="diagnostics">Обстеження</button>
-            <button class="materials-filter" data-filter="operations">Операції</button>
+            <?php foreach ($blog_categories as $cat) : ?>
+                <button class="materials-filter" data-filter="<?php echo esc_attr($cat->slug); ?>"><?php echo esc_html($cat->name); ?></button>
+            <?php endforeach; ?>
         </div>
         
+        <?php
+        // Placeholder images array (random order)
+        $placeholder_images = array(
+            get_template_directory_uri() . '/assets/images/materials-b-7.webp',
+            get_template_directory_uri() . '/assets/images/materials-b-6.webp',
+            get_template_directory_uri() . '/assets/images/materials-b-8.webp',
+            get_template_directory_uri() . '/assets/images/materials-b-5.webp',
+            get_template_directory_uri() . '/assets/images/materials-b-3.webp',
+            get_template_directory_uri() . '/assets/images/materials-b-2.webp',
+            get_template_directory_uri() . '/assets/images/materials-b-1.webp',
+        );
+        shuffle($placeholder_images);
+        
+        // Get latest posts
+        $materials_query = new WP_Query(array(
+            'post_type' => 'post',
+            'posts_per_page' => 8,
+            'post_status' => 'publish',
+            'orderby' => 'date',
+            'order' => 'DESC',
+        ));
+        
+        $card_index = 0;
+        ?>
+        
         <div class="materials-grid">
-            <article class="material-card" data-category="diagnostics">
-                <a href="#" class="material-card-link">
-                    <div class="material-card-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-7.webp" alt="Стаття 1" loading="lazy">
-                    </div>
-                    <div class="material-card-content">
-                        <span class="material-card-category">Обстеження</span>
-                        <h3 class="material-card-title">УЗД органів сечостатевої системи</h3>
-                    </div>
-                </a>
-            </article>
-            
-            <article class="material-card" data-category="diseases">
-                <a href="#" class="material-card-link">
-                    <div class="material-card-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-6.webp" alt="Стаття 2" loading="lazy">
-                    </div>
-                    <div class="material-card-content">
-                        <span class="material-card-category">Захворювання</span>
-                        <h3 class="material-card-title">Захворювання нирок: симптоми та профілактика</h3>
-                    </div>
-                </a>
-            </article>
-            
-            <article class="material-card" data-category="operations">
-                <a href="#" class="material-card-link">
-                    <div class="material-card-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-8.webp" alt="Стаття 3" loading="lazy">
-                    </div>
-                    <div class="material-card-content">
-                        <span class="material-card-category">Операції</span>
-                        <h3 class="material-card-title">Малоінвазивні хірургічні втручання</h3>
-                    </div>
-                </a>
-            </article>
-            
-            <article class="material-card" data-category="treatment">
-                <a href="#" class="material-card-link">
-                    <div class="material-card-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-5.webp" alt="Стаття 4" loading="lazy">
-                    </div>
-                    <div class="material-card-content">
-                        <span class="material-card-category">Лікування</span>
-                        <h3 class="material-card-title">Сучасні методи лікування простатиту</h3>
-                    </div>
-                </a>
-            </article>
-            
-            <article class="material-card" data-category="diseases">
-                <a href="#" class="material-card-link">
-                    <div class="material-card-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-3.webp" alt="Стаття 5" loading="lazy">
-                    </div>
-                    <div class="material-card-content">
-                        <span class="material-card-category">Захворювання</span>
-                        <h3 class="material-card-title">Чоловіче безпліддя: причини та діагностика</h3>
-                    </div>
-                </a>
-            </article>
-            
-            <article class="material-card" data-category="diagnostics">
-                <a href="#" class="material-card-link">
-                    <div class="material-card-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-2.webp" alt="Стаття 6" loading="lazy">
-                    </div>
-                    <div class="material-card-content">
-                        <span class="material-card-category">Обстеження</span>
-                        <h3 class="material-card-title">Доплерографія судин: коли потрібна</h3>
-                    </div>
-                </a>
-            </article>
-            
-            <article class="material-card" data-category="operations">
-                <a href="#" class="material-card-link">
-                    <div class="material-card-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-1.webp" alt="Стаття 7" loading="lazy">
-                    </div>
-                    <div class="material-card-content">
-                        <span class="material-card-category">Операції</span>
-                        <h3 class="material-card-title">Реконструктивна урологія</h3>
-                    </div>
-                </a>
-            </article>
-            
-            <article class="material-card" data-category="treatment">
-                <a href="#" class="material-card-link">
-                    <div class="material-card-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/materials-b-8.webp" alt="Стаття 8" loading="lazy">
-                    </div>
-                    <div class="material-card-content">
-                        <span class="material-card-category">Лікування</span>
-                        <h3 class="material-card-title">Консервативна терапія в урології</h3>
-                    </div>
-                </a>
-            </article>
+            <?php if ($materials_query->have_posts()) : ?>
+                <?php while ($materials_query->have_posts()) : $materials_query->the_post(); ?>
+                    <?php
+                    $categories = get_the_category();
+                    $category_slug = !empty($categories) ? $categories[0]->slug : 'all';
+                    $category_name = !empty($categories) ? $categories[0]->name : 'Стаття';
+                    
+                    // Use placeholder image in random order
+                    $image_url = $placeholder_images[$card_index % count($placeholder_images)];
+                    $card_index++;
+                    ?>
+                    <article class="material-card" data-category="<?php echo esc_attr($category_slug); ?>">
+                        <a href="<?php the_permalink(); ?>" class="material-card-link">
+                            <div class="material-card-image">
+                                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy">
+                            </div>
+                            <div class="material-card-content">
+                                <span class="material-card-category"><?php echo esc_html($category_name); ?></span>
+                                <h3 class="material-card-title"><?php the_title(); ?></h3>
+                            </div>
+                        </a>
+                    </article>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+            <?php else : ?>
+                <!-- Fallback if no posts -->
+                <p class="materials-empty">Статті незабаром з'являться</p>
+            <?php endif; ?>
+        </div>
+        
+        <div class="materials-footer">
+            <a href="<?php echo esc_url(home_url('/blog')); ?>" class="materials-btn">
+                Детальніше
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
         </div>
     </div>
 </section>

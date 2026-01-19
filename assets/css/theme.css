@@ -4382,6 +4382,62 @@ body.overlay-open .header-menu-btn {
     }
 }
 
+/* Materials Footer & Button */
+.materials-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.materials-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 40px;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    background: transparent;
+    border: 1px solid var(--color-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.materials-btn:hover {
+    background: var(--color-dark);
+    color: var(--color-white);
+}
+
+.materials-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.materials-btn:hover svg {
+    transform: translateX(5px);
+}
+
+.materials-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 1.125rem;
+    color: var(--color-grey);
+}
+
+@media (max-width: 768px) {
+    .materials-footer {
+        margin-top: 30px;
+    }
+    
+    .materials-btn {
+        padding: 14px 30px;
+        font-size: 0.8125rem;
+    }
+}
+
 /* Statistics Section */
 .statistics-section {
     position: relative;
