@@ -733,7 +733,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </label>
             <label class="pricing-modal-checkbox">
                 <input type="checkbox" name="privacy" required>
-                <span>Погоджуюсь з <a href="/privacy-policy">політикою конфіденційності</a></span>
+                <span>Погоджуюсь з <a href="<?php echo home_url('/privacy-policy'); ?>" target="_blank">політикою конфіденційності</a></span>
             </label>
             <button class="pricing-modal-submit btn-primary" type="submit">Надіслати</button>
         </form>
@@ -1285,7 +1285,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </label>
                     <label class="contacts-checkbox">
                         <input type="checkbox" name="privacy" required>
-                        <span>Я погоджуюсь із <a href="/privacy-policy">політикою конфіденційності</a></span>
+                        <span>Я погоджуюсь із <a href="<?php echo home_url('/privacy-policy'); ?>" target="_blank">політикою конфіденційності</a></span>
                     </label>
                     <button class="contacts-submit btn-primary" type="submit">Надіслати</button>
                 </form>

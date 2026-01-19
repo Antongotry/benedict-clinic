@@ -100,6 +100,10 @@ get_header();
                         <span>Повідомлення</span>
                         <textarea name="message" rows="5" placeholder="Опишіть ваше питання..."></textarea>
                     </label>
+                    <label class="contact-page-privacy">
+                        <input type="checkbox" name="privacy" required>
+                        <span>Погоджуюсь з <a href="<?php echo home_url('/privacy-policy'); ?>" target="_blank">політикою конфіденційності</a></span>
+                    </label>
                     <button class="contact-page-submit" type="submit">Надіслати</button>
                 </form>
                 <div class="contact-page-success" id="contact-page-success" hidden>

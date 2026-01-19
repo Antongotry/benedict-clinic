@@ -18,7 +18,7 @@
                     <h4>ІНФОРМАЦІЯ</h4>
                     <ul>
                         <li><a href="/contact">Контакти</a></li>
-                        <li><a href="/privacy-policy">Політика конфіденційності</a></li>
+                        <li><a href="<?php echo home_url('/privacy-policy'); ?>">Політика конфіденційності</a></li>
                     </ul>
                 </div>
                 <div class="footer-menu-column">
