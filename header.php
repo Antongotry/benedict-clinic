@@ -13,35 +13,9 @@
 <?php wp_body_open(); ?>
 
 <?php
-// Language switcher logic
-$current_uri = $_SERVER['REQUEST_URI'];
-
-// Check if we're on English version
-$is_english = (strpos($current_uri, '/en/') === 0 || $current_uri === '/en' || $current_uri === '/en/');
-
-if ($is_english) {
-    // On English page - remove /en or /en/ from the beginning
-    $uk_url = preg_replace('#^/en(?:/|$)#', '/', $current_uri);
-    if (empty($uk_url) || $uk_url === '') {
-        $uk_url = '/';
-    }
-    $en_url = $current_uri;
-} else {
-    // On Ukrainian page - add /en to the beginning
-    $uk_url = $current_uri;
-    if ($current_uri === '/' || $current_uri === '') {
-        $en_url = '/en/';
-    } else {
-        $en_url = '/en' . $current_uri;
-    }
-}
-
-// Clean up double slashes (but keep single leading slash)
-$uk_url = '/' . ltrim(preg_replace('#/+#', '/', $uk_url), '/');
-$en_url = '/' . ltrim(preg_replace('#/+#', '/', $en_url), '/');
-
-// Final check
-if ($uk_url === '') $uk_url = '/';
+// Language switcher - detect current language
+$current_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$is_english = (substr($current_path, 0, 4) === '/en/' || $current_path === '/en');
 ?>
 
 <header id="header-40cd750b" class="header container--full-width-padding">
@@ -56,9 +30,9 @@ if ($uk_url === '') $uk_url = '/';
                 <span>@dr_benedikt</span>
             </a>
             <div class="header-item header-language-switcher">
-                <a href="<?php echo esc_url($uk_url); ?>" class="lang-link lang-uk<?php echo !$is_english ? ' active' : ''; ?>">UK</a>
+                <a href="#" class="lang-link lang-uk<?php echo !$is_english ? ' active' : ''; ?>" data-lang="uk">UK</a>
                 <span class="lang-divider">|</span>
-                <a href="<?php echo esc_url($en_url); ?>" class="lang-link lang-en<?php echo $is_english ? ' active' : ''; ?>">EN</a>
+                <a href="#" class="lang-link lang-en<?php echo $is_english ? ' active' : ''; ?>" data-lang="en">EN</a>
             </div>
         </div>
         
@@ -140,9 +114,9 @@ if ($uk_url === '') $uk_url = '/';
                 </div>
                 
                 <div class="overlay-language-switcher">
-                    <a href="<?php echo esc_url($uk_url); ?>" class="lang-link lang-uk<?php echo !$is_english ? ' active' : ''; ?>">UK</a>
+                    <a href="#" class="lang-link lang-uk<?php echo !$is_english ? ' active' : ''; ?>" data-lang="uk">UK</a>
                     <span class="lang-divider">|</span>
-                    <a href="<?php echo esc_url($en_url); ?>" class="lang-link lang-en<?php echo $is_english ? ' active' : ''; ?>">EN</a>
+                    <a href="#" class="lang-link lang-en<?php echo $is_english ? ' active' : ''; ?>" data-lang="en">EN</a>
                 </div>
                 
                 <div class="overlay-social">
