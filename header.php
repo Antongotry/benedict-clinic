@@ -24,7 +24,9 @@
                 <span>@dr_benedikt</span>
             </a>
             <div class="header-item header-language-switcher">
-                <?php echo do_shortcode('[language-switcher]'); ?>
+                <a href="?lang=uk" class="lang-link lang-uk active">UK</a>
+                <span class="lang-divider">|</span>
+                <a href="?lang=en" class="lang-link lang-en">EN</a>
             </div>
         </div>
         
@@ -106,8 +108,9 @@
                 </div>
                 
                 <div class="overlay-language-switcher">
-                    <p class="overlay-language-title">Мова:</p>
-                    <?php echo do_shortcode('[language-switcher]'); ?>
+                    <a href="?lang=uk" class="lang-link lang-uk active">UK</a>
+                    <span class="lang-divider">|</span>
+                    <a href="?lang=en" class="lang-link lang-en">EN</a>
                 </div>
                 
                 <div class="overlay-social">

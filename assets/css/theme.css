@@ -268,38 +268,40 @@ body.overlay-open .header.container--full-width-padding {
 .header-language-switcher {
     display: flex;
     align-items: center;
+    gap: 6px;
 }
 
-.header-language-switcher a,
-.header-language-switcher span {
+.header-language-switcher .lang-link {
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 0.5px;
     color: var(--color-white);
     text-decoration: none;
-    transition: color 0.25s ease, opacity 0.25s ease;
+    opacity: 0.6;
+    transition: opacity 0.25s ease;
 }
 
-.header-language-switcher a:hover {
-    opacity: 0.75;
+.header-language-switcher .lang-link:hover,
+.header-language-switcher .lang-link.active {
+    opacity: 1;
 }
 
-.header-language-switcher .current-language,
-.header-language-switcher .trp-ls-shortcode-current-language {
-    font-weight: 500;
+.header-language-switcher .lang-divider {
+    font-size: 13px;
+    color: var(--color-white);
+    opacity: 0.4;
 }
 
-.header.container--full-width-padding.is-solid .header-language-switcher a,
-.header.container--full-width-padding.is-solid .header-language-switcher span {
+.header.container--full-width-padding.is-solid .header-language-switcher .lang-link {
     color: var(--color-dark);
 }
 
-.header.container--full-width-padding.is-solid .header-language-switcher a:hover {
-    color: var(--color-grey);
+.header.container--full-width-padding.is-solid .header-language-switcher .lang-divider {
+    color: var(--color-dark);
 }
 
-body.overlay-open .header .header-language-switcher a,
-body.overlay-open .header .header-language-switcher span {
+body.overlay-open .header .header-language-switcher .lang-link,
+body.overlay-open .header .header-language-switcher .lang-divider {
     color: var(--color-white) !important;
 }
 
@@ -2714,25 +2716,31 @@ body.overlay-open .header-menu-btn {
 
 /* Footer Language Switcher */
 .footer-language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     margin-bottom: 20px;
 }
 
-.footer-language-switcher a,
-.footer-language-switcher span {
-    font-size: 14px;
+.footer-language-switcher .lang-link {
+    font-size: 13px;
     font-weight: 400;
+    letter-spacing: 0.5px;
     color: var(--color-white);
     text-decoration: none;
+    opacity: 0.6;
     transition: opacity 0.3s ease;
 }
 
-.footer-language-switcher a:hover {
-    opacity: 0.7;
+.footer-language-switcher .lang-link:hover,
+.footer-language-switcher .lang-link.active {
+    opacity: 1;
 }
 
-.footer-language-switcher .current-language,
-.footer-language-switcher .trp-ls-shortcode-current-language {
-    font-weight: 500;
+.footer-language-switcher .lang-divider {
+    font-size: 13px;
+    color: var(--color-white);
+    opacity: 0.4;
 }
 
 .footer-logo {
