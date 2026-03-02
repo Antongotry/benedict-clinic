@@ -958,7 +958,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert(data.data.message || 'Помилка');
                 if (submitBtn) {
                     submitBtn.disabled = false;
-                    submitBtn.textContent = 'НАДІСЛАТИ';
+                    submitBtn.textContent = 'Запланувати візит';
                 }
             }
         })
@@ -966,7 +966,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Помилка з\'єднання');
             if (submitBtn) {
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'НАДІСЛАТИ';
+                submitBtn.textContent = 'Запланувати візит';
             }
         });
     });
@@ -1357,7 +1357,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <input type="checkbox" name="privacy" required>
                         <span>Я погоджуюсь із <a href="<?php echo home_url('/privacy-policy'); ?>" target="_blank">політикою конфіденційності</a></span>
                     </label>
-                    <button class="contacts-submit btn-primary" type="submit">Надіслати</button>
+                    <button class="contacts-submit btn-primary" type="submit">Запланувати візит</button>
                 </form>
                 <div class="contacts-success" id="contacts-success" hidden>
                     <h4>Дякуємо за звернення!</h4>
