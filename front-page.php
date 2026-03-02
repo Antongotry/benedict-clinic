@@ -393,7 +393,7 @@ function initCertificateLightbox() {
         // Get all published posts and bind each post to all its categories
         $materials_posts = get_posts(array(
             'post_type' => 'post',
-            'posts_per_page' => -1,
+            'posts_per_page' => 8,
             'post_status' => 'publish',
             'orderby' => 'date',
             'order' => 'DESC',
