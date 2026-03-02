@@ -384,25 +384,42 @@ function initCertificateLightbox() {
         shuffle($placeholder_images);
         
         $max_materials_posts = 8;
+        $desired_category_slugs = array('zahvoryuvannya', 'likuvannya', 'obstezhennya', 'operaciyi');
+        $desired_category_labels = array(
+            'zahvoryuvannya' => 'Захворювання',
+            'likuvannya' => 'Лікування',
+            'obstezhennya' => 'Обстеження',
+            'operaciyi' => 'Операції',
+        );
 
-        // Get all actual blog categories (without default uncategorized labels)
-        $all_categories = get_categories(array(
+        // Get only the required blog categories in strict order
+        $raw_categories = get_categories(array(
             'hide_empty' => true,
-            'orderby' => 'name',
-            'order' => 'ASC',
+            'slug' => $desired_category_slugs,
         ));
 
-        $all_categories = array_values(array_filter($all_categories, function($cat) {
-            return !in_array($cat->slug, array('uncategorized', 'bez-rubriki', 'without-category'), true);
-        }));
+        $categories_by_slug = array();
+        foreach ($raw_categories as $cat) {
+            $categories_by_slug[$cat->slug] = $cat;
+        }
+        $all_categories = array();
+        foreach ($desired_category_slugs as $slug) {
+            if (isset($categories_by_slug[$slug])) {
+                $all_categories[] = $categories_by_slug[$slug];
+            }
+        }
+        $allowed_category_slug_set = array_fill_keys(array_map(function($cat) {
+            return $cat->slug;
+        }, $all_categories), true);
 
-        // Pull a wider pool, then select up to 8 posts with best category coverage
+        // Pull posts only from the required categories
         $all_blog_posts = get_posts(array(
             'post_type' => 'post',
             'posts_per_page' => 60,
             'post_status' => 'publish',
             'orderby' => 'date',
             'order' => 'DESC',
+            'category_name' => implode(',', $desired_category_slugs),
         ));
 
         $materials_posts = array();
@@ -449,7 +466,9 @@ function initCertificateLightbox() {
                 continue;
             }
             foreach ($post_categories as $post_cat) {
-                $active_category_slugs[$post_cat->slug] = true;
+                if (isset($allowed_category_slug_set[$post_cat->slug])) {
+                    $active_category_slugs[$post_cat->slug] = true;
+                }
             }
         }
 
@@ -475,9 +494,15 @@ function initCertificateLightbox() {
                     if (empty($post_categories)) {
                         continue;
                     }
-                    $category_slugs = wp_list_pluck($post_categories, 'slug');
-                    $category_names = wp_list_pluck($post_categories, 'name');
-                    $primary_category_name = $category_names[0];
+                    $filtered_categories = array_values(array_filter($post_categories, function($cat) use ($allowed_category_slug_set) {
+                        return isset($allowed_category_slug_set[$cat->slug]);
+                    }));
+                    if (empty($filtered_categories)) {
+                        continue;
+                    }
+                    $category_slugs = wp_list_pluck($filtered_categories, 'slug');
+                    $primary_category_slug = $category_slugs[0];
+                    $primary_category_name = isset($desired_category_labels[$primary_category_slug]) ? $desired_category_labels[$primary_category_slug] : $filtered_categories[0]->name;
                     
                     // Use placeholder image in random order
                     $image_url = $placeholder_images[$card_index % count($placeholder_images)];
