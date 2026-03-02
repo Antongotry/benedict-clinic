@@ -693,18 +693,17 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Benefits Section (using Surgery Center structure) -->
 <section class="surgery-center-section section-padding">
     <div class="surgery-center-image">
-        <span class="surgery-decorative-text surgery-text-1">ОПЕРАТИВНІ</span>
+        <span class="surgery-decorative-text surgery-text-1">ЛІКУВАННЯ</span>
         <img decoding="async" width="800" height="1000" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/photo-90-копія-1_result.webp" alt="Operative Surgery" loading="lazy">
-        <span class="surgery-decorative-text surgery-text-2">ВТРУЧАННЯ</span>
     </div>
     <div class="surgery-center-content">
-        <p class="surgery-center-label">ХІРУРГІЧНЕ ЛІКУВАННЯ</p>
-        <h2 class="surgery-center-title">ОПЕРАТИВНІ<br>ВТРУЧАННЯ</h2>
+        <p class="surgery-center-label">ЛІКУВАННЯ</p>
+        <h2 class="surgery-center-title">Доказові методи лікування урологічних захворювань</h2>
         <div class="surgery-center-text">
-            <p>Відновлення функцій та зовнішнього вигляду органів після травм та хвороб.</p>
-            <p>Сучасні хірургічні методи з мінімальними ризиками.</p>
+            <p>На основі багаторічного досвіду та численних успішних кейсів я застосовую тільки перевірені протоколи, які використовують провідні лікарі світу. Підхід враховує всі сучасні методи обстеження та лікування урологічних захворювань, підтримку пацієнта на кожному етапі та можливість виїзду на дім.</p>
+            <p>Не чекайте, поки проблема пройде сама — піклуйтесь про своє здоров’я і виявляйте зміни на ранніх стадіях.</p>
         </div>
-        <a href="/coming-soon" class="surgery-center-cta">ГАЛЕРЕЯ <span>|→</span></a>
+        <a href="<?php echo home_url('/consultation'); ?>" class="surgery-center-cta">Отримати консультацію <span>→</span></a>
     </div>
 </section>
 
