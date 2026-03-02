@@ -5418,11 +5418,12 @@ body.overlay-open .header-menu-btn {
 .faq-accordion {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 14px;
 }
 
 .faq-item {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: var(--color-white);
 }
 
 .faq-question {
@@ -5430,21 +5431,21 @@ body.overlay-open .header-menu-btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 0;
-    background: transparent;
+    padding: 20px 24px;
+    background: var(--color-dark);
     border: none;
     text-align: left;
     cursor: pointer;
     font-family: var(--font-sans);
     font-size: 16px;
     font-weight: 500;
-    color: var(--color-dark);
+    color: var(--color-white);
     letter-spacing: 0.3px;
-    transition: color 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .faq-question:hover {
-    color: var(--color-grey);
+    background: #222222;
 }
 
 .faq-question span:first-child {
@@ -5455,7 +5456,7 @@ body.overlay-open .header-menu-btn {
 .faq-icon {
     font-size: 24px;
     font-weight: 300;
-    color: var(--color-dark);
+    color: var(--color-white);
     transition: transform 0.3s ease, color 0.3s ease;
     flex-shrink: 0;
     width: 24px;
@@ -5464,7 +5465,7 @@ body.overlay-open .header-menu-btn {
 
 .faq-question[aria-expanded="true"] .faq-icon {
     transform: rotate(45deg);
-    color: var(--color-grey);
+    color: rgba(255, 255, 255, 0.88);
 }
 
 .faq-answer {
@@ -5472,20 +5473,22 @@ body.overlay-open .header-menu-btn {
     overflow: hidden;
     transition: max-height 0.4s ease, padding 0.4s ease;
     padding: 0;
+    background: #f7f7f7;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .faq-item.active .faq-answer {
     max-height: 500px;
-    padding-bottom: 24px;
+    padding: 18px 24px 22px;
 }
 
 .faq-answer p {
     font-family: var(--font-sans);
     font-size: 14px;
     line-height: 1.8;
-    color: var(--color-grey);
+    color: var(--color-dark);
     margin: 0;
-    padding-top: 8px;
+    padding-top: 0;
 }
 
 @media (max-width: 1024px) {
@@ -5533,9 +5536,9 @@ body.overlay-open .header-menu-btn {
     
     .faq-question {
         font-size: 14px;
-        padding: 20px 0;
+        padding: 16px 18px;
     }
-    
+
     .faq-answer p {
         font-size: 13px;
     }
