@@ -4898,13 +4898,13 @@ body.overlay-open .header-menu-btn {
 
 .pricing-card {
     background: var(--color-white);
-    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.07);
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     position: relative;
     overflow: hidden;
@@ -4916,13 +4916,14 @@ body.overlay-open .header-menu-btn {
 }
 
 .pricing-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-6px);
+    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 0, 0, 0.12);
 }
 
 .pricing-card-header {
     background: var(--color-dark);
-    padding: 24px 30px;
+    padding: 26px 30px 22px;
     width: 100%;
     text-align: center;
 }
@@ -4939,37 +4940,41 @@ body.overlay-open .header-menu-btn {
 }
 
 .pricing-card-subtitle {
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: 8px;
+    letter-spacing: 0.8px;
+    color: rgba(255, 255, 255, 0.82);
+    margin-top: 10px;
     margin-bottom: 0;
 }
 
 .pricing-card-price-wrapper {
-    margin: 24px 0;
+    margin: 28px 0 22px;
     text-align: center;
     width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .pricing-card-price {
     display: inline-block;
-    font-size: 28px;
+    font-size: 36px;
     font-weight: 700;
     color: var(--color-dark);
     background: transparent;
-    padding: 12px 24px;
+    padding: 0 24px;
     letter-spacing: 0;
     text-transform: none;
     border: none;
+    line-height: 1.1;
 }
 
 .pricing-card-desc {
     font-size: 14px;
-    line-height: 1.7;
+    line-height: 1.8;
     color: var(--color-grey);
-    margin: 0 30px 30px 30px;
+    margin: 0 30px 34px 30px;
     text-align: center;
 }
 
@@ -4978,11 +4983,11 @@ body.overlay-open .header-menu-btn {
     max-width: 280px;
     text-align: center;
     margin: 0 30px 30px 30px;
-    background: transparent;
-    border: 2px solid var(--color-dark);
-    color: var(--color-dark);
-    padding: 16px 30px;
-    font-weight: 500;
+    background: #111111;
+    border: 1px solid #111111;
+    color: var(--color-white);
+    padding: 15px 26px;
+    font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: all 0.25s ease;
@@ -4992,7 +4997,8 @@ body.overlay-open .header-menu-btn {
 }
 
 .pricing-card-button:hover {
-    background: var(--color-dark);
+    background: #2a2a2a;
+    border-color: #2a2a2a;
     color: var(--color-white);
     transform: none;
     box-shadow: none;
