@@ -4899,7 +4899,7 @@ body.overlay-open .header-menu-btn {
 .pricing-card {
     background: var(--color-white);
     border: 1px solid rgba(0, 0, 0, 0.07);
-    padding: 0;
+    padding: 14px 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -4923,8 +4923,9 @@ body.overlay-open .header-menu-btn {
 
 .pricing-card-header {
     background: var(--color-dark);
-    padding: 26px 30px 22px;
-    width: 100%;
+    padding: 18px 26px;
+    width: calc(100% - 36px);
+    margin: 0 18px;
     text-align: center;
 }
 
@@ -4944,8 +4945,8 @@ body.overlay-open .header-menu-btn {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    color: rgba(255, 255, 255, 0.82);
-    margin-top: 10px;
+    color: #0f8996;
+    margin-top: 16px;
     margin-bottom: 0;
 }
 
@@ -4983,22 +4984,22 @@ body.overlay-open .header-menu-btn {
     max-width: 280px;
     text-align: center;
     margin: 0 30px 30px 30px;
-    background: #111111;
-    border: 1px solid #111111;
-    color: var(--color-white);
+    background: transparent;
+    border: 2px solid #7ac2ca;
+    color: var(--color-dark);
     padding: 15px 26px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-transform: none;
     transition: all 0.25s ease;
-    border-radius: 0;
+    border-radius: 999px;
     cursor: pointer;
     margin-top: auto;
 }
 
 .pricing-card-button:hover {
-    background: #2a2a2a;
-    border-color: #2a2a2a;
+    background: var(--color-dark);
+    border-color: var(--color-dark);
     color: var(--color-white);
     transform: none;
     box-shadow: none;
@@ -5222,7 +5223,7 @@ body.overlay-open .header-menu-btn {
 
     .pricing-card {
         max-width: 100%;
-        padding: 30px 25px;
+        padding: 14px 0 0;
         min-height: 520px;
     }
 }
