@@ -367,7 +367,7 @@ function initCertificateLightbox() {
     <div class="container">
         <div class="materials-header">
             <h2 class="materials-title">Корисні матеріали</h2>
-            <p class="materials-subtitle">Дізнайтеся більше про операції, захворювання, обстеження та методи лікування в наших статтях</p>
+            <p class="materials-subtitle">Дізнайтеся більше в урологічних статтях — перевірена інформація про операції, обстеження та сучасні методи лікування від досвідченого лікаря</p>
         </div>
         
         <?php
@@ -390,38 +390,14 @@ function initCertificateLightbox() {
             'order' => 'ASC',
         ));
         
-        // Collect 2 posts from each category
-        $materials_posts = array();
-        $used_post_ids = array();
-        
-        foreach ($all_categories as $cat) {
-            $cat_posts = get_posts(array(
-                'post_type' => 'post',
-                'posts_per_page' => 4, // Get more to account for duplicates
-                'post_status' => 'publish',
-                'category' => $cat->term_id,
-                'orderby' => 'date',
-                'order' => 'DESC',
-            ));
-            
-            $count = 0;
-            foreach ($cat_posts as $post) {
-                // Skip if already used (post in multiple categories)
-                if (in_array($post->ID, $used_post_ids)) {
-                    continue;
-                }
-                
-                $materials_posts[] = array(
-                    'post' => $post,
-                    'category_slug' => $cat->slug,
-                    'category_name' => $cat->name,
-                );
-                $used_post_ids[] = $post->ID;
-                $count++;
-                
-                if ($count >= 2) break; // 2 posts per category
-            }
-        }
+        // Get all published posts and bind each post to all its categories
+        $materials_posts = get_posts(array(
+            'post_type' => 'post',
+            'posts_per_page' => -1,
+            'post_status' => 'publish',
+            'orderby' => 'date',
+            'order' => 'DESC',
+        ));
         
         
         $card_index = 0;
@@ -436,23 +412,27 @@ function initCertificateLightbox() {
         
         <div class="materials-grid">
             <?php if (!empty($materials_posts)) : ?>
-                <?php foreach ($materials_posts as $item) : 
-                    $post = $item['post'];
-                    $category_slug = $item['category_slug'];
-                    $category_name = $item['category_name'];
+                <?php foreach ($materials_posts as $post_item) :
+                    $post_categories = get_the_category($post_item->ID);
+                    if (empty($post_categories)) {
+                        continue;
+                    }
+                    $category_slugs = wp_list_pluck($post_categories, 'slug');
+                    $category_names = wp_list_pluck($post_categories, 'name');
+                    $primary_category_name = $category_names[0];
                     
                     // Use placeholder image in random order
                     $image_url = $placeholder_images[$card_index % count($placeholder_images)];
                     $card_index++;
                 ?>
-                    <article class="material-card" data-category="<?php echo esc_attr($category_slug); ?>">
-                        <a href="<?php echo get_permalink($post->ID); ?>" class="material-card-link">
+                    <article class="material-card" data-category="<?php echo esc_attr(implode(' ', $category_slugs)); ?>">
+                        <a href="<?php echo get_permalink($post_item->ID); ?>" class="material-card-link">
                             <div class="material-card-image">
-                                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($post->post_title); ?>" loading="lazy">
+                                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($post_item->post_title); ?>" loading="lazy">
                             </div>
                             <div class="material-card-content">
-                                <span class="material-card-category"><?php echo esc_html($category_name); ?></span>
-                                <h3 class="material-card-title"><?php echo esc_html($post->post_title); ?></h3>
+                                <span class="material-card-category"><?php echo esc_html($primary_category_name); ?></span>
+                                <h3 class="material-card-title"><?php echo esc_html($post_item->post_title); ?></h3>
                             </div>
                         </a>
                     </article>
@@ -491,9 +471,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const filter = this.getAttribute('data-filter');
             
             materialCards.forEach((card, index) => {
-                const category = card.getAttribute('data-category');
+                const categoryString = card.getAttribute('data-category') || '';
+                const categories = categoryString.split(' ').filter(Boolean);
                 
-                if (filter === 'all' || category === filter) {
+                if (filter === 'all' || categories.includes(filter)) {
                     // Show card with staggered animation
                     card.style.transitionDelay = (index * 0.05) + 's';
                     card.classList.remove('hidden');
