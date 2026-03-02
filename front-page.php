@@ -383,21 +383,79 @@ function initCertificateLightbox() {
         );
         shuffle($placeholder_images);
         
-        // Get all categories for filters
+        $max_materials_posts = 8;
+
+        // Get all actual blog categories (without default uncategorized labels)
         $all_categories = get_categories(array(
             'hide_empty' => true,
             'orderby' => 'name',
             'order' => 'ASC',
         ));
-        
-        // Get all published posts and bind each post to all its categories
-        $materials_posts = get_posts(array(
+
+        $all_categories = array_values(array_filter($all_categories, function($cat) {
+            return !in_array($cat->slug, array('uncategorized', 'bez-rubriki', 'without-category'), true);
+        }));
+
+        // Pull a wider pool, then select up to 8 posts with best category coverage
+        $all_blog_posts = get_posts(array(
             'post_type' => 'post',
-            'posts_per_page' => 8,
+            'posts_per_page' => 60,
             'post_status' => 'publish',
             'orderby' => 'date',
             'order' => 'DESC',
         ));
+
+        $materials_posts = array();
+        $used_post_ids = array();
+
+        // 1) Ensure represented categories appear in cards
+        foreach ($all_categories as $cat) {
+            foreach ($all_blog_posts as $candidate_post) {
+                if (count($materials_posts) >= $max_materials_posts) {
+                    break 2;
+                }
+
+                if (in_array($candidate_post->ID, $used_post_ids, true)) {
+                    continue;
+                }
+
+                if (has_category($cat->term_id, $candidate_post)) {
+                    $materials_posts[] = $candidate_post;
+                    $used_post_ids[] = $candidate_post->ID;
+                    break;
+                }
+            }
+        }
+
+        // 2) Fill remaining places by newest posts
+        foreach ($all_blog_posts as $candidate_post) {
+            if (count($materials_posts) >= $max_materials_posts) {
+                break;
+            }
+
+            if (in_array($candidate_post->ID, $used_post_ids, true)) {
+                continue;
+            }
+
+            $materials_posts[] = $candidate_post;
+            $used_post_ids[] = $candidate_post->ID;
+        }
+
+        // Build only relevant filters that are present in selected posts
+        $active_category_slugs = array();
+        foreach ($materials_posts as $selected_post) {
+            $post_categories = get_the_category($selected_post->ID);
+            if (empty($post_categories)) {
+                continue;
+            }
+            foreach ($post_categories as $post_cat) {
+                $active_category_slugs[$post_cat->slug] = true;
+            }
+        }
+
+        $filter_categories = array_values(array_filter($all_categories, function($cat) use ($active_category_slugs) {
+            return isset($active_category_slugs[$cat->slug]);
+        }));
         
         
         $card_index = 0;
@@ -405,7 +463,7 @@ function initCertificateLightbox() {
         
         <div class="materials-filters">
             <button class="materials-filter active" data-filter="all">Всі статті</button>
-            <?php foreach ($all_categories as $cat) : ?>
+            <?php foreach ($filter_categories as $cat) : ?>
                 <button class="materials-filter" data-filter="<?php echo esc_attr($cat->slug); ?>"><?php echo esc_html($cat->name); ?></button>
             <?php endforeach; ?>
         </div>
