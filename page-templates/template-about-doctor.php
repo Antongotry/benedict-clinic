@@ -87,7 +87,7 @@ get_header();
         <div class="experience-tabs-nav">
             <button class="experience-tab-btn active" data-tab="education">
                 <span class="experience-tab-title">ОСВІТА ТА НАВЧАННЯ</span>
-                <span class="experience-tab-count">7</span>
+                <span class="experience-tab-count">6</span>
             </button>
             <button class="experience-tab-btn" data-tab="conferences">
                 <span class="experience-tab-title">КОНФЕРЕНЦІЇ</span>
@@ -111,7 +111,7 @@ get_header();
             </button>
             <button class="experience-tab-btn" data-tab="ubd">
                 <span class="experience-tab-title">УБД</span>
-                <span class="experience-tab-count">5</span>
+                <span class="experience-tab-count">1</span>
             </button>
         </div>
         <div class="experience-tabs-content">
@@ -133,9 +133,6 @@ get_header();
                 </div>
                 <div class="experience-item">
                     <p>Міжнародна медична програма Work &amp; Travel / клінічна практика — United States (літо 2010)</p>
-                </div>
-                <div class="experience-item">
-                    <p>Уточнити: чи є тематичні курси після 2016 року</p>
                 </div>
             </div>
             <div class="experience-tab-panel" id="tab-conferences">
@@ -232,18 +229,6 @@ get_header();
             <div class="experience-tab-panel" id="tab-ubd">
                 <div class="experience-item">
                     <p>Учасник бойових дій: у складі зведеного медичного загону Державної прикордонної служби України в м. Покровськ, Лозова, Дружківка. Надавав урологічну та хірургічну допомогу військовослужбовцям у період 2023–2024 років.</p>
-                </div>
-                <div class="experience-item">
-                    <p>Які документи ще потрібно відсканувати: диплом інтернатури — Львівський національний медичний університет імені Данила Галицького.</p>
-                </div>
-                <div class="experience-item">
-                    <p>Які документи ще потрібно відсканувати: сертифікати конференцій «Малоінвазивні технології в урології» (2012 / 2013 / 2023).</p>
-                </div>
-                <div class="experience-item">
-                    <p>Які документи ще потрібно відсканувати: сертифікат з’їзду Польського товариства урологів (2013).</p>
-                </div>
-                <div class="experience-item">
-                    <p>Які документи ще потрібно відсканувати: будь-які сертифікати після 2023 року (якщо є).</p>
                 </div>
             </div>
         </div>
