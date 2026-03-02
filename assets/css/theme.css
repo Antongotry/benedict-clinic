@@ -1085,7 +1085,7 @@ body.overlay-open .header-dropdown {
 .why-choose-title {
     font-family: var(--font-serif);
     font-size: clamp(32px, 4vw, 48px);
-    font-weight: 400;
+    font-weight: 500;
     color: var(--color-dark);
     margin-bottom: 0;
     line-height: 1.2;
@@ -1098,25 +1098,25 @@ body.overlay-open .header-dropdown {
 }
 
 .why-choose-card {
-    background-color: var(--color-white);
+    background-color: #3f3f3f;
     padding: 40px 35px;
     text-align: center;
     transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     display: flex;
     flex-direction: column;
 }
 
 .why-choose-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.22);
 }
 
 .why-choose-card-title {
     font-family: var(--font-serif);
     font-size: clamp(18px, 1.5vw, 22px);
     font-weight: 600;
-    color: var(--color-dark);
+    color: var(--color-white);
     margin-bottom: 20px;
     line-height: 1.3;
 }
@@ -1125,7 +1125,7 @@ body.overlay-open .header-dropdown {
     font-family: var(--font-sans);
     font-size: clamp(13px, 1vw, 14px);
     line-height: 1.7;
-    color: var(--color-grey);
+    color: rgba(255, 255, 255, 0.88);
     margin: 0 0 20px 0;
 }
 
@@ -1135,9 +1135,9 @@ body.overlay-open .header-dropdown {
     font-size: clamp(11px, 0.8vw, 12px);
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 0.72);
     padding-top: 15px;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
     margin-top: auto;
 }
 
