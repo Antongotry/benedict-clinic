@@ -1120,7 +1120,7 @@ body.overlay-open .header-dropdown {
 .why-choose-card-title {
     font-family: var(--font-serif);
     font-size: clamp(18px, 1.5vw, 22px);
-    font-weight: 600;
+    font-weight: 400;
     color: var(--color-white);
     margin-bottom: 20px;
     line-height: 1.3;
