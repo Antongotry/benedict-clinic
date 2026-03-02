@@ -1507,7 +1507,7 @@ body.overlay-open .header-dropdown {
 
 .certificates-subtitle {
     font-family: var(--font-sans);
-    font-size: clamp(14px, 1.2vw, 16px);
+    font-size: clamp(16px, 1.45vw, 20px);
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.9);
     margin: 0;
@@ -1528,7 +1528,7 @@ body.overlay-open .header-dropdown {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.6;
+    opacity: 1;
     transition: opacity 0.3s ease;
 }
 
@@ -1551,7 +1551,7 @@ body.overlay-open .header-dropdown {
 }
 
 .certificates-swiper .swiper-slide-active img {
-    transform: scaleX(1.15) scaleY(1.08);
+    transform: scaleX(1.08) scaleY(1.04);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     border-radius: 0;
     z-index: 2;
@@ -1710,7 +1710,7 @@ body.overlay-open .header-dropdown {
     }
     
     .certificates-swiper .swiper-slide-active img {
-        transform: scaleX(1.15) scaleY(1.08);
+        transform: scaleX(1.04) scaleY(1.02);
     }
     
     .certificates-button-next,
@@ -1749,16 +1749,17 @@ body.overlay-open .header-dropdown {
 
 .certificate-lightbox-content {
     position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
+    max-width: min(78vw, 1200px);
+    max-height: 84vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .certificate-lightbox-content img {
+    width: auto;
     max-width: 100%;
-    max-height: 90vh;
+    max-height: 84vh;
     object-fit: contain;
     border-radius: 0;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -1846,6 +1847,15 @@ body.overlay-open .header-dropdown {
 }
 
 @media (max-width: 768px) {
+    .certificate-lightbox-content {
+        max-width: 92vw;
+        max-height: 80vh;
+    }
+
+    .certificate-lightbox-content img {
+        max-height: 80vh;
+    }
+
     .certificate-lightbox-nav {
         width: 45px;
         height: 45px;

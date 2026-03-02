@@ -150,8 +150,8 @@ get_header();
     <div class="certificates-background"></div>
     <div class="container">
         <div class="certificates-header">
-            <h2 class="certificates-title">Сертифікати</h2>
-            <p class="certificates-subtitle">Постійне навчання і вдосконалення — запорука сучасного та безпечного лікування, що дозволяє обирати найефективніші методи для кожного пацієнта</p>
+            <h2 class="certificates-title">Освітні та професійні досягнення</h2>
+            <p class="certificates-subtitle">Постійне вдосконалення знань та досвід практики в США та Європі дозволяють застосовувати сучасні, точні та ефективні методи для кожного пацієнта</p>
         </div>
         <div class="certificates-slider-wrapper">
             <div class="swiper certificates-swiper">
@@ -197,9 +197,15 @@ document.addEventListener('DOMContentLoaded', function() {
             slidesPerView: 1,
             spaceBetween: 40,
             centeredSlides: true,
-            loop: false,
+            loop: true,
             initialSlide: 0,
             autoHeight: false,
+            speed: 900,
+            autoplay: {
+                delay: 2800,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
             navigation: {
                 nextEl: '.certificates-button-next',
                 prevEl: '.certificates-button-prev',
