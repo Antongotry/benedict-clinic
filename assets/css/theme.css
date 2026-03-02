@@ -6403,6 +6403,11 @@ body.overlay-open .header-menu-btn {
     padding-top: 55px;
 }
 
+.instagram-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .instagram-header {
     text-align: center;
     margin-bottom: 60px;
@@ -6439,6 +6444,8 @@ body.overlay-open .header-menu-btn {
 
 .instagram-feed-wrapper {
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {

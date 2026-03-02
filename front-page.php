@@ -1383,7 +1383,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <p class="instagram-subtitle">Підписуйтесь, щоб першими дізнаватись про нові послуги, акції та цікаві факти про здоров'я</p>
         </div>
         <div class="instagram-feed-wrapper">
-            <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
+            <?php echo do_shortcode('[instagram-feed feed=3]'); ?>
         </div>
     </div>
 </section>
