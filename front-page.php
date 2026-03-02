@@ -1425,7 +1425,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="final-cta-gradient"></div>
     <div class="final-cta-content">
         <p class="final-cta-tagline">DR. BENEDICT UROLOGY</p>
-        <h2 class="final-cta-title">Ваше здоров'я —<br>наша місія</h2>
+        <h2 class="final-cta-title">Ваше здоров'я —<br>моя місія</h2>
         <p class="final-cta-desc">14+ років досвіду. Тисячі успішних операцій.<br>Персональний підхід до кожного пацієнта.</p>
         <div class="final-cta-buttons">
             <button class="final-cta-btn primary" data-consultation-open>Записатись на прийом</button>
