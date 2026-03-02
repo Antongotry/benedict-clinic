@@ -907,6 +907,12 @@ document.addEventListener('DOMContentLoaded', function() {
             slidesPerView: 1,
             spaceBetween: 30,
             loop: true,
+            speed: 850,
+            autoplay: {
+                delay: 3200,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
             navigation: {
                 nextEl: '.testimonials-button-next',
                 prevEl: '.testimonials-button-prev',
@@ -1151,7 +1157,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <article class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonials-avatars.webp" alt="Олег">
+                                    <img src="https://i.pravatar.cc/200?img=12" alt="Олег" loading="lazy">
                                 </div>
                                 <div class="testimonial-author">
                                     <h4 class="testimonial-name">Олег</h4>
@@ -1170,7 +1176,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <article class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonials-avatars.webp" alt="Олег">
+                                    <img src="https://i.pravatar.cc/200?img=21" alt="Олег" loading="lazy">
                                 </div>
                                 <div class="testimonial-author">
                                     <h4 class="testimonial-name">Олег</h4>
@@ -1189,7 +1195,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <article class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonials-avatars.webp" alt="Ірина">
+                                    <img src="https://i.pravatar.cc/200?img=5" alt="Ірина" loading="lazy">
                                 </div>
                                 <div class="testimonial-author">
                                     <h4 class="testimonial-name">Ірина</h4>
@@ -1208,7 +1214,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <article class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonials-avatars.webp" alt="Андрій">
+                                    <img src="https://i.pravatar.cc/200?img=33" alt="Андрій" loading="lazy">
                                 </div>
                                 <div class="testimonial-author">
                                     <h4 class="testimonial-name">Андрій</h4>
@@ -1227,7 +1233,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <article class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonials-avatars.webp" alt="Микола">
+                                    <img src="https://i.pravatar.cc/200?img=54" alt="Микола" loading="lazy">
                                 </div>
                                 <div class="testimonial-author">
                                     <h4 class="testimonial-name">Микола</h4>
@@ -1246,7 +1252,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <article class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonials-avatars.webp" alt="Сергій">
+                                    <img src="https://i.pravatar.cc/200?img=66" alt="Сергій" loading="lazy">
                                 </div>
                                 <div class="testimonial-author">
                                     <h4 class="testimonial-name">Сергій</h4>
@@ -1265,7 +1271,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <article class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonials-avatars.webp" alt="Василь">
+                                    <img src="https://i.pravatar.cc/200?img=70" alt="Василь" loading="lazy">
                                 </div>
                                 <div class="testimonial-author">
                                     <h4 class="testimonial-name">Василь</h4>

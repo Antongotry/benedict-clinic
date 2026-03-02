@@ -5547,7 +5547,7 @@ body.overlay-open .header-menu-btn {
 /* Testimonials Section */
 .testimonials-section {
     background: var(--color-white);
-    padding: 100px 0;
+    padding: 100px 0 70px;
 }
 
 .testimonials-header {
@@ -5642,12 +5642,10 @@ body.overlay-open .header-menu-btn {
     background: var(--color-dark);
 } */
 
-/* Варіант 1: Тонка чорна лінія зверху для парних карток */
+/* Alternate card tones for clearer visual rhythm */
 .testimonials-swiper .swiper-slide:nth-child(even) .testimonial-card {
-    border-top: 3px solid var(--color-dark);
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: var(--color-dark);
+    border-color: var(--color-dark);
 }
 
 /* Варіант 6: Чорний бордер зверху і знизу */
@@ -5683,12 +5681,13 @@ body.overlay-open .header-menu-btn {
 }
 
 .testimonial-avatar {
-    width: 50px;
-    height: 50px;
+    width: 68px;
+    height: 68px;
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: rgba(0, 0, 0, 0.08);
+    border: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 .testimonial-avatar img {
@@ -5732,6 +5731,22 @@ body.overlay-open .header-menu-btn {
     margin: 0;
     font-style: normal;
     flex: 1;
+}
+
+.testimonials-swiper .swiper-slide:nth-child(even) .testimonial-header {
+    border-bottom-color: rgba(255, 255, 255, 0.24);
+}
+
+.testimonials-swiper .swiper-slide:nth-child(even) .testimonial-name,
+.testimonials-swiper .swiper-slide:nth-child(even) .testimonial-age,
+.testimonials-swiper .swiper-slide:nth-child(even) .testimonial-text,
+.testimonials-swiper .swiper-slide:nth-child(even) .testimonial-social {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.testimonials-swiper .swiper-slide:nth-child(even) .testimonial-avatar {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .testimonials-navigation {
@@ -5878,7 +5893,7 @@ body.overlay-open .header-menu-btn {
 /* Contacts Section */
 .contacts-section {
     background: var(--color-white);
-    padding: 50px 0 100px 0;
+    padding: 30px 0 100px 0;
     overflow: visible;
 }
 
