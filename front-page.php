@@ -17,7 +17,7 @@ get_header();
     </div>
     <div class="hero-video-content">
         <h1 class="hero-video-title">DR. BENEDICT</h1>
-        <p class="hero-video-subtitle">лікар уролог, засновник benedict clinic</p>
+        <p class="hero-video-subtitle">лікар уролог, засновник Benedict clinic</p>
         <div class="hero-video-buttons">
             <a href="#contact" class="hero-btn hero-btn-primary">Записатись на консультацію</a>
             <a href="<?php echo home_url('/dr-benedict'); ?>" class="hero-btn hero-btn-secondary">Про лікаря</a>
@@ -38,11 +38,11 @@ get_header();
     <div class="container">
         <div class="about-content">
             <p class="about-label">ХІРУРГІЯ</p>
-            <h2 class="about-name">Виконую складні хірургічні втручання</h2>
+            <h2 class="about-name">Передові хірургічні рішення</h2>
             <div class="about-services">
                 <div class="about-service-item">
                     <h3 class="about-service-title">Малоінвазивні методи лікування</h3>
-                    <p class="about-service-text">Дозволяють досягати високих результатів з мінімальними травмами для пацієнта та коротким періодом відновлення</p>
+                    <p class="about-service-text">Технологічні рішення, що поєднують ефективність, делікатний підхід і швидке відновлення</p>
                 </div>
                 <div class="about-service-item">
                     <h3 class="about-service-title">Онкодіагностика та онкоурологія</h3>
