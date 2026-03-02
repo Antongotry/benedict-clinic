@@ -87,103 +87,163 @@ get_header();
         <div class="experience-tabs-nav">
             <button class="experience-tab-btn active" data-tab="education">
                 <span class="experience-tab-title">ОСВІТА ТА НАВЧАННЯ</span>
-                <span class="experience-tab-count">5</span>
+                <span class="experience-tab-count">7</span>
             </button>
             <button class="experience-tab-btn" data-tab="conferences">
                 <span class="experience-tab-title">КОНФЕРЕНЦІЇ</span>
-                <span class="experience-tab-count">2</span>
+                <span class="experience-tab-count">7</span>
             </button>
             <button class="experience-tab-btn" data-tab="practice">
                 <span class="experience-tab-title">ПРАКТИКА</span>
-                <span class="experience-tab-count">2</span>
+                <span class="experience-tab-count">4</span>
             </button>
             <button class="experience-tab-btn" data-tab="experience">
                 <span class="experience-tab-title">ДОСВІД</span>
-                <span class="experience-tab-count">3</span>
+                <span class="experience-tab-count">7</span>
             </button>
             <button class="experience-tab-btn" data-tab="certification">
                 <span class="experience-tab-title">СЕРТИФІКАЦІЯ</span>
-                <span class="experience-tab-count">4</span>
+                <span class="experience-tab-count">7</span>
             </button>
             <button class="experience-tab-btn" data-tab="membership">
                 <span class="experience-tab-title">ЧЛЕНСТВО</span>
-                <span class="experience-tab-count">1</span>
+                <span class="experience-tab-count">2</span>
             </button>
             <button class="experience-tab-btn" data-tab="ubd">
                 <span class="experience-tab-title">УБД</span>
-                <span class="experience-tab-count">24</span>
+                <span class="experience-tab-count">5</span>
             </button>
         </div>
         <div class="experience-tabs-content">
             <div class="experience-tab-panel active" id="tab-education">
                 <div class="experience-item">
-                    <p>Медичний факультет — Івано-Франківський національний медичний університет (2006–2012)</p>
+                    <p>Клінічна ординатура за спеціальністю «Урологія» — ДУ «Інститут урології НАМН України», м. Київ (01.09.2014 – 31.08.2016)</p>
                 </div>
                 <div class="experience-item">
-                    <p>Клінічна практика / медичний стаж — Івано-Франківська обласна клінічна лікарня, урологічне відділення (2012)</p>
+                    <p>Інтернатура за спеціальністю «Урологія» — Львівський національний медичний університет імені Данила Галицького (2012–2014)</p>
                 </div>
                 <div class="experience-item">
-                    <p>Інтернатура, урологія — Львівський національний медичний університет (2012–2014)</p>
+                    <p>Клінічне стажування з урології — Klinika Świętej Rodziny, Poznań, Polska (листопад 2013)</p>
                 </div>
                 <div class="experience-item">
-                    <p>Клінічна інтернатура, урологія (закордонне стажування) — Клініка св. Родини, Познань, Польща (листопад 2013)</p>
+                    <p>Клінічна практика — урологічне відділення Івано-Франківської обласної клінічної лікарні (2012)</p>
                 </div>
                 <div class="experience-item">
-                    <p>Міжнародна медична програма Work & Travel / хірургічна практика — США (літо 2010)</p>
+                    <p>Повна вища освіта за спеціальністю «Лікувальна справа», кваліфікація — лікар — Івано-Франківський національний медичний університет (2006–2012)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Міжнародна медична програма Work &amp; Travel / клінічна практика — United States (літо 2010)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Уточнити: чи є тематичні курси після 2016 року</p>
                 </div>
             </div>
             <div class="experience-tab-panel" id="tab-conferences">
                 <div class="experience-item">
-                    <p>Конференція 1 — Опис конференції</p>
+                    <p>ERUS23 — 20th Meeting of the EAU Robotic Urology Section, Florence, Italy (13–15 September 2023)</p>
                 </div>
                 <div class="experience-item">
-                    <p>Конференція 2 — Опис конференції</p>
+                    <p>Наукова конференція «Школа по діагностиці і лікуванню раку передміхурової залози», Київ (17–18 листопада 2014)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Науково-практична конференція з онкоурології «Мовембер-2019», Київ (28–29 листопада 2019)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Конференція «Малоінвазивні технології в урології», Яремче (2023)</p>
+                </div>
+                <div class="experience-item">
+                    <p>З’їзд Польського товариства урологів, Jachranka (2013)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Конференція «Малоінвазивні технології в урології», Яремче (2013)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Конференція «Малоінвазивні технології в урології», Яремче (2012)</p>
                 </div>
             </div>
             <div class="experience-tab-panel" id="tab-practice">
                 <div class="experience-item">
-                    <p>Практика 1 — Опис практики</p>
+                    <p>Клінічна ординатура — ДУ «Інститут урології НАМН України» (2014–2016)</p>
                 </div>
                 <div class="experience-item">
-                    <p>Практика 2 — Опис практики</p>
+                    <p>Клінічне стажування — Klinika Świętej Rodziny, Poznań (2013)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Клінічна практика — Івано-Франківська обласна клінічна лікарня (2012)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Міжнародна клінічна практика — United States (2010)</p>
                 </div>
             </div>
             <div class="experience-tab-panel" id="tab-experience">
                 <div class="experience-item">
-                    <p>Досвід 1 — Опис досвіду</p>
+                    <p>Головний лікар, засновник, лікар-уролог — Benedict Clinic (з серпня 2025 — теперішній час)</p>
                 </div>
                 <div class="experience-item">
-                    <p>Досвід 2 — Опис досвіду</p>
+                    <p>Лікар-уролог — ТОВ «Медичний центр «Добробут-Поліклініка», м. Київ (2022 — січень 2026)</p>
                 </div>
                 <div class="experience-item">
-                    <p>Досвід 3 — Опис досвіду</p>
+                    <p>Лікар-уролог, лікар-хірург — зведений медичний загін Державної прикордонної служби України (2023–2024)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Старший ординатор урологічного відділення — Головний військово-медичний клінічний центр ДПСУ (2016–2024)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Клінічний ординатор — ДУ «Інститут урології НАМН України» (2014–2016)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Лікар-інтерн — урологічне відділення Львівської обласної клінічної лікарні (2012–2014)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Медичний брат — урологічне відділення Івано-Франківської обласної клінічної лікарні (2012)</p>
                 </div>
             </div>
             <div class="experience-tab-panel" id="tab-certification">
                 <div class="experience-item">
-                    <p>Сертифікат 1 — Опис сертифікату</p>
+                    <p>Сертифікат лікаря-спеціаліста за спеціальністю «Урологія» — 20.06.2014</p>
                 </div>
                 <div class="experience-item">
-                    <p>Сертифікат 2 — Опис сертифікату</p>
+                    <p>Свідоцтво про клінічну ординатуру — ДУ «Інститут урології НАМН України» (2014–2016)</p>
                 </div>
                 <div class="experience-item">
-                    <p>Сертифікат 3 — Опис сертифікату</p>
+                    <p>Друга кваліфікаційна категорія лікаря-уролога — присвоєна 15.12.2017</p>
                 </div>
                 <div class="experience-item">
-                    <p>Сертифікат 4 — Опис сертифікату</p>
+                    <p>Перша кваліфікаційна категорія лікаря-уролога — чинна до 29.03.2026</p>
+                </div>
+                <div class="experience-item">
+                    <p>Сертифікат учасника EAU Robotic Urology Section (ERUS23), Florence, Italy (2023)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Сертифікат наукової конференції «Школа по діагностиці і лікуванню рака передміхурової залози» (2014)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Сертифікат участі у науково-практичній конференції «Мовембер-2019»</p>
                 </div>
             </div>
             <div class="experience-tab-panel" id="tab-membership">
                 <div class="experience-item">
-                    <p>Член Європейської асоціації урологів</p>
+                    <p>European Association of Urology (EAU)</p>
+                </div>
+                <div class="experience-item">
+                    <p>Українська асоціація урологів</p>
                 </div>
             </div>
             <div class="experience-tab-panel" id="tab-ubd">
                 <div class="experience-item">
-                    <p>УБД 1 — Опис</p>
+                    <p>Учасник бойових дій: у складі зведеного медичного загону Державної прикордонної служби України в м. Покровськ, Лозова, Дружківка. Надавав урологічну та хірургічну допомогу військовослужбовцям у період 2023–2024 років.</p>
                 </div>
                 <div class="experience-item">
-                    <p>УБД 2 — Опис</p>
+                    <p>Які документи ще потрібно відсканувати: диплом інтернатури — Львівський національний медичний університет імені Данила Галицького.</p>
+                </div>
+                <div class="experience-item">
+                    <p>Які документи ще потрібно відсканувати: сертифікати конференцій «Малоінвазивні технології в урології» (2012 / 2013 / 2023).</p>
+                </div>
+                <div class="experience-item">
+                    <p>Які документи ще потрібно відсканувати: сертифікат з’їзду Польського товариства урологів (2013).</p>
+                </div>
+                <div class="experience-item">
+                    <p>Які документи ще потрібно відсканувати: будь-які сертифікати після 2023 року (якщо є).</p>
                 </div>
             </div>
         </div>
@@ -408,4 +468,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <?php
 get_footer();
-
