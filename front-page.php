@@ -1157,7 +1157,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <article class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">
-                                    <img src="https://i.pravatar.cc/200?img=12" alt="Олег" loading="lazy">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Олег" loading="lazy">
                                 </div>
                                 <div class="testimonial-author">
                                     <h4 class="testimonial-name">Олег</h4>
@@ -1176,7 +1176,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <article class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">
-                                    <img src="https://i.pravatar.cc/200?img=21" alt="Олег" loading="lazy">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Олег" loading="lazy">
                                 </div>
                                 <div class="testimonial-author">
                                     <h4 class="testimonial-name">Олег</h4>
@@ -1195,7 +1195,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <article class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">
-                                    <img src="https://i.pravatar.cc/200?img=5" alt="Ірина" loading="lazy">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ірина" loading="lazy">
                                 </div>
                                 <div class="testimonial-author">
                                     <h4 class="testimonial-name">Ірина</h4>
@@ -1214,7 +1214,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <article class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">
-                                    <img src="https://i.pravatar.cc/200?img=33" alt="Андрій" loading="lazy">
+                                    <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="Андрій" loading="lazy">
                                 </div>
                                 <div class="testimonial-author">
                                     <h4 class="testimonial-name">Андрій</h4>
@@ -1233,7 +1233,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <article class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">
-                                    <img src="https://i.pravatar.cc/200?img=54" alt="Микола" loading="lazy">
+                                    <img src="https://randomuser.me/api/portraits/men/61.jpg" alt="Микола" loading="lazy">
                                 </div>
                                 <div class="testimonial-author">
                                     <h4 class="testimonial-name">Микола</h4>
@@ -1252,7 +1252,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <article class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">
-                                    <img src="https://i.pravatar.cc/200?img=66" alt="Сергій" loading="lazy">
+                                    <img src="https://randomuser.me/api/portraits/men/73.jpg" alt="Сергій" loading="lazy">
                                 </div>
                                 <div class="testimonial-author">
                                     <h4 class="testimonial-name">Сергій</h4>
@@ -1271,7 +1271,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <article class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="testimonial-avatar">
-                                    <img src="https://i.pravatar.cc/200?img=70" alt="Василь" loading="lazy">
+                                    <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Василь" loading="lazy">
                                 </div>
                                 <div class="testimonial-author">
                                     <h4 class="testimonial-name">Василь</h4>
