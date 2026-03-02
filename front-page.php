@@ -424,9 +424,11 @@ function initCertificateLightbox() {
 
         $materials_posts = array();
         $used_post_ids = array();
+        $per_category_quota = 2;
 
-        // 1) Ensure represented categories appear in cards
+        // 1) Ensure balanced representation: up to 2 posts per target category
         foreach ($all_categories as $cat) {
+            $category_count = 0;
             foreach ($all_blog_posts as $candidate_post) {
                 if (count($materials_posts) >= $max_materials_posts) {
                     break 2;
@@ -439,7 +441,10 @@ function initCertificateLightbox() {
                 if (has_category($cat->term_id, $candidate_post)) {
                     $materials_posts[] = $candidate_post;
                     $used_post_ids[] = $candidate_post->ID;
-                    break;
+                    $category_count++;
+                    if ($category_count >= $per_category_quota) {
+                        break;
+                    }
                 }
             }
         }
