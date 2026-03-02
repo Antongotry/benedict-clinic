@@ -4364,6 +4364,73 @@ body.overlay-open .header-menu-btn {
     }
 }
 
+/* About Doctor: compact desktop layout (keep hero full-width) */
+@media (min-width: 769px) {
+    .page-template-template-about-doctor .about-doctor-path,
+    .page-template-template-about-doctor .about-doctor-divider,
+    .page-template-template-about-doctor .about-doctor-surgery,
+    .page-template-template-about-doctor .about-doctor-diagnostics,
+    .page-template-template-about-doctor .podcast-talks-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .page-template-template-about-doctor .about-doctor-path-inner,
+    .page-template-template-about-doctor .about-doctor-surgery-inner,
+    .page-template-template-about-doctor .about-doctor-diagnostics-inner,
+    .page-template-template-about-doctor .about-doctor-experience-inner,
+    .page-template-template-about-doctor .podcast-talks-inner,
+    .page-template-template-about-doctor .about-doctor-divider-inner {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .page-template-template-about-doctor .about-doctor-path-inner,
+    .page-template-template-about-doctor .about-doctor-diagnostics-inner {
+        grid-template-columns: minmax(340px, 460px) 1fr;
+        column-gap: 56px;
+    }
+
+    .page-template-template-about-doctor .about-doctor-surgery-inner,
+    .page-template-template-about-doctor .about-doctor-experience-inner {
+        grid-template-columns: 1fr minmax(340px, 460px);
+        column-gap: 56px;
+    }
+
+    .page-template-template-about-doctor .about-doctor-path-image img,
+    .page-template-template-about-doctor .about-doctor-surgery-image img,
+    .page-template-template-about-doctor .about-doctor-diagnostics-image img {
+        width: 100%;
+    }
+
+    .page-template-template-about-doctor .about-doctor-divider-inner {
+        width: 100%;
+        margin-left: auto;
+    }
+
+    .page-template-template-about-doctor .about-doctor-path-name,
+    .page-template-template-about-doctor .about-doctor-surgery-title,
+    .page-template-template-about-doctor .about-doctor-diagnostics-title {
+        font-size: clamp(26px, 2.2vw, 40px);
+    }
+
+    .page-template-template-about-doctor .about-doctor-path-text p,
+    .page-template-template-about-doctor .about-doctor-surgery-text p,
+    .page-template-template-about-doctor .about-doctor-diagnostics-text p {
+        font-size: clamp(15px, 1.05vw, 20px);
+        line-height: 1.7;
+    }
+
+    .page-template-template-about-doctor .podcast-talks-title {
+        font-size: clamp(38px, 3vw, 58px);
+    }
+
+    .page-template-template-about-doctor .podcast-talks-subtitle {
+        font-size: clamp(16px, 1.2vw, 22px);
+    }
+}
+
 /* Podcast Video Title Link */
 .podcast-video-title-link {
     text-decoration: none;
