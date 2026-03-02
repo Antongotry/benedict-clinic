@@ -92,8 +92,7 @@ get_header();
 <section class="services-section section-padding">
     <div class="container">
         <div class="services-header">
-            <p class="services-label">ПОСЛУГИ</p>
-            <h2 class="services-title">НАШІ ПОСЛУГИ</h2>
+            <h2 class="services-title">ПОСЛУГИ</h2>
             <p class="services-subtitle">Урологічні проблеми можуть довго залишатися непоміченими — не відкладайте візит, почніть з консультації. Раннє звернення допоможе уникнути ускладнень і забезпечить ефективне лікування</p>
         </div>
         <div class="services-grid">
@@ -101,47 +100,47 @@ get_header();
                 <div class="service-card-content">
                     <h3 class="service-card-title">Консультація</h3>
                     <p class="service-card-text">Надаю консультації як офлайн, так і онлайн, щоб ви могли отримати кваліфіковану допомогу у зручний для вас спосіб</p>
-                    <span class="service-card-arrow">→</span>
+                    <span class="service-card-button">Детальніше <span>→</span></span>
                 </div>
             </a>
             <a href="<?php echo home_url('/treatment'); ?>" class="service-card">
                 <div class="service-card-content">
                     <h3 class="service-card-title">Лікування</h3>
-                    <p class="service-card-text">Лікую захворювання нирок, сечового міхура, простати, органів мошонки та статевого члена, застосовуючи сучасні методи для ефективного усунення проблем і відновлення здоров'я</p>
-                    <span class="service-card-arrow">→</span>
+                    <p class="service-card-text">Лікую захворювання нирок, сечового міхура та сечостатевої системи у чоловіків і жінок, застосовуючи сучасні методи для ефективного вирішення та відновлення здоров’я</p>
+                    <span class="service-card-button">Детальніше <span>→</span></span>
                 </div>
             </a>
             <a href="<?php echo home_url('/ultrasound'); ?>" class="service-card">
                 <div class="service-card-content">
                     <h3 class="service-card-title">УЗД</h3>
-                    <p class="service-card-text">Проводжу УЗД нирок, сечового міхура, доплерографію судин мошонки та статевого члена для виявлення патологій і оцінки стану органів</p>
-                    <span class="service-card-arrow">→</span>
+                    <p class="service-card-text">Проводжу УЗД нирок, сечового міхура, простати, органів мошонки та малого таза у чоловіків і жінок для точної оцінки стану та контролю лікування</p>
+                    <span class="service-card-button">Детальніше <span>→</span></span>
                 </div>
             </a>
             <a href="<?php echo home_url('/surgery'); ?>" class="service-card">
                 <div class="service-card-content">
                     <h3 class="service-card-title">Оперативні втручання</h3>
-                    <p class="service-card-text">Використовую сучасні хірургічні методи для лікування захворювань на різних стадіях, забезпечуючи високу точність, ефективність та мінімальні ризики для пацієнта</p>
-                    <span class="service-card-arrow">→</span>
+                    <p class="service-card-text">Застосовую сучасні хірургічні методи для лікування урологічних та онкологічних захворювань на різних стадіях, забезпечуючи точність, ефективність і комфорт пацієнта</p>
+                    <span class="service-card-button">Детальніше <span>→</span></span>
                 </div>
             </a>
             <a href="<?php echo home_url('/plastic-urology'); ?>" class="service-card">
                 <div class="service-card-content">
                     <h3 class="service-card-title">Пластична урологія</h3>
                     <p class="service-card-text">Відновлюю функції та естетику органів сечостатевої системи після травм, операцій або вроджених аномалій</p>
-                    <span class="service-card-arrow">→</span>
+                    <span class="service-card-button">Детальніше <span>→</span></span>
                 </div>
             </a>
             <a href="<?php echo home_url('/conservative-treatment'); ?>" class="service-card">
                 <div class="service-card-content">
                     <h3 class="service-card-title">Консервативне лікування</h3>
                     <p class="service-card-text">Включає застосування медикаментів, фізіотерапії та інших методів для ефективного контролю і корекції захворювань без хірургічного втручання</p>
-                    <span class="service-card-arrow">→</span>
+                    <span class="service-card-button">Детальніше <span>→</span></span>
                 </div>
             </a>
         </div>
         <div class="services-cta">
-            <a href="<?php echo home_url('/services'); ?>" class="services-cta-button">Детальніше <span>|→</span></a>
+            <a href="<?php echo home_url('/services'); ?>" class="services-cta-button">ВСІ ПОСЛУГИ <span>→</span></a>
         </div>
     </div>
 </section>
