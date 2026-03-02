@@ -363,6 +363,18 @@ body.overlay-open .header .header-language-switcher .lang-divider {
     color: var(--color-grey);
 }
 
+.page-template-template-about-doctor .header.container--full-width-padding:not(.is-solid) .header-dropdown-trigger {
+    color: var(--color-dark);
+}
+
+.page-template-template-about-doctor .header.container--full-width-padding:not(.is-solid) .header-dropdown-arrow {
+    stroke: var(--color-dark);
+}
+
+.page-template-template-about-doctor .header.container--full-width-padding:not(.is-solid) .header-dropdown-trigger:hover {
+    color: var(--color-grey);
+}
+
 .page-template-template-about-doctor .header.container--full-width-padding:not(.is-solid) .header-brand-name {
     color: var(--color-dark) !important;
     text-shadow: none;
