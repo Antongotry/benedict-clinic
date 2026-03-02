@@ -39,7 +39,7 @@ $is_english = (substr($current_path, 0, 4) === '/en/' || $current_path === '/en'
         <!-- Center Section: Logo -->
         <div class="header-center">
             <a href="<?php echo home_url('/'); ?>" class="header-brand">
-                <span class="header-brand-name">DR BENEDICT</span>
+                <span class="header-brand-name">DR. BENEDICT</span>
                 <span class="header-brand-subtitle">UROLOGY</span>
             </a>
         </div>
@@ -179,7 +179,7 @@ $is_english = (substr($current_path, 0, 4) === '/en/' || $current_path === '/en'
             <div class="overlay-menu-info">
                 <div class="overlay-brand">
                     <div class="overlay-logo">
-                        <span class="overlay-logo-name">DR BENEDICT</span>
+                        <span class="overlay-logo-name">DR. BENEDICT</span>
                         <span class="overlay-logo-subtitle">UROLOGY</span>
                     </div>
                 </div>
@@ -230,5 +230,4 @@ $is_english = (substr($current_path, 0, 4) === '/en/' || $current_path === '/en'
 </div>
 
 <div id="content" class="site-content">
-
 

@@ -1,11 +1,5 @@
 </div><!-- #content -->
 
-<?php
-// Language switcher - detect current language (for footer)
-$current_path_footer = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$is_english = (substr($current_path_footer, 0, 4) === '/en/' || $current_path_footer === '/en');
-?>
-
 <footer class="site-footer">
     <!-- Primary Footer -->
     <div class="primary-footer container--full-width-padding">
@@ -40,19 +34,15 @@ $is_english = (substr($current_path_footer, 0, 4) === '/en/' || $current_path_fo
                         <li><a href="<?php echo home_url('/quiz-iief'); ?>">IIEF — еректильна функція</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="footer-contact-section">
-                <p class="footer-phone"><a href="tel:+380951344029">+38 095 13 44 029</a></p>
-                <p class="footer-address">Київ, вул. Олеся Бердника, 1Д</p>
-                <div class="footer-language-switcher">
-                    <a href="#" class="lang-link lang-uk<?php echo !$is_english ? ' active' : ''; ?>" data-lang="uk">UK</a>
-                    <span class="lang-divider">|</span>
-                    <a href="#" class="lang-link lang-en<?php echo $is_english ? ' active' : ''; ?>" data-lang="en">EN</a>
+                <div class="footer-menu-column footer-contact-section">
+                    <h4>КОНТАКТИ</h4>
+                    <p class="footer-phone"><a href="tel:+380951344029">+38 095 13 44 029</a></p>
+                    <p class="footer-address">Київ, вул. Олеся Бердника, 1Д</p>
+                    <a href="<?php echo home_url('/'); ?>" class="footer-logo">
+                        <span class="footer-logo-text">DR. BENEDICT</span>
+                        <span class="footer-logo-sub">UROLOGY</span>
+                    </a>
                 </div>
-                <a href="<?php echo home_url('/'); ?>" class="footer-logo">
-                    <span class="footer-logo-text">DR. BENEDICT</span>
-                    <span class="footer-logo-sub">UROLOGY</span>
-                </a>
             </div>
         </div>
     </div>
