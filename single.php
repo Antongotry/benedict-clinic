@@ -26,6 +26,78 @@ $post_id = get_the_ID();
 $categories = get_the_category($post_id);
 $reading_time = benedict_reading_time($post_id);
 $featured_image = benedict_get_featured_image($post_id, 'blog-featured');
+$raw_content = get_the_content();
+$post_content = apply_filters('the_content', $raw_content);
+
+$toc_items = array();
+$modified_content = $post_content;
+
+if (!empty($post_content) && class_exists('DOMDocument')) {
+    $dom = new DOMDocument();
+    $previous_libxml = libxml_use_internal_errors(true);
+    $dom->loadHTML(
+        '<?xml encoding="utf-8" ?><div class="single-post-content-inner">' . $post_content . '</div>',
+        LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD
+    );
+
+    $container = $dom->getElementsByTagName('div')->item(0);
+    $headings = $dom->getElementsByTagName('*');
+    $heading_index = 1;
+    $used_ids = array();
+
+    foreach ($headings as $node) {
+        if (!$node instanceof DOMElement) {
+            continue;
+        }
+
+        $tag_name = strtolower($node->tagName);
+        if (!in_array($tag_name, array('h2', 'h3'), true)) {
+            continue;
+        }
+
+        $title = trim(wp_strip_all_tags($node->textContent));
+        if ($title === '') {
+            continue;
+        }
+
+        $id = $node->getAttribute('id');
+        if ($id === '') {
+            $id = sanitize_title($title);
+        }
+
+        if ($id === '') {
+            $id = 'section-' . $heading_index;
+        }
+
+        $base_id = $id;
+        $suffix = 2;
+        while (isset($used_ids[$id])) {
+            $id = $base_id . '-' . $suffix;
+            $suffix++;
+        }
+
+        $used_ids[$id] = true;
+        $node->setAttribute('id', $id);
+
+        $toc_items[] = array(
+            'id' => $id,
+            'title' => $title,
+            'level' => $tag_name,
+        );
+        $heading_index++;
+    }
+
+    if ($container instanceof DOMElement) {
+        $content_html = '';
+        foreach ($container->childNodes as $child) {
+            $content_html .= $dom->saveHTML($child);
+        }
+        $modified_content = $content_html;
+    }
+
+    libxml_clear_errors();
+    libxml_use_internal_errors($previous_libxml);
+}
 
 // Get related posts (4 cards as per design spec)
 $related_posts = benedict_related_posts($post_id, 4);
@@ -86,7 +158,20 @@ $related_posts = benedict_related_posts($post_id, 4);
     <div class="single-post-body">
         <div class="container">
             <div class="single-post-content">
-                <?php the_content(); ?>
+                <?php if (!empty($toc_items)) : ?>
+                    <aside class="single-post-toc" aria-label="Зміст статті">
+                        <h2 class="single-post-toc-title">Зміст</h2>
+                        <ol class="single-post-toc-list">
+                            <?php foreach ($toc_items as $item) : ?>
+                                <li class="single-post-toc-item toc-<?php echo esc_attr($item['level']); ?>">
+                                    <a href="#<?php echo esc_attr($item['id']); ?>"><?php echo esc_html($item['title']); ?></a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ol>
+                    </aside>
+                <?php endif; ?>
+
+                <?php echo $modified_content; ?>
             </div>
             
             <!-- Post Tags -->
@@ -107,14 +192,12 @@ $related_posts = benedict_related_posts($post_id, 4);
             <!-- Author Box -->
             <div class="single-post-author">
                 <div class="author-avatar">
-                    <?php echo get_avatar(get_the_author_meta('ID'), 100); ?>
+                    <img src="<?php echo esc_url('https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/photo-90-копія-1_result.webp'); ?>" alt="Бенедикт Гаврилишин">
                 </div>
                 <div class="author-info">
                     <span class="author-label">Автор статті</span>
-                    <h4 class="author-name"><?php the_author(); ?></h4>
-                    <?php if (get_the_author_meta('description')) : ?>
-                        <p class="author-bio"><?php the_author_meta('description'); ?></p>
-                    <?php endif; ?>
+                    <h4 class="author-name">Бенедикт Гаврилишин, лікар-уролог</h4>
+                    <p class="author-bio">головний лікар Benedict Clinic</p>
                 </div>
             </div>
             
