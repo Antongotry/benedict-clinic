@@ -722,7 +722,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="statistic-item">
                 <div class="statistic-number">24/7</div>
-                <div class="statistic-label">Цілодобова<br>оперативна урологія</div>
+                <div class="statistic-label">Цілодобова<br>допомога</div>
             </div>
             <div class="statistic-item">
                 <div class="statistic-number" data-target="14">0</div>
