@@ -4893,6 +4893,7 @@ body.overlay-open .header-menu-btn {
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: stretch;
 }
 
 .pricing-card {
@@ -4907,7 +4908,11 @@ body.overlay-open .header-menu-btn {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     position: relative;
     overflow: hidden;
-    min-height: 500px;
+    width: 100%;
+    max-width: 360px;
+    min-height: 560px;
+    margin: 0 auto;
+    border-radius: 0;
 }
 
 .pricing-card:hover {
@@ -5190,6 +5195,10 @@ body.overlay-open .header-menu-btn {
     .pricing-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .pricing-card {
+        max-width: 420px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -5206,7 +5215,9 @@ body.overlay-open .header-menu-btn {
     }
 
     .pricing-card {
+        max-width: 100%;
         padding: 30px 25px;
+        min-height: 520px;
     }
 }
 
