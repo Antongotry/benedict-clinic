@@ -1056,11 +1056,16 @@ body.overlay-open .header-dropdown {
 .about-service-title {
     font-family: var(--font-sans);
     font-size: clamp(14px, 1.2vw, 16px);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 0.5px;
     color: var(--color-dark);
     margin-bottom: clamp(10px, 1vw, 12px);
     line-height: 1.4;
+}
+
+/* Emphasize subheadings only in About block on homepage */
+#about .about-service-title {
+    font-weight: 600;
 }
 
 .about-service-text {
@@ -2549,7 +2554,6 @@ body.overlay-open .header-dropdown {
     
     .about-service-title {
         font-size: clamp(14px, 3vw, 15px);
-        font-weight: 600;
         margin-bottom: clamp(8px, 2vw, 10px);
     }
     
