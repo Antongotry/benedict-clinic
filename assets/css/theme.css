@@ -5893,8 +5893,13 @@ body.overlay-open .header-menu-btn {
 /* Contacts Section */
 .contacts-section {
     background: var(--color-white);
-    padding: 30px 0 100px 0;
+    padding: 30px 0 65px 0;
     overflow: visible;
+}
+
+.contacts-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .contacts-header {
@@ -5912,9 +5917,9 @@ body.overlay-open .header-menu-btn {
 
 .contacts-subtitle {
     font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--color-grey);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color-dark);
     max-width: 620px;
     margin: 0 auto;
     line-height: 1.7;
@@ -5987,16 +5992,17 @@ body.overlay-open .header-menu-btn {
 
 .contacts-label {
     font-family: var(--font-sans);
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--color-grey);
+    color: var(--color-dark);
     margin: 0 0 10px 0;
 }
 
 .contacts-value {
     font-family: var(--font-sans);
-    font-size: 16px;
+    font-size: 18px;
     color: var(--color-dark);
     margin: 0;
     line-height: 1.6;
@@ -6013,9 +6019,9 @@ body.overlay-open .header-menu-btn {
 }
 
 .contacts-form-wrapper {
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    border: 1px solid #111111;
     padding: 40px;
-    background: var(--color-white);
+    background: #111111;
 }
 
 .contacts-form {
@@ -6032,21 +6038,21 @@ body.overlay-open .header-menu-btn {
 
 .contacts-field span {
     font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--color-dark);
+    color: rgba(255, 255, 255, 0.95);
 }
 
 .contacts-field input,
 .contacts-field textarea {
     font-family: var(--font-sans);
-    font-size: 15px;
-    padding: 14px 16px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    padding: 15px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
     background: var(--color-white);
-    color: var(--color-dark);
+    color: #000000;
     transition: border-color 0.3s ease;
     width: 100%;
     box-sizing: border-box;
@@ -6056,7 +6062,7 @@ body.overlay-open .header-menu-btn {
 .contacts-field input:focus,
 .contacts-field textarea:focus {
     outline: none;
-    border-color: var(--color-dark);
+    border-color: rgba(255, 255, 255, 0.8);
 }
 
 .contacts-field input::placeholder,
@@ -6069,15 +6075,15 @@ body.overlay-open .header-menu-btn {
     align-items: flex-start;
     gap: 12px;
     font-family: var(--font-sans);
-    font-size: 13px;
-    color: var(--color-grey);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.88);
 }
 
 .contacts-checkbox input {
     appearance: none;
     width: 22px;
     height: 22px;
-    border: 1px solid var(--color-dark);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     background: var(--color-white);
     display: inline-flex;
     align-items: center;
@@ -6091,7 +6097,7 @@ body.overlay-open .header-menu-btn {
     content: '';
     width: 12px;
     height: 12px;
-    background: var(--color-dark);
+    background: #000000;
     opacity: 0;
     transition: opacity 0.2s ease;
 }
@@ -6101,12 +6107,12 @@ body.overlay-open .header-menu-btn {
 }
 
 .contacts-checkbox a {
-    color: var(--color-dark);
+    color: #ffffff;
     text-decoration: none;
 }
 
 .contacts-checkbox a:hover {
-    color: var(--color-grey);
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .contacts-submit {
@@ -6118,8 +6124,8 @@ body.overlay-open .header-menu-btn {
     letter-spacing: 1.5px;
     text-transform: uppercase;
     background-color: transparent;
-    color: var(--color-dark);
-    border: 2px solid var(--color-dark);
+    color: var(--color-white);
+    border: 2px solid rgba(255, 255, 255, 0.9);
     border-radius: 0;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -6127,8 +6133,8 @@ body.overlay-open .header-menu-btn {
 }
 
 .contacts-submit:hover {
-    background-color: var(--color-dark);
-    color: var(--color-white);
+    background-color: #ffffff;
+    color: #000000;
     transform: none !important;
 }
 
@@ -6141,7 +6147,7 @@ body.overlay-open .header-menu-btn {
     font-family: var(--font-serif);
     font-size: 26px;
     font-weight: 400;
-    color: var(--color-dark);
+    color: var(--color-white);
     margin: 0 0 12px 0;
 }
 
@@ -6149,7 +6155,7 @@ body.overlay-open .header-menu-btn {
     font-family: var(--font-sans);
     font-size: 14px;
     line-height: 1.7;
-    color: var(--color-grey);
+    color: rgba(255, 255, 255, 0.82);
     margin: 0;
 }
 
@@ -6394,6 +6400,7 @@ body.overlay-open .header-menu-btn {
 .instagram-section {
     background-color: var(--color-white);
     position: relative;
+    padding-top: 55px;
 }
 
 .instagram-header {
