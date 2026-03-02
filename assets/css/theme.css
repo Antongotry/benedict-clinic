@@ -4924,8 +4924,8 @@ body.overlay-open .header-menu-btn {
 .pricing-card-header {
     background: var(--color-dark);
     padding: 18px 26px;
-    width: calc(100% - 36px);
-    margin: 0 18px;
+    width: 100%;
+    margin: 0;
     text-align: center;
 }
 
@@ -4945,7 +4945,7 @@ body.overlay-open .header-menu-btn {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    color: #0f8996;
+    color: rgba(255, 255, 255, 0.82);
     margin-top: 16px;
     margin-bottom: 0;
 }
@@ -4985,14 +4985,14 @@ body.overlay-open .header-menu-btn {
     text-align: center;
     margin: 0 30px 30px 30px;
     background: transparent;
-    border: 2px solid #7ac2ca;
+    border: 2px solid var(--color-dark);
     color: var(--color-dark);
     padding: 15px 26px;
     font-weight: 500;
     letter-spacing: 0.3px;
     text-transform: none;
     transition: all 0.25s ease;
-    border-radius: 999px;
+    border-radius: 0;
     cursor: pointer;
     margin-top: auto;
 }
