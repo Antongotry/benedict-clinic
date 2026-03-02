@@ -900,14 +900,12 @@ function benedict_comment_form_fields($fields) {
     </div>';
     
     $fields['email'] = '<div class="comment-form-field comment-form-email">
-        <label for="email">' . __('Email', 'rosenberg-clinic') . ' <span class="required">*</span></label>
-        <input id="email" name="email" type="email" value="' . esc_attr($commenter['comment_author_email']) . '" required>
+        <label for="email">' . __('Email', 'rosenberg-clinic') . '</label>
+        <input id="email" name="email" type="email" value="' . esc_attr($commenter['comment_author_email']) . '">
     </div>';
-    
-    $fields['url'] = '<div class="comment-form-field comment-form-url">
-        <label for="url">' . __('Веб-сайт', 'rosenberg-clinic') . '</label>
-        <input id="url" name="url" type="url" value="' . esc_attr($commenter['comment_author_url']) . '">
-    </div>';
+
+    // Remove website field from comment form.
+    unset($fields['url']);
     
     // Remove cookies field
     unset($fields['cookies']);
@@ -915,6 +913,14 @@ function benedict_comment_form_fields($fields) {
     return $fields;
 }
 add_filter('comment_form_default_fields', 'benedict_comment_form_fields');
+
+/**
+ * Make email optional in comments.
+ */
+function benedict_disable_required_comment_email($value) {
+    return 0;
+}
+add_filter('pre_option_require_name_email', 'benedict_disable_required_comment_email');
 
 /**
  * Enqueue blog styles
