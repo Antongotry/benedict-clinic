@@ -239,6 +239,36 @@ function rosenberg_register_post_types() {
 add_action('init', 'rosenberg_register_post_types');
 
 /**
+ * Register blog topics taxonomy for posts.
+ */
+function benedict_register_blog_topics_taxonomy() {
+    register_taxonomy('disease_topic', array('post'), array(
+        'labels' => array(
+            'name' => __('Теми', 'rosenberg-clinic'),
+            'singular_name' => __('Тема', 'rosenberg-clinic'),
+            'menu_name' => __('Теми', 'rosenberg-clinic'),
+            'all_items' => __('Всі теми', 'rosenberg-clinic'),
+            'edit_item' => __('Редагувати тему', 'rosenberg-clinic'),
+            'view_item' => __('Переглянути тему', 'rosenberg-clinic'),
+            'update_item' => __('Оновити тему', 'rosenberg-clinic'),
+            'add_new_item' => __('Додати нову тему', 'rosenberg-clinic'),
+            'new_item_name' => __('Назва нової теми', 'rosenberg-clinic'),
+            'search_items' => __('Шукати теми', 'rosenberg-clinic'),
+            'not_found' => __('Тем не знайдено', 'rosenberg-clinic'),
+        ),
+        'public' => true,
+        'hierarchical' => true,
+        'show_admin_column' => true,
+        'show_in_rest' => true,
+        'rewrite' => array(
+            'slug' => 'topic',
+            'with_front' => false,
+        ),
+    ));
+}
+add_action('init', 'benedict_register_blog_topics_taxonomy');
+
+/**
  * Add custom meta boxes
  */
 function rosenberg_add_meta_boxes() {
@@ -725,6 +755,22 @@ function benedict_blog_posts_per_page($query) {
     if (!is_admin() && $query->is_main_query()) {
         if (is_home() || is_category() || is_archive()) {
             $query->set('posts_per_page', 9);
+
+            $topic_slug = isset($_GET['topic']) ? sanitize_title(wp_unslash($_GET['topic'])) : '';
+            if ($topic_slug !== '' && taxonomy_exists('disease_topic')) {
+                $tax_query = $query->get('tax_query');
+                if (!is_array($tax_query)) {
+                    $tax_query = array();
+                }
+
+                $tax_query[] = array(
+                    'taxonomy' => 'disease_topic',
+                    'field' => 'slug',
+                    'terms' => $topic_slug,
+                );
+
+                $query->set('tax_query', $tax_query);
+            }
         }
     }
 }

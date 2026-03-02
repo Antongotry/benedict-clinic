@@ -145,6 +145,56 @@
 }
 
 /* ===================================
+   TOPIC FILTER
+   =================================== */
+.blog-topics {
+    background-color: var(--color-light-grey);
+    padding: 24px 0 10px;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+}
+
+.blog-topics .container {
+    max-width: 1120px;
+}
+
+.blog-topics-title {
+    margin: 0 0 14px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+.blog-topics-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.blog-topic-link {
+    display: inline-block;
+    padding: 9px 16px;
+    background: #ffffff;
+    color: var(--color-dark);
+    text-decoration: none;
+    border: 1px solid rgba(26, 26, 26, 0.18);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    line-height: 1.25;
+    transition: var(--blog-transition);
+}
+
+.blog-topic-link:hover {
+    border-color: var(--color-dark);
+    background-color: #eef2f7;
+}
+
+.blog-topic-link.active {
+    background-color: var(--color-dark);
+    border-color: var(--color-dark);
+    color: var(--color-white);
+}
+
+/* ===================================
    BLOG ARCHIVE / GRID
    =================================== */
 .blog-archive {
@@ -1016,6 +1066,25 @@
     
     .blog-categories-nav::-webkit-scrollbar {
         display: none;
+    }
+
+    .blog-topics {
+        padding: 18px 0 4px;
+    }
+
+    .blog-topics-list {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .blog-topics-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    .blog-topic-link {
+        white-space: nowrap;
     }
     
     .blog-archive {

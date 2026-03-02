@@ -31,6 +31,13 @@ $categories = get_categories(array(
     'orderby' => 'name',
     'order' => 'ASC',
 ));
+$current_topic = isset($_GET['topic']) ? sanitize_title(wp_unslash($_GET['topic'])) : '';
+$topics = get_terms(array(
+    'taxonomy' => 'disease_topic',
+    'hide_empty' => true,
+    'orderby' => 'name',
+    'order' => 'ASC',
+));
 ?>
 
 <!-- Blog Hero Section -->
@@ -58,12 +65,13 @@ $categories = get_categories(array(
 <section class="blog-categories">
     <div class="container">
         <nav class="blog-categories-nav">
-            <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" 
+            <a href="<?php echo esc_url($current_topic ? add_query_arg('topic', $current_topic, get_permalink(get_option('page_for_posts'))) : get_permalink(get_option('page_for_posts'))); ?>" 
                class="blog-category-link">
                 Всі статті
             </a>
             <?php foreach ($categories as $category) : ?>
-                <a href="<?php echo get_category_link($category->term_id); ?>" 
+                <?php $category_url = get_category_link($category->term_id); ?>
+                <a href="<?php echo esc_url($current_topic ? add_query_arg('topic', $current_topic, $category_url) : $category_url); ?>" 
                    class="blog-category-link <?php echo $current_category->term_id === $category->term_id ? 'active' : ''; ?>">
                     <?php echo esc_html($category->name); ?>
                 </a>
@@ -71,6 +79,22 @@ $categories = get_categories(array(
         </nav>
     </div>
 </section>
+
+<?php if (!is_wp_error($topics) && !empty($topics)) : ?>
+<section class="blog-topics">
+    <div class="container">
+        <h3 class="blog-topics-title">Теми</h3>
+        <div class="blog-topics-list">
+            <a href="<?php echo esc_url(get_category_link($current_category->term_id)); ?>" class="blog-topic-link <?php echo $current_topic === '' ? 'active' : ''; ?>">Всі теми</a>
+            <?php foreach ($topics as $topic) : ?>
+                <a href="<?php echo esc_url(add_query_arg('topic', $topic->slug, get_category_link($current_category->term_id))); ?>" class="blog-topic-link <?php echo $current_topic === $topic->slug ? 'active' : ''; ?>">
+                    <?php echo esc_html($topic->name); ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
 
 <!-- Blog Posts Grid -->
 <section class="blog-archive">
@@ -90,6 +114,7 @@ $categories = get_categories(array(
                     'next_text' => '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>',
                     'type' => 'array',
                     'mid_size' => 2,
+                    'add_args' => $current_topic ? array('topic' => $current_topic) : false,
                 ));
                 
                 if ($pagination) :
