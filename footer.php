@@ -199,53 +199,6 @@
 })();
 </script>
 
-<script>
-// Language Switcher
-document.addEventListener('DOMContentLoaded', function() {
-    const langLinks = document.querySelectorAll('.lang-link[data-lang]');
-    
-    langLinks.forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetLang = this.getAttribute('data-lang');
-            let currentPath = window.location.pathname;
-            let newPath;
-            
-            // Check if currently on English
-            const isOnEnglish = currentPath.startsWith('/en/') || currentPath === '/en';
-            
-            if (targetLang === 'en') {
-                // Switch to English
-                if (!isOnEnglish) {
-                    if (currentPath === '/') {
-                        newPath = '/en/';
-                    } else {
-                        newPath = '/en' + currentPath;
-                    }
-                } else {
-                    newPath = currentPath; // Already on English
-                }
-            } else {
-                // Switch to Ukrainian
-                if (isOnEnglish) {
-                    // Remove /en from path
-                    newPath = currentPath.replace(/^\/en\/?/, '/');
-                    if (newPath === '' || newPath === '/en') {
-                        newPath = '/';
-                    }
-                } else {
-                    newPath = currentPath; // Already on Ukrainian
-                }
-            }
-            
-            // Navigate to new path
-            window.location.href = newPath;
-        });
-    });
-});
-</script>
-
 <?php wp_footer(); ?>
 </body>
 </html>

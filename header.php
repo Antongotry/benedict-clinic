@@ -12,12 +12,6 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<?php
-// Language switcher - detect current language
-$current_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$is_english = (substr($current_path, 0, 4) === '/en/' || $current_path === '/en');
-?>
-
 <header id="header-40cd750b" class="header container--full-width-padding">
     <div class="header-wrapper">
         <!-- Left Section: Phone + Instagram -->
@@ -29,11 +23,6 @@ $is_english = (substr($current_path, 0, 4) === '/en/' || $current_path === '/en'
                 </svg>
                 <span>@dr_benedikt</span>
             </a>
-            <div class="header-item header-language-switcher">
-                <a href="#" class="lang-link lang-uk<?php echo !$is_english ? ' active' : ''; ?>" data-lang="uk">UK</a>
-                <span class="lang-divider">|</span>
-                <a href="#" class="lang-link lang-en<?php echo $is_english ? ' active' : ''; ?>" data-lang="en">EN</a>
-            </div>
         </div>
         
         <!-- Center Section: Logo -->
@@ -193,12 +182,6 @@ $is_english = (substr($current_path, 0, 4) === '/en/' || $current_path === '/en'
                     </p>
                 </div>
                 
-                <div class="overlay-language-switcher">
-                    <a href="#" class="lang-link lang-uk<?php echo !$is_english ? ' active' : ''; ?>" data-lang="uk">UK</a>
-                    <span class="lang-divider">|</span>
-                    <a href="#" class="lang-link lang-en<?php echo $is_english ? ' active' : ''; ?>" data-lang="en">EN</a>
-                </div>
-                
                 <div class="overlay-social">
                     <p class="overlay-social-title">Наші соцмережі:</p>
                     <div class="overlay-social-links">
@@ -230,4 +213,3 @@ $is_english = (substr($current_path, 0, 4) === '/en/' || $current_path === '/en'
 </div>
 
 <div id="content" class="site-content">
-
