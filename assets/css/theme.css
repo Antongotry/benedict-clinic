@@ -6241,7 +6241,7 @@ body.overlay-open .header-menu-btn {
     }
 }
 
-/* Consultation Modal */
+/* Consultation Modal — поверх хедера */
 .consultation-modal {
     position: fixed;
     inset: 0;
@@ -6251,7 +6251,7 @@ body.overlay-open .header-menu-btn {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 9999;
+    z-index: 10100;
 }
 
 .consultation-modal.active {
