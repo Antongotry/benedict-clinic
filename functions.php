@@ -13,6 +13,24 @@ require_once get_template_directory() . '/inc/acf-helpers.php';
 require_once get_template_directory() . '/inc/acf-options.php';
 require_once get_template_directory() . '/inc/acf-fields.php';
 
+// Ensure ACF Pro license is activated
+function benedict_ensure_acf_license() {
+    if (!function_exists('acf_pro_update_license')) {
+        return;
+    }
+    $license = get_option('acf_pro_license');
+    if (empty($license)) {
+        acf_pro_update_license('B5E0B5F8DD8689E6ACA49DD6E6E1A930');
+    }
+}
+add_action('admin_init', 'benedict_ensure_acf_license');
+
+// Force-load WP media uploader on all admin pages (required for ACF image/file fields)
+function benedict_enqueue_admin_media() {
+    wp_enqueue_media();
+}
+add_action('admin_enqueue_scripts', 'benedict_enqueue_admin_media');
+
 // Allow SVG uploads
 function benedict_allow_svg_upload($mimes) {
     $mimes['svg'] = 'image/svg+xml';
