@@ -16,7 +16,7 @@ get_header();
     <div class="about-doctor-hero-content">
         <div class="about-doctor-main">
             <h1 class="about-doctor-name">DR. BENEDICT</h1>
-            <p class="about-doctor-subtitle">уролог, засновник Benedict Clinic</p>
+            <p class="about-doctor-subtitle">лікар уролог, засновник benedict clinic</p>
         </div>
         <div class="about-doctor-bottom">
             <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/image-1.png" alt="Badge" class="about-doctor-badge">

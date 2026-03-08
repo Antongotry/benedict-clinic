@@ -3384,6 +3384,7 @@ body.overlay-open .header-menu-btn {
         margin-bottom: 0;
         color: #ffffff;
         text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        max-width: 75vw;
     }
     
     .about-doctor-bottom {
@@ -3509,6 +3510,7 @@ body.overlay-open .header-menu-btn {
         font-size: 4.5vw;
         margin-bottom: 6vw;
         color: #ffffff;
+        max-width: 75vw;
     }
     
     .about-doctor-bottom {
