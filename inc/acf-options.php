@@ -7,9 +7,12 @@ if (!function_exists('acf_add_options_page')) {
     return;
 }
 
-// Main options page
+add_action('acf/init', 'benedict_register_acf_options');
+
+function benedict_register_acf_options() {
+
 acf_add_options_page(array(
-    'page_title'    => 'Налаштування сайту',
+    'page_title'    => 'Контент сайту',
     'menu_title'    => 'Контент сайту',
     'menu_slug'     => 'site-settings',
     'capability'    => 'edit_posts',
@@ -18,29 +21,14 @@ acf_add_options_page(array(
     'position'      => 2,
 ));
 
-// Sub pages
-acf_add_options_sub_page(array(
-    'page_title'    => 'Контактна інформація',
-    'menu_title'    => 'Контакти',
-    'parent_slug'   => 'site-settings',
-));
-
-acf_add_options_sub_page(array(
-    'page_title'    => 'Соціальні мережі',
-    'menu_title'    => 'Соцмережі',
-    'parent_slug'   => 'site-settings',
-));
-
-// Register global fields
 acf_add_local_field_group(array(
     'key' => 'group_global_settings',
-    'title' => 'Налаштування сайту',
+    'title' => 'Глобальні налаштування',
     'fields' => array(
-        // Brand tab
+        // --- BRAND ---
         array(
             'key' => 'field_tab_brand',
             'label' => 'Бренд',
-            'name' => '',
             'type' => 'tab',
         ),
         array(
@@ -49,7 +37,7 @@ acf_add_local_field_group(array(
             'name' => 'brand_name',
             'type' => 'text',
             'default_value' => 'DR BENEDICT',
-            'instructions' => 'Основна назва (відображається в хедері та футері)',
+            'instructions' => 'Відображається в хедері та футері',
         ),
         array(
             'key' => 'field_brand_subtitle',
@@ -59,11 +47,10 @@ acf_add_local_field_group(array(
             'default_value' => 'UROLOGY',
         ),
 
-        // Contacts tab
+        // --- CONTACTS ---
         array(
             'key' => 'field_tab_contacts',
             'label' => 'Контакти',
-            'name' => '',
             'type' => 'tab',
         ),
         array(
@@ -110,23 +97,20 @@ acf_add_local_field_group(array(
             'type' => 'text',
             'default_value' => 'Сб, Нд - Вихідний',
         ),
-    ),
-    'location' => array(
         array(
-            array(
-                'param' => 'options_page',
-                'operator' => '==',
-                'value' => 'site-settings',
-            ),
+            'key' => 'field_google_maps_embed',
+            'label' => 'Google Maps Embed URL',
+            'name' => 'google_maps_embed',
+            'type' => 'url',
+            'instructions' => 'Повний URL для вбудованої карти (iframe src)',
         ),
-    ),
-));
 
-// Social media fields
-acf_add_local_field_group(array(
-    'key' => 'group_social_settings',
-    'title' => 'Соціальні мережі',
-    'fields' => array(
+        // --- SOCIAL ---
+        array(
+            'key' => 'field_tab_social',
+            'label' => 'Соцмережі',
+            'type' => 'tab',
+        ),
         array(
             'key' => 'field_instagram_url',
             'label' => 'Instagram URL',
@@ -168,32 +152,10 @@ acf_add_local_field_group(array(
             array(
                 'param' => 'options_page',
                 'operator' => '==',
-                'value' => 'acf-options-соцмережі',
+                'value' => 'site-settings',
             ),
         ),
     ),
 ));
 
-// Contact info sub-page fields
-acf_add_local_field_group(array(
-    'key' => 'group_contact_settings',
-    'title' => 'Контактна інформація (детально)',
-    'fields' => array(
-        array(
-            'key' => 'field_google_maps_embed',
-            'label' => 'Google Maps Embed URL',
-            'name' => 'google_maps_embed',
-            'type' => 'url',
-            'instructions' => 'URL для вбудованої карти Google Maps',
-        ),
-    ),
-    'location' => array(
-        array(
-            array(
-                'param' => 'options_page',
-                'operator' => '==',
-                'value' => 'acf-options-контакти',
-            ),
-        ),
-    ),
-));
+} // end benedict_register_acf_options

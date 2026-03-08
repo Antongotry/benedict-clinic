@@ -5,6 +5,14 @@
  */
 
 get_header();
+
+$phone_primary = bf_option('phone_primary', '+38 095 13 44 029');
+$phone_secondary = bf_option('phone_secondary', '+380-96-777-10-87');
+$contact_email = bf_option('contact_email', 'dokbenedikt@gmail.com');
+$contact_address = bf_option('contact_address', 'Київ, вул. Олеся Бердника, 1Д');
+$working_hours = bf_option('working_hours', 'Пн - Пт: 9:00 - 18:00');
+$working_hours_weekend = bf_option('working_hours_weekend', 'Сб, Нд - Вихідний');
+$google_maps_embed = bf_option('google_maps_embed', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.8761486772!2d30.4557!3d50.4217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4c5a5d8e6c18d%3A0x5e6f9d9d9d9d9d9d!2z0LLRg9C7LiDQntC70LXRgdGPINCR0LXRgNC00L3QuNC60LAsIDFELCDQmtC40ZfQsg!5e0!3m2!1suk!2sua!4v1234567890123!5m2!1suk!2sua');
 ?>
 
 <section class="contact-page-hero">
@@ -33,8 +41,8 @@ get_header();
                         </div>
                         <div class="contact-page-item-content">
                             <span class="contact-page-item-label">Робочий час</span>
-                            <p class="contact-page-item-value">Пн - Пт: 9:00 - 18:00</p>
-                            <p class="contact-page-item-note">Сб, Нд - Вихідний</p>
+                            <p class="contact-page-item-value"><?php echo esc_html($working_hours); ?></p>
+                            <p class="contact-page-item-note"><?php echo esc_html($working_hours_weekend); ?></p>
                         </div>
                     </div>
                     
@@ -47,7 +55,7 @@ get_header();
                         </div>
                         <div class="contact-page-item-content">
                             <span class="contact-page-item-label">Електронна пошта</span>
-                            <a href="mailto:dokbenedikt@gmail.com" class="contact-page-item-value contact-page-link">dokbenedikt@gmail.com</a>
+                            <a href="mailto:<?php echo esc_attr($contact_email); ?>" class="contact-page-item-value contact-page-link"><?php echo esc_html($contact_email); ?></a>
                         </div>
                     </div>
                     
@@ -59,7 +67,7 @@ get_header();
                         </div>
                         <div class="contact-page-item-content">
                             <span class="contact-page-item-label">Телефон</span>
-                            <a href="tel:+380967771087" class="contact-page-item-value contact-page-link">+38 096 777 10 87</a>
+                            <a href="tel:<?php echo esc_attr(preg_replace('/[^+0-9]/', '', $phone_primary)); ?>" class="contact-page-item-value contact-page-link"><?php echo esc_html($phone_primary); ?></a>
                         </div>
                     </div>
                     
@@ -72,7 +80,7 @@ get_header();
                         </div>
                         <div class="contact-page-item-content">
                             <span class="contact-page-item-label">Адреса</span>
-                            <p class="contact-page-item-value">Київ, вул. Олеся Бердника, 1Д</p>
+                            <p class="contact-page-item-value"><?php echo esc_html($contact_address); ?></p>
                         </div>
                     </div>
                 </div>
@@ -114,7 +122,7 @@ get_header();
 <!-- Map Section -->
 <section class="contact-page-map">
     <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.8761486772!2d30.4557!3d50.4217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4c5a5d8e6c18d%3A0x5e6f9d9d9d9d9d9d!2z0LLRg9C7LiDQntC70LXRgdGPINCR0LXRgNC00L3QuNC60LAsIDFELCDQmtC40ZfQsg!5e0!3m2!1suk!2sua!4v1234567890123!5m2!1suk!2sua" 
+        src="<?php echo esc_url($google_maps_embed); ?>" 
         width="100%" 
         height="500" 
         style="border:0;" 

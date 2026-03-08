@@ -1,12 +1,15 @@
 <?php
 /**
  * ACF Field Groups Registration
- * Registers all field groups for page templates
  */
 
 if (!function_exists('acf_add_local_field_group')) {
     return;
 }
+
+add_action('acf/init', 'benedict_register_acf_field_groups');
+
+function benedict_register_acf_field_groups() {
 
 // =============================================
 // FIELD GROUP: Головна сторінка (front-page.php)
@@ -853,50 +856,7 @@ acf_add_local_field_group(array(
             ),
         ),
     ),
-    'location' => array(
-        array(
-            array(
-                'param' => 'page_template',
-                'operator' => '==',
-                'value' => 'page-consultation.php',
-            ),
-        ),
-        array(
-            array(
-                'param' => 'page_template',
-                'operator' => '==',
-                'value' => 'page-treatment.php',
-            ),
-        ),
-        array(
-            array(
-                'param' => 'page_template',
-                'operator' => '==',
-                'value' => 'page-ultrasound.php',
-            ),
-        ),
-        array(
-            array(
-                'param' => 'page_template',
-                'operator' => '==',
-                'value' => 'page-surgery.php',
-            ),
-        ),
-        array(
-            array(
-                'param' => 'page_template',
-                'operator' => '==',
-                'value' => 'page-plastic-urology.php',
-            ),
-        ),
-        array(
-            array(
-                'param' => 'page_template',
-                'operator' => '==',
-                'value' => 'page-conservative-treatment.php',
-            ),
-        ),
-    ),
+    'location' => benedict_service_page_locations(),
     'menu_order' => 0,
 ));
 
@@ -1297,14 +1257,8 @@ acf_add_local_field_group(array(
             'return_format' => 'url',
         ),
     ),
-    'location' => array(
-        array(
-            array(
-                'param' => 'page_template',
-                'operator' => '==',
-                'value' => 'page-templates/template-services.php',
-            ),
-        ),
-    ),
+    'location' => benedict_page_location_by_slug('services'),
     'menu_order' => 0,
 ));
+
+} // end benedict_register_acf_field_groups
