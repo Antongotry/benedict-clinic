@@ -5262,7 +5262,7 @@ body.overlay-open .header-menu-btn {
 
 @media (max-width: 768px) {
     .pricing-section {
-        padding: 80px 0;
+        padding: 60px 0;
     }
 
     .pricing-title {
@@ -5271,12 +5271,27 @@ body.overlay-open .header-menu-btn {
 
     .pricing-grid {
         grid-template-columns: 1fr;
+        gap: 18px;
     }
 
     .pricing-card {
         max-width: 100%;
         padding: 14px 0 0;
-        min-height: 520px;
+        min-height: auto;
+    }
+
+    .pricing-card-desc {
+        font-size: 16px;
+        line-height: 1.75;
+        margin: 0 24px 28px 24px;
+    }
+
+    .pricing-card-price-wrapper {
+        margin: 22px 0 18px;
+    }
+
+    .pricing-card-button {
+        margin: 0 24px 24px 24px;
     }
 }
 
