@@ -5283,7 +5283,7 @@ body.overlay-open .header-menu-btn {
     .pricing-card-desc {
         font-size: 18px;
         line-height: 1.75;
-        margin: 0 28px 48px 28px;
+        margin: 0 24px 48px 24px;
     }
 
     .pricing-card-price-wrapper {
@@ -5291,7 +5291,7 @@ body.overlay-open .header-menu-btn {
     }
 
     .pricing-card-button {
-        margin: 0 28px 28px 28px;
+        margin: 0 24px 28px 24px;
     }
 }
 
