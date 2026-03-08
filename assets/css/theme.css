@@ -5271,7 +5271,7 @@ body.overlay-open .header-menu-btn {
 
     .pricing-grid {
         grid-template-columns: 1fr;
-        gap: 18px;
+        gap: 24px;
     }
 
     .pricing-card {
@@ -5281,17 +5281,17 @@ body.overlay-open .header-menu-btn {
     }
 
     .pricing-card-desc {
-        font-size: 16px;
+        font-size: 18px;
         line-height: 1.75;
-        margin: 0 24px 28px 24px;
+        margin: 0 28px 32px 28px;
     }
 
     .pricing-card-price-wrapper {
-        margin: 22px 0 18px;
+        margin: 24px 0 20px;
     }
 
     .pricing-card-button {
-        margin: 0 24px 24px 24px;
+        margin: 0 28px 28px 28px;
     }
 }
 
