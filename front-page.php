@@ -583,13 +583,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Statistics Counter Animation
+// Statistics Counter Animation — раніше старт, швидше на мобільному
 document.addEventListener('DOMContentLoaded', function() {
     const counters = document.querySelectorAll('.statistic-number[data-target]');
     
     function animateCounter(counter) {
         const target = parseInt(counter.getAttribute('data-target'));
-        const duration = 2000;
+        var duration = window.innerWidth <= 768 ? 800 : 1200;
         const increment = target / (duration / 16);
         let current = 0;
         
@@ -614,12 +614,12 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCounter();
     }
     
-    const observerOptions = {
-        threshold: 0.5,
-        rootMargin: '0px'
+    var observerOptions = {
+        threshold: 0.15,
+        rootMargin: window.innerWidth <= 768 ? '200px 0px 50px 0px' : '150px 0px 0px 0px'
     };
     
-    const observer = new IntersectionObserver((entries) => {
+    var observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
                 entry.target.classList.add('animated');
