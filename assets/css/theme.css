@@ -2697,8 +2697,8 @@ body.overlay-open .header-dropdown {
     
     
     .about-watermark {
-        font-size: clamp(36px, 10vw, 64px);
-        letter-spacing: clamp(2px, 1.5vw, 10px);
+        font-size: clamp(48px, 14vw, 80px);
+        letter-spacing: clamp(4px, 2vw, 12px);
         bottom: 0;
         margin-top: 24px;
         padding-bottom: 24px;
