@@ -1,5 +1,12 @@
 </div><!-- #content -->
 
+<?php
+$phone_primary = bf_option('phone_primary', '+38 095 13 44 029');
+$brand_name = bf_option('brand_name', 'DR. BENEDICT');
+$brand_subtitle = bf_option('brand_subtitle', 'UROLOGY');
+$contact_address = bf_option('contact_address', 'Київ, вул. Олеся Бердника, 1Д');
+?>
+
 <footer class="site-footer">
     <!-- Primary Footer -->
     <div class="primary-footer container--full-width-padding">
@@ -36,11 +43,11 @@
                 </div>
                 <div class="footer-menu-column footer-contact-section">
                     <h4>КОНТАКТИ</h4>
-                    <p class="footer-phone"><a href="tel:+380951344029">+38 095 13 44 029</a></p>
-                    <p class="footer-address">Київ, вул. Олеся Бердника, 1Д</p>
+                    <p class="footer-phone"><a href="tel:<?php echo esc_attr(preg_replace('/[^+0-9]/', '', $phone_primary)); ?>"><?php echo esc_html($phone_primary); ?></a></p>
+                    <p class="footer-address"><?php echo esc_html($contact_address); ?></p>
                     <a href="<?php echo home_url('/'); ?>" class="footer-logo">
-                        <span class="footer-logo-text">DR. BENEDICT</span>
-                        <span class="footer-logo-sub">UROLOGY</span>
+                        <span class="footer-logo-text"><?php echo esc_html($brand_name); ?></span>
+                        <span class="footer-logo-sub"><?php echo esc_html($brand_subtitle); ?></span>
                     </a>
                 </div>
             </div>

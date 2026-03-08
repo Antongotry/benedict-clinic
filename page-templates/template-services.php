@@ -4,6 +4,17 @@
  */
 
 get_header();
+
+$svp_hero_label = bf('svp_hero_label', 'DR. BENEDICT UROLOGY');
+$svp_hero_title = bf('svp_hero_title', 'ПОСЛУГИ');
+$svp_hero_subtitle = bf('svp_hero_subtitle', 'Комплексна урологічна допомога з індивідуальним підходом до кожного пацієнта');
+$svp_intro_title = bf('svp_intro_title', 'Чому обирають нас?');
+$svp_intro_text = bf('svp_intro_text', '');
+$svp_process_title = bf('svp_process_title', 'Як проходить лікування');
+$svp_cta_title = bf('svp_cta_title', 'Готові записатись?');
+$svp_cta_text = bf('svp_cta_text', 'Не відкладайте турботу про своє здоров\'я. Запишіться на консультацію вже сьогодні.');
+$svp_cta_btn = bf('svp_cta_btn', 'Записатись на прийом');
+$svp_cta_bg = bf_image('svp_cta_bg', 'https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/13_result-scaled.webp');
 ?>
 
 <!-- Hero Section -->
@@ -19,9 +30,9 @@ get_header();
     </div>
     <div class="services-page-hero-overlay"></div>
     <div class="services-page-hero-content">
-        <p class="services-page-hero-label">DR. BENEDICT UROLOGY</p>
-        <h1 class="services-page-hero-title">ПОСЛУГИ</h1>
-        <p class="services-page-hero-subtitle">Комплексна урологічна допомога з індивідуальним підходом до кожного пацієнта</p>
+        <p class="services-page-hero-label"><?php echo esc_html($svp_hero_label); ?></p>
+        <h1 class="services-page-hero-title"><?php echo esc_html($svp_hero_title); ?></h1>
+        <p class="services-page-hero-subtitle"><?php echo esc_html($svp_hero_subtitle); ?></p>
     </div>
 </section>
 
@@ -29,7 +40,7 @@ get_header();
 <section class="services-page-intro">
     <div class="services-page-intro-inner">
         <div class="services-page-intro-content">
-            <h2>Чому обирають нас?</h2>
+            <h2><?php echo esc_html($svp_intro_title); ?></h2>
             <p>Урологічні проблеми можуть довго залишатися непоміченими — не відкладайте візит, почніть з консультації. Раннє звернення допоможе уникнути ускладнень і забезпечить ефективне лікування.</p>
             <p>Я використовую сучасні методи діагностики та лікування, що дозволяє досягати найкращих результатів з мінімальними ризиками для пацієнта.</p>
         </div>
@@ -205,7 +216,7 @@ get_header();
 <!-- Process Section -->
 <section class="services-page-process">
     <div class="services-page-process-inner">
-        <h2 class="services-page-process-title">Як проходить лікування</h2>
+        <h2 class="services-page-process-title"><?php echo esc_html($svp_process_title); ?></h2>
         <div class="services-page-process-grid">
             <div class="services-process-step">
                 <span class="services-process-number">01</span>
@@ -249,14 +260,14 @@ get_header();
 <!-- CTA Section -->
 <section class="services-page-cta">
     <div class="services-page-cta-bg">
-        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/13_result-scaled.webp" alt="Записатись на консультацію">
+        <img src="<?php echo esc_url($svp_cta_bg); ?>" alt="Записатись на консультацію">
     </div>
     <div class="services-page-cta-overlay"></div>
     <div class="services-page-cta-content">
-        <h2>Готові записатись?</h2>
-        <p>Не відкладайте турботу про своє здоров'я. Запишіться на консультацію вже сьогодні.</p>
+        <h2><?php echo esc_html($svp_cta_title); ?></h2>
+        <p><?php echo esc_html($svp_cta_text); ?></p>
         <a href="#" class="services-page-cta-button" data-consultation-open>
-            Записатись на прийом
+            <?php echo esc_html($svp_cta_btn); ?>
         </a>
     </div>
 </section>

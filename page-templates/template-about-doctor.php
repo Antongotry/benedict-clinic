@@ -4,23 +4,55 @@
  */
 
 get_header();
+
+$ad_name = bf('ad_name', 'DR. BENEDICT');
+$ad_subtitle = bf('ad_subtitle', 'лікар уролог, засновник benedict clinic');
+$ad_hero_desktop = bf_image('ad_hero_desktop', 'https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/hero-about_result-scaled.webp');
+$ad_hero_mobile = bf_image('ad_hero_mobile', 'https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/234_result.webp');
+$ad_badge_image = bf_image('ad_badge_image', 'https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/image-1.png');
+$ad_badge_text = bf('ad_badge_text', 'ЧЛЕН ЄВРОПЕЙСЬКОЇ АСОЦІАЦІЇ УРОЛОГІВ');
+
+$ad_path_label = bf('ad_path_label', 'професійний шлях');
+$ad_path_name = bf('ad_path_name', 'Гаврилишин бенедикт');
+$ad_path_image = bf_image('ad_path_image', 'https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/IMG@2x_result.webp');
+$ad_path_text = bf('ad_path_text', '');
+
+$ad_surgery_title = bf('ad_surgery_title', 'оперативні втручання та<br>Пластична реконструктивна хірургія');
+$ad_surgery_image = bf_image('ad_surgery_image', 'https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/photo-90-копія-1_result.webp');
+$ad_surgery_text = bf('ad_surgery_text', '');
+
+$ad_diagnostics_title = bf('ad_diagnostics_title', 'обстеження та лікування');
+$ad_diagnostics_image = bf_image('ad_diagnostics_image', 'https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/photo-36-копія-1_result.webp');
+$ad_diagnostics_text = bf('ad_diagnostics_text', '');
+
+$ad_podcast_title = bf('ad_podcast_title', 'PODCAST TALKS');
+$ad_podcast_subtitle = bf('ad_podcast_subtitle', 'Запрошую познайомитись ще до візиту — перегляньте подкасти про урологічне здоров\'я');
+
+$ad_cta_title = bf('ad_cta_title', 'Заплануйте свою консультацію');
+$ad_cta_btn = bf('ad_cta_btn', "Зв'яжіться зі мною");
+$ad_cta_bg = bf_image('ad_cta_bg', 'https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/13_result-scaled.webp');
+$ad_insta_bg = bf_image('ad_insta_bg', 'https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/12_result-scaled.webp');
+
+$instagram_url = bf_option('instagram_url', 'https://www.instagram.com/dr_benedikt/');
+$instagram_handle = bf_option('instagram_handle', '@dr_benedikt');
+$youtube_url = bf_option('youtube_url', 'https://www.youtube.com/@dr_benedikt');
 ?>
 
 <!-- Hero Section -->
 <section class="about-doctor-hero">
     <div class="about-doctor-hero-bg">
-        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/hero-about_result-scaled.webp" alt="Dr. Benedict" class="hero-bg-desktop">
-        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/234_result.webp" alt="Dr. Benedict" class="hero-bg-mobile">
+        <img src="<?php echo esc_url($ad_hero_desktop); ?>" alt="<?php echo esc_attr($ad_name); ?>" class="hero-bg-desktop">
+        <img src="<?php echo esc_url($ad_hero_mobile); ?>" alt="<?php echo esc_attr($ad_name); ?>" class="hero-bg-mobile">
     </div>
     <div class="about-doctor-hero-gradient-mobile"></div>
     <div class="about-doctor-hero-content">
         <div class="about-doctor-main">
-            <h1 class="about-doctor-name">DR. BENEDICT</h1>
-            <p class="about-doctor-subtitle">лікар уролог, засновник benedict clinic</p>
+            <h1 class="about-doctor-name"><?php echo esc_html($ad_name); ?></h1>
+            <p class="about-doctor-subtitle"><?php echo esc_html($ad_subtitle); ?></p>
         </div>
         <div class="about-doctor-bottom">
-            <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/image-1.png" alt="Badge" class="about-doctor-badge">
-            <span class="about-doctor-bottom-text">ЧЛЕН ЄВРОПЕЙСЬКОЇ АСОЦІАЦІЇ УРОЛОГІВ</span>
+            <img src="<?php echo esc_url($ad_badge_image); ?>" alt="Badge" class="about-doctor-badge">
+            <span class="about-doctor-bottom-text"><?php echo esc_html($ad_badge_text); ?></span>
         </div>
     </div>
 </section>
@@ -29,16 +61,20 @@ get_header();
 <section class="about-doctor-path">
     <div class="about-doctor-path-inner">
         <div class="about-doctor-path-image">
-            <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/IMG@2x_result.webp" alt="Dr. Benedict professional path">
+            <img src="<?php echo esc_url($ad_path_image); ?>" alt="<?php echo esc_attr($ad_path_name); ?>">
         </div>
         <div class="about-doctor-path-content">
-            <p class="about-doctor-path-label">професійний шлях</p>
-            <h2 class="about-doctor-path-name">Гаврилишин бенедикт</h2>
+            <p class="about-doctor-path-label"><?php echo esc_html($ad_path_label); ?></p>
+            <h2 class="about-doctor-path-name"><?php echo esc_html($ad_path_name); ?></h2>
             <div class="about-doctor-path-text">
-                <p>Я лікар-уролог із досвідом у хірургічній та малоінвазивній урології. Пройшов клінічну ординатуру у ДУ «Інститут урології НАМН України» після інтернатури за спеціальністю «урологія» у Львівському національному медичному університеті. Медичну освіту отримав в Івано-Франківському національному медичному університеті.</p>
-                <p>Мій професійний шлях охоплює роботу в урологічних та хірургічних відділеннях України, Польщі та проходження хірургічної практики у США, де я удосконалював підхід до роботи з пацієнтами та сучасні техніки оперативних втручань.</p>
-                <p>Брав участь у роботі зведеного медичного загону Державної прикордонної служби України на передовій: надавав урологічну та хірургічну допомогу, проводив операції та евакуацію поранених військовослужбовців у зоні бойових дій.</p>
-                <p>Постійно підвищую кваліфікацію, беру участь у міжнародних конференціях та навчальних програмах, у тому числі з роботизованої урології та малоінвазивних технологій.</p>
+                <?php if (!empty($ad_path_text)) : ?>
+                    <?php echo wp_kses_post($ad_path_text); ?>
+                <?php else : ?>
+                    <p>Я лікар-уролог із досвідом у хірургічній та малоінвазивній урології. Пройшов клінічну ординатуру у ДУ «Інститут урології НАМН України» після інтернатури за спеціальністю «урологія» у Львівському національному медичному університеті. Медичну освіту отримав в Івано-Франківському національному медичному університеті.</p>
+                    <p>Мій професійний шлях охоплює роботу в урологічних та хірургічних відділеннях України, Польщі та проходження хірургічної практики у США, де я удосконалював підхід до роботи з пацієнтами та сучасні техніки оперативних втручань.</p>
+                    <p>Брав участь у роботі зведеного медичного загону Державної прикордонної служби України на передовій: надавав урологічну та хірургічну допомогу, проводив операції та евакуацію поранених військовослужбовців у зоні бойових дій.</p>
+                    <p>Постійно підвищую кваліфікацію, беру участь у міжнародних конференціях та навчальних програмах, у тому числі з роботизованої урології та малоінвазивних технологій.</p>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -53,14 +89,18 @@ get_header();
 <section class="about-doctor-surgery">
     <div class="about-doctor-surgery-inner">
         <div class="about-doctor-surgery-content">
-            <h2 class="about-doctor-surgery-title">оперативні втручання та<br>Пластична реконструктивна хірургія</h2>
+            <h2 class="about-doctor-surgery-title"><?php echo wp_kses_post($ad_surgery_title); ?></h2>
             <div class="about-doctor-surgery-text">
-                <p>Допомагаю відновити функції та зовнішній вигляд органів після травм, хвороб чи хірургічних втручань, а також враховую естетичні побажання пацієнта для досягнення гармонійного результату.</p>
-                <p>Використовую сучасні хірургічні<br>методи для лікування захворювань на різних стадіях, забезпечуючи високу точність, ефективність та мінімальні ризики для пацієнта</p>
+                <?php if (!empty($ad_surgery_text)) : ?>
+                    <?php echo wp_kses_post($ad_surgery_text); ?>
+                <?php else : ?>
+                    <p>Допомагаю відновити функції та зовнішній вигляд органів після травм, хвороб чи хірургічних втручань, а також враховую естетичні побажання пацієнта для досягнення гармонійного результату.</p>
+                    <p>Використовую сучасні хірургічні<br>методи для лікування захворювань на різних стадіях, забезпечуючи високу точність, ефективність та мінімальні ризики для пацієнта</p>
+                <?php endif; ?>
             </div>
         </div>
         <div class="about-doctor-surgery-image">
-            <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/photo-90-копія-1_result.webp" alt="Operative and reconstructive surgery">
+            <img src="<?php echo esc_url($ad_surgery_image); ?>" alt="Operative and reconstructive surgery">
         </div>
     </div>
 </section>
@@ -69,13 +109,17 @@ get_header();
 <section class="about-doctor-diagnostics">
     <div class="about-doctor-diagnostics-inner">
         <div class="about-doctor-diagnostics-image">
-            <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/photo-36-копія-1_result.webp" alt="Diagnostics and treatment">
+            <img src="<?php echo esc_url($ad_diagnostics_image); ?>" alt="Diagnostics and treatment">
         </div>
         <div class="about-doctor-diagnostics-content">
-            <h2 class="about-doctor-diagnostics-title">обстеження та лікування</h2>
+            <h2 class="about-doctor-diagnostics-title"><?php echo wp_kses_post($ad_diagnostics_title); ?></h2>
             <div class="about-doctor-diagnostics-text">
-                <p>Чоловіче здоров'я починається з правильного способу життя та регулярних чекапів. На консультації я не призначаю лікування "про всяк випадок". Спочатку — діагностика, аналіз способу життя, пошук причини і вже потім діалог та прийняття рішень.</p>
-                <p>Мій підхід простий: мінімум непотрібних втручань — максимум доказової медицини та турботи про якість життя. Якщо проблему можна вирішити корекцією звичок, консервативним лікуванням чи зміною поведінкових факторів — ми починаємо саме з цього. Моє завдання — повернути здоров'я і впевненість без зайвого стресу і без зайвих процедур.</p>
+                <?php if (!empty($ad_diagnostics_text)) : ?>
+                    <?php echo wp_kses_post($ad_diagnostics_text); ?>
+                <?php else : ?>
+                    <p>Чоловіче здоров'я починається з правильного способу життя та регулярних чекапів. На консультації я не призначаю лікування "про всяк випадок". Спочатку — діагностика, аналіз способу життя, пошук причини і вже потім діалог та прийняття рішень.</p>
+                    <p>Мій підхід простий: мінімум непотрібних втручань — максимум доказової медицини та турботи про якість життя. Якщо проблему можна вирішити корекцією звичок, консервативним лікуванням чи зміною поведінкових факторів — ми починаємо саме з цього. Моє завдання — повернути здоров'я і впевненість без зайвого стресу і без зайвих процедур.</p>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -238,8 +282,8 @@ get_header();
 <!-- Podcast Talks Section -->
 <section class="podcast-talks-section">
     <div class="podcast-talks-inner">
-        <h2 class="podcast-talks-title">PODCAST TALKS</h2>
-        <p class="podcast-talks-subtitle">Запрошую познайомитись ще до візиту — перегляньте подкасти про урологічне здоров'я</p>
+        <h2 class="podcast-talks-title"><?php echo esc_html($ad_podcast_title); ?></h2>
+        <p class="podcast-talks-subtitle"><?php echo esc_html($ad_podcast_subtitle); ?></p>
         
         <div class="podcast-videos-grid">
             <div class="podcast-video-item">
@@ -272,7 +316,7 @@ get_header();
         </div>
         
         <div class="podcast-subscribe-wrapper">
-            <a href="https://www.youtube.com/@dr_benedikt" target="_blank" class="podcast-subscribe-button">
+            <a href="<?php echo esc_url($youtube_url); ?>" target="_blank" class="podcast-subscribe-button">
                 <span>Підписатись на</span>
                 <span class="podcast-youtube-text">YouTube</span>
             </a>
@@ -283,13 +327,13 @@ get_header();
 <!-- Schedule Consultation Section -->
 <section class="schedule-consultation-about-section">
     <div class="schedule-consultation-about-background">
-        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/13_result-scaled.webp" alt="Schedule Consultation">
+        <img src="<?php echo esc_url($ad_cta_bg); ?>" alt="Schedule Consultation">
     </div>
     <div class="schedule-consultation-about-overlay"></div>
     <div class="schedule-consultation-about-content">
-        <h2 class="schedule-consultation-about-title">Заплануйте свою консультацію</h2>
+        <h2 class="schedule-consultation-about-title"><?php echo esc_html($ad_cta_title); ?></h2>
         <a href="#" class="schedule-consultation-about-button" data-consultation-open>
-            Зв'яжіться зі мною
+            <?php echo esc_html($ad_cta_btn); ?>
         </a>
     </div>
 </section>
@@ -297,7 +341,7 @@ get_header();
 <!-- Instagram Follow Section -->
 <section class="instagram-follow-about-section">
     <div class="instagram-follow-about-background">
-        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/12_result-scaled.webp" alt="Follow on Instagram">
+        <img src="<?php echo esc_url($ad_insta_bg); ?>" alt="Follow on Instagram">
     </div>
     <div class="instagram-follow-about-overlay"></div>
     <div class="instagram-follow-about-content">
@@ -305,7 +349,7 @@ get_header();
             <span class="instagram-follow-small">СЛІДКУЙТЕ В</span>
             <span class="instagram-follow-big">INSTAGRAM</span>
         </h2>
-        <a href="https://www.instagram.com/dr_benedikt/" target="_blank" class="instagram-follow-about-handle">@dr_benedikt</a>
+        <a href="<?php echo esc_url($instagram_url); ?>" target="_blank" class="instagram-follow-about-handle"><?php echo esc_html($instagram_handle); ?></a>
     </div>
 </section>
 

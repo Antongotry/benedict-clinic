@@ -4,19 +4,55 @@
  * Template for individual service pages
  */
 
-// This template expects the following variables to be defined before including:
-// $service_title - Main title of the service
-// $service_subtitle - Subtitle/label
-// $service_description - Short description for hero
-// $service_hero_image - Hero background image URL
-// $service_price - Price string (e.g., "від 1190 грн")
-// $service_intro_text - Introduction paragraph
-// $service_intro_text_2 - Second introduction paragraph (optional)
-// $service_features - Array of features with 'icon', 'title', 'text'
-// $service_process_steps - Array of steps with 'number', 'title', 'text'
-// $service_indications - Array of indications/conditions
-// $service_faq - Array of FAQ items with 'question', 'answer'
-// $related_services - Array of related services with 'title', 'url', 'icon'
+// Variables are defined in page-*.php files before including this template.
+// ACF fields override them when set.
+
+$service_title = bf('service_title', isset($service_title) ? $service_title : '');
+$service_subtitle = bf('service_subtitle', isset($service_subtitle) ? $service_subtitle : 'DR. BENEDICT UROLOGY');
+$service_description = bf('service_description', isset($service_description) ? $service_description : '');
+$service_hero_image = bf_image('service_hero_image', isset($service_hero_image) ? $service_hero_image : '');
+$service_price = bf('service_price', isset($service_price) ? $service_price : '');
+$service_intro_text = bf('service_intro_text', isset($service_intro_text) ? $service_intro_text : '');
+$service_intro_text_2 = bf('service_intro_text_2', isset($service_intro_text_2) ? $service_intro_text_2 : '');
+$service_intro_image = bf_image('service_intro_image', 'https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/IMG@2x_result.webp');
+$service_cta_image = bf_image('service_cta_image', 'https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/13_result-scaled.webp');
+
+$acf_features = bf_repeater('service_features');
+if (!empty($acf_features)) {
+    $service_features = array_map(function($f) {
+        return array(
+            'icon' => !empty($f['icon']) ? '<img src="' . esc_url($f['icon']) . '" alt="" width="40" height="40">' : '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
+            'title' => $f['title'],
+            'text' => $f['text'],
+        );
+    }, $acf_features);
+}
+
+$acf_steps = bf_repeater('service_process_steps');
+if (!empty($acf_steps)) {
+    $service_process_steps = $acf_steps;
+}
+
+$acf_indications = bf_repeater('service_indications');
+if (!empty($acf_indications)) {
+    $service_indications = array_map(function($i) { return $i['text']; }, $acf_indications);
+}
+
+$acf_faq = bf_repeater('service_faq');
+if (!empty($acf_faq)) {
+    $service_faq = $acf_faq;
+}
+
+$acf_related = bf_repeater('service_related');
+if (!empty($acf_related)) {
+    $related_services = array_map(function($r) {
+        return array(
+            'title' => $r['title'],
+            'url' => $r['url'],
+            'icon' => !empty($r['icon']) ? '<img src="' . esc_url($r['icon']) . '" alt="" width="32" height="32">' : '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>',
+        );
+    }, $acf_related);
+}
 
 get_header();
 ?>
@@ -54,7 +90,7 @@ get_header();
                 <?php endif; ?>
             </div>
             <div class="service-single-intro-image">
-                <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/IMG@2x_result.webp" alt="Dr. Benedict" loading="lazy">
+                <img src="<?php echo esc_url($service_intro_image); ?>" alt="Dr. Benedict" loading="lazy">
             </div>
         </div>
     </div>
@@ -164,7 +200,7 @@ get_header();
 <!-- CTA Section -->
 <section class="service-single-cta-section">
     <div class="service-single-cta-bg">
-        <img src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/13_result-scaled.webp" alt="Записатись на консультацію">
+        <img src="<?php echo esc_url($service_cta_image); ?>" alt="Записатись на консультацію">
     </div>
     <div class="service-single-cta-overlay"></div>
     <div class="service-single-cta-content">

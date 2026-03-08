@@ -5,22 +5,68 @@
  */
 
 get_header();
+
+$hero_title = bf('fp_hero_title', 'DR. BENEDICT');
+$hero_subtitle = bf('fp_hero_subtitle', 'лікар уролог, засновник Benedict clinic');
+$hero_video = bf('fp_hero_video', 'https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/6269675_Surgery_Team_1920x1080.mp4');
+$hero_btn1_text = bf('fp_hero_btn1_text', 'Записатись на консультацію');
+$hero_btn1_link = bf('fp_hero_btn1_link', '#contact');
+$hero_btn2_text = bf('fp_hero_btn2_text', 'Про лікаря');
+$hero_btn2_link = bf('fp_hero_btn2_link', '/dr-benedict');
+
+$about_left_img = bf_image('fp_about_left_image', 'https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/IMG@2x_result.webp');
+$about_right_img = bf_image('fp_about_right_image', 'https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/4515_result.webp');
+$about_watermark = bf('fp_about_watermark', 'UROLOGY');
+$about_label = bf('fp_about_label', 'ХІРУРГІЯ');
+$about_title = bf('fp_about_title', 'Передові хірургічні рішення');
+$about_cta_text = bf('fp_about_cta_text', 'ПОСЛУГИ');
+
+$why_title = bf('fp_why_title', 'Чому варто звернутись до мене?');
+
+$services_title = bf('fp_services_title', 'ПОСЛУГИ');
+$services_subtitle = bf('fp_services_subtitle', 'Урологічні проблеми можуть довго залишатися непоміченими — не відкладайте візит, почніть з консультації. Раннє звернення допоможе уникнути ускладнень і забезпечить ефективне лікування');
+
+$cert_title = bf('fp_cert_title', 'Освітні та професійні досягнення');
+$cert_subtitle = bf('fp_cert_subtitle', 'Постійне вдосконалення знань та досвід практики в США та Європі дозволяють застосовувати сучасні, точні та ефективні методи для кожного пацієнта');
+
+$pricing_title = bf('fp_pricing_title', 'Ціни');
+$pricing_subtitle = bf('fp_pricing_subtitle', 'Вартість послуг залежить від обсягу обстеження та індивідуального плану лікування. Завітайте на консультацію, щоб дізнатись, що саме потрібно саме вам');
+
+$youtube_title = bf('fp_youtube_title', 'Підписуйтесь на Youtube та дізнайтесь більше');
+$youtube_url = bf_option('youtube_url', 'https://www.youtube.com/@dr_benedikt');
+
+$faq_title = bf('fp_faq_title', 'Відповіді на ваші основні питання<br>щодо здоров\'я та лікування');
+
+$schedule_title = bf('fp_schedule_title', 'Записатись на прийом');
+$schedule_btn = bf('fp_schedule_btn', "ЗВ'ЯЗАТИСЯ З НАМИ");
+
+$testimonials_title = bf('fp_testimonials_title', 'Відгуки пацієнтів');
+$testimonials_subtitle = bf('fp_testimonials_subtitle', 'Дізнайтесь, що говорять наші клієнти про якість медичних послуг та результати лікування');
+
+$final_tagline = bf('fp_final_tagline', 'DR. BENEDICT UROLOGY');
+$final_title = bf('fp_final_title', 'Ваше здоров\'я — моя місія');
+$final_desc = bf('fp_final_desc', '14+ років досвіду. Тисячі успішних операцій.<br>Персональний підхід до кожного пацієнта.');
+$final_btn = bf('fp_final_btn', 'Записатись на прийом');
+
+$phone_primary = bf_option('phone_primary', '+38 095 13 44 029');
+$contact_address = bf_option('contact_address', 'Київ, вул. Олеся Бердника, 1Д');
+$contact_email = bf_option('contact_email', 'dokbenedikt@gmail.com');
 ?>
 
 <!-- Hero Section -->
 <section class="hero-video-section">
     <div class="hero-video-container">
         <video autoplay muted loop playsinline class="hero-video">
-            <source src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/6269675_Surgery_Team_1920x1080.mp4" type="video/mp4">
+            <source src="<?php echo esc_url($hero_video); ?>" type="video/mp4">
         </video>
         <div class="hero-video-overlay"></div>
     </div>
     <div class="hero-video-content">
-        <h1 class="hero-video-title">DR. BENEDICT</h1>
-        <p class="hero-video-subtitle">лікар уролог, засновник Benedict clinic</p>
+        <h1 class="hero-video-title"><?php echo esc_html($hero_title); ?></h1>
+        <p class="hero-video-subtitle"><?php echo esc_html($hero_subtitle); ?></p>
         <div class="hero-video-buttons">
-            <a href="#contact" class="hero-btn hero-btn-primary">Записатись на консультацію</a>
-            <a href="<?php echo home_url('/dr-benedict'); ?>" class="hero-btn hero-btn-secondary">Про лікаря</a>
+            <a href="<?php echo esc_url($hero_btn1_link); ?>" class="hero-btn hero-btn-primary"><?php echo esc_html($hero_btn1_text); ?></a>
+            <a href="<?php echo esc_url(home_url($hero_btn2_link)); ?>" class="hero-btn hero-btn-secondary"><?php echo esc_html($hero_btn2_text); ?></a>
         </div>
     </div>
     <a href="#about" class="hero-scroll-indicator" aria-label="Scroll down">
@@ -33,57 +79,82 @@ get_header();
 <!-- About Section -->
 <section id="about" class="about-section section-padding">
     <div class="about-image-left">
-        <img decoding="async" width="540" height="640" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2025/12/IMG@2x_result.webp" alt="Dr. Benedict" loading="lazy">
+        <img decoding="async" width="540" height="640" src="<?php echo esc_url($about_left_img); ?>" alt="Dr. Benedict" loading="lazy">
     </div>
     <div class="container">
         <div class="about-content">
-            <p class="about-label">ХІРУРГІЯ</p>
-            <h2 class="about-name">Передові хірургічні рішення</h2>
+            <p class="about-label"><?php echo esc_html($about_label); ?></p>
+            <h2 class="about-name"><?php echo esc_html($about_title); ?></h2>
             <div class="about-services">
-                <div class="about-service-item">
-                    <h3 class="about-service-title">Малоінвазивні методи лікування</h3>
-                    <p class="about-service-text">Технологічні рішення, що поєднують ефективність, делікатний підхід і швидке відновлення</p>
-                </div>
-                <div class="about-service-item">
-                    <h3 class="about-service-title">Онкодіагностика та онкоурологія</h3>
-                    <p class="about-service-text">Спрямовані на раннє виявлення та ефективне лікування ракових захворювань сечостатевої системи</p>
-                </div>
-                <div class="about-service-item">
-                    <h3 class="about-service-title">Пластична реконструктивна хірургія</h3>
-                    <p class="about-service-text">Допомагає відновити функції та зовнішній вигляд органів після травм, хвороб чи хірургічних втручань, а також враховує естетичні побажання пацієнта для досягнення гармонійного результату</p>
-                </div>
+                <?php
+                $about_services = bf_repeater('fp_about_services');
+                if (!empty($about_services)) :
+                    foreach ($about_services as $svc) : ?>
+                        <div class="about-service-item">
+                            <h3 class="about-service-title"><?php echo esc_html($svc['title']); ?></h3>
+                            <p class="about-service-text"><?php echo esc_html($svc['text']); ?></p>
+                        </div>
+                    <?php endforeach;
+                else : ?>
+                    <div class="about-service-item">
+                        <h3 class="about-service-title">Малоінвазивні методи лікування</h3>
+                        <p class="about-service-text">Технологічні рішення, що поєднують ефективність, делікатний підхід і швидке відновлення</p>
+                    </div>
+                    <div class="about-service-item">
+                        <h3 class="about-service-title">Онкодіагностика та онкоурологія</h3>
+                        <p class="about-service-text">Спрямовані на раннє виявлення та ефективне лікування ракових захворювань сечостатевої системи</p>
+                    </div>
+                    <div class="about-service-item">
+                        <h3 class="about-service-title">Пластична реконструктивна хірургія</h3>
+                        <p class="about-service-text">Допомагає відновити функції та зовнішній вигляд органів після травм, хвороб чи хірургічних втручань, а також враховує естетичні побажання пацієнта для досягнення гармонійного результату</p>
+                    </div>
+                <?php endif; ?>
             </div>
-            <a href="<?php echo home_url('/services'); ?>" class="about-cta">ПОСЛУГИ <span>|→</span></a>
+            <a href="<?php echo home_url('/services'); ?>" class="about-cta"><?php echo esc_html($about_cta_text); ?> <span>|→</span></a>
         </div>
     </div>
     <div class="about-image-right">
-        <img decoding="async" width="540" height="640" src="https://lightcyan-llama-142433.hostingersite.com/wp-content/uploads/2026/01/4515_result.webp" alt="Dr. Benedict" loading="lazy">
+        <img decoding="async" width="540" height="640" src="<?php echo esc_url($about_right_img); ?>" alt="Dr. Benedict" loading="lazy">
     </div>
-    <div class="about-watermark">UROLOGY</div>
+    <div class="about-watermark"><?php echo esc_html($about_watermark); ?></div>
 </section>
 
 <!-- Why Choose Me Section -->
 <section class="why-choose-section section-padding">
     <div class="container">
         <div class="why-choose-header">
-            <h2 class="why-choose-title">Чому варто звернутись до мене?</h2>
+            <h2 class="why-choose-title"><?php echo esc_html($why_title); ?></h2>
         </div>
         <div class="why-choose-grid">
-            <div class="why-choose-card">
-                <h3 class="why-choose-card-title">Точна діагностика складних випадків</h3>
-                <p class="why-choose-card-text">Багаторічний досвід дозволяє швидко визначити проблему та обрати оптимальний план лікування</p>
-                <span class="why-choose-card-note">Більше 11 років практики</span>
-            </div>
-            <div class="why-choose-card">
-                <h3 class="why-choose-card-title">Сучасні методи з мінімальним відновленням</h3>
-                <p class="why-choose-card-text">Застосовую найсучасніші методи лікування з високою ефективністю та коротким періодом реабілітації</p>
-                <span class="why-choose-card-note">Досвід в клініках США та Європи</span>
-            </div>
-            <div class="why-choose-card">
-                <h3 class="why-choose-card-title">Доступ до новітніх протоколів лікування</h3>
-                <p class="why-choose-card-text">Використовую актуальні міжнародні стандарти та найновіші дослідження у сфері урології</p>
-                <span class="why-choose-card-note">Член Європейської асоціації урологів</span>
-            </div>
+            <?php
+            $why_cards = bf_repeater('fp_why_cards');
+            if (!empty($why_cards)) :
+                foreach ($why_cards as $card) : ?>
+                    <div class="why-choose-card">
+                        <h3 class="why-choose-card-title"><?php echo esc_html($card['title']); ?></h3>
+                        <p class="why-choose-card-text"><?php echo esc_html($card['text']); ?></p>
+                        <?php if (!empty($card['note'])) : ?>
+                            <span class="why-choose-card-note"><?php echo esc_html($card['note']); ?></span>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach;
+            else : ?>
+                <div class="why-choose-card">
+                    <h3 class="why-choose-card-title">Точна діагностика складних випадків</h3>
+                    <p class="why-choose-card-text">Багаторічний досвід дозволяє швидко визначити проблему та обрати оптимальний план лікування</p>
+                    <span class="why-choose-card-note">Більше 11 років практики</span>
+                </div>
+                <div class="why-choose-card">
+                    <h3 class="why-choose-card-title">Сучасні методи з мінімальним відновленням</h3>
+                    <p class="why-choose-card-text">Застосовую найсучасніші методи лікування з високою ефективністю та коротким періодом реабілітації</p>
+                    <span class="why-choose-card-note">Досвід в клініках США та Європи</span>
+                </div>
+                <div class="why-choose-card">
+                    <h3 class="why-choose-card-title">Доступ до новітніх протоколів лікування</h3>
+                    <p class="why-choose-card-text">Використовую актуальні міжнародні стандарти та найновіші дослідження у сфері урології</p>
+                    <span class="why-choose-card-note">Член Європейської асоціації урологів</span>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
@@ -92,8 +163,8 @@ get_header();
 <section class="services-section section-padding">
     <div class="container">
         <div class="services-header">
-            <h2 class="services-title">ПОСЛУГИ</h2>
-            <p class="services-subtitle">Урологічні проблеми можуть довго залишатися непоміченими — не відкладайте візит, почніть з консультації. Раннє звернення допоможе уникнути ускладнень і забезпечить ефективне лікування</p>
+            <h2 class="services-title"><?php echo esc_html($services_title); ?></h2>
+            <p class="services-subtitle"><?php echo esc_html($services_subtitle); ?></p>
         </div>
         <div class="services-grid">
             <a href="<?php echo home_url('/consultation'); ?>" class="service-card">
@@ -150,8 +221,8 @@ get_header();
     <div class="certificates-background"></div>
     <div class="container">
         <div class="certificates-header">
-            <h2 class="certificates-title">Освітні та професійні досягнення</h2>
-            <p class="certificates-subtitle">Постійне вдосконалення знань та досвід практики в США та Європі дозволяють застосовувати сучасні, точні та ефективні методи для кожного пацієнта</p>
+            <h2 class="certificates-title"><?php echo esc_html($cert_title); ?></h2>
+            <p class="certificates-subtitle"><?php echo esc_html($cert_subtitle); ?></p>
         </div>
         <div class="certificates-slider-wrapper">
             <div class="swiper certificates-swiper">
@@ -712,22 +783,41 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="statistics-background"></div>
     <div class="container">
         <div class="statistics-grid">
-            <div class="statistic-item">
-                <div class="statistic-number" data-target="25000">0</div>
-                <div class="statistic-label">Проведених<br>успішних операцій</div>
-            </div>
-            <div class="statistic-item">
-                <div class="statistic-number" data-target="10000">0</div>
-                <div class="statistic-label">Щасливих та<br>вдячних пацієнтів</div>
-            </div>
-            <div class="statistic-item">
-                <div class="statistic-number">24/7</div>
-                <div class="statistic-label">Цілодобова<br>допомога</div>
-            </div>
-            <div class="statistic-item">
-                <div class="statistic-number" data-target="14">0</div>
-                <div class="statistic-label">Років хірургічного<br>досвіду</div>
-            </div>
+            <?php
+            $stats_items = bf_repeater('fp_stats_items');
+            if (!empty($stats_items)) :
+                foreach ($stats_items as $stat) :
+                    $num = $stat['number'];
+                    $is_animated = is_numeric(str_replace(array('к', '+', ' '), '', $num));
+                    $raw_number = preg_replace('/[^0-9]/', '', $num);
+                    ?>
+                    <div class="statistic-item">
+                        <?php if ($is_animated && !empty($raw_number)) : ?>
+                            <div class="statistic-number" data-target="<?php echo esc_attr($raw_number); ?>">0</div>
+                        <?php else : ?>
+                            <div class="statistic-number"><?php echo esc_html($num); ?></div>
+                        <?php endif; ?>
+                        <div class="statistic-label"><?php echo wp_kses_post($stat['label']); ?></div>
+                    </div>
+                <?php endforeach;
+            else : ?>
+                <div class="statistic-item">
+                    <div class="statistic-number" data-target="25000">0</div>
+                    <div class="statistic-label">Проведених<br>успішних операцій</div>
+                </div>
+                <div class="statistic-item">
+                    <div class="statistic-number" data-target="10000">0</div>
+                    <div class="statistic-label">Щасливих та<br>вдячних пацієнтів</div>
+                </div>
+                <div class="statistic-item">
+                    <div class="statistic-number">24/7</div>
+                    <div class="statistic-label">Цілодобова<br>допомога</div>
+                </div>
+                <div class="statistic-item">
+                    <div class="statistic-number" data-target="14">0</div>
+                    <div class="statistic-label">Років хірургічного<br>досвіду</div>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
@@ -736,8 +826,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <section class="pricing-section section-padding">
     <div class="container">
         <div class="pricing-header">
-            <h2 class="pricing-title">Ціни</h2>
-            <p class="pricing-subtitle">Вартість послуг залежить від обсягу обстеження та індивідуального плану лікування. Завітайте на консультацію, щоб дізнатись, що саме потрібно саме вам</p>
+            <h2 class="pricing-title"><?php echo esc_html($pricing_title); ?></h2>
+            <p class="pricing-subtitle"><?php echo esc_html($pricing_subtitle); ?></p>
         </div>
         <div class="pricing-grid">
             <article class="pricing-card">
@@ -1064,8 +1154,8 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="youtube-background"></div>
     <div class="container">
         <div class="youtube-content">
-            <p class="youtube-text">Підписуйтесь на Youtube та дізнайтесь більше<br>корисної інформації про урологічне здоровʼя</p>
-            <a href="https://www.youtube.com/@dr_benedikt" target="_blank" rel="noopener noreferrer" class="youtube-play-button">
+            <p class="youtube-text"><?php echo esc_html($youtube_title); ?><br>корисної інформації про урологічне здоровʼя</p>
+            <a href="<?php echo esc_url($youtube_url); ?>" target="_blank" rel="noopener noreferrer" class="youtube-play-button">
                 <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="30" cy="30" r="30" fill="#FF0000"/>
                     <path d="M24 18L42 30L24 42V18Z" fill="white"/>
@@ -1082,53 +1172,69 @@ document.addEventListener('DOMContentLoaded', function() {
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/faq-image.webp" alt="FAQ" loading="lazy">
     </div>
     <div class="faq-content">
-        <h2 class="faq-title">Відповіді на ваші основні питання<br>щодо здоров'я та лікування</h2>
+        <h2 class="faq-title"><?php echo wp_kses_post($faq_title); ?></h2>
         <div class="faq-accordion">
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                    <span>Чи займаєтесь Ви лікуванням безпліддя?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+            <?php
+            $faq_items = bf_repeater('fp_faq_items');
+            if (!empty($faq_items)) :
+                foreach ($faq_items as $faq) : ?>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span><?php echo esc_html($faq['question']); ?></span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <?php echo wp_kses_post($faq['answer']); ?>
+                        </div>
+                    </div>
+                <?php endforeach;
+            else : ?>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Чи займаєтесь Ви лікуванням безпліддя?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                    <span>Лікуєте інфекції, які передаються статевим шляхом?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Лікуєте інфекції, які передаються статевим шляхом?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                    <span>Запальні процеси в нирках і сечовому міхурі</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Запальні процеси в нирках і сечовому міхурі</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                    <span>Як підготуватись до прийому уролога?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Як підготуватись до прийому уролога?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                    <span>Як підготуватись до урологічної операції?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Як підготуватись до урологічної операції?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Так, ми займаємось діагностикою та лікуванням безпліддя. Використовуємо сучасні методи для виявлення причин та ефективного лікування, допомагаючи досягти бажаного результату.</p>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
@@ -1137,9 +1243,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <section id="contact" class="schedule-consultation-section">
     <div class="schedule-consultation-bg"></div>
     <div class="schedule-consultation-content">
-        <h2 class="schedule-consultation-title">Записатись на прийом</h2>
+        <h2 class="schedule-consultation-title"><?php echo esc_html($schedule_title); ?></h2>
         <p class="schedule-consultation-desc">Не відкладайте турботу про своє здоровʼя, записуйтесь на консультацію просто зараз, отримайте персональний план лікування та висококваліфікаційну медичну допомогу</p>
-        <button class="schedule-consultation-cta" data-consultation-open>ЗВ'ЯЗАТИСЯ З НАМИ</button>
+        <button class="schedule-consultation-cta" data-consultation-open><?php echo esc_html($schedule_btn); ?></button>
     </div>
 </section>
 
@@ -1147,8 +1253,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <section class="testimonials-section section-padding">
     <div class="container">
         <div class="testimonials-header">
-            <h2 class="testimonials-title">Відгуки пацієнтів</h2>
-            <p class="testimonials-subtitle">Дізнайтесь, що говорять наші клієнти про якість медичних послуг та результати лікування</p>
+            <h2 class="testimonials-title"><?php echo esc_html($testimonials_title); ?></h2>
+            <p class="testimonials-subtitle"><?php echo esc_html($testimonials_subtitle); ?></p>
         </div>
         <div class="testimonials-slider-wrapper">
             <div class="swiper testimonials-swiper">
@@ -1315,7 +1421,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </span>
                         <p class="contacts-label">Адреса</p>
                     </div>
-                    <p class="contacts-value">Київ, вул. Олеся Бердника, 1Д</p>
+                    <p class="contacts-value"><?php echo esc_html($contact_address); ?></p>
                 </div>
                 <div class="contacts-item">
                     <div class="contacts-item-header">
@@ -1326,7 +1432,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </span>
                         <p class="contacts-label">Телефон</p>
                     </div>
-                    <a class="contacts-value contacts-link" href="tel:+380951344029">+38 095 13 44 029</a>
+                    <a class="contacts-value contacts-link" href="tel:<?php echo esc_attr(preg_replace('/[^+0-9]/', '', $phone_primary)); ?>"><?php echo esc_html($phone_primary); ?></a>
                 </div>
                 <div class="contacts-item">
                     <div class="contacts-item-header">
@@ -1338,7 +1444,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </span>
                         <p class="contacts-label">Електронна пошта</p>
                     </div>
-                    <a class="contacts-value contacts-link" href="mailto:dokbenedikt@gmail.com">dokbenedikt@gmail.com</a>
+                    <a class="contacts-value contacts-link" href="mailto:<?php echo esc_attr($contact_email); ?>"><?php echo esc_html($contact_email); ?></a>
                 </div>
             </div>
             <div class="contacts-form-wrapper">
@@ -1424,12 +1530,12 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="final-cta-overlay"></div>
     <div class="final-cta-gradient"></div>
     <div class="final-cta-content">
-        <p class="final-cta-tagline">DR. BENEDICT UROLOGY</p>
-        <h2 class="final-cta-title">Ваше здоров'я —<br>моя місія</h2>
-        <p class="final-cta-desc">14+ років досвіду. Тисячі успішних операцій.<br>Персональний підхід до кожного пацієнта.</p>
+        <p class="final-cta-tagline"><?php echo esc_html($final_tagline); ?></p>
+        <h2 class="final-cta-title"><?php echo wp_kses_post($final_title); ?></h2>
+        <p class="final-cta-desc"><?php echo wp_kses_post($final_desc); ?></p>
         <div class="final-cta-buttons">
-            <button class="final-cta-btn primary" data-consultation-open>Записатись на прийом</button>
-            <a href="tel:+380951344029" class="final-cta-btn secondary">
+            <button class="final-cta-btn primary" data-consultation-open><?php echo esc_html($final_btn); ?></button>
+            <a href="tel:<?php echo esc_attr(preg_replace('/[^+0-9]/', '', $phone_primary)); ?>" class="final-cta-btn secondary">
                 <span class="final-cta-phone-icon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
