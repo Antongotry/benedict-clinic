@@ -2717,8 +2717,13 @@ body.overlay-open .header-dropdown {
     }
     
     .surgery-center-image {
-        height: 50vh;
-        min-height: 400px;
+        height: auto;
+        min-height: auto;
+    }
+
+    .surgery-center-image img {
+        width: 100%;
+        height: auto;
     }
     
     .surgery-decorative-text {
