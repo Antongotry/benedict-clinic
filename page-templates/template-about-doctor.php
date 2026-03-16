@@ -353,6 +353,7 @@ $youtube_url = bf_option('youtube_url', 'https://www.youtube.com/@dr_benedikt');
     </div>
 </section>
 
+<script>
 // Модалка консультації — одна глобальна з footer.php (action: benedict_form_submit)
 
 // Experience Tabs
